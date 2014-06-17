@@ -68,8 +68,41 @@ angular.module('starter.controllers', [])
               $("#subtags").append(buildElement(subtagsText.sex));
           });
 
+          $('#menu16').circleMenu({
+                    direction:'full', 
+                    trigger:'click',
+                    open: function(){console.log('menu opened');},
+                    close: function(){console.log('menu closed');},
+                    init: function(){console.log('menu initialized');},
+                    select: function(evt,index){console.log(evt,index)}
+                }).on('circleMenu-open',function(){
+                    console.log('menu opened 2');
+                });
         });
+
+        
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
+
+})
+
+.controller('SearchCtrl', function($scope, $stateParams) {
+
+jQuery(document).ready(function(){
+
+    $('#menu2').circleMenu({
+                    item_diameter: 20,
+                    circle_radius: 50,
+                    direction:'full', 
+                    trigger:'click',
+                    open: function(){console.log('menu opened');},
+                    close: function(){console.log('menu closed');},
+                    init: function(){console.log('menu initialized');},
+                    select: function(evt,index){console.log(evt,index)}
+                }).on('circleMenu-open',function(){
+                    console.log('menu opened 2');
+                });
+        });
+
 })
