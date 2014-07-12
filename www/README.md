@@ -1,4 +1,9 @@
+CLMobile
+========
+
 This is an addon starter template for the [Ionic Framework](http://ionicframework.com/).
+
+Using Firebase's angularFire and simple login with Ionic
 
 ## How to use this template
 
