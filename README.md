@@ -88,3 +88,6 @@ Issues have been disabled on this repo, if you do find an issue or have a questi
 
 Other Plugin sites
 https://github.com/Zikes/circle-menu
+http://tympanus.net/codrops/2013/08/09/building-a-circular-navigation-with-css-transforms/
+http://creative-punch.net/2014/02/making-animated-radial-menu-css3-javascript/
+http://designshack.net/articles/css/code-a-spinning-circular-menu-with-css/

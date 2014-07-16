@@ -39,7 +39,7 @@ angular.module('starter.controllers', [])
 
           $('#prev').bind('click', function () {
             carousel.prev();
-            return false
+            return false;
           });
 
           $('#next').bind('click', function () {
@@ -93,7 +93,7 @@ jQuery(document).ready(function(){
 
     $('#menu2').circleMenu({
                     item_diameter: 20,
-                    circle_radius: 50,
+                    circle_radius: 100,
                     direction:'full', 
                     trigger:'click',
                     open: function(){console.log('menu opened');},
