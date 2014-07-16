@@ -6,6 +6,28 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers'])
 
+.run(function($ionicPlatform, $rootScope, $firebaseSimpleLogin, $state, $window) {
+  var dataRef = new Firebase("https://ionic-firebase-login.firebaseio.com/");
+  var loginObj = $firebaseSimpleLogin(dataRef);
+  
+  loginObj.$getCurrentUser().then(function(user) {
+    if(!user){ 
+      // Might already be handled by logout event below
+      $state.go('app.login');
+    }
+  }, function(err) {
+  });
+  
+  $rootScope.$on('$firebaseSimpleLogin:login', function(e, user) {
+    $state.go('app.home_landing');
+  });
+  
+  $rootScope.$on('$firebaseSimpleLogin:logout', function(e, user) {
+    console.log($state);
+    $state.go('app.login');
+  });
+})
+
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -29,7 +51,44 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       templateUrl: "templates/menu.html",
       controller: 'AppCtrl'
     })
-
+    
+    // ***************** Use for the login page :: Start *****************
+    .state('app.splash', {
+      url: "/",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/splash.html"
+        }
+      }
+    })
+    
+    .state('app.login', {
+      url: "/login",
+      templateUrl: "templates/login.html",
+      controller: 'LoginCtrl'
+    })
+    
+    .state('app.signup', {
+      url: "/signup",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/signup.html",
+          controller: 'SignupCtrl'
+        }
+      }
+    })
+    
+    .state('app.home_landing', {
+      url: "/home",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/home.html",
+          controller: 'HomeCtrl'
+        }
+      }
+    })
+    // ***************** Use for the login page :: End *****************
+    
     .state('app.search', {
       url: "/search",
       views: {
@@ -67,7 +126,9 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     });
+  
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/login');
+  //$urlRouterProvider.otherwise('/app/playlists');
 });
 
