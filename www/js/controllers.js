@@ -1,13 +1,23 @@
-angular.module('starter.controllers', [])
+angular.module('clcontrollers', [])
 
 .controller('AppCtrl', function($scope) {
 })
 
 // ***************** Use for the login page :: Start *****************
-.controller('LoginCtrl', function($scope) {
+.controller('LoginCtrl', function($scope, $rootScope, $location, $state) {
+  
+  $rootScope.appHeader = "CollegeLife";
   $scope.loginData = {};
 
-  var dataRef = new Firebase("https://ionic-firebase-login.firebaseio.com/");
+  $scope.validate = function(event){
+
+      if( this.$parent.loginData.password == "cl123!"){
+        //$location.path("#/app/playlists");
+         $state.go('app.playlists');
+      }
+  }
+
+  /*var dataRef = new Firebase("https://ionic-firebase-login.firebaseio.com/");
   $scope.loginObj = $firebaseSimpleLogin(dataRef);
 
   $scope.tryLogin = function() {
@@ -17,7 +27,7 @@ angular.module('starter.controllers', [])
       // Show a form error here
       console.error('Unable to login', error);
     });
-  };
+  };*/
 })
 
 .controller('SignupCtrl', function($scope) {
@@ -28,23 +38,19 @@ angular.module('starter.controllers', [])
 
 // ***************** Use for the login page :: End *****************
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.imglists = [
-    { imgPath: 'img/Alabama.jpg', id: 1, comment: 'Alabama' },
-    { imgPath: 'img/Albright College.jpg', id: 2, comment: 'Albright College' },
-    { imgPath: 'img/American University.jpg', id: 3, comment: 'American University'},
-    { imgPath: 'img/Arizona State.jpg', id: 4, comment: 'Arizona State' },
-    { imgPath: 'img/Assumption College.jpg', id: 5, comment: 'Assumption College' },
-    { imgPath: 'img/Bentley University.jpg', id: 6, comment: 'Bentley University' },
-    { imgPath: 'img/Binghamton University.jpg', id: 6, comment: 'Binghamton University' },
-    { imgPath: 'img/Bloomsburg U.jpg', id: 6, comment: 'Bloomsburg U' },
-    { imgPath: 'img/Boston College.jpg', id: 6, comment: 'Boston College' },
-    { imgPath: 'img/Boston University.jpg', id: 6, comment: 'Boston University' },
-    { imgPath: 'img/Bucknell University.jpg', id: 6, comment: 'Bucknell University' },
-    { imgPath: 'img/Carnegie Mellon U.jpg', id: 6, comment: 'Carnegie Mellon U' }
-  ];
+.controller('PlaylistsCtrl', function($scope, $http, $ionicSlideBoxDelegate, User) {
+  
+  /*var data = Schools.query(function(imgData) { 
+    $scope.imglists = imgData.schools;
+  });*/
+  
+  var data = User.query(function(userData) { 
+    $scope.users = userData.users[0].friends;
+  });
 
-   jQuery(document).ready(function(){
+  $scope.$broadcast('slideBox.setSlide', 1);
+
+  jQuery(document).ready(function(){
 
             var carousel = $("#carousel").waterwheelCarousel({
             flankingItems: 3,
