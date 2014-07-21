@@ -14,9 +14,23 @@ angular.module('clservices', ['ngResource'])
     });
   }])
 
-.factory('User', ['$resource',
+.factory('FriendFeed', ['$resource',
   function($resource){
-    return $resource('data/student_data.json', {}, {
+    return $resource('data/friend_feeds_data.json', {}, {
+      query: {method:'GET', params:{}, isArray:false}
+    });
+  }])
+  
+ .factory('SchoolFeed', ['$resource',
+  function($resource){
+    return $resource('data/school_feeds_data.json', {}, {
+      query: {method:'GET', params:{}, isArray:false}
+    });
+  }])
+  
+  .factory('NationalFeed', ['$resource',
+  function($resource){
+    return $resource('data/school_feeds_data.json', {}, {
       query: {method:'GET', params:{}, isArray:false}
     });
   }])

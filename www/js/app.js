@@ -135,16 +135,36 @@ angular.module('starter', ['ionic', 'clcontrollers','clservices'])
         }
       }
     })
-    .state('app.playlists', {
-      url: "/playlists",
+    .state('app.friends_feeds', {
+      url: "/friends_feeds",
       views: {
         'menuContent' :{
-          templateUrl: "templates/playlists.html",
-          controller: 'PlaylistsCtrl'
+          templateUrl: "templates/friends_feeds.html",
+          controller: 'FriendsFeedsCtrl'
         }
       }
     })
 
+	.state('app.school_feeds', {
+      url: "/school_feeds",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/school_feeds.html",
+          controller: 'SchoolFeedsCtrl'
+        }
+      }
+    })
+	
+	.state('app.national_feeds', {
+      url: "/national_feeds",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/national_feeds.html",
+          controller: 'NationalFeedsCtrl'
+        }
+      }
+    })
+	
     .state('app.single', {
       url: "/playlists/:playlistId",
       views: {

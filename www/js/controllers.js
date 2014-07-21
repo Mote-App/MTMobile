@@ -4,7 +4,7 @@ angular.module('clcontrollers', [])
 })
 
 // ***************** Use for the login page :: Start *****************
-.controller('LoginCtrl', function($scope, $rootScope, $location, $state) {
+.controller('LoginCtrl', function($scope, $rootScope, $state) {
   
   $rootScope.appHeader = "CollegeLife";
   $scope.loginData = {};
@@ -13,7 +13,7 @@ angular.module('clcontrollers', [])
 
       if( this.$parent.loginData.password == "cl123!"){
         //$location.path("#/app/playlists");
-         $state.go('app.playlists');
+         $state.go('app.friends_feeds');
       }
   }
 
@@ -38,18 +38,22 @@ angular.module('clcontrollers', [])
 
 // ***************** Use for the login page :: End *****************
 
-.controller('PlaylistsCtrl', function($scope, $http, $ionicSlideBoxDelegate, User) {
+.controller('FriendsFeedsCtrl', function($scope, $http, $ionicSlideBoxDelegate, $state, FriendFeed) {
   
   /*var data = Schools.query(function(imgData) { 
     $scope.imglists = imgData.schools;
   });*/
   
-  var data = User.query(function(userData) { 
-    $scope.users = userData.users[0].friends;
+  var data = FriendFeed.query(function(friendFeedData) { 
+    $scope.users = friendFeedData.users[0].friends;
   });
 
-  $scope.$broadcast('slideBox.setSlide', 1);
-
+  $scope.schoolFeed = function(schoolId){
+     
+   $state.go('app.school_feeds');
+ 
+  }
+  
   jQuery(document).ready(function(){
 
             var carousel = $("#carousel").waterwheelCarousel({
@@ -115,6 +119,19 @@ angular.module('clcontrollers', [])
         });
 
         
+})
+
+
+.controller('SchoolFeedsCtrl', function($scope, $stateParams, SchoolFeed) {
+	var data = SchoolFeed.query(function(schoolFeedData) { 
+		$scope.users = schoolFeedData.users[0].friends;
+  });
+})
+
+.controller('NationalFeedsCtrl', function($scope, $stateParams, NationalFeed) {
+	var data = NationalFeed.query(function(nationalFeedData) { 
+		$scope.users = nationalFeedData.users[0].friends;
+  });
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
