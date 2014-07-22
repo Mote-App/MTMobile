@@ -1,8 +1,8 @@
 
 {
-	"schools" : 	[
+	"nations" : 	[
 					{ 
-						"schoolId" : "1",	
+						"nationId" : "1",	
 						"users" :  [
 
 										{

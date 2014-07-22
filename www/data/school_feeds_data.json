@@ -1,9 +1,9 @@
 
 {
-	"users" : 	[
+	"schools" : 	[
 					{ 
-						"loggedUserId" : "1",	
-						"friends" :  [
+						"schoolId" : "1",	
+						"users" :  [
 
 										{
 											"userId"		: "2",
@@ -12,8 +12,8 @@
 											"facebookName"	: "fcMarty",
 											"profileImg"	: "img/profiles/2.jpg",
 											"schoolId"		: "1",
-											"SchoolName"	: "Alabama",
-											"SchoolImg"		: "img/Alabama.jpg",
+											"schoolName"	: "Alabama",
+											"schoolImg"		: "img/Alabama.jpg",
 											"posts" : {
 												"popularPost" : {
 
@@ -21,10 +21,7 @@
 														"postImg" 	: "img/posts/2_20140119185104.jpg",	
 														"tags" 		: ["2_24","2_21"],
 														"likes" 	: "104", 
-														"caption"	: "My first day at college",
-														"schoolId"		: "1",
-														"SchoolName"	: "Alabama",
-														"SchoolImg"		: "img/Alabama.jpg"
+														"caption"	: "My first day at college"
 													},
 												"currentPost" 	: {
 
@@ -32,10 +29,7 @@
 													"postImg" 		: "img/posts/2_20140719185104.jpg",
 													"tags" 			: ["1_5","2_3"],
 													"likes"			: "3",
-													"caption"		: "Results of hard work...",
-													"schoolId"		: "1",
-													"SchoolName"	: "Alabama",
-													"SchoolImg"		: "img/Alabama.jpg"
+													"caption"		: "Results of hard work..."
 
 
 												},
@@ -45,10 +39,7 @@
 													"postImg" 		: "img/posts/2_20140719185101.jpg",
 													"tags" 			: ["1_5","2_11"],
 													"likes"			: "5",
-													"caption"		: "The real world, its all about taking care and respect.",
-													"schoolId"		: "1",
-													"SchoolName"	: "Alabama",
-													"SchoolImg"		: "img/Alabama.jpg"													
+													"caption"		: "The real world, its all about taking care and respect." 
 
 												}	
 											}	  

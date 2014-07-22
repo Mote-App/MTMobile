@@ -1,33 +1,23 @@
   <div class="bar bar-header header-color">
     <h1 class="title">Friends</h1>
   </div>
-  <ion-content class=" body-color">
-    </br>
-    <!--<div id="carousel" style="height: 80px; width:420px;">           
-          <img class="img-rounded img-responsive"  src="img/Alabama.jpg" id="item-1" />
-          <img class="img-rounded img-responsive"  src="img/Albright_College.jpg" id="item-2" />
-          <img class="img-rounded img-responsive"  src="img/American_University.jpg" id="item-3" />
-          <img class="img-rounded img-responsive"  src="img/Arizona_State.jpg" id="item-4" /> 
-          <img class="img-rounded img-responsive"  src="img/Assumption_College.jpg" id="item-5" />
-          <img class="img-rounded img-responsive"  src="img/Bentley_University.jpg" id="item-6" />
-          <img class="img-rounded img-responsive"  src="img/Binghamton_University.jpg" id="item-7" />
-          <img class="img-rounded img-responsive"  src="img/Bloomsburg_U.jpg" id="item-8" />
-          <img class="img-rounded img-responsive"  src="img/Boston_College.jpg" id="item-9" />
-      </div>-->
-
-
+  <ion-content class=" has-header body-color">
+   
     <ion-list>
-      <ion-item ng-repeat="user in users" href="">
+      <ion-item ng-repeat="user in users">
        
        <ion-slide-box on-slide-changed="slideHasChanged($index)" active-slide="1">
         <ion-slide>
           <div class="card">
             <div class="item item-avatar">
-              <img src="{{user.profileImg}}">
+              <img src="{{user.profileImg1}}">
               <h2>{{user.name}}</h2>
               <p>{{ user.posts.popularPost.postingDate}}</p>
             </div>
-
+			<div class="item item-avatar">							
+				<img src="{{ user.SchoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
+				<h2 ng-click="schoolFeed( {{user.posts.popularPost.schoolId}})">{{ user.posts.popularPost.SchoolName}}</h2>
+			</div>	
             <div class="item item-body">
               <img class="full-image" src="{{user.posts.popularPost.postImg}}">
               <p>
@@ -69,7 +59,7 @@
 			</div>
 			<div class="item item-avatar">							
 				<img src="{{ user.SchoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
-				<h2 ng-click="schoolFeed( {{user.schoolId}})">{{ user.SchoolName}}</h2>
+				<h2 ng-click="schoolFeed( {{user.posts.currentPost.schoolId}})">{{ user.posts.currentPost.SchoolName}}</h2>
 			</div>	
 			
 			
@@ -109,7 +99,10 @@
               <h2>{{user.name}}</h2>
               <p>{{ user.posts.mostRecentPost.postingDate}}</p>
             </div>
-
+			<div class="item item-avatar">							
+				<img src="{{ user.SchoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
+				<h2 ng-click="schoolFeed( {{user.posts.mostRecentPost.schoolId}})">{{ user.posts.mostRecentPost.SchoolName}}</h2>
+			</div>	
             <div class="item item-body">
               <img class="full-image" src="{{user.posts.mostRecentPost.postImg}}">
               <p>

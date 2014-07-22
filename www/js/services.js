@@ -30,7 +30,7 @@ angular.module('clservices', ['ngResource'])
   
   .factory('NationalFeed', ['$resource',
   function($resource){
-    return $resource('data/school_feeds_data.json', {}, {
+    return $resource('data/national_feeds_data.json', {}, {
       query: {method:'GET', params:{}, isArray:false}
     });
   }])

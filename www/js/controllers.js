@@ -1,5 +1,65 @@
 angular.module('clcontrollers', [])
 
+.directive('applyCarousel', function(){ 
+	function link (scope, element, attrs) {
+		if (scope.$last){
+		  $(element).waterwheelCarousel({
+            flankingItems: 3,
+            movingToCenter: function ($item) {
+              $('#callback-output').prepend('movingToCenter: ' + $item.attr('id') + '<br/>');
+            },
+            movedToCenter: function ($item) {
+              $('#callback-output').prepend('movedToCenter: ' + $item.attr('id') + '<br/>');
+            },
+            movingFromCenter: function ($item) {
+              $('#callback-output').prepend('movingFromCenter: ' + $item.attr('id') + '<br/>');
+            },
+            movedFromCenter: function ($item) {
+              $('#callback-output').prepend('movedFromCenter: ' + $item.attr('id') + '<br/>');
+            },
+            clickedCenter: function ($item) {
+              $('#callback-output').prepend('clickedCenter: ' + $item.attr('id') + '<br/>');
+            }
+          });
+
+          $('#prev').bind('click', function () {
+            carousel.prev();
+            return false;
+          });
+
+          $('#next').bind('click', function () {
+            carousel.next();
+            return false;
+          });
+
+          $('#reload').bind('click', function () {
+            newOptions = eval("(" + $('#newoptions').val() + ")");
+            carousel.reload(newOptions);
+            return false;
+          });
+
+          $('#socialLife').bind('click', function () {
+              $("#subtags").empty();
+              $("#subtags").append(buildElement(subtagsText.socialLife));
+          });
+
+          $('#smarts').bind('click', function () {
+              $("#subtags").empty();
+              $("#subtags").append(buildElement(subtagsText.smarts));
+          });
+
+          $('#sex').bind('click', function () {
+              $("#subtags").empty();
+              $("#subtags").append(buildElement(subtagsText.sex));
+          });
+		}
+	}
+	
+	return {
+      link: link
+    };
+})
+
 .controller('AppCtrl', function($scope) {
 })
 
@@ -12,7 +72,6 @@ angular.module('clcontrollers', [])
   $scope.validate = function(event){
 
       if( this.$parent.loginData.password == "cl123!"){
-        //$location.path("#/app/playlists");
          $state.go('app.friends_feeds');
       }
   }
@@ -44,6 +103,7 @@ angular.module('clcontrollers', [])
     $scope.imglists = imgData.schools;
   });*/
   
+  console.log("Inside FriendsFeedsCtrl");
   var data = FriendFeed.query(function(friendFeedData) { 
     $scope.users = friendFeedData.users[0].friends;
   });
@@ -54,7 +114,35 @@ angular.module('clcontrollers', [])
  
   }
   
-  jQuery(document).ready(function(){
+  
+
+        
+})
+
+
+.controller('SchoolFeedsCtrl', function($scope, $stateParams, $state, SchoolFeed) {
+	console.log("Inside SchoolFeedsCtrl");
+	var data = SchoolFeed.query(function(schoolFeedData) { 
+		$scope.schoolUsers = schoolFeedData.schools[0].users;
+	});
+	
+	$scope.nationalFeed = function(){  
+		$state.go('app.national_feeds');
+	}
+})
+
+.controller('NationalFeedsCtrl', function($scope, $stateParams, NationalFeed, Schools) {
+
+	Schools.query(function(schoolData) {
+		$scope.schoolList = schoolData.schools;
+	});
+	
+	var data = NationalFeed.query(function(nationalFeedData) { 
+		$scope.nationalUsers = nationalFeedData.nations[0].users;
+	});
+  
+  
+	jQuery(document).ready(function(){
 
             var carousel = $("#carousel").waterwheelCarousel({
             flankingItems: 3,
@@ -106,32 +194,8 @@ angular.module('clcontrollers', [])
               $("#subtags").append(buildElement(subtagsText.sex));
           });
 
-          $('#menu16').circleMenu({
-                    direction:'full', 
-                    trigger:'click',
-                    open: function(){console.log('menu opened');},
-                    close: function(){console.log('menu closed');},
-                    init: function(){console.log('menu initialized');},
-                    select: function(evt,index){console.log(evt,index)}
-                }).on('circleMenu-open',function(){
-                    console.log('menu opened 2');
-                });
-        });
-
-        
-})
-
-
-.controller('SchoolFeedsCtrl', function($scope, $stateParams, SchoolFeed) {
-	var data = SchoolFeed.query(function(schoolFeedData) { 
-		$scope.users = schoolFeedData.users[0].friends;
-  });
-})
-
-.controller('NationalFeedsCtrl', function($scope, $stateParams, NationalFeed) {
-	var data = NationalFeed.query(function(nationalFeedData) { 
-		$scope.users = nationalFeedData.users[0].friends;
-  });
+    });
+		
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
@@ -139,21 +203,5 @@ angular.module('clcontrollers', [])
 })
 
 .controller('SearchCtrl', function($scope, $stateParams) {
-
-jQuery(document).ready(function(){
-
-    $('#menu2').circleMenu({
-                    item_diameter: 20,
-                    circle_radius: 100,
-                    direction:'full', 
-                    trigger:'click',
-                    open: function(){console.log('menu opened');},
-                    close: function(){console.log('menu closed');},
-                    init: function(){console.log('menu initialized');},
-                    select: function(evt,index){console.log(evt,index)}
-                }).on('circleMenu-open',function(){
-                    console.log('menu opened 2');
-                });
-        });
 
 })

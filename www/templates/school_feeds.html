@@ -2,23 +2,16 @@
     <h1 class="title">School</h1>
   </div>
   <ion-content class="has-header body-color">
-    </br>
-    <div id="carousel" style="height: 80px; width:420px;">           
-          <!--<img class="img-rounded img-responsive"  src="img/Alabama.jpg" id="item-1" />
-          <img class="img-rounded img-responsive"  src="img/Albright_College.jpg" id="item-2" />
-          <img class="img-rounded img-responsive"  src="img/American_University.jpg" id="item-3" />
-          <img class="img-rounded img-responsive"  src="img/Arizona_State.jpg" id="item-4" /> 
-          <img class="img-rounded img-responsive"  src="img/Assumption_College.jpg" id="item-5" />
-          <img class="img-rounded img-responsive"  src="img/Bentley_University.jpg" id="item-6" />
-          <img class="img-rounded img-responsive"  src="img/Binghamton_University.jpg" id="item-7" />
-          <img class="img-rounded img-responsive"  src="img/Bloomsburg_U.jpg" id="item-8" />
-          <img class="img-rounded img-responsive"  src="img/Boston_College.jpg" id="item-9" />-->
-      </div>
-
 
     <ion-list>
-      <ion-item ng-repeat="user in users" href="">
+      <ion-item ng-repeat="user in schoolUsers" href="">
        
+	   <div class="item item-avatar">
+		  <img src="{{user.schoolImg}}">
+		  <h2>{{user.schoolName}} School</h2>
+		  <a href="" ng-click="nationalFeed()">National</a>
+       </div>
+			
        <ion-slide-box on-slide-changed="slideHasChanged($index)" active-slide="1">
         <ion-slide>
           <div class="card">
