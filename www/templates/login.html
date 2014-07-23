@@ -4,17 +4,32 @@
   </div>
   <ion-content class="has-header body-color">
 
-    <div class="list list-inset">
-      <input type="text" placeholder="Edu Email Address" ng-model="loginData.user_name">
-    </div>
-    <div class="list list-inset">
-      <input type="password" placeholder="password" ng_model="loginData.password">
-    </div>
-
-    <button class="button button-block button-stable" ng_click="validate()">
-      Login
-    </button>
-
-    <a href="#/app/create_account">Create Account</a>
-    <a href="#/app/forgot_password">Forgot Password</a>
+	<div class="list">
+		  <div class="item item-input-inset">
+			<label class="item-input-wrapper">
+				<i class="icon ion-ios7-email-outline placeholder-icon"></i>
+				<input type="text" placeholder=".edu Email Address" ng-model="loginData.user_name">
+			</label>	
+		  </div>
+		
+		  <div class="item item-input-inset">
+			<label class="item-input-wrapper">
+				<i class="icon ion-locked placeholder-icon"></i>
+				<input type="text" placeholder="password" ng-model="loginData.password">
+			</label>	
+		  </div>
+		  <button class="button button-block button-positive" ng_click="validate()">
+			Sign In
+		  </button>
+	</div>
+	<ul class="list">
+		<li class="item">
+			Don't have an account? <a href="#/app/create_account">Create Account</a>
+		</li>
+		<li class="item">
+			Forgot password?  <a href="#/app/forgot_password">Forgot Password</a>
+		</li>
+	</ul>
+    
+   
   </ion-content>

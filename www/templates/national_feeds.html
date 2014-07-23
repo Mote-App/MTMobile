@@ -2,10 +2,33 @@
     <h1 class="title">National</h1>
   </div>
   <ion-content class="has-header body-color">
-	<div id="carousel" style="height: 80px; width:420px;" ng-repeat=" school in schoolList" apply-carousel>           
-         <img class="img-rounded img-responsive"  src="{{ school.imgPath }}" id="{{school.id}}" />      
+	
+	<div id="carousel" style="height: 80px; width:420px;display:relative;" >           
+         <img ng-repeat=" school in schoolList | limitTo:20" repeat-complete="renderCarousel( $index )" class="img-rounded img-responsive"  src="{{ school.imgPath }}" id="{{school.id}}" />      
     </div>
 
+	<!--<div id="carousel" style="height: 80px; width:420px; display:relative;">           
+        <img class="img-rounded img-responsive"  src="img/Alabama.jpg" id="1" /> 
+		<img class="img-rounded img-responsive"  src="img/Albright_College.jpg" id="2" /> 
+		<img class="img-rounded img-responsive"  src="img/American_University.jpg" id="3" /> 
+		<img class="img-rounded img-responsive"  src="img/Arizona_State.jpg" id="4" /> 
+		<img class="img-rounded img-responsive"  src="img/Assumption_College.jpg" id="5" /> 
+		<img class="img-rounded img-responsive"  src="img/Binghamton_University.jpg" id="6" /> 
+		<img class="img-rounded img-responsive"  src="img/Bloomsburg_U.jpg" id="7" /> 
+		<img class="img-rounded img-responsive"  src="img/Boston_College.jpg" id="9" /> 
+		<img class="img-rounded img-responsive"  src="img/Boston_University.jpg" id="10" /> 
+		<img class="img-rounded img-responsive"  src="img/Bucknell_University.jpg" id="11" /> 
+		<img class="img-rounded img-responsive"  src="img/Carnegie_Mellon_U.jpg" id="12" />
+		<img class="img-rounded img-responsive"  src="img/Centenary_College.jpg" id="13" />
+		<img class="img-rounded img-responsive"  src="img/Clemson_University.jpg" id="14" /> 		
+		<img class="img-rounded img-responsive"  src="img/Coastal_Carolina.jpg" id="15" /> 
+		<img class="img-rounded img-responsive"  src="img/College_of_Charleston.jpg" id="16" /> 
+		<img class="img-rounded img-responsive"  src="img/Colorado_School_of_Mines.jpg" id="17" /> 
+		<img class="img-rounded img-responsive"  src="img/Colorado_State_University.jpg" id="18" /> 
+		<img class="img-rounded img-responsive"  src="img/County_College_of_Morris.jpg" id="19" /> 
+		<img class="img-rounded img-responsive"  src="img/DeSales_University.jpg" id="20" /> 
+		<img class="img-rounded img-responsive"  src="img/Dickinson_College.jpg" id="21" /> 	
+    </div>-->
 
     <ion-list>
       <ion-item ng-repeat="user in nationalUsers" href="">
