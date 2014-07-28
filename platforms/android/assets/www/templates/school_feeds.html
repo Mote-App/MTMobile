@@ -1,0 +1,130 @@
+  <div class="bar bar-header header-color">
+    <h1 class="title">School</h1>
+  </div>
+  <ion-content class="has-header body-color">
+
+    <ion-list>
+      <ion-item ng-repeat="user in schoolUsers" href="">
+       
+	   <div class="item item-avatar">
+		  <img src="{{user.schoolImg}}">
+		  <h2>{{user.schoolName}} School</h2>
+		  <a href="" ng-click="nationalFeed()">National</a>
+       </div>
+			
+       <ion-slide-box on-slide-changed="slideHasChanged($index)" active-slide="1">
+        <ion-slide>
+          <div class="card">
+            <div class="item item-avatar">
+              <img src="{{user.profileImg}}">
+              <h2>{{user.name}}</h2>
+              <p>{{ user.posts.popularPost.postDate}}</p>
+            </div>
+
+            <div class="item item-body">
+              <img class="full-image" src="{{user.posts.popularPost.postImg}}">
+              <p>
+                {{user.posts.popularPost.caption}}
+              </p>
+              <p>
+                <a href="#" class="subdued">{{ user.posts.popularPost.likes}} Like</a>
+                <a href="#" class="subdued">5 Comments</a>
+              </p>
+            </div>
+
+            <div class="item tabs tabs-secondary tabs-icon-left">
+              <a class="tab-item" href="#">
+                <i class="icon ion-android-friends"></i>
+                Social Life
+              </a>
+              <a class="tab-item" href="#">
+                <i class="icon ion-male"></i>
+                Rated R
+              </a>
+              <a class="tab-item" href="#">
+                <i class="icon ion-social-android"></i>
+                Smart
+              </a>
+            </div>
+
+          </div>
+        </ion-slide>
+
+        <ion-slide>
+          <div class="card">
+            <div class="item item-avatar">
+              <img src="{{ user.profileImg}}">
+              <h2>{{user.name}}</h2>
+              <p>{{ user.posts.currentPost.postDate}}</p>
+            </div>
+
+            <div class="item item-body">
+              <img class="full-image" src="{{user.posts.currentPost.postImg}}">
+              <p>
+                {{user.posts.currentPost.caption}}
+              </p>
+              <p>
+                <a href="#" class="subdued">{{ user.posts.currentPost.likes}} Like</a>
+                <a href="#" class="subdued">5 Comments</a>
+              </p>
+            </div>
+
+            <div class="item tabs tabs-secondary tabs-icon-left">
+              <a class="tab-item" href="#">
+                <i class="icon ion-android-friends"></i>
+                Social Life
+              </a>
+              <a class="tab-item" href="#">
+                <i class="icon ion-male"></i>
+                Rated R
+              </a>
+              <a class="tab-item" href="#">
+                <i class="icon ion-social-android"></i>
+                Smart
+              </a>
+            </div>
+
+          </div>
+        </ion-slide>
+
+        <ion-slide>
+          <div class="card">
+            <div class="item item-avatar">
+              <img src="{{ user.profileImg}}">
+              <h2>{{user.name}}</h2>
+              <p>{{ user.posts.mostRecentPost.postDate}}</p>
+            </div>
+
+            <div class="item item-body">
+              <img class="full-image" src="{{user.posts.mostRecentPost.postImg}}">
+              <p>
+                {{user.posts.mostRecentPost.caption}}
+              </p>
+              <p>
+                <a href="#" class="subdued">{{ user.posts.mostRecentPost.likes}} Like</a>
+                <a href="#" class="subdued">5 Comments</a>
+              </p>
+            </div>
+
+            <div class="item tabs tabs-secondary tabs-icon-left">
+              <a class="tab-item" href="#">
+                <i class="icon ion-android-friends"></i>
+                Social Life
+              </a>
+              <a class="tab-item" href="#">
+                <i class="icon ion-male"></i>
+                Rated R
+              </a>
+              <a class="tab-item" href="#">
+                <i class="icon ion-social-android"></i>
+                Smart
+              </a>
+            </div>
+
+          </div>
+        </ion-slide>
+      </ion-slide-box>
+
+    </ion-item>
+  </ion-list>
+</ion-content>
