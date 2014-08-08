@@ -3,7 +3,7 @@ angular.module('clservices', ['ngResource'])
 .factory('Tags', ['$resource',
   function($resource){
     return $resource('data/tags.json', {}, {
-      query: {method:'GET', params:{}, isArray:true}
+      query: {method:'GET', params:{}, isArray:false}
     });
   }])
 
