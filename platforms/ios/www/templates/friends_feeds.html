@@ -1,6 +1,10 @@
   <div class="bar bar-header header-color">
     <h1 class="title">Friends</h1>
   </div>
+
+  <div ng-include src="'templates/tags.html'"> 
+  </div>
+
   <ion-content class=" has-header body-color">
    
     <ion-list>
@@ -23,6 +27,7 @@
               <p>
                 {{user.posts.popularPost.caption}}
               </p>
+
               <p>
                 <a href="#" class="subdued">{{ user.posts.popularPost.likes}} Like</a>
                 <a href="#" class="subdued">5 Comments</a>
@@ -52,15 +57,15 @@
 		
           <div class="card">			
 			
-			<div class="item item-avatar">			
-				<img src="{{ user.profileImg}}">
-				<h2>{{user.name}}</h2>
-				<p>{{ user.posts.currentPost.postingDate}}</p>
-			</div>
-			<div class="item item-avatar">							
-				<img src="{{ user.SchoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
-				<h2 ng-click="schoolFeed( {{user.posts.currentPost.schoolId}})">{{ user.posts.currentPost.SchoolName}}</h2>
-			</div>	
+      			<div class="item item-avatar">			
+      				<img src="{{ user.profileImg}}">
+      				<h2>{{user.name}}</h2>
+      				<p>{{ user.posts.currentPost.postingDate}}</p>
+      			</div>
+      			<div class="item item-avatar">							
+      				<img src="{{ user.SchoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
+      				<h2 ng-click="schoolFeed( {{user.posts.currentPost.schoolId}})">{{ user.posts.currentPost.SchoolName}}</h2>
+      			</div>	
 			
 			
             <div class="item item-body">
@@ -68,6 +73,9 @@
               <p>
                 {{user.posts.currentPost.caption}}
               </p>
+              <div class="card">
+                  <span class="tagItem" ng-repeat="tag in tags"> {{ tag.tagText }} <a ng-click="removeTag( '{{ tag.tagId}}' )"><i class="icon ion-close-round"></i></a></span>
+              </div>
               <p>
                 <a href="#" class="subdued">{{ user.posts.currentPost.likes}} Like</a>
                 <a href="#" class="subdued">5 Comments</a>
@@ -75,15 +83,16 @@
             </div>
 
             <div class="item tabs tabs-secondary tabs-icon-left">
-              <a class="tab-item" href="#">
-                <i class="icon ion-android-friends"></i>
-                Social Life
+
+              <a ng-click="menu('#social')" class="tab-item">
+                  <i class="icon ion-android-friends"></i>Social Life
               </a>
-              <a class="tab-item" href="#">
+
+              <a class="tab-item" ng-click="menu('#genre')">
                 <i class="icon ion-male"></i>
                 Rated R
               </a>
-              <a class="tab-item" href="#">
+              <a class="tab-item" ng-click="menu('#smart')">
                 <i class="icon ion-social-android"></i>
                 Smart
               </a>
