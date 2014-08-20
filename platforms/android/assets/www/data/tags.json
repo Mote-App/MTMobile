@@ -1,5 +1,5 @@
-
-	"subtagsText" :  {
+{ 
+	"subtags" :  {
 			          "smarts": [
 			          				{"id": "1_1", "tagText" : "National News"}, 
 			          				{"id" : "1_2" ,"tagText" : "School based news"},
@@ -8,7 +8,7 @@
 			          				{"id" : "1_5" ,"tagText" :"Campus Groups"}
 			          			],
 
-			          "socialLife"  : [
+			          "socials"  : [
 			          					{"id": "2_1", "tagText" : "Dorm chilling"}, 
 			          					{"id": "2_2", "tagText" : "Theme Party"}, 
 			          					{"id": "2_3", "tagText" : "Rager"}, 
@@ -37,7 +37,7 @@
 			                  			{"id": "2_26", "tagText" : "WRITE YOUR OWN"}
 			                  		],
 
-			        "sex" : [
+			        "genres" : [
 			          			{"id" : "3_1" ,"tagText" : "Sloppy Makeouts"},
 			          			{"id" : "3_2" ,"tagText" : "Sexy Professors"},
 			          			{"id" : "3_3" ,"tagText" : "Dime-Spotter"},
@@ -47,6 +47,7 @@
 			                	{"id" : "3_7" ,"tagText" : "Yolked/Jacked/Swoll"},
 			                	{"id" : "3_8" ,"tagText" : "Fashion"},
 			                	{"id" : "3_9" ,"tagText" : "Hottest outfit"}
-			                ],
+			                ]
 
-        			};
+        			}
+}

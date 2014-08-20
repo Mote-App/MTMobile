@@ -12,11 +12,11 @@
     <feature name="Device">
         <param name="android-package" value="org.apache.cordova.device.Device" />
     </feature>
-    <name>HelloCordova</name>
+    <name>CollegeLife</name>
     <description>
-        An Ionic Framework and Cordova project.
+        College Life Mobile App - An Ionic Framework and Cordova project.
     </description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">
+    <author email="gibran.e.castillo@gmail.com" href="http://collegelifeapp.com/">
       Ionic Framework Team
     </author>
     <content src="index.html" />

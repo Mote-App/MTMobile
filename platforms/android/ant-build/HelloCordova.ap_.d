@@ -42,12 +42,14 @@ C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\assets\www\README.m
 C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\assets\www\templates \
 C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\assets\www\css\app.css \
 C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\assets\www\css\circle-menu.css \
+C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\assets\www\css\menu.css \
 C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\assets\www\css\style.css \
 C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\assets\www\data\friend_feeds_data.json \
 C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\assets\www\data\national_feeds_data.json \
 C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\assets\www\data\schools.json \
 C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\assets\www\data\school_feeds_data.json \
 C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\assets\www\data\school_file.vbs \
+C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\assets\www\data\school_post_data.json \
 C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\assets\www\data\tags.json \
 C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\assets\www\data\temp \
 C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\assets\www\data\test.vbs \
@@ -195,6 +197,7 @@ C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\assets\www\js\jquer
 C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\assets\www\js\jquery.min.map \
 C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\assets\www\js\jquery.waterwheelCarousel.js \
 C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\assets\www\js\jquery.waterwheelCarousel.min.js \
+C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\assets\www\js\menu.js \
 C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\assets\www\js\services.js \
 C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\assets\www\lib\ionic \
 C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\assets\www\lib\ionic\css \
@@ -285,4 +288,5 @@ C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\assets\www\template
 C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\assets\www\templates\search.html \
 C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\assets\www\templates\signup.html \
 C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\assets\www\templates\splash.html \
+C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\assets\www\templates\tags.html \
 C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\ant-build\AndroidManifest.xml \
