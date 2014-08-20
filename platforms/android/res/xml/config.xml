@@ -1,7 +1,26 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.ionicframework.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.collegelifeapp.mobile" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <preference name="loglevel" value="DEBUG" />
     <preference name="AndroidLaunchMode" value="singleTop" />
+    <name>CollegeLife</name>
+    <description>College Life Hybrid App - An Ionic Framework and Cordova project.</description>
+    <author email="gibran@collegelifeapp.com" href="http://collegelifeapp.com/">CollegeLife, LLC Team</author>
+    <content src="index.html" />
+    <access origin="*" />
+    <preference name="Fullscreen" value="true" />
+    <preference name="webviewbounce" value="false" />
+    <preference name="UIWebViewBounce" value="false" />
+    <preference name="DisallowOverscroll" value="false" />
+    <preference name="MediaPlaybackRequiresUserAction" value="true" />
+    <preference name="AllowInlineMediaPlayback" value="true" />
+    <preference name="BackupWebStorage" value="none" />
+    <feature name="StatusBar">
+        <param name="ios-package" onload="true" value="CDVStatusBar" />
+    </feature>
+    <preference name="SplashScreen" value="screen" />
+    <preference name="LoadingDialog" value="My Title,My Message" />
+    <preference name="SplashScreenDelay" value="10000" />
+    <preference name="InAppBrowserStorageEnabled" value="true" />
     <feature name="App">
         <param name="android-package" value="org.apache.cordova.App" />
     </feature>
@@ -10,23 +29,7 @@
         <param name="onload" value="true" />
     </feature>
     <feature name="Device">
+        <param name="ios-package" value="CDVDevice" />
         <param name="android-package" value="org.apache.cordova.device.Device" />
-    </feature>
-    <name>CollegeLife</name>
-    <description>
-        College Life Mobile App - An Ionic Framework and Cordova project.
-    </description>
-    <author email="gibran.e.castillo@gmail.com" href="http://collegelifeapp.com/">
-      Ionic Framework Team
-    </author>
-    <content src="index.html" />
-    <access origin="*" />
-    <preference name="fullscreen" value="true" />
-    <preference name="webviewbounce" value="false" />
-    <preference name="UIWebViewBounce" value="false" />
-    <preference name="DisallowOverscroll" value="true" />
-    <preference name="BackupWebStorage" value="none" />
-    <feature name="StatusBar">
-        <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
 </widget>
