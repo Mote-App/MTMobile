@@ -1,5 +1,15 @@
 angular.module('clcontrollers', [])
 
+.filter('sliceTag', function() {
+  return function(input, indexRange) {
+    var indexes = indexRange.split(",");
+    var start = parseInt(indexes[0], 10);
+    var end = parseInt(indexes[1], 10);
+
+    return input.slice(start, (start+end));
+  };
+})
+
 .directive('repeatComplete', function(){ 
 	function link (scope, element, attrs) {
 		if (scope.$last){
@@ -11,6 +21,46 @@ angular.module('clcontrollers', [])
 	return {
       link: link
     };
+})
+
+.directive('circularMenu', function() {
+
+  function link (scope, element, attrs){
+
+
+    //if (scope.$last){
+
+
+      var menuType = attrs.menuType;
+
+      var jquerySearchTag = "#" + menuType +  ' .circle a';
+
+      var items = $(jquerySearchTag);
+
+      var angle = 0;
+      
+
+      for(var i = 0, l = items.length; i < l; i++) {
+        
+        items[i].style.left = (50 - 35*Math.cos(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
+
+        items[i].style.top = (50 + 35*Math.sin(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";        
+      
+      }
+
+      /*$(".menu-button").click(function(e) {
+        console.log('clicked');
+         e.preventDefault();
+         $(".circle").toggleClass('open');
+      });*/
+
+    //}
+    
+  }
+
+  return {
+    link: link
+  }
 })
 
 .controller('AppCtrl', function($scope) {
@@ -28,7 +78,7 @@ angular.module('clcontrollers', [])
          $state.go('app.friends_feeds');
       }
   }
-
+ 
   /*var dataRef = new Firebase("https://ionic-firebase-login.firebaseio.com/");
   $scope.loginObj = $firebaseSimpleLogin(dataRef);
 
@@ -50,13 +100,12 @@ angular.module('clcontrollers', [])
 
 // ***************** Use for the login page :: End *****************
 
-.controller('FriendsFeedsCtrl', function($scope, $http, $ionicSlideBoxDelegate, $state, FriendFeed) {
+.controller('FriendsFeedsCtrl', function($scope, $http, $ionicSlideBoxDelegate, $state, $filter, FriendFeed, Tags, sliceTagFilter) {
   
   /*var data = Schools.query(function(imgData) { 
     $scope.imglists = imgData.schools;
   });*/
   
-  console.log("Inside FriendsFeedsCtrl");
   var data = FriendFeed.query(function(friendFeedData) { 
     $scope.users = friendFeedData.users[0].friends;
   });
@@ -65,8 +114,80 @@ angular.module('clcontrollers', [])
      
    $state.go('app.school_feeds');
  
-  }
-        
+  };
+
+ var tags = Tags.query(function(tagData) { 
+      $scope.subtags = tagData.subtags;
+
+      $scope.smartArr =  sliceTagFilter($scope.subtags.smarts, "0,5" );
+      $scope.socialArr =  sliceTagFilter($scope.subtags.socials, "0,5" );
+      $scope.genreArr =  sliceTagFilter($scope.subtags.forbidden, "0,5" );
+
+ });
+
+
+  $scope.socialMenuIndex = 0;
+  $scope.smartMenuIndex = 0;
+  $scope.genreMenuIndex = 0;
+  $scope.menuIndexIncrement = 5;
+
+  $scope.adjustMenuIndex = function(menuType){
+
+    if ( menuType === "#social"){
+
+      if ( $scope.socialMenuIndex >= $scope.subtags.socials.length) {
+        $scope.socialMenuIndex = 0;
+      }else{
+        $scope.socialMenuIndex = $scope.socialMenuIndex + $scope.menuIndexIncrement;
+      }
+
+      var offsetStr = $scope.socialMenuIndex + "," + $scope.menuIndexIncrement;      
+      $scope.socialArr =  sliceTagFilter($scope.subtags.socials, offsetStr );
+    }
+    if ( menuType === "#smart"){
+      if ( $scope.smartMenuIndex >= $scope.subtags.smarts.length) {
+        $scope.smartMenuIndex = 0;
+      }else{
+        $scope.smartMenuIndex = $scope.smartMenuIndex + $scope.menuIndexIncrement;
+      }
+
+      var offsetStr = $scope.smartMenuIndex + "," + $scope.menuIndexIncrement;      
+      $scope.smartArr =  sliceTagFilter($scope.subtags.smarts, offsetStr );
+
+    }
+    if ( menuType === "#genre"){
+      if ( $scope.genreMenuIndex >= $scope.subtags.forbidden.length) {
+        $scope.genreMenuIndex = 0;
+      }else{
+        $scope.genreMenuIndex = $scope.genreMenuIndex + $scope.menuIndexIncrement;
+      }
+
+      var offsetStr = $scope.genreMenuIndex + "," + $scope.menuIndexIncrement;      
+      $scope.genreArr =  sliceTagFilter($scope.subtags.forbidden, offsetStr );
+
+    }
+
+    //console.log (menuType + " : " + socialMenuIndex);
+
+  };
+
+  $scope.menu = function(menuType) {
+    $(menuType + " .circle").toggleClass('open');
+  };
+
+  $scope.tags = [];
+
+  $scope.tagged = function(tagId, tagText, menuType){
+
+      $scope.tags.push({"tagId" : tagId, "tagText" : tagText});
+
+      $(menuType + " .circle").toggleClass('open');
+  };
+  
+  $scope.removeTag = function(tagId){
+     $scope.tags = $filter('filter')($scope.tags, !{'tagId': tagId});
+  };
+
 })
 
 

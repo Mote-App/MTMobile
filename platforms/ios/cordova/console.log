@@ -33,3 +33,20 @@
 2014-07-29 00:21:57.081 CollegeLife[2264:70b] Finished load of: file:///Users/gibranecastillo/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/391855A4-10AC-47EE-85BF-2247880B7E82/CollegeLife.app/www/index.html#/app/login
 2014-07-29 00:30:39.543 CollegeLife[2264:70b] Inside FriendsFeedsCtrl
 2014-07-29 00:30:39.573 CollegeLife[2264:70b] THREAD WARNING: ['Console'] took '29.279053' ms. Plugin should use a background thread.
+2014-08-13 08:56:53.597 CollegeLife[14548:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-13 08:56:53.879 CollegeLife[14548:70b] Unlimited access to network resources
+2014-08-13 08:56:59.008 CollegeLife[14548:70b] [CDVTimer][keyboard] 32.146990ms
+2014-08-13 08:56:59.009 CollegeLife[14548:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-13 08:56:59.010 CollegeLife[14548:70b] [CDVTimer][statusbar] 0.994980ms
+2014-08-13 08:56:59.011 CollegeLife[14548:70b] [CDVTimer][TotalPluginStartup] 34.386992ms
+2014-08-13 08:57:01.336 CollegeLife[14548:70b] Resetting plugins due to page load.
+2014-08-13 08:57:06.111 CollegeLife[14548:70b] Finished load of: file:///Users/gibranecastillo/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/391855A4-10AC-47EE-85BF-2247880B7E82/CollegeLife.app/www/index.html#/app/login
+2014-08-20 17:00:21.925 CollegeLife[1596:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-20 17:00:22.098 CollegeLife[1596:70b] Unlimited access to network resources
+2014-08-20 17:00:24.882 CollegeLife[1596:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-20 17:00:24.883 CollegeLife[1596:70b] [CDVTimer][statusbar] 0.766993ms
+2014-08-20 17:00:24.883 CollegeLife[1596:70b] [CDVTimer][keyboard] 0.123978ms
+2014-08-20 17:00:24.884 CollegeLife[1596:70b] [CDVTimer][keyboard] 0.010967ms
+2014-08-20 17:00:24.884 CollegeLife[1596:70b] [CDVTimer][TotalPluginStartup] 2.524018ms
+2014-08-20 17:00:25.459 CollegeLife[1596:70b] Resetting plugins due to page load.
+2014-08-20 17:00:26.388 CollegeLife[1596:70b] Finished load of: file:///Users/gibranecastillo/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/E8364D94-D8E5-4B4E-B637-C7B778216E8A/CollegeLife.app/www/index.html#/app/login

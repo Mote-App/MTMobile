@@ -1,25 +1,48 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.ionicframework.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.collegelifeapp.mobile" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>CollegeLife</name>
-    <description>
-        College Life Mobile App - An Ionic Framework and Cordova project.
-    </description>
-    <author email="gibran.e.castillo@gmail.com" href="http://collegelifeapp.com/">
-      Ionic Framework Team
-    </author>
+    <description>College Life Hybrid App - An Ionic Framework and Cordova project.</description>
+    <author email="gibran@collegelifeapp.com" href="http://collegelifeapp.com/">CollegeLife, LLC Team</author>
     <content src="index.html" />
     <access origin="*" />
-    <preference name="fullscreen" value="true" />
+    
+    <!-- Global Configuration -->
+    <preference name="Fullscreen" value="true" />
     <preference name="webviewbounce" value="false" />
     <preference name="UIWebViewBounce" value="false" />
-    <preference name="DisallowOverscroll" value="true" />
-
+    <preference name="DisallowOverscroll" value="false" />
+    
+    
+    <!-- iOS Configuration -->
+    <preference name="MediaPlaybackRequiresUserAction" value="true"/>
+    <preference name="AllowInlineMediaPlayback" value="true"/>
     <!-- Don't store local date in an iCloud backup. Turn this to "cloud" to enable storage 
          to be sent to iCloud. Note: enabling this could result in Apple rejecting your app.
     -->
     <preference name="BackupWebStorage" value="none" />
-
     <feature name="StatusBar">
       <param name="ios-package" value="CDVStatusBar" onload="true" />
+    </feature>
+    
+    <feature name="Device">
+        <param name="ios-package" value="CDVDevice" />
+    </feature>
+    
+    
+    <!-- Android Configuration -->
+    <preference name="SplashScreen" value="screen"/>
+    <preference name="LoadingDialog" value="My Title,My Message"/>
+    <preference name="SplashScreenDelay" value="10000"/>
+    <preference name="InAppBrowserStorageEnabled" value="true"/>
+    
+    <feature name="App">
+        <param name="android-package" value="org.apache.cordova.App" />
+    </feature>
+    <feature name="Keyboard">
+        <param name="android-package" value="com.ionic.keyboard.IonicKeyboard" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
     </feature>
 </widget>

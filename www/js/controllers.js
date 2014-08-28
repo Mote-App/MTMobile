@@ -126,7 +126,7 @@ angular.module('clcontrollers', [])
        
       $scope.smartArr =  sliceTagFilter($scope.subtags.smarts, "0,5" );
       $scope.socialArr =  sliceTagFilter($scope.subtags.socials, "0,5" );
-      $scope.genreArr =  sliceTagFilter($scope.subtags.genres, "0,5" );
+      $scope.genreArr =  sliceTagFilter($scope.subtags.forbidden, "0,5" );
 
  });
 
@@ -161,14 +161,14 @@ angular.module('clcontrollers', [])
 
     }
     if ( menuType === "#genre"){
-      if ( $scope.genreMenuIndex >= $scope.subtags.genres.length) {
+      if ( $scope.genreMenuIndex >= $scope.subtags.forbidden.length) {
         $scope.genreMenuIndex = 0;
       }else{
         $scope.genreMenuIndex = $scope.genreMenuIndex + $scope.menuIndexIncrement;
       }
 
       var offsetStr = $scope.genreMenuIndex + "," + $scope.menuIndexIncrement;      
-      $scope.genreArr =  sliceTagFilter($scope.subtags.genres, offsetStr );
+      $scope.genreArr =  sliceTagFilter($scope.subtags.forbidden, offsetStr );
 
     }
 

@@ -1,4 +1,11 @@
 C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\ant-build\classes.dex : \
+C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\ant-build\classes\com\collegelifeapp\mobile\BuildConfig.class \
+C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\ant-build\classes\com\collegelifeapp\mobile\HelloCordova.class \
+C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\ant-build\classes\com\collegelifeapp\mobile\R$attr.class \
+C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\ant-build\classes\com\collegelifeapp\mobile\R$drawable.class \
+C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\ant-build\classes\com\collegelifeapp\mobile\R$string.class \
+C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\ant-build\classes\com\collegelifeapp\mobile\R$xml.class \
+C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\ant-build\classes\com\collegelifeapp\mobile\R.class \
 C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\ant-build\classes\com\ionic\keyboard\IonicKeyboard$1.class \
 C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\ant-build\classes\com\ionic\keyboard\IonicKeyboard.class \
 C:\Users\gecasti\Documents\GitHub\CLMobile\platforms\android\ant-build\classes\com\ionicframework\starter\BuildConfig.class \
