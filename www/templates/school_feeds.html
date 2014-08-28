@@ -1,27 +1,27 @@
   <div class="bar bar-header header-color">
-    <h1 class="title">School</h1>
+    <h1 class="header-font title">School</h1>
   </div>
   <ion-content class="has-header body-color">
 
     <ion-list>
-      <ion-item ng-repeat="user in schoolUsers" href="">
+      <ion-item ng-repeat="user in schoolUsers" class="body-color">
        
-	   <div class="item item-avatar">
-		  <img src="{{user.schoolImg}}">
-		  <h2>{{user.schoolName}} School</h2>
-		  <a href="" ng-click="nationalFeed()">National</a>
+	     <div class="item item-avatar body-color">
+		      <img src="{{user.schoolImg}}">
+		      <h2>{{user.schoolName}} School</h2>
+		      <a href="" ng-click="nationalFeed()">National</a>
        </div>
 			
        <ion-slide-box on-slide-changed="slideHasChanged($index)" active-slide="1">
         <ion-slide>
           <div class="card">
-            <div class="item item-avatar">
+            <div class="item item-avatar body-color">
               <img src="{{user.profileImg}}">
               <h2>{{user.name}}</h2>
               <p>{{ user.posts.popularPost.postDate}}</p>
             </div>
 
-            <div class="item item-body">
+            <div class="item item-body body-color">
               <img class="full-image" src="{{user.posts.popularPost.postImg}}">
               <p>
                 {{user.posts.popularPost.caption}}
@@ -32,7 +32,7 @@
               </p>
             </div>
 
-            <div class="item tabs tabs-secondary tabs-icon-left">
+            <div class="item tabs tabs-secondary tabs-icon-left body-color">
               <a class="tab-item" href="#">
                 <i class="icon ion-android-friends"></i>
                 Social Life
@@ -52,13 +52,13 @@
 
         <ion-slide>
           <div class="card">
-            <div class="item item-avatar">
+            <div class="item item-avatar body-color">
               <img src="{{ user.profileImg}}">
               <h2>{{user.name}}</h2>
               <p>{{ user.posts.currentPost.postDate}}</p>
             </div>
 
-            <div class="item item-body">
+            <div class="item item-body body-color">
               <img class="full-image" src="{{user.posts.currentPost.postImg}}">
               <p>
                 {{user.posts.currentPost.caption}}
@@ -69,7 +69,7 @@
               </p>
             </div>
 
-            <div class="item tabs tabs-secondary tabs-icon-left">
+            <div class="item tabs tabs-secondary tabs-icon-left body-color">
               <a class="tab-item" href="#">
                 <i class="icon ion-android-friends"></i>
                 Social Life
@@ -89,13 +89,13 @@
 
         <ion-slide>
           <div class="card">
-            <div class="item item-avatar">
+            <div class="item item-avatar body-color">
               <img src="{{ user.profileImg}}">
               <h2>{{user.name}}</h2>
               <p>{{ user.posts.mostRecentPost.postDate}}</p>
             </div>
 
-            <div class="item item-body">
+            <div class="item item-body body-color">
               <img class="full-image" src="{{user.posts.mostRecentPost.postImg}}">
               <p>
                 {{user.posts.mostRecentPost.caption}}
@@ -106,7 +106,7 @@
               </p>
             </div>
 
-            <div class="item tabs tabs-secondary tabs-icon-left">
+            <div class="item tabs tabs-secondary tabs-icon-left body-color">
               <a class="tab-item" href="#">
                 <i class="icon ion-android-friends"></i>
                 Social Life

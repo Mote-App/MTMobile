@@ -42,9 +42,9 @@ angular.module('clcontrollers', [])
 
       for(var i = 0, l = items.length; i < l; i++) {
         
-        items[i].style.left = (50 - 35*Math.cos(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
+        items[i].style.left = (50 - 55*Math.cos(-1 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
 
-        items[i].style.top = (50 + 35*Math.sin(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";        
+        items[i].style.top = (50 + 55*Math.sin(-1 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";        
       
       }
 
@@ -67,10 +67,14 @@ angular.module('clcontrollers', [])
 })
 
 // ***************** Use for the login page :: Start *****************
-.controller('LoginCtrl', function($scope, $rootScope, $state) {
+.controller('LoginCtrl', function($scope, $rootScope, $state, Schools) {
   
   $rootScope.appHeader = "CollegeLife";
   $scope.loginData = {};
+
+  var data = Schools.query(function(schoolData) { 
+    $scope.schools = schoolData.schools;
+  });
 
   $scope.validate = function(event){
 
@@ -119,6 +123,7 @@ angular.module('clcontrollers', [])
  var tags = Tags.query(function(tagData) { 
       $scope.subtags = tagData.subtags;
 
+       
       $scope.smartArr =  sliceTagFilter($scope.subtags.smarts, "0,5" );
       $scope.socialArr =  sliceTagFilter($scope.subtags.socials, "0,5" );
       $scope.genreArr =  sliceTagFilter($scope.subtags.genres, "0,5" );
@@ -173,6 +178,7 @@ angular.module('clcontrollers', [])
 
   $scope.menu = function(menuType) {
     $(menuType + " .circle").toggleClass('open');
+    
   };
 
   $scope.tags = [];

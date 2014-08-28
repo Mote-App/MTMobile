@@ -15,10 +15,10 @@
 
 .circle {
   position: absolute;
-  //top: 20%;
-  //left: 30%;
-  width: 200px;
-  height: 200px;
+  top: 36%;
+  left: 30%;
+  width: 100px;
+  height: 100px;
   margin: 0 auto;
   opacity: 0;
   
@@ -45,8 +45,8 @@
   display: block;
   position: absolute;
   text-align: center;
-  width: 5.5em;
-  height: 5.5em;
+  width: 4em;
+  height: 4em;
   border-radius: 50%;
   background: #429a67;
 

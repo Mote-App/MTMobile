@@ -1,9 +1,33 @@
 /* Empty. Add your own CSS if you like */
 
 .header-color{
-	background-color: #398E1D;
+	background-color: rgb(76, 122, 52);
 }
 
-.body-color {
+.header-font {
+	color: rgba(174, 221, 148, 1);
+	font-size: 40px !important;
+}
+
+.card > div , .list > ion-item, ion-content , .list > label , .list > div, .list > li , .bg-color{
+	background-color: rgb(254, 198, 61);
+}
+
+.image-caption {
 	background-color: #ffffff;
+	margin-top: -5px;
+	border: black;
+	border-style: solid;
+	font-weight: bold;
+	border-width: 1px;	
+}
+
+textPath {
+  font-size: 8px;
+}
+
+.align-card-header {
+
+	float: left; 
+	width: 50%;"
 }

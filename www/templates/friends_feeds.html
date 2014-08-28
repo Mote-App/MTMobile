@@ -1,11 +1,11 @@
   <div class="bar bar-header header-color">
-    <h1 class="title">Friends</h1>
+    <h1 class="header-font title">Friends</h1>
   </div>
 
   <div ng-include src="'templates/tags.html'"> 
   </div>
 
-  <ion-content class=" has-header body-color">
+  <ion-content class="has-header">
    
     <ion-list>
       <ion-item ng-repeat="user in users">
@@ -13,20 +13,24 @@
        <ion-slide-box on-slide-changed="slideHasChanged($index)" active-slide="1">
         <ion-slide>
           <div class="card">
-            <div class="item item-avatar">
-              <img src="{{user.profileImg1}}">
-              <h2>{{user.name}}</h2>
+            <div  class="item item-avatar align-card-header">
+              <img src="{{user.profileImg}}">
+              <h4>{{user.name}}</h4>
               <p>{{ user.posts.popularPost.postingDate}}</p>
             </div>
-			<div class="item item-avatar">							
-				<img src="{{ user.SchoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
-				<h2 ng-click="schoolFeed( {{user.posts.popularPost.schoolId}})">{{ user.posts.popularPost.SchoolName}}</h2>
-			</div>	
-            <div class="item item-body">
+      			<div class="item item-avatar align-card-header">							
+      				<img src="{{ user.SchoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
+      				<h2 ng-click="schoolFeed( {{user.posts.popularPost.schoolId}})">{{ user.posts.popularPost.SchoolName}}</h2>
+      			</div>
+            
+              
+            <div class="item">
               <img class="full-image" src="{{user.posts.popularPost.postImg}}">
-              <p>
-                {{user.posts.popularPost.caption}}
-              </p>
+              <span>
+                <p class="image-caption">
+                  {{user.posts.popularPost.caption}}
+                </p>
+              </span>
 
               <p>
                 <a href="#" class="subdued">{{ user.posts.popularPost.likes}} Like</a>
@@ -57,22 +61,22 @@
 		
           <div class="card">			
 			
-      			<div class="item item-avatar">			
+      			<div class="item item-avatar align-card-header">			
       				<img src="{{ user.profileImg}}">
-      				<h2>{{user.name}}</h2>
+      				<h4>{{user.name}}</h4>
       				<p>{{ user.posts.currentPost.postingDate}}</p>
       			</div>
-      			<div class="item item-avatar">							
+      			<div class="item item-avatar align-card-header">							
       				<img src="{{ user.SchoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
       				<h2 ng-click="schoolFeed( {{user.posts.currentPost.schoolId}})">{{ user.posts.currentPost.SchoolName}}</h2>
       			</div>	
 			
 			
-            <div class="item item-body">
+            <div class="item">
               <img class="full-image" src="{{user.posts.currentPost.postImg}}">
-              <p>
-                {{user.posts.currentPost.caption}}
-              </p>
+              <span>
+                <p class="image-caption">{{user.posts.currentPost.caption}}</p>
+              </span>
               <div class="card">
                   <span class="tagItem" ng-repeat="tag in tags"> {{ tag.tagText }} <a ng-click="removeTag( '{{ tag.tagId}}' )"><i class="icon ion-close-round"></i></a></span>
               </div>
@@ -103,20 +107,22 @@
 
         <ion-slide>
           <div class="card">
-            <div class="item item-avatar">
+            <div class="item item-avatar align-card-header">
               <img src="{{ user.profileImg}}">
-              <h2>{{user.name}}</h2>
+              <h4>{{user.name}}</h4>
               <p>{{ user.posts.mostRecentPost.postingDate}}</p>
             </div>
-			<div class="item item-avatar">							
-				<img src="{{ user.SchoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
-				<h2 ng-click="schoolFeed( {{user.posts.mostRecentPost.schoolId}})">{{ user.posts.mostRecentPost.SchoolName}}</h2>
-			</div>	
+      			<div class="item item-avatar align-card-header">							
+      				<img src="{{ user.SchoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
+      				<h2 ng-click="schoolFeed( {{user.posts.mostRecentPost.schoolId}})">{{ user.posts.mostRecentPost.SchoolName}}</h2>
+      			</div>	
             <div class="item item-body">
               <img class="full-image" src="{{user.posts.mostRecentPost.postImg}}">
-              <p>
-                {{user.posts.mostRecentPost.caption}}
-              </p>
+              <span>
+                <p class="image-caption">
+                  {{user.posts.mostRecentPost.caption}}
+                </p>
+              </span>
               <p>
                 <a href="#" class="subdued">{{ user.posts.mostRecentPost.likes}} Like</a>
                 <a href="#" class="subdued">5 Comments</a>
