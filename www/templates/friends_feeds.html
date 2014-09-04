@@ -1,4 +1,5 @@
   <div class="bar bar-header header-color">
+    <a class="button icon-left ion-arrow-left-a button-clear button-dark" href="#/app/login"></a>
     <h1 class="header-font title">Friends</h1>
   </div>
 
@@ -6,7 +7,6 @@
   </div>
 
   <ion-content class="has-header">
-   
     <ion-list>
       <ion-item ng-repeat="user in users">
        
@@ -31,7 +31,9 @@
                   {{user.posts.popularPost.caption}}
                 </p>
               </span>
-
+              <div class="card">
+                  <span class="tagItem" ng-repeat="tag in tags"> {{ tag.tagText }} <a ng-click="removeTag( '{{ tag.tagId}}' )"><i class="icon ion-close-round"></i></a></span>
+              </div>
               <p>
                 <a href="#" class="subdued">{{ user.posts.popularPost.likes}} Like</a>
                 <a href="#" class="subdued">5 Comments</a>
@@ -39,15 +41,15 @@
             </div>
 
             <div class="item tabs tabs-secondary tabs-icon-left">
-              <a class="tab-item" href="#">
+              <a ng-click="menu('#social')" class="tab-item">
                 <i class="icon ion-android-friends"></i>
                 Social Life
               </a>
-              <a class="tab-item" href="#">
+              <a ng-click="menu('#genre')" class="tab-item">
                 <i class="icon ion-male"></i>
                 Rated R
               </a>
-              <a class="tab-item" href="#">
+              <a ng-click="menu('#smart')" class="tab-item">
                 <i class="icon ion-social-android"></i>
                 Smart
               </a>
@@ -123,6 +125,10 @@
                   {{user.posts.mostRecentPost.caption}}
                 </p>
               </span>
+              <div class="card">
+                  <span class="tagItem" ng-repeat="tag in tags"> {{ tag.tagText }} <a ng-click="removeTag( '{{ tag.tagId}}' )"><i class="icon ion-close-round"></i></a></span>
+              </div>
+
               <p>
                 <a href="#" class="subdued">{{ user.posts.mostRecentPost.likes}} Like</a>
                 <a href="#" class="subdued">5 Comments</a>
@@ -130,15 +136,15 @@
             </div>
 
             <div class="item tabs tabs-secondary tabs-icon-left">
-              <a class="tab-item" href="#">
+              <a ng-click="menu('#social')" class="tab-item">
                 <i class="icon ion-android-friends"></i>
                 Social Life
               </a>
-              <a class="tab-item" href="#">
+              <a ng-click="menu('#genre')" class="tab-item">
                 <i class="icon ion-male"></i>
                 Rated R
               </a>
-              <a class="tab-item" href="#">
+              <a ng-click="menu('#smart')" class="tab-item">
                 <i class="icon ion-social-android"></i>
                 Smart
               </a>

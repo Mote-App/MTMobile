@@ -177,8 +177,7 @@ angular.module('clcontrollers', [])
   };
 
   $scope.menu = function(menuType) {
-    $(menuType + " .circle").toggleClass('open');
-    
+    $(menuType + " .circle").toggleClass('open');   
   };
 
   $scope.tags = [];
@@ -191,7 +190,11 @@ angular.module('clcontrollers', [])
   };
   
   $scope.removeTag = function(tagId){
-     $scope.tags = $filter('filter')($scope.tags, !{'tagId': tagId});
+
+     $scope.tags = _.reject($scope.tags, function (obj){
+      return obj.tagId == tagId;
+     });
+
   };
 
 })

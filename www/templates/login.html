@@ -6,28 +6,28 @@
 
 	<div class="list">
 		 
-				<label class="item item-input item-select body-color">
-				    <div class="input-label">
-				      University
-				    </div>
-					<select class="item-input-wrapper">
-			      		<option value="{{ school.id }}" ng-repeat="school in schools">{{school.comment}}</option>
-			    	</select>
-			    </label>
+		<label class="item item-input item-select body-color">
+		    <div class="input-label">
+		      University
+		    </div>
+			<select class="item-input-wrapper">
+	      		<option value="{{ school.id }}" ng-repeat="school in schools">{{school.comment}}</option>
+	    	</select>
+	    </label>
 		  <div class="item item-input-inset body-color">
 			<label class="item-input-wrapper">
 				<i class="icon ion-ios7-email-outline placeholder-icon"></i>
 				<input type="text" placeholder=".edu Email Address" ng-model="loginData.user_name">
 			</label>	
 		  </div>
-		
+	
 		  <div class="item item-input-inset body-color">
 			<label class="item-input-wrapper">
 				<i class="icon ion-locked placeholder-icon"></i>
 				<input type="password" placeholder="password" ng-model="loginData.password">
 			</label>	
 		  </div>
-		  <button class="button button-block button-positive" ng_click="validate()">
+		  <button class="button button-block button-energized" ng_click="validate()">
 			Sign In
 		  </button>
 	</div>
