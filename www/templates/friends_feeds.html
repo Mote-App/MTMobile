@@ -3,9 +3,8 @@
     <h1 class="header-font title">Friends</h1>
   </div>
 
-  <div ng-include src="'templates/tags.html'"> 
-  </div>
-
+  <div circular-menu subtags="subtagsArr" selectedTags="selectedTagsArr"></div>
+  
   <ion-content class="has-header">
     <ion-list>
       <ion-item ng-repeat="user in users">
@@ -32,7 +31,7 @@
                 </p>
               </span>
               <div class="card">
-                  <span class="tagItem" ng-repeat="tag in tags"> {{ tag.tagText }} <a ng-click="removeTag( '{{ tag.tagId}}' )"><i class="icon ion-close-round"></i></a></span>
+                  <span class="tagItem" ng-repeat="tag in popularPostTags"> {{ tag.tagText }} <a ng-click="removeTag( '{{ tag.tagId}}' )"><i class="icon ion-close-round"></i></a></span>
               </div>
               <p>
                 <a href="#" class="subdued">{{ user.posts.popularPost.likes}} Like</a>
@@ -80,7 +79,7 @@
                 <p class="image-caption">{{user.posts.currentPost.caption}}</p>
               </span>
               <div class="card">
-                  <span class="tagItem" ng-repeat="tag in tags"> {{ tag.tagText }} <a ng-click="removeTag( '{{ tag.tagId}}' )"><i class="icon ion-close-round"></i></a></span>
+                  <span class="tagItem" ng-repeat="tag in currentPostTags"> {{ tag.tagText }} <a ng-click="removeTag( '{{ tag.tagId}}' )"><i class="icon ion-close-round"></i></a></span>
               </div>
               <p>
                 <a href="#" class="subdued">{{ user.posts.currentPost.likes}} Like</a>
@@ -94,11 +93,11 @@
                   <i class="icon ion-android-friends"></i>Social Life
               </a>
 
-              <a class="tab-item" ng-click="menu('#genre')">
+              <a ng-click="menu('#genre')" class="tab-item" >
                 <i class="icon ion-male"></i>
                 Rated R
               </a>
-              <a class="tab-item" ng-click="menu('#smart')">
+              <a ng-click="menu('#smart')" class="tab-item" >
                 <i class="icon ion-social-android"></i>
                 Smart
               </a>
@@ -126,7 +125,7 @@
                 </p>
               </span>
               <div class="card">
-                  <span class="tagItem" ng-repeat="tag in tags"> {{ tag.tagText }} <a ng-click="removeTag( '{{ tag.tagId}}' )"><i class="icon ion-close-round"></i></a></span>
+                  <span class="tagItem" ng-repeat="tag in mostRecentPostTags"> {{ tag.tagText }} <a ng-click="removeTag( '{{ tag.tagId}}' )"><i class="icon ion-close-round"></i></a></span>
               </div>
 
               <p>

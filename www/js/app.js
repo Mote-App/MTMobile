@@ -28,7 +28,7 @@ angular.module('starter', ['ionic', 'clcontrollers','clservices'])
   });
 })*/
 
-.run(function($ionicPlatform, $rootScope) {
+.run(function($ionicPlatform, $rootScope, Tags) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -39,6 +39,14 @@ angular.module('starter', ['ionic', 'clcontrollers','clservices'])
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+
+    Tags.query(function(tagData) { 
+        var subtags = tagData.subtags;
+        $rootScope.smartArr =  subtags.smarts;
+        $rootScope.socialArr = subtags.socials;
+        $rootScope.genreArr =  subtags.forbidden;
+
+    });
 
     $rootScope.appHeader="";
 

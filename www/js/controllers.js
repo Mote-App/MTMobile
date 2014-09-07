@@ -25,42 +25,76 @@ angular.module('clcontrollers', [])
 
 .directive('circularMenu', function() {
 
-  function link (scope, element, attrs){
-
-
-    //if (scope.$last){
-
-
-      var menuType = attrs.menuType;
-
-      var jquerySearchTag = "#" + menuType +  ' .circle a';
-
-      var items = $(jquerySearchTag);
-
-      var angle = 0;
-      
-
-      for(var i = 0, l = items.length; i < l; i++) {
-        
-        items[i].style.left = (50 - 55*Math.cos(-1 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
-
-        items[i].style.top = (50 + 55*Math.sin(-1 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";        
-      
-      }
-
-      /*$(".menu-button").click(function(e) {
-        console.log('clicked');
-         e.preventDefault();
-         $(".circle").toggleClass('open');
-      });*/
-
-    //}
-    
-  }
-
   return {
-    link: link
-  }
+    
+    restrict: 'EA', 
+    scope: {
+            
+            subtags: '=',
+            selectedTags: '='
+    },
+    templateUrl: 'templates/newtags.html',
+    controller: function($scope,sliceTagFilter){
+      //console.log ('$scope.subtags : ' +  $scope.subtags);
+
+      //$scope.tagsArr = sliceTagFilter($scope.subtags, "0,5");
+      console.log ('$scope.tagsArr : ' +  $scope.subtags);
+
+      $scope.$watch('subtags', function() {
+          $scope.tagsarr = sliceTagFilter($scope.subtags, "0,5");
+          $scope.menuIndex = 0;
+          $scope.menuIndexIncrement = 5;
+
+      });
+
+
+      $scope.adjustMenuIndex = function(){
+
+        if ( $scope.menuIndex >= $scope.subtags.length) {
+          $scope.menuIndex = 0;
+        }else{
+          $scope.menuIndex = $scope.menuIndex + $scope.menuIndexIncrement;
+        }
+
+        var offsetStr = $scope.menuIndex + "," + $scope.menuIndexIncrement;      
+        $scope.tagsarr =  sliceTagFilter($scope.subtags, offsetStr );
+        
+      };
+
+      $scope.tagged = function(tagId, tagText){
+
+        $scope.selectedTags.push({"tagId" : tagId, "tagText" : tagText});
+
+        $(".circle").toggleClass('open');
+      };
+  
+      $scope.removeTag = function(tagId){
+        $scope.tags = _.reject($scope.selectedTags, function (obj){
+          return obj.tagId == tagId;
+        });
+
+      };
+
+    },
+    link: function(scope, element, attrs){
+
+        //var menuType = attrs.menuType;
+
+        var jquerySearchTag = '#menu .circle a';
+
+        var items = $(jquerySearchTag);
+        
+        console.log( " ITems length : " + items.length );
+
+        for(var i = 0, l = items.length; i < l; i++) {
+          
+          items[i].style.left = (50 - 55*Math.cos(-1 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
+
+          items[i].style.top = (50 + 55*Math.sin(-1 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";        
+        
+        }     
+    }
+  }  
 })
 
 .controller('AppCtrl', function($scope) {
@@ -104,12 +138,41 @@ angular.module('clcontrollers', [])
 
 // ***************** Use for the login page :: End *****************
 
-.controller('FriendsFeedsCtrl', function($scope, $http, $ionicSlideBoxDelegate, $state, $filter, FriendFeed, Tags, sliceTagFilter) {
+.controller('FriendsFeedsCtrl', function($scope, 
+                                          $http, 
+                                          $ionicSlideBoxDelegate, 
+                                          $state, 
+                                          $filter, 
+                                          $rootScope,
+                                          FriendFeed, 
+                                          Tags, 
+                                          sliceTagFilter) {
   
   /*var data = Schools.query(function(imgData) { 
     $scope.imglists = imgData.schools;
   });*/
+
+  $scope.selectedTags = [];  
+  $scope.popularPostTags  = [];
+  $scope.currentPostTags  = [];
+  $scope.mostRecentPostTags   = [];
   
+  $scope.slideHasChanged = function(index) {
+
+    if ( index == 0){
+      $scope.selectedTags = $scope.popularPostTags;
+    }
+
+    if ( index == 1){
+      $scope.selectedTags = $scope.currentPostTags;
+    }
+
+    if ( index == 2){
+      $scope.selectedTags = $scope.mostRecentPostTags;
+    }
+
+  };
+
   var data = FriendFeed.query(function(friendFeedData) { 
     $scope.users = friendFeedData.users[0].friends;
   });
@@ -120,87 +183,34 @@ angular.module('clcontrollers', [])
  
   };
 
- var tags = Tags.query(function(tagData) { 
-      $scope.subtags = tagData.subtags;
 
-       
-      $scope.smartArr =  sliceTagFilter($scope.subtags.smarts, "0,5" );
-      $scope.socialArr =  sliceTagFilter($scope.subtags.socials, "0,5" );
-      $scope.genreArr =  sliceTagFilter($scope.subtags.forbidden, "0,5" );
-
- });
-
-
-  $scope.socialMenuIndex = 0;
-  $scope.smartMenuIndex = 0;
-  $scope.genreMenuIndex = 0;
-  $scope.menuIndexIncrement = 5;
-
-  $scope.adjustMenuIndex = function(menuType){
-
-    if ( menuType === "#social"){
-
-      if ( $scope.socialMenuIndex >= $scope.subtags.socials.length) {
-        $scope.socialMenuIndex = 0;
-      }else{
-        $scope.socialMenuIndex = $scope.socialMenuIndex + $scope.menuIndexIncrement;
-      }
-
-      var offsetStr = $scope.socialMenuIndex + "," + $scope.menuIndexIncrement;      
-      $scope.socialArr =  sliceTagFilter($scope.subtags.socials, offsetStr );
-    }
-    if ( menuType === "#smart"){
-      if ( $scope.smartMenuIndex >= $scope.subtags.smarts.length) {
-        $scope.smartMenuIndex = 0;
-      }else{
-        $scope.smartMenuIndex = $scope.smartMenuIndex + $scope.menuIndexIncrement;
-      }
-
-      var offsetStr = $scope.smartMenuIndex + "," + $scope.menuIndexIncrement;      
-      $scope.smartArr =  sliceTagFilter($scope.subtags.smarts, offsetStr );
-
-    }
-    if ( menuType === "#genre"){
-      if ( $scope.genreMenuIndex >= $scope.subtags.forbidden.length) {
-        $scope.genreMenuIndex = 0;
-      }else{
-        $scope.genreMenuIndex = $scope.genreMenuIndex + $scope.menuIndexIncrement;
-      }
-
-      var offsetStr = $scope.genreMenuIndex + "," + $scope.menuIndexIncrement;      
-      $scope.genreArr =  sliceTagFilter($scope.subtags.forbidden, offsetStr );
-
-    }
-
-    //console.log (menuType + " : " + socialMenuIndex);
-
-  };
-
-  $scope.menu = function(menuType) {
-    $(menuType + " .circle").toggleClass('open');   
-  };
-
-  $scope.tags = [];
-
-  $scope.tagged = function(tagId, tagText, menuType){
-
-      $scope.tags.push({"tagId" : tagId, "tagText" : tagText});
-
-      $(menuType + " .circle").toggleClass('open');
-  };
+  $scope.subtagsArr = [];
   
-  $scope.removeTag = function(tagId){
+  $scope.menu = function(menuType) {
 
-     $scope.tags = _.reject($scope.tags, function (obj){
-      return obj.tagId == tagId;
-     });
+    if ( menuType == "#social"){
+      $scope.subtagsArr = $rootScope.socialArr;
+    }
+    if ( menuType == "#smart"){
+      $scope.subtagsArr = $rootScope.smartArr;
+    }
+    if ( menuType == "#genre"){
+      $scope.subtagsArr = $rootScope.genreArr;
+    }
 
+    $(".circle").toggleClass('open');   
   };
 
 })
 
 
-.controller('SchoolFeedsCtrl', function($scope, $stateParams, $state, SchoolFeed) {
+.controller('SchoolFeedsCtrl', function($scope, 
+                                        $stateParams, 
+                                        $state, 
+                                        $rootScope,
+                                        SchoolFeed, 
+                                        Tags, 
+                                        sliceTagFilter) {
 	console.log("Inside SchoolFeedsCtrl");
 	var data = SchoolFeed.query(function(schoolFeedData) { 
 		$scope.schoolUsers = schoolFeedData.schools[0].users;
@@ -208,10 +218,34 @@ angular.module('clcontrollers', [])
 	
 	$scope.nationalFeed = function(){  
 		$state.go('app.national_feeds');
-	}
+	};
+
+  $scope.subtagsArr = $rootScope.socialArr;
+  
+  $scope.menu = function(menuType) {
+
+    if ( menuType == "#social"){
+      $scope.subtagsArr = $rootScope.socialArr;
+    }
+    if ( menuType == "#smart"){
+      $scope.subtagsArr = $rootScope.smartArr;
+    }
+    if ( menuType == "#genre"){
+      $scope.subtagsArr = $rootScope.genreArr;
+    }
+
+    $(".circle").toggleClass('open');   
+  };
+
 })
 
-.controller('NationalFeedsCtrl', function($scope, $stateParams, NationalFeed, Schools) {
+.controller('NationalFeedsCtrl', function($scope, 
+                                          $stateParams, 
+                                          $rootScope,
+                                          NationalFeed, 
+                                          Schools, 
+                                          Tags, 
+                                          sliceTagFilter) {
 
 	Schools.query(function(schoolData) {
 		$scope.schoolList = schoolData.schools;
@@ -221,7 +255,23 @@ angular.module('clcontrollers', [])
 		$scope.nationalUsers = nationalFeedData.nations[0].users;
 	});
   
+  $scope.subtagsArr = $rootScope.socialArr;
   
+  $scope.menu = function(menuType) {
+
+    if ( menuType == "#social"){
+      $scope.subtagsArr = $rootScope.socialArr;
+    }
+    if ( menuType == "#smart"){
+      $scope.subtagsArr = $rootScope.smartArr;
+    }
+    if ( menuType == "#genre"){
+      $scope.subtagsArr = $rootScope.genreArr;
+    }
+
+    $(".circle").toggleClass('open');   
+  };
+
 	//jQuery(document).ready(function(){
 	
 	$scope.renderCarousel = function(index) {

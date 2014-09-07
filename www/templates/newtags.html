@@ -1,0 +1,54 @@
+
+
+<svg>
+    <defs>
+        <path id="myTextPath"
+              d="M5,30 l10,0 l40,0"/>
+    </defs>
+</svg>
+
+
+<div id="menu" class="circular-menu">
+	<div class="circle">
+
+	    <a href="" ng-click="tagged( '{{tagsarr[0].id}}' , '{{tagsarr[0].tagText}}')" >
+			<svg>
+				<text>
+	  				<textPath xlink:href="#myTextPath" >{{ tagsarr[0].tagText }}</textPath>
+	  			</text>
+	  		</svg>
+	    </a>
+	    <a href="" ng-click="tagged( '{{tagsarr[1].id}}' , '{{tagsarr[1].tagText}}')" >
+			<svg>
+				<text>
+	  				<textPath xlink:href="#myTextPath" >{{ tagsarr[1].tagText }}</textPath>
+	  			</text>
+	  		</svg>
+	    </a>
+	    <a href="" ng-click="tagged( '{{tagsarr[2].id}}' , '{{tagsarr[2].tagText}}')" >
+			<svg>
+				<text>
+	  				<textPath xlink:href="#myTextPath" >{{ tagsarr[2].tagText }}</textPath>
+	  			</text>
+	  		</svg>
+	    </a>
+	    <a href="" ng-click="tagged( '{{tagsarr[3].id}}' , '{{tagsarr[3].tagText}}' )" >
+			<svg>
+				<text>
+	  				<textPath xlink:href="#myTextPath" >{{ tagsarr[3].tagText }}</textPath>
+	  			</text>
+	  		</svg>
+	    </a>
+	    <a href="" ng-click="tagged( '{{tagsarr[4].id}}' , '{{tagsarr[4].tagText}}')" >
+			<svg>
+				<text>
+	  				<textPath xlink:href="#myTextPath" >{{ tagsarr[4].tagText }}</textPath>
+	  			</text>
+	  		</svg>
+	    </a>
+	</div>
+	<div class="menu-button">
+		<a id="smartButton"  href="" ng-click="adjustMenuIndex('#smart')"><i class="icon ion-help-buoy"></i></a>
+	</div>
+</div> 
+
