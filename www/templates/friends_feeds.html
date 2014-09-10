@@ -3,7 +3,7 @@
     <h1 class="header-font title">Friends</h1>
   </div>
 
-  <div circular-menu subtags="subtagsArr" selectedTags="selectedTagsArr"></div>
+  <div circular-menu subtags="subtagsArr" selectedtags="selectedTagsArr"></div>
   
   <ion-content class="has-header">
     <ion-list>
@@ -31,7 +31,7 @@
                 </p>
               </span>
               <div class="card">
-                  <span class="tagItem" ng-repeat="tag in popularPostTags"> {{ tag.tagText }} <a ng-click="removeTag( '{{ tag.tagId}}' )"><i class="icon ion-close-round"></i></a></span>
+                  <span class="tagItem" ng-repeat="tag in user.posts.popularPost.tags"> {{findTagByTagId(tag)}}<a ng-click="removeTag( tag , user.posts.popularPost.tags)"><i class="icon ion-close-round"></i></a></span>
               </div>
               <p>
                 <a href="#" class="subdued">{{ user.posts.popularPost.likes}} Like</a>
@@ -40,15 +40,15 @@
             </div>
 
             <div class="item tabs tabs-secondary tabs-icon-left">
-              <a ng-click="menu('#social')" class="tab-item">
+              <a ng-click="menu('#social', user.posts.popularPost.tags)" class="tab-item">
                 <i class="icon ion-android-friends"></i>
                 Social Life
               </a>
-              <a ng-click="menu('#genre')" class="tab-item">
+              <a ng-click="menu('#genre', {{user.posts.popularPost.tags}})" class="tab-item">
                 <i class="icon ion-male"></i>
                 Rated R
               </a>
-              <a ng-click="menu('#smart')" class="tab-item">
+              <a ng-click="menu('#smart', {{user.posts.popularPost.tags}})" class="tab-item">
                 <i class="icon ion-social-android"></i>
                 Smart
               </a>
@@ -58,7 +58,6 @@
         </ion-slide>
 
         <ion-slide>
-		
 		
           <div class="card">			
 			
@@ -79,7 +78,7 @@
                 <p class="image-caption">{{user.posts.currentPost.caption}}</p>
               </span>
               <div class="card">
-                  <span class="tagItem" ng-repeat="tag in currentPostTags"> {{ tag.tagText }} <a ng-click="removeTag( '{{ tag.tagId}}' )"><i class="icon ion-close-round"></i></a></span>
+                  <span class="tagItem" ng-repeat="tag in user.posts.currentPost.tags"> {{findTagByTagId(tag)}}<a ng-click="removeTag( tag, user.posts.currentPost.tags )"><i class="icon ion-close-round"></i></a></span>
               </div>
               <p>
                 <a href="#" class="subdued">{{ user.posts.currentPost.likes}} Like</a>
@@ -89,15 +88,15 @@
 
             <div class="item tabs tabs-secondary tabs-icon-left">
 
-              <a ng-click="menu('#social')" class="tab-item">
+              <a ng-click="menu('#social', user.posts.currentPost.tags )" class="tab-item">
                   <i class="icon ion-android-friends"></i>Social Life
               </a>
 
-              <a ng-click="menu('#genre')" class="tab-item" >
+              <a ng-click="menu('#genre', user.posts.currentPost.tags )" class="tab-item" >
                 <i class="icon ion-male"></i>
                 Rated R
               </a>
-              <a ng-click="menu('#smart')" class="tab-item" >
+              <a ng-click="menu('#smart', user.posts.currentPost.tags )" class="tab-item" >
                 <i class="icon ion-social-android"></i>
                 Smart
               </a>
@@ -125,7 +124,7 @@
                 </p>
               </span>
               <div class="card">
-                  <span class="tagItem" ng-repeat="tag in mostRecentPostTags"> {{ tag.tagText }} <a ng-click="removeTag( '{{ tag.tagId}}' )"><i class="icon ion-close-round"></i></a></span>
+                  <span class="tagItem" ng-repeat="tag in user.posts.mostRecentPost.tags"> {{findTagByTagId(tag)}} <a ng-click="removeTag( '{{ tag }}', {{user.posts.mostRecentPost.tags}} )"><i class="icon ion-close-round"></i></a></span>
               </div>
 
               <p>
@@ -135,15 +134,15 @@
             </div>
 
             <div class="item tabs tabs-secondary tabs-icon-left">
-              <a ng-click="menu('#social')" class="tab-item">
+              <a ng-click="menu('#social', {{ user.posts.mostRecentPost.tags}})" class="tab-item">
                 <i class="icon ion-android-friends"></i>
                 Social Life
               </a>
-              <a ng-click="menu('#genre')" class="tab-item">
+              <a ng-click="menu('#genre', {{ user.posts.mostRecentPost.tags}})" class="tab-item">
                 <i class="icon ion-male"></i>
                 Rated R
               </a>
-              <a ng-click="menu('#smart')" class="tab-item">
+              <a ng-click="menu('#smart', {{ user.posts.mostRecentPost.tags}})" class="tab-item">
                 <i class="icon ion-social-android"></i>
                 Smart
               </a>

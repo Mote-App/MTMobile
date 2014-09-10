@@ -31,17 +31,17 @@ angular.module('clcontrollers', [])
     scope: {
             
             subtags: '=',
-            selectedTags: '='
+            selectedtags: '='
     },
     templateUrl: 'templates/newtags.html',
     controller: function($scope,sliceTagFilter){
-      //console.log ('$scope.subtags : ' +  $scope.subtags);
 
-      //$scope.tagsArr = sliceTagFilter($scope.subtags, "0,5");
-      console.log ('$scope.tagsArr : ' +  $scope.subtags);
+      $scope.$watch('selectedtags', function(){
+        console.log(" watching selectedTags : " + $scope.selectedtags);
+      });
 
       $scope.$watch('subtags', function() {
-          $scope.tagsarr = sliceTagFilter($scope.subtags, "0,5");
+          $scope.tagsarr = sliceTagFilter($scope.subtags, "0,5");         
           $scope.menuIndex = 0;
           $scope.menuIndexIncrement = 5;
 
@@ -50,11 +50,23 @@ angular.module('clcontrollers', [])
 
       $scope.adjustMenuIndex = function(){
 
+        //Handle the last menu items which is not in count of 5
+        var indexDiff = $scope.subtags.length - $scope.menuIndex;
+
+        if ( indexDiff != 0 && indexDiff < $scope.menuIndexIncrement){
+
+            $scope.menuIndex = $scope.menuIndex - ($scope.menuIndexIncrement - indexDiff);
+        } 
+
+        console.log(" adjusted menuIndex : " + $scope.menuIndex);
+
         if ( $scope.menuIndex >= $scope.subtags.length) {
           $scope.menuIndex = 0;
         }else{
           $scope.menuIndex = $scope.menuIndex + $scope.menuIndexIncrement;
         }
+
+        console.log("menuIndex : " + $scope.menuIndex);
 
         var offsetStr = $scope.menuIndex + "," + $scope.menuIndexIncrement;      
         $scope.tagsarr =  sliceTagFilter($scope.subtags, offsetStr );
@@ -63,17 +75,16 @@ angular.module('clcontrollers', [])
 
       $scope.tagged = function(tagId, tagText){
 
-        $scope.selectedTags.push({"tagId" : tagId, "tagText" : tagText});
+        if(tagId != undefined && tagId.length > 0 && $scope.selectedtags.indexOf(tagId) == -1){
+          $scope.selectedtags.push(tagId); 
+          console.log ('$scope.selectedTags : ' +  $scope.selectedtags);
+        }else{
+            console.log ('Invalid tagId : ' +  tagId);
+        }
 
         $(".circle").toggleClass('open');
       };
   
-      $scope.removeTag = function(tagId){
-        $scope.tags = _.reject($scope.selectedTags, function (obj){
-          return obj.tagId == tagId;
-        });
-
-      };
 
     },
     link: function(scope, element, attrs){
@@ -152,27 +163,7 @@ angular.module('clcontrollers', [])
     $scope.imglists = imgData.schools;
   });*/
 
-  $scope.selectedTags = [];  
-  $scope.popularPostTags  = [];
-  $scope.currentPostTags  = [];
-  $scope.mostRecentPostTags   = [];
   
-  $scope.slideHasChanged = function(index) {
-
-    if ( index == 0){
-      $scope.selectedTags = $scope.popularPostTags;
-    }
-
-    if ( index == 1){
-      $scope.selectedTags = $scope.currentPostTags;
-    }
-
-    if ( index == 2){
-      $scope.selectedTags = $scope.mostRecentPostTags;
-    }
-
-  };
-
   var data = FriendFeed.query(function(friendFeedData) { 
     $scope.users = friendFeedData.users[0].friends;
   });
@@ -184,9 +175,16 @@ angular.module('clcontrollers', [])
   };
 
 
+
+
   $scope.subtagsArr = [];
-  
-  $scope.menu = function(menuType) {
+  $scope.selectedTagsArr = [];
+
+  $scope.menu = function(menuType, tagsArr) {
+
+    console.log('tagsArr : ' + tagsArr);
+
+    $scope.selectedTagsArr = tagsArr;
 
     if ( menuType == "#social"){
       $scope.subtagsArr = $rootScope.socialArr;
@@ -199,6 +197,14 @@ angular.module('clcontrollers', [])
     }
 
     $(".circle").toggleClass('open');   
+  };
+
+  $scope.removeTag = function(tagId, tagsArr){
+    $scope.tags = _.reject(tagsArr, function (tag){
+      return tag == tagId;
+    });
+
+    $scope.selectedTagsArr = $scope.tags;
   };
 
 })

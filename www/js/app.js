@@ -28,7 +28,7 @@ angular.module('starter', ['ionic', 'clcontrollers','clservices'])
   });
 })*/
 
-.run(function($ionicPlatform, $rootScope, Tags) {
+.run(function($ionicPlatform, $rootScope, $filter, Tags) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -41,14 +41,35 @@ angular.module('starter', ['ionic', 'clcontrollers','clservices'])
     }
 
     Tags.query(function(tagData) { 
-        var subtags = tagData.subtags;
-        $rootScope.smartArr =  subtags.smarts;
-        $rootScope.socialArr = subtags.socials;
-        $rootScope.genreArr =  subtags.forbidden;
+        $rootScope.allSubtags = tagData.subtags;
+        $rootScope.smartArr =  $rootScope.allSubtags.smarts;
+        $rootScope.socialArr = $rootScope.allSubtags.socials;
+        $rootScope.genreArr =  $rootScope.allSubtags.genre;
 
     });
 
     $rootScope.appHeader="";
+
+    $rootScope.findTagByTagId = function(tagId){
+
+      var result = tagId.split('_');
+      var tagObj = {};
+      //smart
+      if( result[0] == "1"){
+        tagObj = ($filter('filter')($rootScope.smartArr,{id: tagId}))[0];
+        //($rootScope.smartArr | filter:{id: tagId } )[0].tagText;
+      }
+      //social
+      if( result[0] == "2"){
+        tagObj = ($filter('filter')($rootScope.socialArr,{id: tagId}))[0];
+      }
+      //genre
+      if( result[0] == "3"){
+        tagObj = ($filter('filter')($rootScope.genreArr,{id: tagId}))[0];
+      }
+      
+      return tagObj.tagText;
+    };
 
   });
 })

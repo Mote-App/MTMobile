@@ -48,10 +48,18 @@
   width: 4em;
   height: 4em;
   border-radius: 50%;
-  background: #429a67;
-
+  background-color: rgb(254, 198, 61);
+  box-shadow: 5px 5px 5px #000000;
+  
 }
-
+.circle a div { position: relative; top:20%; cursor: pointer;}
+.circle a div p {position: relative; top: -50%; font-size: 10px;}
+/*.circle a p {
+  vertical-align: middle; 
+  text-align: center; 
+  font-size: 12px;
+  word-break: break-all;
+}*/
 .circle a:hover {
   color: #eef;
 }
@@ -70,8 +78,8 @@
 
 .menu-button {
   position: absolute;
-  top: 62%;
-  left: 54%;
+  top: 48%;
+  left: 42%;
   text-decoration: none;
   text-align: center;
   color: #444;
@@ -81,7 +89,7 @@
   width: 40px;
   line-height: 40px;
   padding: 10px;
-  background: #429a67;
+  background-color: rgb(254, 198, 61);
 
 }
 
