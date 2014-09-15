@@ -99,15 +99,13 @@ angular.module('clcontrollers', [])
       if ( items.length > 5) {
           items.splice(0,5);
       }      
-        console.log(" original menu length :" + items.length);
+      for(var i = 0, l = items.length; i < l; i++) {
+        
+          items[i].style.left = (50 - 55*Math.cos(-1 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
 
-        for(var i = 0, l = items.length; i < l; i++) {
-          
-            items[i].style.left = (50 - 55*Math.cos(-1 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
-
-            items[i].style.top = (50 + 55*Math.sin(-1 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";        
-          
-        }
+          items[i].style.top = (50 + 55*Math.sin(-1 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";        
+        
+      }
         
 
     },
@@ -383,10 +381,13 @@ angular.module('clcontrollers', [])
 		
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('ProfileCtrl', function($scope, $stateParams) {
 
 })
 
 .controller('SearchCtrl', function($scope, $stateParams) {
 
+  $scope.filterByTags = [];
+  $scope.searchCriteria = 0;
+  
 })

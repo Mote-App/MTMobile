@@ -1,7 +1,12 @@
-  <div class="bar bar-header header-color">
+  <!--<div class="bar bar-header header-color">
     <a class="button icon-left ion-arrow-left-a button-clear button-dark" href="#/app/friends_feeds"></a>
     <h1 class="header-font title">School</h1>
-  </div>
+  </div>-->
+  <ion-view title="School">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+
   <div circular-menu subtags="subtagsArr" selectedtags="selectedTagsArr"></div>
 
   <ion-content class="has-header">
@@ -146,3 +151,4 @@
     </ion-item>
   </ion-list>
 </ion-content>
+</ion-view>

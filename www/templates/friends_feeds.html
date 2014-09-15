@@ -1,7 +1,16 @@
-  <div class="bar bar-header header-color">
+  <!--<div class="bar bar-header header-color">
+    <ion-nav-buttons side="left">
+      <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+
     <a class="button icon-left ion-arrow-left-a button-clear button-dark" href="#/app/login"></a>
     <h1 class="header-font title">Friends</h1>
-  </div>
+  </div>-->
+<ion-view title="Friends">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+
   <div circular-menu subtags="subtagsArr" selectedtags="selectedTagsArr" mypagekey="friends"></div>
   
   <ion-content class="has-header">
@@ -50,6 +59,11 @@
                 <i class="icon ion-social-android"></i>
                 Smart
               </a>
+              <a ng-click="menu('#customTag', user.posts.popularPost.tags)" class="tab-item">
+                <i class="icon ion-social-android"></i>
+                Custom Tag
+              </a>
+
             </div>
 
           </div>
@@ -151,3 +165,4 @@
     </ion-item>
   </ion-list>
 </ion-content>
+</ion-view>

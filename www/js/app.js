@@ -146,6 +146,16 @@ angular.module('starter', ['ionic', 'clcontrollers','clservices'])
     })
     // ***************** Use for the login page :: End *****************
     
+    .state('app.profile', {
+      url: "/search",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/profile.html",
+          controller: 'ProfileCtrl'
+        }
+      }
+    })
+
     .state('app.search', {
       url: "/search",
       views: {
@@ -194,12 +204,12 @@ angular.module('starter', ['ionic', 'clcontrollers','clservices'])
       }
     })
 	
-    .state('app.single', {
-      url: "/playlists/:playlistId",
+    .state('app.custom_tags', {
+      url: "/custom_tags",
       views: {
         'menuContent' :{
-          templateUrl: "templates/playlist.html",
-          controller: 'PlaylistCtrl'
+          templateUrl: "templates/custom_tags.html",
+          controller: 'CustomTagCtrl'
         }
       }
     });

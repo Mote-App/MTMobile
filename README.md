@@ -1,3 +1,15 @@
+
+Steps for installation:
+
+Here is the website which has complete steps and explanation to install ionic framework.
+
+In case the above doc is confusing, then I am summarizing the steps:
+
+1. Install Node.js http://nodejs.org/ , click the download link and open the installer (.msi in Win, .dmg in Mac) to start installer
+2. Install ionic by running the command in shell/Dos prompt  'npm install -g cordova ionic'
+3. Make sure the github code CLMobile is available locally on your desktop, open the shell/Dos command prompt, and switch to directory one level inside the project directory, i.e. when you browse the directory you should see 'www'.
+4. Once you are at the directory level, then run comand "ionic serve". It will start a browser automatically bringing up the running apps. Use your mouse to navigate.
+
 Ionic App Base
 =====================
 
