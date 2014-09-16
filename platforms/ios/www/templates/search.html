@@ -3,23 +3,70 @@
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
   <ion-content class="has-header">
-    <h1>Search</h1>
 
+    <div class="card">
+        <div class="item item-divider">
+            Filter Posts By one or more Tag
+        </div>
+        <span class="tagItem" ng-repeat="tag in filterByTags"> {{findTagByTagId(tag)}}<a ng-click="removeTag( tag , filterByTags)"><i class="icon ion-close-round"></i></a></span>
+    </div>
 
-            <div id="ex-full-spinopen" style="display:block; width: 300px; height: 300px; border: 1px solid black; position: relative; overflow: hidden;">
-                <ul class="menu circleMenu-closed" id="menu2">
-                    <li><a href="#"></a></li>
-                    <li><a href="#" alt="Item 1" title="Item 1">1</a></li>
-                    <li><a href="#" alt="Item 2" title="Item 2">2</a></li>
-                    <li><a href="#" alt="Item 3" title="Item 3">3</a></li>
-                    <li><a href="#" alt="Item 4" title="Item 4">4</a></li>
-                    <li><a href="#" alt="Item 5" title="Item 5">5</a></li>
-                    <li><a href="#" alt="Item 6" title="Item 6">6</a></li>
-                    <li><a href="#" alt="Item 7" title="Item 7">7</a></li>
-                    <li><a href="#" alt="Item 8" title="Item 8">8</a></li>
-                    <li><a href="#" alt="Item 9" title="Item 9">9</a></li>
-                    <li><a href="#" alt="Item 10" title="Item 10">10</a></li>
-                </ul>
-            </div>
+    <div class="item tabs tabs-secondary tabs-icon-left">
+      <a ng-click="menu('#social', user.posts.popularPost.tags)" class="tab-item">
+        <i class="icon ion-android-friends"></i>
+        Social Life
+      </a>
+      <a ng-click="menu('#genre', user.posts.popularPost.tags)" class="tab-item">
+        <i class="icon ion-male"></i>
+        Rated R
+      </a>
+      <a ng-click="menu('#smart', user.posts.popularPost.tags)" class="tab-item">
+        <i class="icon ion-social-android"></i>
+        Smart
+      </a>
+      <a ng-click="menu('#customTag', user.posts.popularPost.tags)" class="tab-item">
+        <i class="icon ion-social-android"></i>
+        Custom Tag
+      </a>
+    </div>
+    
+    <div class="card">
+        
+        <div class="list">         
+            <label class="item item-input item-select body-color">
+                <div class="input-label">
+                    Filter Posts Criteria
+                </div>
+                <select class="item-input-wrapper" ng-modal="searchCriteria">
+                    <option value="1">Filter By Friends</option>
+                    <option value="2">Filter By Likes Range</option>
+                    <option value="3">Filter By Dates Range</option>
+                    <option value="4">Filter By text</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="item item-input-inset body-color">
+            <label ng-if=" searchCriteria == 1" class="item-input-wrapper">
+                <i class="icon ion-funnel placeholder-icon"></i>
+                <input type="text" placeholder="Select one or more friends" ng-model="searchData">
+            </label> 
+            <label ng-if=" searchCriteria == 2" class="item-input-wrapper">
+                <i class="icon ion-funnel placeholder-icon"></i>
+                <input type="text" placeholder="Select Likes range" ng-model="searchData">
+            </label>    
+            <label ng-if=" searchCriteria == 3" class="item-input-wrapper">
+                <i class="icon ion-funnel placeholder-icon"></i>
+                <input type="text" placeholder="Select Dates range" ng-model="searchData">
+            </label>    
+            <label ng-if=" searchCriteria == 4" class="item-input-wrapper">
+                <i class="icon ion-funnel placeholder-icon"></i>
+                <input type="text" placeholder="Search Text" ng-model="searchData">
+            </label>    
+   
+        </div>
+
+    </div>
+    
   </ion-content>
 </ion-view>

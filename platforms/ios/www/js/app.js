@@ -28,7 +28,7 @@ angular.module('starter', ['ionic', 'clcontrollers','clservices'])
   });
 })*/
 
-.run(function($ionicPlatform, $rootScope) {
+.run(function($ionicPlatform, $rootScope, $filter, Tags) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -40,7 +40,36 @@ angular.module('starter', ['ionic', 'clcontrollers','clservices'])
       StatusBar.styleDefault();
     }
 
+    Tags.query(function(tagData) { 
+        $rootScope.allSubtags = tagData.subtags;
+        $rootScope.smartArr =  $rootScope.allSubtags.smarts;
+        $rootScope.socialArr = $rootScope.allSubtags.socials;
+        $rootScope.genreArr =  $rootScope.allSubtags.genre;
+
+    });
+
     $rootScope.appHeader="";
+
+    $rootScope.findTagByTagId = function(tagId){
+
+      var result = tagId.split('_');
+      var tagObj = {};
+      //smart
+      if( result[0] == "1"){
+        tagObj = ($filter('filter')($rootScope.smartArr,{id: tagId}))[0];
+        //($rootScope.smartArr | filter:{id: tagId } )[0].tagText;
+      }
+      //social
+      if( result[0] == "2"){
+        tagObj = ($filter('filter')($rootScope.socialArr,{id: tagId}))[0];
+      }
+      //genre
+      if( result[0] == "3"){
+        tagObj = ($filter('filter')($rootScope.genreArr,{id: tagId}))[0];
+      }
+      
+      return tagObj.tagText;
+    };
 
   });
 })
@@ -117,6 +146,16 @@ angular.module('starter', ['ionic', 'clcontrollers','clservices'])
     })
     // ***************** Use for the login page :: End *****************
     
+    .state('app.profile', {
+      url: "/search",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/profile.html",
+          controller: 'ProfileCtrl'
+        }
+      }
+    })
+
     .state('app.search', {
       url: "/search",
       views: {
@@ -165,12 +204,12 @@ angular.module('starter', ['ionic', 'clcontrollers','clservices'])
       }
     })
 	
-    .state('app.single', {
-      url: "/playlists/:playlistId",
+    .state('app.custom_tags', {
+      url: "/custom_tags",
       views: {
         'menuContent' :{
-          templateUrl: "templates/playlist.html",
-          controller: 'PlaylistCtrl'
+          templateUrl: "templates/custom_tags.html",
+          controller: 'CustomTagCtrl'
         }
       }
     });
