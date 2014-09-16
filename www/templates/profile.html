@@ -3,48 +3,38 @@
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
 
-   <ion-tabs class="tabs-positive tabs-icon-only">
-	  <ion-tab title="Postings" icon-on="ion-ios7-filing" icon-off="ion-ios7-filing-outline">
-	  		<div class="card">
-			    <div  class="item item-avatar align-card-header">
-			      <img src="{{user.profileImg}}">
-			      <h4>{{user.name}}</h4>
+   <ion-tabs class="tabs-icon-only">
+	  <ion-tab title="Postings" icon-on="ion-ios7-person" icon-off="ion-ios7-person-outline">
+	  	
+	  	<div class="list has-header">
+	  		<div class="item">			    
+			      <h4>{{profile.firstName + ' ' + profile.lastName}}</h4>
+			      <img src="{{profile.profileImg}}">
 			      <p>
-		            <a href="#" class="subdued">{{ user.posts.mostRecentPost.likes}} Like</a>
+		            <a href="#" class="subdued">{{ profile.likesCount}} Likes</a>
 		          </p>
-			    </div>
+			    
 		    </div>
 
-	       <div class="card">
-		    	<div class="item">
-		          <img class="full-image" src="{{user.posts.popularPost.postImg}}">
-		          <span>
-		            <p class="image-caption">
-		              {{user.posts.popularPost.caption}}
-		            </p>
-		          </span>
-		        </div>
-		        <div class="item">
-		          <img class="full-image" src="{{user.posts.currentPost.postImg}}">
-		          <span>
-		            <p class="image-caption">
-		              {{user.posts.currentPost.caption}}
-		            </p>
-		          </span>
-		        </div>
-		        <div class="item">
-		          <img class="full-image" src="{{user.posts.mostRecentPost.postImg}}">
-		          <span>
-		            <p class="image-caption">
-		              {{user.posts.mostRecentPost.caption}}
-		            </p>
-		          </span>
-		        </div>
-		    </div>        
+	       <div class="item">		    	
+	    		<div class="profile-img-style">	
+		          <img class="profile-img-size" src="{{profile.posts.popularPost.postImg}}">
+		         </div>
+	        
+	        	<div class="profile-img-style">
+		          <img class="profile-img-size" src="{{profile.posts.currentPost.postImg}}">
+		         </div>
+	        
+	        	<div class="profile-img-style">	
+		          <img class="profile-img-size" src="{{profile.posts.mostRecentPost.postImg}}">
+		         </div>		        
+		    </div>
+		 </div>        
 
 	  </ion-tab>
 
-	  <ion-tab title="Personal Info" icon-on="ion-ios7-clock" icon-off="ion-ios7-clock-outline">
+	  <ion-tab title="PersonalInfo" icon-on="ion-ios7-email" icon-off="ion-ios7-email-outline">
+	  
 	    <div class="list">	    	
 
 	    	<label class="item item-input item-select body-color">
@@ -60,7 +50,7 @@
 			      First Name
 			    </div>
 				<label class="item-input-wrapper">
-					<input type="text" placeholder="First Name" ng-model="user.firstName">
+					<input type="text" placeholder="First Name" ng-model="profile.firstName">
 				</label>	
 		  	</div>
 		  	<div class="item item-input-inset body-color">
@@ -68,7 +58,7 @@
 			      Last Name
 			    </div>
 				<label class="item-input-wrapper">
-					<input type="text" placeholder="Last Name" ng-model="user.lasttName">
+					<input type="text" placeholder="Last Name" ng-model="profile.lasttName">
 				</label>	
 		  	</div>
 		  	<div class="item item-input-inset body-color">
@@ -76,7 +66,7 @@
 			      Address1
 			    </div>
 				<label class="item-input-wrapper">
-					<input type="text" placeholder="Address1" ng-model="user.address1">
+					<input type="text" placeholder="Address1" ng-model="profile.address1">
 				</label>	
 		  	</div>
 		  	<div class="item item-input-inset body-color">
@@ -84,7 +74,7 @@
 			      Address2
 			    </div>
 				<label class="item-input-wrapper">
-					<input type="text" placeholder="Address2" ng-model="user.address2">
+					<input type="text" placeholder="Address2" ng-model="profile.address2">
 				</label>	
 		  	</div>
 		  	<div class="item item-input-inset body-color">
@@ -92,7 +82,7 @@
 			      Mobile
 			    </div>
 				<label class="item-input-wrapper">
-					<input type="text" placeholder="Mobile" ng-model="user.mobile">
+					<input type="text" placeholder="Mobile" ng-model="profile.mobile">
 				</label>	
 		  	</div>
 

@@ -1,6 +1,6 @@
 /* Empty. Add your own CSS if you like */
 
-.header-color{
+.tabs, .header-color{
 	background-color: rgb(76, 122, 52);
 }
 
@@ -9,7 +9,8 @@
 	font-size: 40px !important;
 }
 
-ion-nav-bar, .card > div , .list > ion-item, ion-content , .list > label , .list > div, .list > li , .list > .card > a , .item-avatar, .card, .bg-color{
+ion-nav-bar, .card > div , .list > ion-item, ion-content , .list > label , 
+.list > div, .list > li , .list > .card > a , .item-avatar, .card, .pane, .bg-color {
 	background-color: rgb(254, 198, 61);
 }
 
@@ -34,9 +35,16 @@ ion-nav-bar, .card > div , .list > ion-item, ion-content , .list > label , .list
 	border-width: 1px;	
 }
 
-svg text {
-  font-size: x-small;
-  word-break: break-all;
+
+.profile-img-style {
+	float: left;
+	width: 33%;
+	height: 30%;
+}
+.profile-img-size {
+	
+	width: 100%;
+	height: 30%;
 }
 
 .align-card-header {

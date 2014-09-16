@@ -282,7 +282,7 @@ angular.module('clcontrollers', [])
 		$scope.schoolList = schoolData.schools;
 	});
 	
-	var data = NationalFeed.query(function(nationalFeedData) { 
+	NationalFeed.query(function(nationalFeedData) { 
 		$scope.nationalUsers = nationalFeedData.nations[0].users;
 	});
   
@@ -381,8 +381,11 @@ angular.module('clcontrollers', [])
 		
 })
 
-.controller('ProfileCtrl', function($scope, $stateParams) {
+.controller('ProfileCtrl', function($scope, $stateParams, Profile) {
 
+  Profile.query(function(profileData) {
+    $scope.profile = profileData.user;
+  });
 })
 
 .controller('SearchCtrl', function($scope, $stateParams) {
