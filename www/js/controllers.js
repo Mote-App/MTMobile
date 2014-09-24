@@ -10,6 +10,24 @@ angular.module('clcontrollers', [])
   };
 })
 
+.directive("waterWheelCarousel", function(){
+
+    return {
+
+      restrict: 'EA', 
+      scope: {
+              
+      },
+      controller: function($scope,sliceTagFilter){
+
+      },
+      link: function(scope,element,attrs){
+        
+      }
+    }
+
+})
+
 .directive('repeatComplete', function(){ 
 	function link (scope, element, attrs) {
 		if (scope.$last){
@@ -78,7 +96,7 @@ angular.module('clcontrollers', [])
 
         if(tagId != undefined && tagId.length > 0 && $scope.selectedtags.indexOf(tagId) == -1){
           $scope.selectedtags.push(tagId); 
-          console.log ('$scope.selectedTags : ' +  $scope.selectedtags);
+          
         }else{
             console.log ('Invalid tagId : ' +  tagId);
         }
@@ -324,8 +342,8 @@ angular.module('clcontrollers', [])
 	
 	$scope.renderCarousel = function(index) {
 			console.log ( "total image :" + index);
-            var carousel = $('#carousel').waterwheelCarousel({
-            flankingItems: 3,
+      var carousel = $('#carousel').waterwheelCarousel({
+      flankingItems: 3,
 			forcedImageWidth: 80,
 			forcedImageHeight: 80,
 			separation: 80,
@@ -362,7 +380,7 @@ angular.module('clcontrollers', [])
             return false;
           });
 
-          $('#socialLife').bind('click', function () {
+          /*$('#socialLife').bind('click', function () {
               $("#subtags").empty();
               $("#subtags").append(buildElement(subtagsText.socialLife));
           });
@@ -375,7 +393,7 @@ angular.module('clcontrollers', [])
           $('#sex').bind('click', function () {
               $("#subtags").empty();
               $("#subtags").append(buildElement(subtagsText.sex));
-          });
+          });*/
 
     };
 		
