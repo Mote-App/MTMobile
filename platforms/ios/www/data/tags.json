@@ -37,7 +37,7 @@
 			                  			{"id": "2_26", "tagText" : "WRITE YOUR OWN"}
 			                  		],
 
-			        "forbidden" : [
+			        "genre" : [
 			          			{"id" : "3_1" ,"tagText" : "Sloppy Makeouts"},
 			          			{"id" : "3_2" ,"tagText" : "Helpful Professors"},
 			          			{"id" : "3_3" ,"tagText" : "Extravert"},
