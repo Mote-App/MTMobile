@@ -16,14 +16,61 @@ angular.module('clcontrollers', [])
 
       restrict: 'EA', 
       scope: {
-              
+          clcontext: '='
       },
-      controller: function($scope,sliceTagFilter){
+      
+      controller: function($scope,Schools){
+
+        Schools.query(function(schoolData) { 
+          $scope.schools = schoolData.schools;
+        });
 
       },
       link: function(scope,element,attrs){
-        
-      }
+       
+            var contextTag = "#" + attrs.clcontext;
+            var carousel = $(contextTag).waterwheelCarousel({
+            flankingItems: 3,
+            forcedImageWidth: 80,
+            forcedImageHeight: 80,
+            separation: 80,
+                  movingToCenter: function ($item) {
+                    $('#callback-output').prepend('movingToCenter: ' + $item.attr('id') + '<br/>');
+                  },
+                  movedToCenter: function ($item) {
+                    $('#callback-output').prepend('movedToCenter: ' + $item.attr('id') + '<br/>');
+                  },
+                  movingFromCenter: function ($item) {
+                    $('#callback-output').prepend('movingFromCenter: ' + $item.attr('id') + '<br/>');
+                  },
+                  movedFromCenter: function ($item) {
+                    $('#callback-output').prepend('movedFromCenter: ' + $item.attr('id') + '<br/>');
+                  },
+                  clickedCenter: function ($item) {
+                    $('#callback-output').prepend('clickedCenter: ' + $item.attr('id') + '<br/>');
+                  }
+                });
+
+                $('#prev').bind('click', function () {
+                  carousel.prev();
+                  return false;
+                });
+
+                $('#next').bind('click', function () {
+                  carousel.next();
+                  return false;
+                });
+
+                $('#reload').bind('click', function () {
+                  newOptions = eval("(" + $('#newoptions').val() + ")");
+                  carousel.reload(newOptions);
+                  return false;
+                });
+
+          
+      },
+      templateUrl: 'templates/water_wheel_carousel.html'
+
     }
 
 })
@@ -141,7 +188,7 @@ angular.module('clcontrollers', [])
   $rootScope.appHeader = "CollegeLife";
   $scope.loginData = {};
 
-  var data = Schools.query(function(schoolData) { 
+  Schools.query(function(schoolData) { 
     $scope.schools = schoolData.schools;
   });
 
@@ -296,10 +343,6 @@ angular.module('clcontrollers', [])
                                           Tags, 
                                           sliceTagFilter) {
 
-	Schools.query(function(schoolData) {
-		$scope.schoolList = schoolData.schools;
-	});
-	
 	NationalFeed.query(function(nationalFeedData) { 
 		$scope.nationalUsers = nationalFeedData.nations[0].users;
 	});
@@ -339,63 +382,6 @@ angular.module('clcontrollers', [])
   };
 
 	//jQuery(document).ready(function(){
-	
-	$scope.renderCarousel = function(index) {
-			console.log ( "total image :" + index);
-      var carousel = $('#carousel').waterwheelCarousel({
-      flankingItems: 3,
-			forcedImageWidth: 80,
-			forcedImageHeight: 80,
-			separation: 80,
-            movingToCenter: function ($item) {
-              $('#callback-output').prepend('movingToCenter: ' + $item.attr('id') + '<br/>');
-            },
-            movedToCenter: function ($item) {
-              $('#callback-output').prepend('movedToCenter: ' + $item.attr('id') + '<br/>');
-            },
-            movingFromCenter: function ($item) {
-              $('#callback-output').prepend('movingFromCenter: ' + $item.attr('id') + '<br/>');
-            },
-            movedFromCenter: function ($item) {
-              $('#callback-output').prepend('movedFromCenter: ' + $item.attr('id') + '<br/>');
-            },
-            clickedCenter: function ($item) {
-              $('#callback-output').prepend('clickedCenter: ' + $item.attr('id') + '<br/>');
-            }
-          });
-
-          $('#prev').bind('click', function () {
-            carousel.prev();
-            return false;
-          });
-
-          $('#next').bind('click', function () {
-            carousel.next();
-            return false;
-          });
-
-          $('#reload').bind('click', function () {
-            newOptions = eval("(" + $('#newoptions').val() + ")");
-            carousel.reload(newOptions);
-            return false;
-          });
-
-          /*$('#socialLife').bind('click', function () {
-              $("#subtags").empty();
-              $("#subtags").append(buildElement(subtagsText.socialLife));
-          });
-
-          $('#smarts').bind('click', function () {
-              $("#subtags").empty();
-              $("#subtags").append(buildElement(subtagsText.smarts));
-          });
-
-          $('#sex').bind('click', function () {
-              $("#subtags").empty();
-              $("#subtags").append(buildElement(subtagsText.sex));
-          });*/
-
-    };
 		
 })
 

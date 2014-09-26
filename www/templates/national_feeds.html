@@ -12,9 +12,7 @@
   
   <ion-content class="has-header">
 	
-	<div id="carousel" style="height: 80px; width:420px;display:relative;" >           
-         <img ng-repeat=" school in schoolList | limitTo:20" repeat-complete="renderCarousel( $index )" class="img-rounded img-responsive"  src="{{ school.imgPath }}" id="{{school.id}}" />      
-  </div>
+	<div water-wheel-carousel clcontext="national"></div>
 
     <ion-list>
       <ion-item ng-repeat="user in nationalUsers">

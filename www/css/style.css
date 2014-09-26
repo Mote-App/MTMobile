@@ -52,3 +52,10 @@ ion-nav-bar, .card > div , .list > ion-item, ion-content , .list > label ,
 	float: left; 
 	width: 50%;"
 }
+
+.cl-carousel{
+	
+	height: 80px; 
+	width: 420px;
+	position: relative;
+}

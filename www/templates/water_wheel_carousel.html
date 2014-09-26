@@ -1,0 +1,6 @@
+
+<div id="national" style="height: 80px; width: 420px; position: relative;" >           
+         <img ng-repeat="school in schools | limitTo:10" 
+         class="img-rounded img-responsive"  
+         src="{{ school.imgPath }}" id="{{school.id}}" />      
+  </div>
