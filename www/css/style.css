@@ -9,9 +9,13 @@
 	font-size: 40px !important;
 }
 
-ion-nav-bar, .card > div , .list > ion-item, ion-content , .list > label , 
-.list > div, .list > li , .list > .card > a , .item-avatar, .card, .pane, .bg-color {
+ion-nav-bar, .card > div , .list > ion-item, ion-content ,  .item-complex  .item-content, .list > label , 
+.list > div, .list > li , .list > .card > a , .item-avatar, .card, .pane, .bg-color , #carousel{
 	background-color: rgb(254, 198, 61);
+}
+
+.item-complex  .item-content {
+	font-weight: bold;
 }
 
 .bar.bar-stable {
@@ -53,9 +57,17 @@ ion-nav-bar, .card > div , .list > ion-item, ion-content , .list > label ,
 	width: 50%;"
 }
 
-.cl-carousel{
-	
-	height: 80px; 
-	width: 420px;
-	position: relative;
+#carousel {
+	width:420px;
+	border:1px solid #222;
+	height:80px;
+	position:relative;
+	clear:both;
+	overflow:hidden;
+	//background:#FFF;
+}
+
+#carousel img {
+	visibility:hidden; /* hide images until carousel can handle them */
+	cursor:pointer; /* otherwise it's not as obvious items can be clicked */
 }

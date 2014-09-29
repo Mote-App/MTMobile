@@ -29,6 +29,7 @@ angular.module('clcontrollers', [])
       link: function(scope,element,attrs){
        
             var contextTag = "#" + attrs.clcontext;
+
             var carousel = $(contextTag).waterwheelCarousel({
             flankingItems: 3,
             forcedImageWidth: 80,
