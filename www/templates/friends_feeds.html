@@ -27,7 +27,7 @@
             </div>
       			<div class="item item-avatar align-card-header">							
       				<img src="{{ user.SchoolImg}}" ng-click="schoolFeed( {{user.schoolId}})"><img src="{{ user.SchoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">background
-      				<h2 ng-click="schoolFeed( {{user.posts.popularPost.schoolId}})">{{ user.posts.popularPost.SchoolName}}</h2>
+      				<h4 ng-click="schoolFeed( {{user.posts.popularPost.schoolId}})">{{ user.posts.popularPost.SchoolName}}</h4>
       			</div>
             
               
@@ -39,7 +39,12 @@
                 </p>
               </span>
               <div class="card">
-                  <span class="tagItem" ng-repeat="tag in user.posts.popularPost.tags"> {{findTagByTagId(tag)}}<a ng-click="removeTag( tag , user.posts.popularPost.tags)"><i class="icon ion-close-round"></i></a></span>
+                <span class="tagItem" ng-repeat="tag in user.posts.popularPost.tags"> 
+				  {{findTagByTagId(tag)}}
+					<a ng-click="removeTag( tag , user.posts.popularPost.tags)">
+						<i class="icon ion-close-round"></i>
+					</a>
+				</span>
               </div>
               <p>
                 <a href="#" class="subdued">{{ user.posts.popularPost.likes}} Like</a>
@@ -80,7 +85,7 @@
       			</div>
       			<div class="item item-avatar align-card-header">							
       				<img src="{{ user.SchoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
-      				<h2 ng-click="schoolFeed( {{user.posts.currentPost.schoolId}})">{{ user.posts.currentPost.SchoolName}}</h2>
+      				<h4 ng-click="schoolFeed( {{user.posts.currentPost.schoolId}})">{{ user.posts.currentPost.SchoolName}}</h4>
       			</div>	
 			
 			
@@ -90,7 +95,12 @@
                 <p class="image-caption">{{user.posts.currentPost.caption}}</p>
               </span>
               <div class="card">
-                  <span class="tagItem" ng-repeat="tag in user.posts.currentPost.tags"> {{findTagByTagId(tag)}}<a ng-click="removeTag( tag, user.posts.currentPost.tags )"><i class="icon ion-close-round"></i></a></span>
+                <span class="tagItem" ng-repeat="tag in user.posts.currentPost.tags"> 
+				  {{findTagByTagId(tag)}}
+					<a ng-click="removeTag( tag, user.posts.currentPost.tags )">
+						<i class="icon ion-close-round"></i>
+					</a>
+				</span>
               </div>
               <p>
                 <a href="#" class="subdued">{{ user.posts.currentPost.likes}} Like</a>
@@ -125,7 +135,7 @@
             </div>
 			<div class="item item-avatar align-card-header">							
 				<img src="{{ user.SchoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
-				<h2 ng-click="schoolFeed( {{user.posts.mostRecentPost.schoolId}})">{{ user.posts.mostRecentPost.SchoolName}}</h2>
+				<h4 ng-click="schoolFeed( {{user.posts.mostRecentPost.schoolId}})">{{ user.posts.mostRecentPost.SchoolName}}</h4>
 			</div>	
             <div class="item item-body">
               <img class="full-image" src="{{user.posts.mostRecentPost.postImg}}">
@@ -135,7 +145,12 @@
                 </p>
               </span>
               <div class="card">
-                  <span class="tagItem" ng-repeat="tag in user.posts.mostRecentPost.tags"> {{findTagByTagId(tag)}} <a ng-click="removeTag( '{{ tag }}', {{user.posts.mostRecentPost.tags}} )"><i class="icon ion-close-round"></i></a></span>
+                <span class="tagItem" ng-repeat="tag in user.posts.mostRecentPost.tags"> 
+					{{findTagByTagId(tag)}} 
+					<a ng-click="removeTag( '{{ tag }}', {{user.posts.mostRecentPost.tags}} )">
+					<i class="icon ion-close-round"></i>
+					</a>
+				</span>
               </div>
 
               <p>
