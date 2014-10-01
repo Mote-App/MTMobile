@@ -13,22 +13,20 @@
 
     <ion-list>
       <ion-item ng-repeat="user in schoolUsers">
-       
-	     <div class="item item-avatar">
-		      <img src="{{user.schoolImg}}">
-		      <h2>{{user.schoolName}} School</h2>
-		      <a href="" ng-click="nationalFeed()">National</a>
-       </div>
 			
        <ion-slide-box on-slide-changed="slideHasChanged($index)" active-slide="1">
         <ion-slide>
           <div class="card">
-            <div class="item item-avatar">
+            <div class="item item-avatar align-card-header">
               <img src="{{user.profileImg}}">
               <h2>{{user.name}}</h2>
               <p>{{ user.posts.popularPost.postDate}}</p>
             </div>
-
+			<div class="item item-avatar align-card-header">
+		      <img src="{{user.schoolImg}}">
+		      <h2>{{user.schoolName}} School</h2>
+		      <a href="" ng-click="nationalFeed()">National</a>
+			</div>
             <div class="item">
               <img class="full-image" src="{{user.posts.popularPost.postImg}}">
               <span>
@@ -41,7 +39,6 @@
               </div>
               <p>
                 <a href="#" class="subdued">{{ user.posts.popularPost.likes}} Like</a>
-                <a href="#" class="subdued">5 Comments</a>
               </p>
             </div>
 
@@ -65,12 +62,16 @@
 
         <ion-slide>
           <div class="card">
-            <div class="item item-avatar">
+            <div class="item item-avatar align-card-header">
               <img src="{{ user.profileImg}}">
               <h2>{{user.name}}</h2>
               <p>{{ user.posts.currentPost.postDate}}</p>
             </div>
-
+			<div class="item item-avatar align-card-header">
+		      <img src="{{user.schoolImg}}">
+		      <h2>{{user.schoolName}} School</h2>
+		      <a href="" ng-click="nationalFeed()">National</a>
+			</div>
             <div class="item">
               <img class="full-image" src="{{user.posts.currentPost.postImg}}">
               <span>
@@ -83,7 +84,6 @@
               </div>
               <p>
                 <a href="#" class="subdued">{{ user.posts.currentPost.likes}} Like</a>
-                <a href="#" class="subdued">5 Comments</a>
               </p>
             </div>
 
@@ -107,12 +107,16 @@
 
         <ion-slide>
           <div class="card">
-            <div class="item item-avatar">
+            <div class="item item-avatar align-card-header">
               <img src="{{ user.profileImg}}">
               <h2>{{user.name}}</h2>
               <p>{{ user.posts.mostRecentPost.postDate}}</p>
             </div>
-
+			<div class="item item-avatar align-card-header">
+		      <img src="{{user.schoolImg}}">
+		      <h2>{{user.schoolName}} School</h2>
+		      <a href="" ng-click="nationalFeed()">National</a>
+			</div>
             <div class="item">
               <img class="full-image" src="{{user.posts.mostRecentPost.postImg}}">
               <span>
@@ -125,7 +129,6 @@
               </div>
               <p>
                 <a href="#" class="subdued">{{ user.posts.mostRecentPost.likes}} Like</a>
-                <a href="#" class="subdued">5 Comments</a>
               </p>
             </div>
 

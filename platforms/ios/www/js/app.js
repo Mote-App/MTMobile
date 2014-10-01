@@ -147,7 +147,7 @@ angular.module('starter', ['ionic', 'clcontrollers','clservices'])
     // ***************** Use for the login page :: End *****************
     
     .state('app.profile', {
-      url: "/search",
+      url: "/profile",
       views: {
         'menuContent' :{
           templateUrl: "templates/profile.html",

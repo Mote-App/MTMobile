@@ -26,7 +26,7 @@
               <p>{{ user.posts.popularPost.postingDate}}</p>
             </div>
       			<div class="item item-avatar align-card-header">							
-      				<a href="#/app/school_feeds"><img src="{{ user.SchoolImg}}"></a>
+      				<img src="{{ user.SchoolImg}}" ng-click="schoolFeed( {{user.schoolId}})"><img src="{{ user.SchoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">background
       				<h2 ng-click="schoolFeed( {{user.posts.popularPost.schoolId}})">{{ user.posts.popularPost.SchoolName}}</h2>
       			</div>
             
@@ -123,10 +123,10 @@
               <h4>{{user.name}}</h4>
               <p>{{ user.posts.mostRecentPost.postingDate}}</p>
             </div>
-      			<div class="item item-avatar align-card-header">							
-      				<img src="{{ user.SchoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
-      				<h2 ng-click="schoolFeed( {{user.posts.mostRecentPost.schoolId}})">{{ user.posts.mostRecentPost.SchoolName}}</h2>
-      			</div>	
+			<div class="item item-avatar align-card-header">							
+				<img src="{{ user.SchoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
+				<h2 ng-click="schoolFeed( {{user.posts.mostRecentPost.schoolId}})">{{ user.posts.mostRecentPost.SchoolName}}</h2>
+			</div>	
             <div class="item item-body">
               <img class="full-image" src="{{user.posts.mostRecentPost.postImg}}">
               <span>
