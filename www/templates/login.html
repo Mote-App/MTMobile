@@ -2,18 +2,18 @@
   <div class="bar bar-header header-color">
     <h1 class="header-font title">CollegeLife</h1>
   </div>
-  <ion-content class="has-header body-color" overflow-scroll="true" >
+  <ion-content class="has-header body-color">
 
 	<div class="list">
 		 
-		<label class="item item-input item-select body-color">
+		<div class="item item-input item-select body-color">
 		    <div class="input-label">
 		      University
 		    </div>
-			<select class="item-input-wrapper">
+			<select class="item-input-wrapper" ng-model="university">
 	      		<option value="{{ school.id }}" ng-repeat="school in schools">{{school.comment}}</option>
 	    	</select>
-	    </label>
+	    </div>
 		  <div class="item item-input-inset body-color">
 			<label class="item-input-wrapper">
 				<i class="icon ion-ios7-email-outline placeholder-icon"></i>
