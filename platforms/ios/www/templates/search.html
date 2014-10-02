@@ -37,7 +37,7 @@
                 <div class="input-label">
                     Filter Posts Criteria
                 </div>
-                <select class="item-input-wrapper" ng-modal="searchCriteria">
+                <select class="item-input-wrapper" ng-model="searchCriteria">
                     <option value="1">Filter By Friends</option>
                     <option value="2">Filter By Likes Range</option>
                     <option value="3">Filter By Dates Range</option>
@@ -48,7 +48,7 @@
         </div>
 
         <div class="item item-input-inset body-color">
-            <label ng-if=" searchCriteria == 1" class="item-input-wrapper">
+            <label ng-if="searchCriteria == 1" class="item-input-wrapper">
                 <i class="icon ion-funnel placeholder-icon"></i>
                 <input type="text" placeholder="Select one or more friends" ng-model="searchData">
             </label> 
@@ -64,7 +64,10 @@
                 <i class="icon ion-funnel placeholder-icon"></i>
                 <input type="text" placeholder="Search Text" ng-model="searchData">
             </label>    
-   
+			<label ng-if=" searchCriteria == 5" class="item-input-wrapper">
+                <i class="icon ion-funnel placeholder-icon"></i>
+                <input type="text" placeholder="Search Random Text" ng-model="searchData">
+            </label>    
         </div>
 
     </div>

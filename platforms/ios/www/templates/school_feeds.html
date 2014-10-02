@@ -10,6 +10,7 @@
   <div circular-menu subtags="subtagsArr" selectedtags="selectedTagsArr"></div>
 
   <ion-content class="has-header">
+	<div water-wheel-carousel clcontext="carousel"></div>
 
     <ion-list>
       <ion-item ng-repeat="user in schoolUsers">
@@ -19,12 +20,12 @@
           <div class="card">
             <div class="item item-avatar align-card-header">
               <img src="{{user.profileImg}}">
-              <h2>{{user.name}}</h2>
+              <h4>{{user.name}}</h4>
               <p>{{ user.posts.popularPost.postDate}}</p>
             </div>
 			<div class="item item-avatar align-card-header">
 		      <img src="{{user.schoolImg}}">
-		      <h2>{{user.schoolName}} School</h2>
+		      <h4>{{user.schoolName}} School</h4>
 		      <a href="" ng-click="nationalFeed()">National</a>
 			</div>
             <div class="item">
@@ -64,12 +65,12 @@
           <div class="card">
             <div class="item item-avatar align-card-header">
               <img src="{{ user.profileImg}}">
-              <h2>{{user.name}}</h2>
+              <h4>{{user.name}}</h4>
               <p>{{ user.posts.currentPost.postDate}}</p>
             </div>
 			<div class="item item-avatar align-card-header">
 		      <img src="{{user.schoolImg}}">
-		      <h2>{{user.schoolName}} School</h2>
+		      <h4>{{user.schoolName}} School</h4>
 		      <a href="" ng-click="nationalFeed()">National</a>
 			</div>
             <div class="item">
@@ -109,12 +110,12 @@
           <div class="card">
             <div class="item item-avatar align-card-header">
               <img src="{{ user.profileImg}}">
-              <h2>{{user.name}}</h2>
+              <h4>{{user.name}}</h4>
               <p>{{ user.posts.mostRecentPost.postDate}}</p>
             </div>
 			<div class="item item-avatar align-card-header">
 		      <img src="{{user.schoolImg}}">
-		      <h2>{{user.schoolName}} School</h2>
+		      <h4>{{user.schoolName}} School</h4>
 		      <a href="" ng-click="nationalFeed()">National</a>
 			</div>
             <div class="item">
