@@ -188,7 +188,8 @@ angular.module('clcontrollers', [])
   
   $rootScope.appHeader = "CollegeLife";
   $scope.loginData = {};
-
+  $scope.university = "";
+  
   Schools.query(function(schoolData) { 
     $scope.schools = schoolData.schools;
   });
