@@ -10,7 +10,8 @@
 }
 
 ion-nav-bar, .card > div , .list > ion-item, ion-content ,  .item-complex  .item-content, .list > label , 
-.list > div, .list > li , .list > .card > a , .item-avatar, .card, .pane, .bg-color , #carousel{
+.list > div, .list > li , .list > .card > a , .item-avatar, .card, .pane, .bg-color , .item-select select ,
+ #carousel{
 	background-color: rgb(254, 198, 61);
 }
 
