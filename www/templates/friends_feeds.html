@@ -25,12 +25,11 @@
               <h4>{{user.name}}</h4>
               <p>{{ user.posts.popularPost.postingDate}}</p>
             </div>
-      			<div class="item item-avatar align-card-header">							
-      				<img src="{{ user.SchoolImg}}" ng-click="schoolFeed( {{user.schoolId}})"><img src="{{ user.SchoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">background
-      				<h4 ng-click="schoolFeed( {{user.posts.popularPost.schoolId}})">{{ user.posts.popularPost.SchoolName}}</h4>
-      			</div>
+			<div class="item item-avatar align-card-header">							
+				<img src="{{ user.SchoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">				
+				<h4 ng-click="schoolFeed( {{user.posts.popularPost.schoolId}})">{{ user.posts.popularPost.SchoolName}}</h4>
+			</div>
             
-              
             <div class="item">
               <img class="full-image" src="{{user.posts.popularPost.postImg}}">
               <span>

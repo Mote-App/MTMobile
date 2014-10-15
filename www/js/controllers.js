@@ -103,9 +103,9 @@ angular.module('clcontrollers', [])
     controller: function($scope,sliceTagFilter){
 
 
-      $scope.$watch('selectedtags', function(){
+      /*$scope.$watch('selectedtags', function(){
         console.log(" watching selectedTags : " + $scope.selectedtags);
-      });
+      });*/
 
       $scope.$watch('subtags', function() {
           $scope.tagsarr = sliceTagFilter($scope.subtags, "0,5");         
@@ -292,7 +292,7 @@ angular.module('clcontrollers', [])
                                         SchoolFeed, 
                                         Tags, 
                                         sliceTagFilter) {
-	console.log("Inside SchoolFeedsCtrl");
+	
 	var data = SchoolFeed.query(function(schoolFeedData) { 
 		$scope.schoolUsers = schoolFeedData.schools[0].users;
 	});
