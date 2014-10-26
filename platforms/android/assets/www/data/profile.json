@@ -1,0 +1,56 @@
+{
+	"user" 	: 	{
+					"userId"		: "2",				
+					"firstName" 	: "Marty",
+					"lastName" 		: "McFly",
+					"profileImg"	: "img/profiles/2.jpg",
+					"schoolId"		: "1",
+					"SchoolName"	: "Alabama",
+					"SchoolImg"		: "img/Alabama.jpg",
+					"address1"		: "111 Win St",
+					"address2"		: "",
+					"city"			: "Boston",
+					"state"			: "MA",
+					"zipCode"		: "01720",
+					"mobile"		: "111-111-1111",
+					"likesCount"	: "100",
+					"posts" 		: {
+										"popularPost" : {
+												"postId" :	"1",
+												"postingDate" : "January 19, 2014",
+												"postImg" 	: "img/posts/2_20140119185104.jpg",	
+												"tags" 		: ["2_24","2_21"],
+												"likes" 	: "104", 
+												"caption"	: "My first day at college",
+												"schoolId"		: "1",
+												"SchoolName"	: "Alabama",
+												"SchoolImg"		: "img/Alabama.jpg"
+											},
+										"currentPost" 	: {
+												"postId"		:	"2",		
+												"postingDate" 	: 	"July 19, 2014",
+												"postImg" 		: 	"img/posts/2_20140719185104.jpg",
+												"tags" 			: 	["1_5","2_3"],
+												"likes"			: 	"3",
+												"caption"		: 	"Results of hard work...",
+												"schoolId"		: 	"1",
+												"SchoolName"	: 	"Alabama",
+												"SchoolImg"		: 	"img/Alabama.jpg"
+
+
+										},
+										"mostRecentPost" : {
+											"postId"		:	"3",
+											"postingDate" 	: 	"July 19, 2014",
+											"postImg" 		: 	"img/posts/2_20140719185101.jpg",
+											"tags" 			: 	["1_5","2_11"],
+											"likes"			: 	"5",
+											"caption"		: 	"The real world, its all about taking care and respect.",
+											"schoolId"		: 	"1",
+											"SchoolName"	: 	"Alabama",
+											"SchoolImg"		: 	"img/Alabama.jpg"													
+
+										}	
+									}
+				}
+}

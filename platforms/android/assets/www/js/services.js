@@ -7,6 +7,13 @@ angular.module('clservices', ['ngResource'])
     });
   }])
 
+.factory('Profile', ['$resource',
+  function($resource){
+    return $resource('data/profile.json', {}, {
+      query: {method:'GET', params:{}, isArray:false}
+    });
+  }])
+
 .factory('Schools', ['$resource',
   function($resource){
     return $resource('data/schools.json', {}, {

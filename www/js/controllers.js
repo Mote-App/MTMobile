@@ -96,7 +96,7 @@ angular.module('clcontrollers', [])
         scope: {
 
         },
-        controller: function($scope){
+        controller: function($scope, $cordovaCamera){
 
           $scope.takePicture = function() {
             var options = { 
@@ -111,18 +111,28 @@ angular.module('clcontrollers', [])
             saveToPhotoAlbum: false
         };
  
-          $cordovaCamera.getPicture(options).then(function(imageData) {
-              $scope.imgURI = "data:image/jpeg;base64," + imageData;
-          }, function(err) {
-              // An error occured. Show a message to the user
-          });
+	      $cordovaCamera.getPicture(options).then(function(imageData) {
+	      	if(imageData == null){
+	      		$scope.imgURI = "img/blank.png";
+	      	}else{
+	          $scope.imgURI = "data:image/jpeg;base64," + imageData;
+	        }
+	      }, function(err) {
+	          // An error occured. Show a message to the user
+	          $scope.imgURI = "img/blank.png";
+	      });
+          
+          
+          
         };
+        
+        $scope.takePicture();
 
         },
         link: function(scope, element, attrs){
-
+			
         },
-        template: '<img ng-show="imgURI !== undefined" ng-src="{{imgURI}}">'  
+        template: '<img class="full-image" ng-show="imgURI !== undefined" ng-src="{{imgURI}}">'  
     }
 })
 
@@ -284,7 +294,10 @@ angular.module('clcontrollers', [])
  
   };
 
-
+ /*$scope.takePicture = function(){
+	$state.go('app.new_post');			
+ };*/
+	
   //This block of code needs to be repeated in every control where 
   //circular menu is required - need to fit in some directive
   $scope.subtagsArr = [];
@@ -422,6 +435,89 @@ angular.module('clcontrollers', [])
 
 	//jQuery(document).ready(function(){
 		
+})
+
+.controller('NewPostCtrl', function($scope, $rootScope, Profile) {
+
+  //This block of code needs to be repeated in every control where 
+  //circular menu is required - need to fit in some directive
+  $scope.subtagsArr = [];
+  $scope.selectedTagsArr = [];
+
+  $scope.menu = function(menuType, tagsArr) {
+
+    $scope.selectedTagsArr = tagsArr;
+
+    if ( menuType == "#social"){
+      $scope.subtagsArr = $rootScope.socialArr;
+    }
+    if ( menuType == "#smart"){
+      $scope.subtagsArr = $rootScope.smartArr;
+    }
+    if ( menuType == "#genre"){
+      $scope.subtagsArr = $rootScope.genreArr;
+    }
+
+    $(".circle").toggleClass('open');   
+  };
+
+  $scope.removeTag = function(tagId, tagsArr){
+    $scope.selectedTagsArr = tagsArr;
+
+    tagsArr = _.reject(tagsArr, function (tag){
+      return tag == tagId;
+    });
+
+    //Make a deep copy to reflect the changes and refresh the deletion
+    angular.copy(tagsArr, $scope.selectedTagsArr);
+
+  };
+  
+})
+
+
+.controller('CustomTagCtrl', function($scope, $rootScope, Schools) {
+  
+  $scope.university = "";
+  
+  Schools.query(function(schoolData) { 
+    $scope.schools = schoolData.schools;
+  });
+  
+  //This block of code needs to be repeated in every control where 
+  //circular menu is required - need to fit in some directive
+  $scope.subtagsArr = [];
+  $scope.selectedTagsArr = [];
+
+  $scope.menu = function(menuType, tagsArr) {
+
+    $scope.selectedTagsArr = tagsArr;
+
+    if ( menuType == "#social"){
+      $scope.subtagsArr = $rootScope.socialArr;
+    }
+    if ( menuType == "#smart"){
+      $scope.subtagsArr = $rootScope.smartArr;
+    }
+    if ( menuType == "#genre"){
+      $scope.subtagsArr = $rootScope.genreArr;
+    }
+
+    $(".circle").toggleClass('open');   
+  };
+
+  $scope.removeTag = function(tagId, tagsArr){
+    $scope.selectedTagsArr = tagsArr;
+
+    tagsArr = _.reject(tagsArr, function (tag){
+      return tag == tagId;
+    });
+
+    //Make a deep copy to reflect the changes and refresh the deletion
+    angular.copy(tagsArr, $scope.selectedTagsArr);
+
+  };
+  
 })
 
 .controller('ProfileCtrl', function($scope, $stateParams, Profile) {

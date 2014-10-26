@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'clcontrollers','clservices'])
+angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices'])
 
 /*.run(function($ionicPlatform, $rootScope, $firebaseSimpleLogin, $state, $window) {
   var dataRef = new Firebase("https://ionic-firebase-login.firebaseio.com/");
@@ -70,27 +70,6 @@ angular.module('starter', ['ionic', 'clcontrollers','clservices'])
       
       return tagObj.tagText;
     };
-
-    $scope.takePicture = function() {
-    var options = { 
-        quality : 75, 
-        destinationType : Camera.DestinationType.DATA_URL, 
-        sourceType : Camera.PictureSourceType.CAMERA, 
-        allowEdit : true,
-        encodingType: Camera.EncodingType.JPEG,
-        targetWidth: 100,
-        targetHeight: 100,
-        popoverOptions: CameraPopoverOptions,
-        saveToPhotoAlbum: false
-    };
-
-    $cordovaCamera.getPicture(options).then(function(imageData) {
-      // Success! Image data is here
-    }, function(err) {
-        // An error occured. Show a message to the user
-      });
-    };
-  
 
   });
 })
@@ -187,11 +166,12 @@ angular.module('starter', ['ionic', 'clcontrollers','clservices'])
       }
     })
 
-    .state('app.browse', {
-      url: "/browse",
+    .state('app.logout', {
+      url: "/logout",
       views: {
         'menuContent' :{
-          templateUrl: "templates/browse.html"
+          templateUrl: "templates/login.html",
+          controller: 'LoginCtrl'
         }
       }
     })
@@ -233,7 +213,18 @@ angular.module('starter', ['ionic', 'clcontrollers','clservices'])
           controller: 'CustomTagCtrl'
         }
       }
-    });
+    })
+    
+    .state('app.new_post', { 
+    	url: "/new_post",
+    	views : {
+    		'menuContent' :{
+    			templateUrl: "templates/new_post.html",
+    			controller: 'NewPostCtrl' 		
+    		}
+    	}
+    })
+    ;
   
   // if none of the above states are matched, use this as the fallback
   //$urlRouterProvider.otherwise('index');

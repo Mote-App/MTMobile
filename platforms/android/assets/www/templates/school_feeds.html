@@ -1,47 +1,58 @@
-  <div class="bar bar-header header-color">
-    <h1 class="title">School</h1>
-  </div>
-  <ion-content class="has-header body-color">
+  <!--<div class="bar bar-header header-color">
+    <a class="button icon-left ion-arrow-left-a button-clear button-dark" href="#/app/friends_feeds"></a>
+    <h1 class="header-font title">School</h1>
+  </div>-->
+  <ion-view title="School">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+
+  <div circular-menu subtags="subtagsArr" selectedtags="selectedTagsArr"></div>
+
+  <ion-content class="has-header">
+	<div water-wheel-carousel clcontext="carousel"></div>
 
     <ion-list>
-      <ion-item ng-repeat="user in schoolUsers" href="">
-       
-	   <div class="item item-avatar">
-		  <img src="{{user.schoolImg}}">
-		  <h2>{{user.schoolName}} School</h2>
-		  <a href="" ng-click="nationalFeed()">National</a>
-       </div>
+      <ion-item ng-repeat="user in schoolUsers">
 			
        <ion-slide-box on-slide-changed="slideHasChanged($index)" active-slide="1">
         <ion-slide>
           <div class="card">
-            <div class="item item-avatar">
+            <div class="item item-avatar align-card-header">
               <img src="{{user.profileImg}}">
-              <h2>{{user.name}}</h2>
+              <h4>{{user.name}}</h4>
               <p>{{ user.posts.popularPost.postDate}}</p>
             </div>
-
-            <div class="item item-body">
+			<div class="item item-avatar align-card-header">
+		      <img src="{{user.schoolImg}}">
+		      <h4>{{user.schoolName}} School</h4>
+		      <a href="" ng-click="nationalFeed()">National</a>
+			</div>
+            <div class="item">
               <img class="full-image" src="{{user.posts.popularPost.postImg}}">
-              <p>
-                {{user.posts.popularPost.caption}}
-              </p>
+              <span>
+                <p class="image-caption">
+                  {{user.posts.popularPost.caption}}
+                </p>
+              </span>
+              <div class="card">
+                  <span class="tagItem" ng-repeat="tag in tags"> {{ tag.tagText }} <a ng-click="removeTag( '{{ tag.tagId}}' )"><i class="icon ion-close-round"></i></a></span>
+              </div>
               <p>
                 <a href="#" class="subdued">{{ user.posts.popularPost.likes}} Like</a>
-                <a href="#" class="subdued">5 Comments</a>
               </p>
             </div>
 
             <div class="item tabs tabs-secondary tabs-icon-left">
-              <a class="tab-item" href="#">
+              <a class="tab-item" ng-click="menu('#social')">
                 <i class="icon ion-android-friends"></i>
                 Social Life
               </a>
-              <a class="tab-item" href="#">
+              <a class="tab-item" ng-click="menu('#genre')">
                 <i class="icon ion-male"></i>
                 Rated R
               </a>
-              <a class="tab-item" href="#">
+              <a class="tab-item" ng-click="menu('#smart')">
                 <i class="icon ion-social-android"></i>
                 Smart
               </a>
@@ -52,33 +63,41 @@
 
         <ion-slide>
           <div class="card">
-            <div class="item item-avatar">
+            <div class="item item-avatar align-card-header">
               <img src="{{ user.profileImg}}">
-              <h2>{{user.name}}</h2>
+              <h4>{{user.name}}</h4>
               <p>{{ user.posts.currentPost.postDate}}</p>
             </div>
-
-            <div class="item item-body">
+			<div class="item item-avatar align-card-header">
+		      <img src="{{user.schoolImg}}">
+		      <h4>{{user.schoolName}} School</h4>
+		      <a href="" ng-click="nationalFeed()">National</a>
+			</div>
+            <div class="item">
               <img class="full-image" src="{{user.posts.currentPost.postImg}}">
-              <p>
-                {{user.posts.currentPost.caption}}
-              </p>
+              <span>
+                <p class="image-caption">
+                  {{user.posts.currentPost.caption}}
+                </p>
+              </span>
+              <div class="card">
+                  <span class="tagItem" ng-repeat="tag in tags"> {{ tag.tagText }} <a ng-click="removeTag( '{{ tag.tagId}}' )"><i class="icon ion-close-round"></i></a></span>
+              </div>
               <p>
                 <a href="#" class="subdued">{{ user.posts.currentPost.likes}} Like</a>
-                <a href="#" class="subdued">5 Comments</a>
               </p>
             </div>
 
             <div class="item tabs tabs-secondary tabs-icon-left">
-              <a class="tab-item" href="#">
+              <a class="tab-item" ng-click="menu('#social')">
                 <i class="icon ion-android-friends"></i>
                 Social Life
               </a>
-              <a class="tab-item" href="#">
+              <a class="tab-item" ng-click="menu('#genre')">
                 <i class="icon ion-male"></i>
                 Rated R
               </a>
-              <a class="tab-item" href="#">
+              <a class="tab-item" ng-click="menu('#smart')">
                 <i class="icon ion-social-android"></i>
                 Smart
               </a>
@@ -89,33 +108,41 @@
 
         <ion-slide>
           <div class="card">
-            <div class="item item-avatar">
+            <div class="item item-avatar align-card-header">
               <img src="{{ user.profileImg}}">
-              <h2>{{user.name}}</h2>
+              <h4>{{user.name}}</h4>
               <p>{{ user.posts.mostRecentPost.postDate}}</p>
             </div>
-
-            <div class="item item-body">
+			<div class="item item-avatar align-card-header">
+		      <img src="{{user.schoolImg}}">
+		      <h4>{{user.schoolName}} School</h4>
+		      <a href="" ng-click="nationalFeed()">National</a>
+			</div>
+            <div class="item">
               <img class="full-image" src="{{user.posts.mostRecentPost.postImg}}">
-              <p>
-                {{user.posts.mostRecentPost.caption}}
-              </p>
+              <span>
+                <p class="image-caption">
+                  {{user.posts.mostRecentPost.caption}}
+                </p>
+              </span>
+              <div class="card">
+                  <span class="tagItem" ng-repeat="tag in tags"> {{ tag.tagText }} <a ng-click="removeTag( '{{ tag.tagId}}' )"><i class="icon ion-close-round"></i></a></span>
+              </div>
               <p>
                 <a href="#" class="subdued">{{ user.posts.mostRecentPost.likes}} Like</a>
-                <a href="#" class="subdued">5 Comments</a>
               </p>
             </div>
 
             <div class="item tabs tabs-secondary tabs-icon-left">
-              <a class="tab-item" href="#">
+              <a class="tab-item" ng-click="menu('#social')">
                 <i class="icon ion-android-friends"></i>
                 Social Life
               </a>
-              <a class="tab-item" href="#">
+              <a class="tab-item" ng-click="menu('#genre')">
                 <i class="icon ion-male"></i>
                 Rated R
               </a>
-              <a class="tab-item" href="#">
+              <a class="tab-item" ng-click="menu('#smart')">
                 <i class="icon ion-social-android"></i>
                 Smart
               </a>
@@ -128,3 +155,7 @@
     </ion-item>
   </ion-list>
 </ion-content>
+<div class="bar bar-footer bar-balanced">
+  <div class="title"><button class="button"><i class="ion-ios7-camera-outline photo-icon-size"></i></button></div>
+</div>
+</ion-view>
