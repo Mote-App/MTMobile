@@ -19,12 +19,34 @@ angular.module('clcontrollers', [])
           clcontext: '='
       },
       
-      controller: function($scope,Schools){
+      controller: function($scope, Schools, sliceTagFilter){
 
         Schools.query(function(schoolData) { 
           $scope.schools = schoolData.schools;
+          
+          //$scope.schoolsArr = sliceTagFilter($scope.schools, "0,10");         		
         });
-
+		
+		/*$scope.startIndex = 0;
+		$scope.endIndex = 10;
+		
+		$scope.adjustMenuIndex = function(){
+                
+	        var offsetStr = $scope.startIndex + "," + $scope.endIndex;      
+	        $scope.schoolsArr =  sliceTagFilter($scope.schools, offsetStr );
+	               
+	        //Increment the menuIndex after processing the offsetStr.
+	        if ( $scope.endIndex >= $scope.schools.length) {
+	          $scope.startIndex = 0;
+	          $scope.endIndex = 10;
+	        }else{
+	          $scope.startIndex++;
+	          $scope.endIndex++;          
+	        }
+	        
+	   };*/
+      
+				
       },
       link: function(scope,element,attrs){
        
@@ -155,35 +177,28 @@ angular.module('clcontrollers', [])
       });*/
 
       $scope.$watch('subtags', function() {
-          $scope.tagsarr = sliceTagFilter($scope.subtags, "0,5");         
-          $scope.menuIndex = 0;
-          $scope.menuIndexIncrement = 5;
-
+          $scope.tagsarr = sliceTagFilter($scope.subtags, "0,5");         		
+		  $scope.startIndex = 0;
+		  $scope.endIndex = 5;
+		  	
       });
 
 
       $scope.adjustMenuIndex = function(){
-
-        //Handle the last menu items which is not in count of 5
-        var indexDiff = $scope.subtags.length - $scope.menuIndex;
-
-        if ( indexDiff != 0 && indexDiff < $scope.menuIndexIncrement){
-
-            $scope.menuIndex = $scope.menuIndex - ($scope.menuIndexIncrement - indexDiff);
-        } 
-
-        console.log(" adjusted menuIndex : " + $scope.menuIndex);
-
-        if ( $scope.menuIndex >= $scope.subtags.length) {
-          $scope.menuIndex = 0;
-        }else{
-          $scope.menuIndex = $scope.menuIndex + $scope.menuIndexIncrement;
-        }
-
-        console.log("menuIndex : " + $scope.menuIndex);
-
-        var offsetStr = $scope.menuIndex + "," + $scope.menuIndexIncrement;      
+                
+        var offsetStr = $scope.startIndex + "," + $scope.endIndex;      
         $scope.tagsarr =  sliceTagFilter($scope.subtags, offsetStr );
+        
+        console.log("offsetstr : " + offsetStr);
+        
+        //Increment the menuIndex after processing the offsetStr.
+        if ( $scope.endIndex >= $scope.subtags.length) {
+          $scope.startIndex = 0;
+          $scope.endIndex = 5;
+        }else{
+          $scope.startIndex++;
+          $scope.endIndex++;          
+        }
         
       };
 
