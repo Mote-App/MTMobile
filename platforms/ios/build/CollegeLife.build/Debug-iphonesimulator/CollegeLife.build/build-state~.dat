@@ -1,970 +1,0 @@
-TCollegeLife
-v6
-r1
-cCheck dependencies
-cProcessInfoPlistFile /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/Info.plist /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/CollegeLife-Info.plist
-cPhaseScriptExecution Copy\ www\ directory /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Script-304B58A110DAC018002A0835.sh
-cCpResource CollegeLife/Resources/icons/icon-76.png build/emulator/CollegeLife.app/icon-76.png
-cCpResource CollegeLife/Resources/icons/icon-40@2x.png build/emulator/CollegeLife.app/icon-40@2x.png
-cCpResource CollegeLife/Resources/icons/icon-72.png build/emulator/CollegeLife.app/icon-72.png
-cCpResource CollegeLife/Resources/icons/icon.png build/emulator/CollegeLife.app/icon.png
-cCpResource CollegeLife/Resources/icons/icon@2x.png build/emulator/CollegeLife.app/icon@2x.png
-cCopyStringsFile /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/en.lproj/Localizable.strings CollegeLife/Resources/en.lproj/Localizable.strings
-cCompileXIB /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Classes/MainViewController.xib
-cCpResource CollegeLife/Resources/icons/icon-50.png build/emulator/CollegeLife.app/icon-50.png
-cCpResource CollegeLife/Resources/icons/icon-60@2x.png build/emulator/CollegeLife.app/icon-60@2x.png
-cCopyStringsFile /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/de.lproj/Localizable.strings CollegeLife/Resources/de.lproj/Localizable.strings
-cCpResource CollegeLife/Resources/icons/icon-small.png build/emulator/CollegeLife.app/icon-small.png
-cCpResource CollegeLife/Resources/splash/Default-Landscape@2x~ipad.png build/emulator/CollegeLife.app/Default-Landscape@2x~ipad.png
-cCpResource CollegeLife/Resources/splash/Default-Landscape~ipad.png build/emulator/CollegeLife.app/Default-Landscape~ipad.png
-cCpResource CollegeLife/Resources/splash/Default-Portrait@2x~ipad.png build/emulator/CollegeLife.app/Default-Portrait@2x~ipad.png
-cCpResource CollegeLife/Resources/icons/icon-small@2x.png build/emulator/CollegeLife.app/icon-small@2x.png
-cCpResource CollegeLife/Resources/splash/Default-Portrait~ipad.png build/emulator/CollegeLife.app/Default-Portrait~ipad.png
-cCpResource CollegeLife/Resources/icons/icon-40.png build/emulator/CollegeLife.app/icon-40.png
-cCpResource CollegeLife/Resources/splash/Default@2x~iphone.png build/emulator/CollegeLife.app/Default@2x~iphone.png
-cCpResource CollegeLife/Resources/icons/icon-60.png build/emulator/CollegeLife.app/icon-60.png
-cCpResource CollegeLife/Resources/splash/Default~iphone.png build/emulator/CollegeLife.app/Default~iphone.png
-cCpResource CollegeLife/Resources/splash/Default-568h@2x~iphone.png build/emulator/CollegeLife.app/Default-568h@2x~iphone.png
-cCpResource CollegeLife/Resources/icons/icon-50@2x.png build/emulator/CollegeLife.app/icon-50@2x.png
-cCpResource CollegeLife/Resources/icons/icon-76@2x.png build/emulator/CollegeLife.app/icon-76@2x.png
-cCpResource CollegeLife/Resources/icons/icon-72@2x.png build/emulator/CollegeLife.app/icon-72@2x.png
-cProcessPCH /var/folders/mm/5wz18lps0xx0fpy2rbln9d9w0000gn/C/com.apple.DeveloperTools/5.1.1-5B1008/Xcode/SharedPrecompiledHeaders/CollegeLife-Prefix-cywrkgpbprpeeydknsjhgnnbgzgp/CollegeLife-Prefix.pch.pch CollegeLife/CollegeLife-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/main.o /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/AppDelegate.o /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Classes/AppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/MainViewController.o /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Classes/MainViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/IonicKeyboard.o /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/com.ionic.keyboard/IonicKeyboard.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/UIWebViewExtension.o /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/com.ionic.keyboard/UIWebViewExtension.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/CDVLogger.o /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/org.apache.cordova.console/CDVLogger.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/CDVDevice.o /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/org.apache.cordova.device/CDVDevice.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cLd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/CollegeLife normal i386
-cGenerateDSYMFile /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app.dSYM /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/CollegeLife
-cTouch /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk
-c000000005359B7BE0000000000000198
-t1398388670
-s408
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/SDKSettings.plist
-c000000005328837000000000000003B4
-t1395164016
-s948
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/CoreServices/SystemVersion.plist
-c0000000053288383000000000000019E
-t1395164035
-s414
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/AssetsLibrary.framework/AssetsLibrary
-c00000000532883850000000000059340
-t1395164037
-s365376
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
-c000000005359B6630000000000446820
-t1398388323
-s4483104
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/CoreLocation.framework/CoreLocation
-c000000005328839100000000000F1A80
-t1395164049
-s989824
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/MobileCoreServices.framework/MobileCoreServices
-c000000005328839700000000001BE790
-t1395164055
-s1828752
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Classes/AppDelegate.m
-c0000000053EB5F2D0000000000001773
-t1407934253
-s6003
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Classes/MainViewController.m
-c0000000053EB5F2D000000000000126D
-t1407934253
-s4717
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Classes/MainViewController.xib
-c0000000053EB5F2D0000000000001759
-t1407934253
-s5977
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/CollegeLife-Info.plist
-c0000000053EB5FAA0000000000000A18
-t1407934378
-s2584
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/CollegeLife-Prefix.pch
-c0000000053EB5F2D00000000000003C9
-t1407934253
-s969
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/com.ionic.keyboard/IonicKeyboard.m
-c0000000053EB5F2D0000000000001357
-t1407934253
-s4951
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/com.ionic.keyboard/UIWebViewExtension.m
-c0000000053EB5F2D0000000000000D93
-t1407934253
-s3475
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/org.apache.cordova.console/CDVLogger.m
-c0000000053EB5F2D0000000000000490
-t1407934253
-s1168
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/org.apache.cordova.device/CDVDevice.m
-c0000000053EB5F2D0000000000000C22
-t1407934253
-s3106
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/de.lproj/Localizable.strings
-c0000000053EB5F2D00000000000004C0
-t1407934253
-s1216
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/en.lproj/Localizable.strings
-c0000000053EB5F2D00000000000004AB
-t1407934253
-s1195
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/icons/icon-40.png
-c0000000053EB5F2D0000000000000FF2
-t1407934253
-s4082
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/icons/icon-40@2x.png
-c0000000053EB5F2D0000000000001CF3
-t1407934253
-s7411
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/icons/icon-50.png
-c0000000053EB5F2D000000000000130A
-t1407934253
-s4874
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/icons/icon-50@2x.png
-c0000000053EB5F2D000000000000258B
-t1407934253
-s9611
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/icons/icon-60.png
-c0000000053EB5F2D00000000000016B3
-t1407934253
-s5811
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/icons/icon-60@2x.png
-c0000000053EB5F2D0000000000002E94
-t1407934253
-s11924
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/icons/icon-72.png
-c0000000053EB5F2D0000000000001350
-t1407934253
-s4944
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/icons/icon-72@2x.png
-c0000000053EB5F2D0000000000002DBA
-t1407934253
-s11706
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/icons/icon-76.png
-c0000000053EB5F2D0000000000001B71
-t1407934253
-s7025
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/icons/icon-76@2x.png
-c0000000053EB5F2D0000000000003B9E
-t1407934253
-s15262
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/icons/icon-small.png
-c0000000053EB5F2D0000000000000CDE
-t1407934253
-s3294
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/icons/icon-small@2x.png
-c0000000053EB5F2D00000000000015E8
-t1407934253
-s5608
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/icons/icon.png
-c0000000053EB5F2D0000000000000F3E
-t1407934253
-s3902
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/icons/icon@2x.png
-c0000000053EB5F2D0000000000001EBD
-t1407934253
-s7869
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/splash/Default-568h@2x~iphone.png
-c0000000053EB5F2D00000000000085B1
-t1407934253
-s34225
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/splash/Default-Landscape@2x~ipad.png
-c0000000053EB5F2D0000000000033D0A
-t1407934253
-s212234
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/splash/Default-Landscape~ipad.png
-c0000000053EB5F2D00000000000166A2
-t1407934253
-s91810
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/splash/Default-Portrait@2x~ipad.png
-c0000000053EB5F2D0000000000033F7C
-t1407934253
-s212860
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/splash/Default-Portrait~ipad.png
-c0000000053EB5F2D0000000000016641
-t1407934253
-s91713
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/splash/Default@2x~iphone.png
-c0000000053EB5F2D0000000000007323
-t1407934253
-s29475
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/splash/Default~iphone.png
-c0000000053EB5F2D000000000000289A
-t1407934253
-s10394
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/main.m
-c0000000053EB5F2D000000000000045E
-t1407934253
-s1118
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/AppDelegate.o
-t1407934479
-s77488
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/CDVDevice.o
-t1407934480
-s50424
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/CDVLogger.o
-t1407934480
-s41620
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/CollegeLife.LinkFileList
-c0000000053EB5FD000000000000004D5
-t1407934416
-s1237
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/IonicKeyboard.o
-t1407934479
-s63836
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/MainViewController.o
-t1407934479
-s51656
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/UIWebViewExtension.o
-t1407934479
-s46380
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/main.o
-t1407934479
-s3052
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Script-304B58A110DAC018002A0835.sh
-c0000000053EB5FD0000000000000002D
-t1407934416
-s45
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app
-t1407934483
-s1020
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app.dSYM
-t2
-s0
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/CollegeLife
-t1407934483
-s301568
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/Default-568h@2x~iphone.png
-t1407934419
-s34225
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/Default-Landscape@2x~ipad.png
-t1407934419
-s212234
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/Default-Landscape~ipad.png
-t1407934419
-s91810
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/Default-Portrait@2x~ipad.png
-t1407934419
-s212860
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/Default-Portrait~ipad.png
-t1407934419
-s91713
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/Default@2x~iphone.png
-t1407934419
-s29475
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/Default~iphone.png
-t1407934419
-s10394
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/Info.plist
-t1407934416
-s1294
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/MainViewController.nib
-t1407934473
-s836
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/PkgInfo
-t2
-s0
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/de.lproj/Localizable.strings
-t1407934418
-s280
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/en.lproj/Localizable.strings
-t1407934418
-s166
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/icon-40.png
-t1407934419
-s4082
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/icon-40@2x.png
-t1407934418
-s7411
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/icon-50.png
-t1407934418
-s4874
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/icon-50@2x.png
-t1407934419
-s9611
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/icon-60.png
-t1407934419
-s5811
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/icon-60@2x.png
-t1407934418
-s11924
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/icon-72.png
-t1407934418
-s4944
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/icon-72@2x.png
-t1407934419
-s11706
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/icon-76.png
-t1407934418
-s7025
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/icon-76@2x.png
-t1407934419
-s15262
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/icon-small.png
-t1407934419
-s3294
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/icon-small@2x.png
-t1407934419
-s5608
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/icon.png
-t1407934418
-s3902
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/icon@2x.png
-t1407934418
-s7869
-
-N/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/libCordova.a
-c0000000053EB5FD000000000000D4918
-t1407934416
-s870680
-
-N/var/folders/mm/5wz18lps0xx0fpy2rbln9d9w0000gn/C/com.apple.DeveloperTools/5.1.1-5B1008/Xcode/SharedPrecompiledHeaders/CollegeLife-Prefix-cywrkgpbprpeeydknsjhgnnbgzgp/CollegeLife-Prefix.pch.pch
-t1407934478
-s5377288
-
-CCheck dependencies
-r0
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependencies22c5cc50979bb941^b1c2d550979bb941^---0#1#1#--18"Check dependencies36"1FE387EC-AB95-4B5D-833C-19F5561E9BDD-
-
-CCompileC build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/AppDelegate.o /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Classes/AppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s429627279.311501
-e429627279.627793
-r1
-xCompileC
-xbuild/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/AppDelegate.o
-x/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Classes/AppDelegate.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Classes/AppDelegate.m
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Classes/AppDelegate.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVViewController.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVAvailability.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVInvokedUrlCommand.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVCommandDelegate.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVCommandQueue.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVWhitelist.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVScreenOrientationDelegate.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVPlugin.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVPluginResult.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/NSMutableArray+QueueAdditions.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Classes/MainViewController.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVCommandDelegateImpl.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection119"Compile /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Classes/AppDelegate.m208"CompileC build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/AppDelegate.o CollegeLife/Classes/AppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler54e54f8f979bb941^00c5a08f979bb941^---0#0#1#-19%DVTDocumentLocation2@118"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Classes/AppDelegate.m0000000000000000^4342"CompileC build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/AppDelegate.o CollegeLife/Classes/AppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.0 -iquote /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/CollegeLife-generated-files.hmap -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/CollegeLife-own-target-headers.hmap -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/CollegeLife-all-target-headers.hmap -iquote /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/CollegeLife-project-headers.hmap -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/usr/local/lib/include -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/UninstalledProducts/include -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/DerivedSources/i386 -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/DerivedSources -F/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator -include /var/folders/mm/5wz18lps0xx0fpy2rbln9d9w0000gn/C/com.apple.DeveloperTools/5.1.1-5B1008/Xcode/SharedPrecompiledHeaders/CollegeLife-Prefix-cywrkgpbprpeeydknsjhgnnbgzgp/CollegeLife-Prefix.pch -MMD -MT dependencies -MF /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/AppDelegate.d --serialize-diagnostics /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/AppDelegate.dia -c /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Classes/AppDelegate.m -o /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/AppDelegate.o36"5F8F2F93-FF47-455E-B3A4-3424C2A89F1D-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CCompileC build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/CDVDevice.o /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/org.apache.cordova.device/CDVDevice.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s429627279.842746
-e429627280.334501
-r1
-xCompileC
-xbuild/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/CDVDevice.o
-x/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/org.apache.cordova.device/CDVDevice.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/org.apache.cordova.device/CDVDevice.m
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDV.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVAvailability.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVPlugin.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVPluginResult.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/NSMutableArray+QueueAdditions.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVCommandDelegate.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVInvokedUrlCommand.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVViewController.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVCommandQueue.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVWhitelist.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVScreenOrientationDelegate.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVURLProtocol.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVDebug.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVLocalStorage.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVTimer.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/NSArray+Comparisons.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/NSData+Base64.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/NSDictionary+Extensions.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/UIDevice+Extensions.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVJSON.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/org.apache.cordova.device/CDVDevice.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection143"Compile /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/org.apache.cordova.device/CDVDevice.m230"CompileC build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/CDVDevice.o CollegeLife/Plugins/org.apache.cordova.device/CDVDevice.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler60e6d78f979bb941^53cc5590979bb941^---0#0#1#-19%DVTDocumentLocation2@142"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/org.apache.cordova.device/CDVDevice.m0000000000000000^4382"CompileC build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/CDVDevice.o CollegeLife/Plugins/org.apache.cordova.device/CDVDevice.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.0 -iquote /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/CollegeLife-generated-files.hmap -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/CollegeLife-own-target-headers.hmap -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/CollegeLife-all-target-headers.hmap -iquote /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/CollegeLife-project-headers.hmap -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/usr/local/lib/include -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/UninstalledProducts/include -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/DerivedSources/i386 -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/DerivedSources -F/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator -include /var/folders/mm/5wz18lps0xx0fpy2rbln9d9w0000gn/C/com.apple.DeveloperTools/5.1.1-5B1008/Xcode/SharedPrecompiledHeaders/CollegeLife-Prefix-cywrkgpbprpeeydknsjhgnnbgzgp/CollegeLife-Prefix.pch -MMD -MT dependencies -MF /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/CDVDevice.d --serialize-diagnostics /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/CDVDevice.dia -c /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/org.apache.cordova.device/CDVDevice.m -o /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/CDVDevice.o36"4670CE01-1A35-4279-B6C3-0A90C1BFD789-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CCompileC build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/CDVLogger.o /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/org.apache.cordova.console/CDVLogger.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s429627279.817911
-e429627280.010658
-r1
-xCompileC
-xbuild/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/CDVLogger.o
-x/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/org.apache.cordova.console/CDVLogger.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/org.apache.cordova.console/CDVLogger.m
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/org.apache.cordova.console/CDVLogger.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVPlugin.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVPluginResult.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/NSMutableArray+QueueAdditions.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVCommandDelegate.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVAvailability.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVInvokedUrlCommand.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDV.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVViewController.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVCommandQueue.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVWhitelist.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVScreenOrientationDelegate.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVURLProtocol.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVDebug.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVLocalStorage.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVTimer.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/NSArray+Comparisons.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/NSData+Base64.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/NSDictionary+Extensions.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/UIDevice+Extensions.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVJSON.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection144"Compile /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/org.apache.cordova.console/CDVLogger.m231"CompileC build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/CDVLogger.o CollegeLife/Plugins/org.apache.cordova.console/CDVLogger.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler8f8cd18f979bb941^aeba0290979bb941^---0#0#1#-19%DVTDocumentLocation2@143"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/org.apache.cordova.console/CDVLogger.m0000000000000000^4384"CompileC build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/CDVLogger.o CollegeLife/Plugins/org.apache.cordova.console/CDVLogger.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.0 -iquote /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/CollegeLife-generated-files.hmap -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/CollegeLife-own-target-headers.hmap -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/CollegeLife-all-target-headers.hmap -iquote /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/CollegeLife-project-headers.hmap -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/usr/local/lib/include -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/UninstalledProducts/include -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/DerivedSources/i386 -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/DerivedSources -F/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator -include /var/folders/mm/5wz18lps0xx0fpy2rbln9d9w0000gn/C/com.apple.DeveloperTools/5.1.1-5B1008/Xcode/SharedPrecompiledHeaders/CollegeLife-Prefix-cywrkgpbprpeeydknsjhgnnbgzgp/CollegeLife-Prefix.pch -MMD -MT dependencies -MF /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/CDVLogger.d --serialize-diagnostics /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/CDVLogger.dia -c /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/org.apache.cordova.console/CDVLogger.m -o /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/CDVLogger.o36"0F5BAC1D-855B-437C-98F1-34B709C61D95-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CCompileC build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/IonicKeyboard.o /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/com.ionic.keyboard/IonicKeyboard.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s429627279.627155
-e429627279.839863
-r1
-xCompileC
-xbuild/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/IonicKeyboard.o
-x/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/com.ionic.keyboard/IonicKeyboard.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/com.ionic.keyboard/IonicKeyboard.m
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/com.ionic.keyboard/IonicKeyboard.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVPlugin.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVPluginResult.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/NSMutableArray+QueueAdditions.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVCommandDelegate.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVAvailability.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVInvokedUrlCommand.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/com.ionic.keyboard/UIWebViewExtension.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection140"Compile /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/com.ionic.keyboard/IonicKeyboard.m231"CompileC build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/IonicKeyboard.o CollegeLife/Plugins/com.ionic.keyboard/IonicKeyboard.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler6fbba08f979bb941^9c31d88f979bb941^---0#0#1#-19%DVTDocumentLocation2@139"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/com.ionic.keyboard/IonicKeyboard.m0000000000000000^4392"CompileC build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/IonicKeyboard.o CollegeLife/Plugins/com.ionic.keyboard/IonicKeyboard.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.0 -iquote /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/CollegeLife-generated-files.hmap -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/CollegeLife-own-target-headers.hmap -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/CollegeLife-all-target-headers.hmap -iquote /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/CollegeLife-project-headers.hmap -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/usr/local/lib/include -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/UninstalledProducts/include -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/DerivedSources/i386 -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/DerivedSources -F/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator -include /var/folders/mm/5wz18lps0xx0fpy2rbln9d9w0000gn/C/com.apple.DeveloperTools/5.1.1-5B1008/Xcode/SharedPrecompiledHeaders/CollegeLife-Prefix-cywrkgpbprpeeydknsjhgnnbgzgp/CollegeLife-Prefix.pch -MMD -MT dependencies -MF /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/IonicKeyboard.d --serialize-diagnostics /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/IonicKeyboard.dia -c /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/com.ionic.keyboard/IonicKeyboard.m -o /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/IonicKeyboard.o36"00E281D1-6945-4C07-8869-F471115507B5-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CCompileC build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/MainViewController.o /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Classes/MainViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s429627279.482179
-e429627279.626314
-r1
-xCompileC
-xbuild/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/MainViewController.o
-x/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Classes/MainViewController.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Classes/MainViewController.m
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Classes/MainViewController.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVViewController.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVAvailability.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVInvokedUrlCommand.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVCommandDelegate.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVCommandQueue.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVWhitelist.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVScreenOrientationDelegate.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVPlugin.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVPluginResult.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/NSMutableArray+QueueAdditions.h
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include/Cordova/CDVCommandDelegateImpl.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection126"Compile /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Classes/MainViewController.m222"CompileC build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/MainViewController.o CollegeLife/Classes/MainViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler98a77b8f979bb941^9693a08f979bb941^---0#0#1#-19%DVTDocumentLocation2@125"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Classes/MainViewController.m0000000000000000^4384"CompileC build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/MainViewController.o CollegeLife/Classes/MainViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.0 -iquote /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/CollegeLife-generated-files.hmap -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/CollegeLife-own-target-headers.hmap -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/CollegeLife-all-target-headers.hmap -iquote /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/CollegeLife-project-headers.hmap -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/usr/local/lib/include -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/UninstalledProducts/include -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/DerivedSources/i386 -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/DerivedSources -F/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator -include /var/folders/mm/5wz18lps0xx0fpy2rbln9d9w0000gn/C/com.apple.DeveloperTools/5.1.1-5B1008/Xcode/SharedPrecompiledHeaders/CollegeLife-Prefix-cywrkgpbprpeeydknsjhgnnbgzgp/CollegeLife-Prefix.pch -MMD -MT dependencies -MF /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/MainViewController.d --serialize-diagnostics /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/MainViewController.dia -c /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Classes/MainViewController.m -o /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/MainViewController.o36"CD9AD60F-B759-4C56-8FC5-013E3B0E9DC3-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CCompileC build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/UIWebViewExtension.o /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/com.ionic.keyboard/UIWebViewExtension.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s429627279.644753
-e429627279.817538
-r1
-xCompileC
-xbuild/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/UIWebViewExtension.o
-x/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/com.ionic.keyboard/UIWebViewExtension.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/com.ionic.keyboard/UIWebViewExtension.m
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/com.ionic.keyboard/UIWebViewExtension.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection145"Compile /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/com.ionic.keyboard/UIWebViewExtension.m241"CompileC build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/UIWebViewExtension.o CollegeLife/Plugins/com.ionic.keyboard/UIWebViewExtension.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler2d3ea58f979bb941^d098d18f979bb941^---0#0#1#-19%DVTDocumentLocation2@144"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/com.ionic.keyboard/UIWebViewExtension.m0000000000000000^4422"CompileC build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/UIWebViewExtension.o CollegeLife/Plugins/com.ionic.keyboard/UIWebViewExtension.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.0 -iquote /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/CollegeLife-generated-files.hmap -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/CollegeLife-own-target-headers.hmap -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/CollegeLife-all-target-headers.hmap -iquote /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/CollegeLife-project-headers.hmap -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/usr/local/lib/include -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/UninstalledProducts/include -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/DerivedSources/i386 -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/DerivedSources -F/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator -include /var/folders/mm/5wz18lps0xx0fpy2rbln9d9w0000gn/C/com.apple.DeveloperTools/5.1.1-5B1008/Xcode/SharedPrecompiledHeaders/CollegeLife-Prefix-cywrkgpbprpeeydknsjhgnnbgzgp/CollegeLife-Prefix.pch -MMD -MT dependencies -MF /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/UIWebViewExtension.d --serialize-diagnostics /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/UIWebViewExtension.dia -c /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Plugins/com.ionic.keyboard/UIWebViewExtension.m -o /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/UIWebViewExtension.o36"FC892173-3BE1-463A-BDE7-1D6675511820-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CCompileC build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/main.o /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s429627279.310588
-e429627279.481485
-r1
-xCompileC
-xbuild/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/main.o
-x/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/main.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/main.m
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection104"Compile /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/main.m186"CompileC build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/main.o CollegeLife/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler82ac4f8f979bb941^645a7b8f979bb941^---0#0#1#-19%DVTDocumentLocation2@103"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/main.m0000000000000000^4284"CompileC build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/main.o CollegeLife/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.0 -iquote /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/CollegeLife-generated-files.hmap -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/CollegeLife-own-target-headers.hmap -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/CollegeLife-all-target-headers.hmap -iquote /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/CollegeLife-project-headers.hmap -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/usr/local/lib/include -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/UninstalledProducts/include -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/DerivedSources/i386 -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/DerivedSources -F/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator -include /var/folders/mm/5wz18lps0xx0fpy2rbln9d9w0000gn/C/com.apple.DeveloperTools/5.1.1-5B1008/Xcode/SharedPrecompiledHeaders/CollegeLife-Prefix-cywrkgpbprpeeydknsjhgnnbgzgp/CollegeLife-Prefix.pch -MMD -MT dependencies -MF /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/main.d --serialize-diagnostics /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/main.dia -c /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/main.m -o /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/main.o36"ADFE97A9-A4E3-42A0-AD7C-236CE516E34E-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CCompileXIB /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Classes/MainViewController.xib
-s429627218.846630
-e429627273.565313
-r1
-xCompileXIB
-x/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Classes/MainViewController.xib
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection130"Compiling /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Classes/MainViewController.xib53"CompileXIB CollegeLife/Classes/MainViewController.xibbedbd852979bb941^8dd39089979bb941^---0#0#1#-19%DVTDocumentLocation2@127"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Classes/MainViewController.xib0000000000000000^1030"CompileXIB CollegeLife/Classes/MainViewController.xib    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    export XCODE_DEVELOPER_USR_PATH=/Applications/Xcode.app/Contents/Developer/usr/bin/..    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/ibtool --errors --warnings --notices --minimum-deployment-target 6.0 --output-format human-readable-text --compile /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/MainViewController.nib /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Classes/MainViewController.xib36"8CA5654D-7E91-41EA-A320-162215A27F54-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CCopyStringsFile /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/de.lproj/Localizable.strings CollegeLife/Resources/de.lproj/Localizable.strings
-s429627218.886970
-e429627218.927676
-r1
-xCopyStringsFile
-x/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/de.lproj/Localizable.strings
-xCollegeLife/Resources/de.lproj/Localizable.strings
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection55"Copy CollegeLife/Resources/de.lproj/Localizable.strings126"CopyStringsFile build/emulator/CollegeLife.app/de.lproj/Localizable.strings CollegeLife/Resources/de.lproj/Localizable.strings342be352979bb941^0a80ed52979bb941^---0#0#1#-19%DVTDocumentLocation2@135"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/de.lproj/Localizable.strings0000000000000000^807"CopyStringsFile build/emulator/CollegeLife.app/de.lproj/Localizable.strings CollegeLife/Resources/de.lproj/Localizable.strings    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/de.lproj -- CollegeLife/Resources/de.lproj/Localizable.strings36"E657B506-893E-4D66-B3E0-FA6012D3D3A8-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CCopyStringsFile /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/en.lproj/Localizable.strings CollegeLife/Resources/en.lproj/Localizable.strings
-s429627218.844227
-e429627218.856407
-r1
-xCopyStringsFile
-x/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/en.lproj/Localizable.strings
-xCollegeLife/Resources/en.lproj/Localizable.strings
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection55"Copy CollegeLife/Resources/en.lproj/Localizable.strings126"CopyStringsFile build/emulator/CollegeLife.app/en.lproj/Localizable.strings CollegeLife/Resources/en.lproj/Localizable.strings603bd852979bb941^e141db52979bb941^---0#0#1#-19%DVTDocumentLocation2@135"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/en.lproj/Localizable.strings0000000000000000^807"CopyStringsFile build/emulator/CollegeLife.app/en.lproj/Localizable.strings CollegeLife/Resources/en.lproj/Localizable.strings    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/en.lproj -- CollegeLife/Resources/en.lproj/Localizable.strings36"5DB68D19-CCE2-4ECD-BEA2-91264F219EE5-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CCpResource CollegeLife/Resources/icons/icon-40.png build/emulator/CollegeLife.app/icon-40.png
-s429627219.440681
-e429627219.441681
-r1
-xCpResource
-xCollegeLife/Resources/icons/icon-40.png
-xbuild/emulator/CollegeLife.app/icon-40.png
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection47"Copy build/emulator/CollegeLife.app/icon-40.png93"CpResource CollegeLife/Resources/icons/icon-40.png build/emulator/CollegeLife.app/icon-40.pngabe77053979bb941^cf307153979bb941^---0#0#1#-19%DVTDocumentLocation2@127"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/icon-40.png00345029deffdf42^851"CpResource CollegeLife/Resources/icons/icon-40.png build/emulator/CollegeLife.app/icon-40.png    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/icons/icon-40.png /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app36"931D637D-48D9-47E5-A742-AA93F0069003-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CCpResource CollegeLife/Resources/icons/icon-40@2x.png build/emulator/CollegeLife.app/icon-40@2x.png
-s429627218.783130
-e429627218.801704
-r1
-xCpResource
-xCollegeLife/Resources/icons/icon-40@2x.png
-xbuild/emulator/CollegeLife.app/icon-40@2x.png
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection50"Copy build/emulator/CollegeLife.app/icon-40@2x.png99"CpResource CollegeLife/Resources/icons/icon-40@2x.png build/emulator/CollegeLife.app/icon-40@2x.pngda8fc852979bb941^5bd2cd52979bb941^---0#0#1#-19%DVTDocumentLocation2@130"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/icon-40@2x.png00345029deffdf42^860"CpResource CollegeLife/Resources/icons/icon-40@2x.png build/emulator/CollegeLife.app/icon-40@2x.png    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/icons/icon-40@2x.png /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app36"C30462C8-71A8-44A7-B328-19439EFC0C9D-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CCpResource CollegeLife/Resources/icons/icon-50.png build/emulator/CollegeLife.app/icon-50.png
-s429627218.856914
-e429627218.874948
-r1
-xCpResource
-xCollegeLife/Resources/icons/icon-50.png
-xbuild/emulator/CollegeLife.app/icon-50.png
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection47"Copy build/emulator/CollegeLife.app/icon-50.png93"CpResource CollegeLife/Resources/icons/icon-50.png build/emulator/CollegeLife.app/icon-50.png8e77db52979bb941^caa6e052979bb941^---0#0#1#-19%DVTDocumentLocation2@127"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/icon-50.png00345029deffdf42^851"CpResource CollegeLife/Resources/icons/icon-50.png build/emulator/CollegeLife.app/icon-50.png    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/icons/icon-50.png /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app36"CC372842-6B1D-4688-8ED2-FE1612C6132A-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CCpResource CollegeLife/Resources/icons/icon-50@2x.png build/emulator/CollegeLife.app/icon-50@2x.png
-s429627219.573348
-e429627219.592362
-r1
-xCpResource
-xCollegeLife/Resources/icons/icon-50@2x.png
-xbuild/emulator/CollegeLife.app/icon-50@2x.png
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection50"Copy build/emulator/CollegeLife.app/icon-50@2x.png99"CpResource CollegeLife/Resources/icons/icon-50@2x.png build/emulator/CollegeLife.app/icon-50@2x.png5ddc9253979bb941^a0a59753979bb941^---0#0#1#-19%DVTDocumentLocation2@130"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/icon-50@2x.png00345029deffdf42^860"CpResource CollegeLife/Resources/icons/icon-50@2x.png build/emulator/CollegeLife.app/icon-50@2x.png    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/icons/icon-50@2x.png /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app36"6505838D-57A0-46F7-8877-5DA96CABB05D-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CCpResource CollegeLife/Resources/icons/icon-60.png build/emulator/CollegeLife.app/icon-60.png
-s429627219.504240
-e429627219.568748
-r1
-xCpResource
-xCollegeLife/Resources/icons/icon-60.png
-xbuild/emulator/CollegeLife.app/icon-60.png
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection47"Copy build/emulator/CollegeLife.app/icon-60.png93"CpResource CollegeLife/Resources/icons/icon-60.png build/emulator/CollegeLife.app/icon-60.png842e8153979bb941^fe999153979bb941^---0#0#1#-19%DVTDocumentLocation2@127"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/icon-60.png00345029deffdf42^851"CpResource CollegeLife/Resources/icons/icon-60.png build/emulator/CollegeLife.app/icon-60.png    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/icons/icon-60.png /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app36"6F916B6D-9890-431B-8040-D333F9664362-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CCpResource CollegeLife/Resources/icons/icon-60@2x.png build/emulator/CollegeLife.app/icon-60@2x.png
-s429627218.876998
-e429627218.886737
-r1
-xCpResource
-xCollegeLife/Resources/icons/icon-60@2x.png
-xbuild/emulator/CollegeLife.app/icon-60@2x.png
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection50"Copy build/emulator/CollegeLife.app/icon-60@2x.png99"CpResource CollegeLife/Resources/icons/icon-60@2x.png build/emulator/CollegeLife.app/icon-60@2x.pngc79be052979bb941^6405e352979bb941^---0#0#1#-19%DVTDocumentLocation2@130"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/icon-60@2x.png00345029deffdf42^860"CpResource CollegeLife/Resources/icons/icon-60@2x.png build/emulator/CollegeLife.app/icon-60@2x.png    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/icons/icon-60@2x.png /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app36"12EA6F80-6417-4D0F-A696-C8EDED71E948-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CCpResource CollegeLife/Resources/icons/icon-72.png build/emulator/CollegeLife.app/icon-72.png
-s429627218.801968
-e429627218.843864
-r1
-xCpResource
-xCollegeLife/Resources/icons/icon-72.png
-xbuild/emulator/CollegeLife.app/icon-72.png
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection47"Copy build/emulator/CollegeLife.app/icon-72.png93"CpResource CollegeLife/Resources/icons/icon-72.png build/emulator/CollegeLife.app/icon-72.png6074cd52979bb941^e00ed852979bb941^---0#0#1#-19%DVTDocumentLocation2@127"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/icon-72.png00345029deffdf42^851"CpResource CollegeLife/Resources/icons/icon-72.png build/emulator/CollegeLife.app/icon-72.png    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/icons/icon-72.png /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app36"F0043466-1790-4899-952F-944B20326461-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CCpResource CollegeLife/Resources/icons/icon-72@2x.png build/emulator/CollegeLife.app/icon-72@2x.png
-s429627219.634663
-e429627219.676652
-r1
-xCpResource
-xCollegeLife/Resources/icons/icon-72@2x.png
-xbuild/emulator/CollegeLife.app/icon-72@2x.png
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection50"Copy build/emulator/CollegeLife.app/icon-72@2x.png99"CpResource CollegeLife/Resources/icons/icon-72@2x.png build/emulator/CollegeLife.app/icon-72@2x.png9f8fa253979bb941^a549ad53979bb941^---0#0#1#-19%DVTDocumentLocation2@130"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/icon-72@2x.png00345029deffdf42^860"CpResource CollegeLife/Resources/icons/icon-72@2x.png build/emulator/CollegeLife.app/icon-72@2x.png    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/icons/icon-72@2x.png /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app36"6DBE4477-CEC8-47DC-8133-A78F7F1955A1-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CCpResource CollegeLife/Resources/icons/icon-76.png build/emulator/CollegeLife.app/icon-76.png
-s429627218.782612
-e429627218.805277
-r1
-xCpResource
-xCollegeLife/Resources/icons/icon-76.png
-xbuild/emulator/CollegeLife.app/icon-76.png
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection47"Copy build/emulator/CollegeLife.app/icon-76.png93"CpResource CollegeLife/Resources/icons/icon-76.png build/emulator/CollegeLife.app/icon-76.png4b72c852979bb941^b9facd52979bb941^---0#0#1#-19%DVTDocumentLocation2@127"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/icon-76.png00345029deffdf42^851"CpResource CollegeLife/Resources/icons/icon-76.png build/emulator/CollegeLife.app/icon-76.png    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/icons/icon-76.png /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app36"145B7E5E-D0CC-4F93-A25F-2D8512E77C0B-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CCpResource CollegeLife/Resources/icons/icon-76@2x.png build/emulator/CollegeLife.app/icon-76@2x.png
-s429627219.592915
-e429627219.634394
-r1
-xCpResource
-xCollegeLife/Resources/icons/icon-76@2x.png
-xbuild/emulator/CollegeLife.app/icon-76@2x.png
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection50"Copy build/emulator/CollegeLife.app/icon-76@2x.png99"CpResource CollegeLife/Resources/icons/icon-76@2x.png build/emulator/CollegeLife.app/icon-76@2x.png6c219853979bb941^876ea253979bb941^---0#0#1#-19%DVTDocumentLocation2@130"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/icon-76@2x.png00345029deffdf42^860"CpResource CollegeLife/Resources/icons/icon-76@2x.png build/emulator/CollegeLife.app/icon-76@2x.png    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/icons/icon-76@2x.png /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app36"F0BDB08A-B549-4D89-8B3D-4C52D0370128-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CCpResource CollegeLife/Resources/icons/icon-small.png build/emulator/CollegeLife.app/icon-small.png
-s429627218.928051
-e429627219.021004
-r1
-xCpResource
-xCollegeLife/Resources/icons/icon-small.png
-xbuild/emulator/CollegeLife.app/icon-small.png
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection50"Copy build/emulator/CollegeLife.app/icon-small.png99"CpResource CollegeLife/Resources/icons/icon-small.png build/emulator/CollegeLife.app/icon-small.png26aced52979bb941^b69e0553979bb941^---0#0#1#-19%DVTDocumentLocation2@130"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/icon-small.png00345029deffdf42^860"CpResource CollegeLife/Resources/icons/icon-small.png build/emulator/CollegeLife.app/icon-small.png    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/icons/icon-small.png /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app36"49A9A62A-ABB3-4CD7-84EB-0FDF0AE6C65B-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CCpResource CollegeLife/Resources/icons/icon-small@2x.png build/emulator/CollegeLife.app/icon-small@2x.png
-s429627219.228684
-e429627219.336425
-r1
-xCpResource
-xCollegeLife/Resources/icons/icon-small@2x.png
-xbuild/emulator/CollegeLife.app/icon-small@2x.png
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection53"Copy build/emulator/CollegeLife.app/icon-small@2x.png105"CpResource CollegeLife/Resources/icons/icon-small@2x.png build/emulator/CollegeLife.app/icon-small@2x.pngc2a23a53979bb941^53215653979bb941^---0#0#1#-19%DVTDocumentLocation2@133"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/icon-small@2x.png00345029deffdf42^869"CpResource CollegeLife/Resources/icons/icon-small@2x.png build/emulator/CollegeLife.app/icon-small@2x.png    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/icons/icon-small@2x.png /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app36"A6CE7BF0-71E5-459D-9AB7-0D8D9ECB7D61-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CCpResource CollegeLife/Resources/icons/icon.png build/emulator/CollegeLife.app/icon.png
-s429627218.805821
-e429627218.808110
-r1
-xCpResource
-xCollegeLife/Resources/icons/icon.png
-xbuild/emulator/CollegeLife.app/icon.png
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection44"Copy build/emulator/CollegeLife.app/icon.png87"CpResource CollegeLife/Resources/icons/icon.png build/emulator/CollegeLife.app/icon.png2ba2ce52979bb941^ba10cf52979bb941^---0#0#1#-19%DVTDocumentLocation2@124"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/icon.png00345029deffdf42^842"CpResource CollegeLife/Resources/icons/icon.png build/emulator/CollegeLife.app/icon.png    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/icons/icon.png /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app36"A1F7D9EC-DEDD-4CA7-A06F-27B386496862-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CCpResource CollegeLife/Resources/icons/icon@2x.png build/emulator/CollegeLife.app/icon@2x.png
-s429627218.808334
-e429627218.843847
-r1
-xCpResource
-xCollegeLife/Resources/icons/icon@2x.png
-xbuild/emulator/CollegeLife.app/icon@2x.png
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection47"Copy build/emulator/CollegeLife.app/icon@2x.png93"CpResource CollegeLife/Resources/icons/icon@2x.png build/emulator/CollegeLife.app/icon@2x.pnga306cf52979bb941^390ad852979bb941^---0#0#1#-19%DVTDocumentLocation2@127"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/icon@2x.png00345029deffdf42^851"CpResource CollegeLife/Resources/icons/icon@2x.png build/emulator/CollegeLife.app/icon@2x.png    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/icons/icon@2x.png /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app36"4881E655-6550-4557-875C-FA3A80F61A05-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CCpResource CollegeLife/Resources/splash/Default-568h@2x~iphone.png build/emulator/CollegeLife.app/Default-568h@2x~iphone.png
-s429627219.570766
-e429627219.572874
-r1
-xCpResource
-xCollegeLife/Resources/splash/Default-568h@2x~iphone.png
-xbuild/emulator/CollegeLife.app/Default-568h@2x~iphone.png
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection62"Copy build/emulator/CollegeLife.app/Default-568h@2x~iphone.png124"CpResource CollegeLife/Resources/splash/Default-568h@2x~iphone.png build/emulator/CollegeLife.app/Default-568h@2x~iphone.png94319253979bb941^daa89253979bb941^---0#0#1#-19%DVTDocumentLocation2@142"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/Default-568h@2x~iphone.png00345029deffdf42^898"CpResource CollegeLife/Resources/splash/Default-568h@2x~iphone.png build/emulator/CollegeLife.app/Default-568h@2x~iphone.png    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/splash/Default-568h@2x~iphone.png /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app36"9C3E5F63-6B5E-425D-B97B-608098B8602D-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CCpResource CollegeLife/Resources/splash/Default-Landscape@2x~ipad.png build/emulator/CollegeLife.app/Default-Landscape@2x~ipad.png
-s429627219.021354
-e429627219.117629
-r1
-xCpResource
-xCollegeLife/Resources/splash/Default-Landscape@2x~ipad.png
-xbuild/emulator/CollegeLife.app/Default-Landscape@2x~ipad.png
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection65"Copy build/emulator/CollegeLife.app/Default-Landscape@2x~ipad.png130"CpResource CollegeLife/Resources/splash/Default-Landscape@2x~ipad.png build/emulator/CollegeLife.app/Default-Landscape@2x~ipad.pngcd910553979bb941^09511e53979bb941^---0#0#1#-19%DVTDocumentLocation2@145"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/Default-Landscape@2x~ipad.png00345029deffdf42^907"CpResource CollegeLife/Resources/splash/Default-Landscape@2x~ipad.png build/emulator/CollegeLife.app/Default-Landscape@2x~ipad.png    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/splash/Default-Landscape@2x~ipad.png /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app36"C2378A63-F39B-4C6E-9C05-5EBD17AB5B22-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CCpResource CollegeLife/Resources/splash/Default-Landscape~ipad.png build/emulator/CollegeLife.app/Default-Landscape~ipad.png
-s429627219.117895
-e429627219.174150
-r1
-xCpResource
-xCollegeLife/Resources/splash/Default-Landscape~ipad.png
-xbuild/emulator/CollegeLife.app/Default-Landscape~ipad.png
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection62"Copy build/emulator/CollegeLife.app/Default-Landscape~ipad.png124"CpResource CollegeLife/Resources/splash/Default-Landscape~ipad.png build/emulator/CollegeLife.app/Default-Landscape~ipad.png91451e53979bb941^cdc82c53979bb941^---0#0#1#-19%DVTDocumentLocation2@142"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/Default-Landscape~ipad.png00345029deffdf42^898"CpResource CollegeLife/Resources/splash/Default-Landscape~ipad.png build/emulator/CollegeLife.app/Default-Landscape~ipad.png    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/splash/Default-Landscape~ipad.png /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app36"551F047E-0F9E-4331-9256-0094DB65F11F-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CCpResource CollegeLife/Resources/splash/Default-Portrait@2x~ipad.png build/emulator/CollegeLife.app/Default-Portrait@2x~ipad.png
-s429627219.174414
-e429627219.228400
-r1
-xCpResource
-xCollegeLife/Resources/splash/Default-Portrait@2x~ipad.png
-xbuild/emulator/CollegeLife.app/Default-Portrait@2x~ipad.png
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection64"Copy build/emulator/CollegeLife.app/Default-Portrait@2x~ipad.png128"CpResource CollegeLife/Resources/splash/Default-Portrait@2x~ipad.png build/emulator/CollegeLife.app/Default-Portrait@2x~ipad.pngfdbd2c53979bb941^e6ad3a53979bb941^---0#0#1#-19%DVTDocumentLocation2@144"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/Default-Portrait@2x~ipad.png00345029deffdf42^904"CpResource CollegeLife/Resources/splash/Default-Portrait@2x~ipad.png build/emulator/CollegeLife.app/Default-Portrait@2x~ipad.png    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/splash/Default-Portrait@2x~ipad.png /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app36"70C2D400-9A95-4F98-80ED-C0083C03A2D1-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CCpResource CollegeLife/Resources/splash/Default-Portrait~ipad.png build/emulator/CollegeLife.app/Default-Portrait~ipad.png
-s429627219.336750
-e429627219.440342
-r1
-xCpResource
-xCollegeLife/Resources/splash/Default-Portrait~ipad.png
-xbuild/emulator/CollegeLife.app/Default-Portrait~ipad.png
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection61"Copy build/emulator/CollegeLife.app/Default-Portrait~ipad.png122"CpResource CollegeLife/Resources/splash/Default-Portrait~ipad.png build/emulator/CollegeLife.app/Default-Portrait~ipad.pngb64c5653979bb941^b6ba7053979bb941^---0#0#1#-19%DVTDocumentLocation2@141"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/Default-Portrait~ipad.png00345029deffdf42^895"CpResource CollegeLife/Resources/splash/Default-Portrait~ipad.png build/emulator/CollegeLife.app/Default-Portrait~ipad.png    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/splash/Default-Portrait~ipad.png /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app36"D9082F29-D044-49F0-BB01-758E18675C76-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CCpResource CollegeLife/Resources/splash/Default@2x~iphone.png build/emulator/CollegeLife.app/Default@2x~iphone.png
-s429627219.441855
-e429627219.503985
-r1
-xCpResource
-xCollegeLife/Resources/splash/Default@2x~iphone.png
-xbuild/emulator/CollegeLife.app/Default@2x~iphone.png
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection57"Copy build/emulator/CollegeLife.app/Default@2x~iphone.png114"CpResource CollegeLife/Resources/splash/Default@2x~iphone.png build/emulator/CollegeLife.app/Default@2x~iphone.pnge8327153979bb941^68068153979bb941^---0#0#1#-19%DVTDocumentLocation2@137"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/Default@2x~iphone.png00345029deffdf42^883"CpResource CollegeLife/Resources/splash/Default@2x~iphone.png build/emulator/CollegeLife.app/Default@2x~iphone.png    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/splash/Default@2x~iphone.png /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app36"0CB5299D-606A-48A5-BED1-F400B6CB61AE-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CCpResource CollegeLife/Resources/splash/Default~iphone.png build/emulator/CollegeLife.app/Default~iphone.png
-s429627219.569078
-e429627219.570566
-r1
-xCpResource
-xCollegeLife/Resources/splash/Default~iphone.png
-xbuild/emulator/CollegeLife.app/Default~iphone.png
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection54"Copy build/emulator/CollegeLife.app/Default~iphone.png108"CpResource CollegeLife/Resources/splash/Default~iphone.png build/emulator/CollegeLife.app/Default~iphone.png2ec59153979bb941^12119253979bb941^---0#0#1#-19%DVTDocumentLocation2@134"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/Default~iphone.png00345029deffdf42^874"CpResource CollegeLife/Resources/splash/Default~iphone.png build/emulator/CollegeLife.app/Default~iphone.png    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/Resources/splash/Default~iphone.png /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app36"69D034A8-90CD-4546-97ED-E8A32097E524-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CGenerateDSYMFile /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app.dSYM /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/CollegeLife
-s429627283.969153
-e429627284.527683
-r1
-xGenerateDSYMFile
-x/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app.dSYM
-x/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/CollegeLife
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection122"Generate /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app.dSYM95"GenerateDSYMFile build/emulator/CollegeLife.app.dSYM build/emulator/CollegeLife.app/CollegeLife7632f893979bb941^6f488794979bb941^---0#0#1#-19%DVTDocumentLocation2@120"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app.dSYM00345029deffdf42^852"GenerateDSYMFile build/emulator/CollegeLife.app.dSYM build/emulator/CollegeLife.app/CollegeLife    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/CollegeLife -o /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app.dSYM36"5254C1C0-9830-4823-878E-B9A0E0E73AF2-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CLd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/CollegeLife normal i386
-s429627280.376112
-e429627283.951055
-r1
-xLd
-x/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/CollegeLife
-xnormal
-xi386
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/CollegeLife.LinkFileList
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/libCordova.a
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/crt1.o
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/main.o
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/AppDelegate.o
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/MainViewController.o
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/IonicKeyboard.o
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/UIWebViewExtension.o
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/CDVLogger.o
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/CDVDevice.o
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/UIKit.framework/UIKit
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/AVFoundation.framework/AVFoundation
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/CoreMedia.framework/CoreMedia
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/libSystem.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/AssetsLibrary.framework/AssetsLibrary
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/MobileCoreServices.framework/MobileCoreServices
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/CoreLocation.framework/CoreLocation
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/Foundation.framework/Foundation
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/libobjc.dylib
-d/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.1/lib/darwin/libclang_rt.ios.a
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libsystem_override.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libcache_sim.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libcommonCrypto_sim.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libcorecrypto_sim.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libcompiler_rt_sim.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libcopyfile_sim.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libdispatch.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libdyld_sim.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libmacho_sim.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libnotify_sim.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libremovefile_sim.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libsystem_sim_blocks.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libsystem_sim_c.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libsystem_sim_dnssd.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libsystem_sim_info.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libsystem_sim_m.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libsystem_network.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libunwind_sim.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libxpc.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libsystem_sim_configuration.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/libsystem_sim_asl.dylib
-d/usr/lib/libSystem.B.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/PrivateFrameworks/UIFoundation.framework/UIFoundation
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/AVFoundation.framework/libAVFAudio.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/system/host/libdyld.dylib
-d/usr/lib/system/libcache.dylib
-d/usr/lib/system/libcommonCrypto.dylib
-d/usr/lib/system/libcompiler_rt.dylib
-d/usr/lib/system/libcopyfile.dylib
-d/usr/lib/system/libcorecrypto.dylib
-d/usr/lib/system/libkeymgr.dylib
-d/usr/lib/system/liblaunch.dylib
-d/usr/lib/system/libmacho.dylib
-d/usr/lib/system/libquarantine.dylib
-d/usr/lib/system/libremovefile.dylib
-d/usr/lib/system/libsystem_asl.dylib
-d/usr/lib/system/libsystem_blocks.dylib
-d/usr/lib/system/libsystem_c.dylib
-d/usr/lib/system/libsystem_configuration.dylib
-d/usr/lib/system/libsystem_dnssd.dylib
-d/usr/lib/system/libsystem_info.dylib
-d/usr/lib/system/libsystem_kernel.dylib
-d/usr/lib/system/libsystem_m.dylib
-d/usr/lib/system/libsystem_malloc.dylib
-d/usr/lib/system/libsystem_notify.dylib
-d/usr/lib/system/libsystem_platform.dylib
-d/usr/lib/system/libsystem_pthread.dylib
-d/usr/lib/system/libsystem_sandbox.dylib
-d/usr/lib/system/libunc.dylib
-d/usr/lib/system/libunwind.dylib
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection125"Link /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/CollegeLife57"Ld build/emulator/CollegeLife.app/CollegeLife normal i38634686090979bb941^7e8ef393979bb941^---0#0#1#--2077"Ld build/emulator/CollegeLife.app/CollegeLife normal i386    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export IPHONEOS_DEPLOYMENT_TARGET=6.0    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch i386 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -L/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator -F/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator -filelist /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/CollegeLife.LinkFileList -Xlinker -objc_abi_version -Xlinker 2 -weak_framework CoreFoundation -weak_framework UIKit -weak_framework AVFoundation -weak_framework CoreMedia -weak-lSystem -force_load /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/libCordova.a -ObjC -fobjc-arc -fobjc-link-runtime -Xlinker -no_implicit_dylibs -mios-simulator-version-min=6.0 -framework AssetsLibrary /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/libCordova.a -framework CoreGraphics -framework MobileCoreServices -framework CoreLocation -Xlinker -dependency_info -Xlinker /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Objects-normal/i386/CollegeLife_dependency_info.dat -o /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/CollegeLife36"B39880EA-4449-4964-B49B-B3BDA95427BC-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CPhaseScriptExecution Copy\ www\ directory /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Script-304B58A110DAC018002A0835.sh
-s429627216.841828
-e429627218.778792
-r1
-xPhaseScriptExecution
-xCopy www directory
-x/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Script-304B58A110DAC018002A0835.sh
-o
-oreal	0m1.868s
-ouser	0m0.294s
-osys	0m0.551s
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection44"Run custom shell script 'Copy www directory'140"PhaseScriptExecution Copy\ www\ directory build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Script-304B58A110DAC018002A0835.sha3cdd950979bb941^2c82c752979bb941^-42"real	0m1.868suser	0m0.294ssys	0m0.551s3(21%IDEActivityLogMessage2@14"real	0m1.868s-429627218#1#14#-0#-----2@14"user	0m0.294s-429627218#15#14#-0#-----2@13"sys	0m0.551s-429627218#29#13#-0#-----0#0#1#--418"PhaseScriptExecution Copy\ www\ directory build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Script-304B58A110DAC018002A0835.sh    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    /bin/sh -c /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/Script-304B58A110DAC018002A0835.sh36"57DE38B5-503D-46A9-A668-108608BA09D7-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CProcessInfoPlistFile /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/Info.plist /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/CollegeLife-Info.plist
-s429627216.835508
-e429627216.839795
-r1
-xProcessInfoPlistFile
-x/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/Info.plist
-x/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/CollegeLife-Info.plist
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection120"Process /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/CollegeLife-Info.plist97"ProcessInfoPlistFile build/emulator/CollegeLife.app/Info.plist CollegeLife/CollegeLife-Info.plistff05d650979bb941^9605d750979bb941^---0#0#1#-19%DVTDocumentLocation2@119"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/CollegeLife-Info.plist0000000000000000^972"ProcessInfoPlistFile build/emulator/CollegeLife.app/Info.plist CollegeLife/CollegeLife-Info.plist    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    builtin-infoPlistUtility /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/CollegeLife-Info.plist -genpkginfo /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -o /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app/Info.plist36"92CCD8B6-FCDF-4D98-9423-B5F2723A923D-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CProcessPCH /var/folders/mm/5wz18lps0xx0fpy2rbln9d9w0000gn/C/com.apple.DeveloperTools/5.1.1-5B1008/Xcode/SharedPrecompiledHeaders/CollegeLife-Prefix-cywrkgpbprpeeydknsjhgnnbgzgp/CollegeLife-Prefix.pch.pch CollegeLife/CollegeLife-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s429627273.655271
-e429627279.307662
-r1
-xProcessPCH
-x/var/folders/mm/5wz18lps0xx0fpy2rbln9d9w0000gn/C/com.apple.DeveloperTools/5.1.1-5B1008/Xcode/SharedPrecompiledHeaders/CollegeLife-Prefix-cywrkgpbprpeeydknsjhgnnbgzgp/CollegeLife-Prefix.pch.pch
-xCollegeLife/CollegeLife-Prefix.pch
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/CollegeLife-Prefix.pch
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection45"Precompile CollegeLife/CollegeLife-Prefix.pch306"ProcessPCH /var/folders/mm/5wz18lps0xx0fpy2rbln9d9w0000gn/C/com.apple.DeveloperTools/5.1.1-5B1008/Xcode/SharedPrecompiledHeaders/CollegeLife-Prefix-cywrkgpbprpeeydknsjhgnnbgzgp/CollegeLife-Prefix.pch.pch CollegeLife/CollegeLife-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler6f0da889979bb941^7ae14e8f979bb941^---0#0#1#-19%DVTDocumentLocation2@119"file:///Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/CollegeLife-Prefix.pch0000000000000000^4297"ProcessPCH /var/folders/mm/5wz18lps0xx0fpy2rbln9d9w0000gn/C/com.apple.DeveloperTools/5.1.1-5B1008/Xcode/SharedPrecompiledHeaders/CollegeLife-Prefix-cywrkgpbprpeeydknsjhgnnbgzgp/CollegeLife-Prefix.pch.pch CollegeLife/CollegeLife-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export LANG=en_US.US-ASCII    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c-header -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.0 -iquote /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/CollegeLife-generated-files.hmap -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/CollegeLife-own-target-headers.hmap -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/CollegeLife-all-target-headers.hmap -iquote /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/CollegeLife-project-headers.hmap -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/include -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/usr/local/lib/include -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/UninstalledProducts/include -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/DerivedSources/i386 -I/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/CollegeLife.build/Debug-iphonesimulator/CollegeLife.build/DerivedSources -F/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator --serialize-diagnostics /var/folders/mm/5wz18lps0xx0fpy2rbln9d9w0000gn/C/com.apple.DeveloperTools/5.1.1-5B1008/Xcode/SharedPrecompiledHeaders/CollegeLife-Prefix-cywrkgpbprpeeydknsjhgnnbgzgp/CollegeLife-Prefix.pch.dia -MMD -MT dependencies -MF /var/folders/mm/5wz18lps0xx0fpy2rbln9d9w0000gn/C/com.apple.DeveloperTools/5.1.1-5B1008/Xcode/SharedPrecompiledHeaders/CollegeLife-Prefix-cywrkgpbprpeeydknsjhgnnbgzgp/CollegeLife-Prefix.pch.d -c /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/CollegeLife/CollegeLife-Prefix.pch -o /var/folders/mm/5wz18lps0xx0fpy2rbln9d9w0000gn/C/com.apple.DeveloperTools/5.1.1-5B1008/Xcode/SharedPrecompiledHeaders/CollegeLife-Prefix-cywrkgpbprpeeydknsjhgnnbgzgp/CollegeLife-Prefix.pch.pch36"E6F0CC8F-489A-45CD-9263-2CE1EC076168-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
-CTouch /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app
-s429627284.530224
-e429627284.668260
-r1
-xTouch
-x/Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection114"Touch /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app36"Touch build/emulator/CollegeLife.app5ad48794979bb941^7025ab94979bb941^---0#0#1#--586"Touch build/emulator/CollegeLife.app    cd /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/gibranecastillo/Android/sdk/platform-tools:/Users/gibranecastillo/Android/sdk/tools:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/gibranecastillo/.rvm/bin"    /usr/bin/touch -c /Users/gibranecastillo/Mobility/CollegeLife/Hybrid-iOS/CLMobile/platforms/ios/build/emulator/CollegeLife.app36"8D9897E2-9513-4CF1-93EB-E17721A3DBDB-
-b65EFCE06-CE2D-4958-BB8F-6B3B9BA028D1
-
