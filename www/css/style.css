@@ -32,12 +32,12 @@ ion-nav-bar, .card > div , .list > ion-item, ion-content ,  .item-complex  .item
 }
 
 .image-caption {
-	background-color: #ffffff;
+	background-color: rgb(254, 198, 61);
 	margin-top: -5px;
-	border: black;
-	border-style: solid;
+	//border: black;
+	//border-style: solid;
 	font-weight: bold;
-	border-width: 1px;	
+	//border-width: 1px;	
 }
 
 
@@ -75,4 +75,37 @@ ion-nav-bar, .card > div , .list > ion-item, ion-content ,  .item-complex  .item
 
 .photo-icon-size {
 	font-size: 50px;
+}
+
+.item {
+	border-width : 0px;	
+	border-style: none;
+}
+
+.post-img {
+	padding: 0px;
+}
+
+/* username on each posting*/
+.align-card-header h4 {
+	padding-left: 40px;
+	margin-top: -15px;
+}
+.align-card-header img {
+	width:30px;
+}
+
+.likes {
+	margin-top: -30px;
+	margin-left: 20px;
+}
+
+.likes a {
+	color: rgb(119, 244, 119);
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.custom-tag {
+	font-weight: bold;
 }
