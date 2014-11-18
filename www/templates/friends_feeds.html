@@ -3,6 +3,13 @@
   <ion-nav-buttons side="left">
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
+  <div class="bar bar-subheader">
+	<div class="button-bar" style="width:80%;  margin-left:30px;">
+	  <a class="button" href="#/app/friends_feeds">Friends</a>
+	  <a class="button" href="#/app/school_feeds">School</a>
+	  <a class="button" href="#/app/national_feeds">National</a>
+	</div>
+  </div>
 
   <div circular-menu subtags="subtagsArr" selectedtags="selectedTagsArr" mypagekey="friends"></div>
   
@@ -13,11 +20,10 @@
        <ion-slide-box on-slide-changed="slideHasChanged($index)" active-slide="1">
         <ion-slide>
           <div class="card">
-          	<p align="right">{{ user.posts.popularPost.postingDate}}</p>
+          	<p align="right" class="image-post-time">{{ user.posts.popularPost.postingDate}}</p>
             <div  class="align-card-header">
               <img src="{{user.profileImg}}">
               <h4>{{user.name}}</h4>
-              
             </div>
 			<div class="align-card-header">						
 				<img src="{{ user.SchoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
@@ -28,6 +34,10 @@
               <p class="likes">
               	<a href="#" class="subdued">{{ user.posts.popularPost.likes}} Likes</a>
               </p>
+              <div class="progress">
+              	<img src="img\progress.png" style="width:30px;">
+              	<h6>{{ user.posts.popularPost.progressInd }}</h6>
+              </div>
               <span>
                 <p class="image-caption">
                   {{user.posts.popularPost.caption}}
@@ -76,7 +86,7 @@
         <ion-slide>
 		
           <div class="card">			
-          	<p align="right">{{ user.posts.currentPost.postingDate}}</p>
+          	<p align="right" class="image-post-time">{{ user.posts.currentPost.postingDate}}</p>
   			<div class="align-card-header">			
   				<img src="{{ user.profileImg}}">
   				<h4>{{user.name}}</h4>
@@ -93,6 +103,10 @@
               <p class="likes">
               	<a href="#" class="subdued">{{ user.posts.currentPost.likes}} Likes</a>
               </p>
+              <div class="progress">
+            	<img src="img\progress.png" style="width:30px;">
+            	<h6>{{ user.posts.currentPost.progressInd }}</h6>
+              </div>
               <span>
                 <p class="image-caption">{{user.posts.currentPost.caption}}</p>
               </span>
@@ -133,7 +147,7 @@
 
         <ion-slide>
           <div class="card">
-          <p align="right">{{ user.posts.mostRecentPost.postingDate}}</p>
+          <p align="right" class="image-post-time">{{ user.posts.mostRecentPost.postingDate}}</p>
             <div class="align-card-header">
               <img src="{{ user.profileImg}}">
               <h4>{{user.name}}</h4>
@@ -147,8 +161,12 @@
               <p class="likes">
               	<a href="#" class="subdued">{{ user.posts.mostRecentPost.likes}} Likes</a>
               </p>
+              <div class="progress">
+            	<img src="img\progress.png" style="width:30px;">
+            	<h6>{{ user.posts.mostRecentPost.progressInd }}</h6>
+              </div>
               <span>
-                <p class="image-caption">
+                <p class="image-caption item-text-wrap">
                   {{user.posts.mostRecentPost.caption}}
                 </p>
               </span>

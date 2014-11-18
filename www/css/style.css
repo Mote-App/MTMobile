@@ -1,5 +1,9 @@
 /* Empty. Add your own CSS if you like */
 
+body {
+ font-size:12px;
+}
+
 .tabs, .header-color{
 	background-color: rgb(76, 122, 52);
 }
@@ -10,7 +14,7 @@
 }
 
 ion-nav-bar, .card > div , .list > ion-item, ion-content ,  .item-complex  .item-content, .list > label , 
-.list > div, .list > li , .list > .card > a , .item-avatar, .card, .pane, .bg-color , .item-select select ,
+.list > div, .list > li , .list > .card > a , .item-avatar, .card, .pane, .bg-color , .item-select select , .bar-subheader, 
  #carousel{
 	background-color: rgb(254, 198, 61);
 }
@@ -33,11 +37,13 @@ ion-nav-bar, .card > div , .list > ion-item, ion-content ,  .item-complex  .item
 
 .image-caption {
 	background-color: rgb(254, 198, 61);
-	margin-top: -5px;
+	margin-top: 10px;
 	//border: black;
 	//border-style: solid;
 	font-weight: bold;
+	font-size: 12px;
 	//border-width: 1px;	
+	white-space: normal !important;
 }
 
 
@@ -95,15 +101,35 @@ ion-nav-bar, .card > div , .list > ion-item, ion-content ,  .item-complex  .item
 	width:30px;
 }
 
+.progress {
+	padding-left: 87%;
+	margin-top: -40px;
+}
+
+.progress img {
+	width: 30px;
+}
+
+.progress h6 {
+	margin-top: -24px;
+	margin-left: 5px;
+	font-weight: bold;
+}
+
+.image-post-time {
+	margin-top: 10px;
+	font-size: 12px !important;
+}
+
 .likes {
-	margin-top: -30px;
-	margin-left: 20px;
+	margin-top: -28px;
+	margin-left: 2px;
 }
 
 .likes a {
 	color: rgb(119, 244, 119);
 	font-weight: bold;
-	font-size: 18px;
+	font-size: 14px;
 }
 
 .custom-tag {
