@@ -50,6 +50,8 @@ angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices'])
 
     $rootScope.appHeader="";
 
+    
+    
     $rootScope.findTagByTagId = function(tagId){
 
       var result = tagId.split('_');
@@ -69,6 +71,21 @@ angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices'])
       }
       
       return tagObj.tagText;
+    };
+    
+    $rootScope.formatTags = function(tagArr){
+    	
+    	var formattedStr = "";
+    	for( var i = 0; i < tagArr.length; i++){
+    		
+    		formattedStr = formattedStr + tagArr[i];
+    		
+    		if ( i != (tagArr.length -1)){
+    			formattedStr = formattedStr + ", ";
+    		}
+    	}
+    	
+    	return formattedStr;
     };
 
   });

@@ -97,8 +97,9 @@
 }
 
 .tagItem {
-  color: green;
-  border-radius: 10%;
+  color: blue;
+  
+  //border-radius: 10%;
 }
 
 .menu-button:hover {
