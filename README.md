@@ -109,3 +109,9 @@ http://designshack.net/articles/css/code-a-spinning-circular-menu-with-css/
 phone camera usage
 http://blog.nraboy.com/2014/09/use-android-ios-camera-ionic-framework/
 http://ngcordova.com/docs/#Camera
+
+#JPA Pagination link
+http://wiki.eclipse.org/EclipseLink/Examples/JPA/Pagination 
+
+#Spring-boot maven configuration for almost all libraries
+https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml
