@@ -11,7 +11,7 @@
 	</div>
   </div>
 
-  <div circular-menu subtags="subtagsArr" selectedtags="selectedTagsArr" mypagekey="friends"></div>
+  <!--<div circular-menu subtags="subtagsArr" selectedtags="selectedTagsArr" mypagekey="friends"></div>-->
   
   <ion-content class="has-header">
     <ion-list>
@@ -22,15 +22,15 @@
           <div class="card">
           	<p align="right" class="image-post-time">{{ user.posts.popularPost.postingDate}}</p>
             <div  class="align-card-header">
-              <img src="{{user.profileImg}}">
+              <img ng-src="{{ clhost + '/' + user.profileImg}}">
               <h4>{{user.name}}</h4>
             </div>
 			<div class="align-card-header">						
-				<img src="{{ user.SchoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
-				<h4 ng-click="schoolFeed( {{user.posts.popularPost.schoolId}})">{{ user.posts.popularPost.SchoolName}}</h4>
+				<img ng-src="{{ clhost + '/' + user.schoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
+				<h4 ng-click="schoolFeed( {{user.schoolId}})">{{ user.schoolName}}</h4>
 			</div>
             <div class="item post-img" style="clear:both;">
-              <img class="full-image" src="{{user.posts.popularPost.postImg}}">
+              <img class="full-image" ng-src="{{ clhost + '/' + user.posts.popularPost.postImg}}">
               <p class="likes">
               	<a href="#" class="subdued">{{ user.posts.popularPost.likes}} Likes</a>
               </p>
@@ -88,18 +88,18 @@
           <div class="card">			
           	<p align="right" class="image-post-time">{{ user.posts.currentPost.postingDate}}</p>
   			<div class="align-card-header">			
-  				<img src="{{ user.profileImg}}">
+  				<img ng-src="{{  clhost + '/' + user.profileImg}}">
   				<h4>{{user.name}}</h4>
   				
   			</div>
   			<div class="align-card-header">
-  				<img src="{{ user.SchoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
-  				<h4 ng-click="schoolFeed( {{user.posts.currentPost.schoolId}})">{{ user.posts.currentPost.SchoolName}}</h4>
+  				<img ng-src="{{  clhost + '/' + user.schoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
+  				<h4 ng-click="schoolFeed( {{user.schoolId}})">{{ user.schoolName}}</h4>
   			</div>	
 			
 			
             <div class="item post-img" style="clear:both;">
-              <img class="full-image" src="{{user.posts.currentPost.postImg}}">
+              <img class="full-image" ng-src="{{ clhost + '/' + user.posts.currentPost.postImg}}">
               <p class="likes">
               	<a href="#" class="subdued">{{ user.posts.currentPost.likes}} Likes</a>
               </p>
@@ -149,15 +149,15 @@
           <div class="card">
           <p align="right" class="image-post-time">{{ user.posts.mostRecentPost.postingDate}}</p>
             <div class="align-card-header">
-              <img src="{{ user.profileImg}}">
+              <img ng-src="{{  clhost + '/' + user.profileImg}}">
               <h4>{{user.name}}</h4>
             </div>
 			<div class="align-card-header">							
-				<img src="{{ user.SchoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
-				<h4 ng-click="schoolFeed( {{user.posts.mostRecentPost.schoolId}})">{{ user.posts.mostRecentPost.SchoolName}}</h4>
+				<img ng-src="{{  clhost + '/' + user.schoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
+				<h4 ng-click="schoolFeed( {{user.schoolId}})">{{ user.schoolName}}</h4>
 			</div>	
             <div class="item post-img" style="clear:both;">
-              <img class="full-image" src="{{user.posts.mostRecentPost.postImg}}">
+              <img class="full-image" ng-src="{{  clhost + '/' + user.posts.mostRecentPost.postImg}}">
               <p class="likes">
               	<a href="#" class="subdued">{{ user.posts.mostRecentPost.likes}} Likes</a>
               </p>

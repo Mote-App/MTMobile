@@ -24,16 +24,16 @@
           <div class="card">
           	<p align="right" class="image-post-time">{{ user.post.postingDate}}</p>
             <div class="align-card-header">
-              <img src="{{user.profileImg}}">
+              <img ng-src="{{ clhost + '/' + user.profileImg}}">
               <h4>{{user.name}}</h4>
             </div>
 			<div class="align-card-header">
-		      <img src="{{user.schoolImg}}">
+		      <img ng-src="{{clhost + '/' + user.schoolImg}}">
 		      <h4>{{user.schoolName}} School</h4>
 		      <!--<a href="" ng-click="nationalFeed()">National</a>-->
 			</div>
             <div class="item post-img" style="clear:both;">
-              <img class="full-image" src="{{user.post.postImg}}">
+              <img class="full-image" ng-src="{{ clhost + '/' + user.post.postImg}}">
               <p class="likes">
               	<a href="#" class="subdued">{{ user.post.likes}} Likes</a>
               </p>

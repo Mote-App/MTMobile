@@ -246,22 +246,51 @@ angular.module('clcontrollers', [])
 })
 
 // ***************** Use for the login page :: Start *****************
-.controller('LoginCtrl', function($scope, $rootScope, $state, Schools) {
+.controller('LoginCtrl', function($scope, $rootScope, $state, Schools, loginService) {
   
-  $rootScope.appHeader = "CollegeLife";
-  $scope.loginData = {};
-  $scope.university = "";
+	$scope.rememberMe = false;
+
+	$scope.loginDetail={};
+	
+	$rootScope.appHeader = "CollegeLife";
+
+	Schools.query(function(schoolData) { 
+		$scope.schools = schoolData;
+	});
+	  
+	$scope.login = function() {
+		
+		loginService.authenticate($scope.loginDetail).$promise.then(
+			function(success){
+				$rootScope.userId = success.userId;
+		         $state.go('app.friends_feeds');
+			},
+			function(error){
+				
+			}
+		);
+		
+	/*	UserService.authenticate($.param({username: $scope.username, password: $scope.password}), function(authenticationResult) {
+			var authToken = authenticationResult.token;
+			$rootScope.authToken = authToken;
+			if ($scope.rememberMe) {
+				$cookieStore.put('authToken', authToken);
+			}
+			UserService.get(function(user) {
+				$rootScope.user = user;
+				$location.path("/");
+			});
+		});*/	
+	};
+
   
-  Schools.query(function(schoolData) { 
-    $scope.schools = schoolData.schools;
-  });
-
-  $scope.validate = function(event){
-
-      if( this.$parent.loginData.password == "cl123!"){
-         $state.go('app.friends_feeds');
-      }
-  }
+	
+	 /* $scope.validate = function(event){
+	
+	      if( this.$parent.loginData.password == "cl123!"){
+	         $state.go('app.friends_feeds');
+	      }
+	  }*/
  
   /*var dataRef = new Firebase("https://ionic-firebase-login.firebaseio.com/");
   $scope.loginObj = $firebaseSimpleLogin(dataRef);
@@ -299,8 +328,8 @@ angular.module('clcontrollers', [])
   });*/
 
   
-  var data = FriendFeed.query(function(friendFeedData) { 
-    $scope.users = friendFeedData.users[0].friends;
+  var data = FriendFeed.query({userId: $rootScope.userId},function(friendFeedData) { 
+    $scope.users = friendFeedData;
   });
 
   $scope.schoolFeed = function(schoolId){
