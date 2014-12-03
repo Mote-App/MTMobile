@@ -389,8 +389,8 @@ angular.module('clcontrollers', [])
                                         Tags, 
                                         sliceTagFilter) {
 	
-	var data = SchoolFeed.query(function(schoolFeedData) { 
-		$scope.schoolUsers = schoolFeedData.schools[0].users;
+	var data = SchoolFeed.query({collegeId: $rootScope.collegeId},function(schoolFeedData) { 
+		$scope.schoolUsers = schoolFeedData;
 	});
 	
 	$scope.nationalFeed = function(){  
@@ -441,8 +441,8 @@ angular.module('clcontrollers', [])
                                           Tags, 
                                           sliceTagFilter) {
 
-	NationalFeed.query(function(nationalFeedData) { 
-		$scope.nationalUsers = nationalFeedData.nations[0].users;
+	NationalFeed.query({collegeId: $rootScope.collegeId}, function(nationalFeedData) { 
+		$scope.nationalUsers = nationalFeedData;
 	});
   
 //This block of code needs to be repeated in every control where 

@@ -35,17 +35,17 @@ angular.module('clservices', ['ngResource'])
     });
   }])
   
- .factory('SchoolFeed', ['$resource',
-  function($resource){
+ .factory('SchoolFeed', ['$resource', '$rootScope',
+  function($resource, $rootScope){
     return $resource($rootScope.clhost + $rootScope.clport + '/school_feeds?collegeId=:collegeId', {}, {
-      query: {method:'GET', params:{collegeId:'@collegeId'}, isArray:false}
+      query: {method:'GET', params:{collegeId:'@collegeId'}, isArray:true}
     });
   }])
   
-  .factory('NationalFeed', ['$resource',
-  function($resource){
+  .factory('NationalFeed', ['$resource', '$rootScope',
+  function($resource, $rootScope){
     return $resource($rootScope.clhost + $rootScope.clport + '/national_feeds?collegeId=:collegeId', {}, {
-      query: {method:'GET', params:{collegeId:'@collegeId'}, isArray:false}
+      query: {method:'GET', params:{collegeId:'@collegeId'}, isArray:true}
     });
   }])
   
