@@ -263,7 +263,8 @@ angular.module('clcontrollers', [])
 		loginService.authenticate($scope.loginDetail).$promise.then(
 			function(success){
 				$rootScope.userId = success.userId;
-		         $state.go('app.friends_feeds');
+				$rootScope.collegeId = success.collegeId;
+		        $state.go('app.friends_feeds');
 			},
 			function(error){
 				
@@ -333,7 +334,8 @@ angular.module('clcontrollers', [])
   });
 
   $scope.schoolFeed = function(schoolId){
-     
+   
+   $rootScope.collegeId = schoolId;
    $state.go('app.school_feeds');
  
   };
@@ -344,10 +346,10 @@ angular.module('clcontrollers', [])
 	
   //This block of code needs to be repeated in every control where 
   //circular menu is required - need to fit in some directive
-  $scope.subtagsArr = [];
-  $scope.selectedTagsArr = [];
+ /* $scope.subtagsArr = [];
+  $scope.selectedTagsArr = [];*/
 
-  $scope.menu = function(menuType, tagsArr) {
+ /* $scope.menu = function(menuType, tagsArr) {
 
     $scope.selectedTagsArr = tagsArr;
 
@@ -362,9 +364,9 @@ angular.module('clcontrollers', [])
     }
 
     $(".circle").toggleClass('open');   
-  };
+  };*/
 
-  $scope.removeTag = function(tagId, tagsArr){
+  /*$scope.removeTag = function(tagId, tagsArr){
     $scope.selectedTagsArr = tagsArr;
 
     tagsArr = _.reject(tagsArr, function (tag){
@@ -375,7 +377,7 @@ angular.module('clcontrollers', [])
     angular.copy(tagsArr, $scope.selectedTagsArr);
 
   };
-
+*/
 })
 
 
@@ -397,7 +399,7 @@ angular.module('clcontrollers', [])
 
 //This block of code needs to be repeated in every control where 
   //circular menu is required - need to fit in some directive
-  $scope.subtagsArr = [];
+ /* $scope.subtagsArr = [];
   $scope.selectedTagsArr = [];
 
   $scope.menu = function(menuType, tagsArr) {
@@ -427,7 +429,7 @@ angular.module('clcontrollers', [])
     //Make a deep copy to reflect the changes and refresh the deletion
     angular.copy(tagsArr, $scope.selectedTagsArr);
 
-  };
+  };*/
 
 })
 
@@ -445,7 +447,7 @@ angular.module('clcontrollers', [])
   
 //This block of code needs to be repeated in every control where 
   //circular menu is required - need to fit in some directive
-  $scope.subtagsArr = [];
+ /* $scope.subtagsArr = [];
   $scope.selectedTagsArr = [];
 
   $scope.menu = function(menuType, tagsArr) {
@@ -475,7 +477,7 @@ angular.module('clcontrollers', [])
     //Make a deep copy to reflect the changes and refresh the deletion
     angular.copy(tagsArr, $scope.selectedTagsArr);
 
-  };
+  };*/
 
 	//jQuery(document).ready(function(){
 		

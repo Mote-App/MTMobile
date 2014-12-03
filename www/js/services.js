@@ -37,15 +37,15 @@ angular.module('clservices', ['ngResource'])
   
  .factory('SchoolFeed', ['$resource',
   function($resource){
-    return $resource('data/school_feeds_data.json', {}, {
-      query: {method:'GET', params:{}, isArray:false}
+    return $resource($rootScope.clhost + $rootScope.clport + '/school_feeds?collegeId=:collegeId', {}, {
+      query: {method:'GET', params:{collegeId:'@collegeId'}, isArray:false}
     });
   }])
   
   .factory('NationalFeed', ['$resource',
   function($resource){
-    return $resource('data/national_feeds_data.json', {}, {
-      query: {method:'GET', params:{}, isArray:false}
+    return $resource($rootScope.clhost + $rootScope.clport + '/national_feeds?collegeId=:collegeId', {}, {
+      query: {method:'GET', params:{collegeId:'@collegeId'}, isArray:false}
     });
   }])
   

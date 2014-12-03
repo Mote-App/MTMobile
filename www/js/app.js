@@ -54,9 +54,8 @@ angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices'])
     });
 
     $rootScope.userId = 0;
+    $rootScope.collegeId = 0;
     $rootScope.appHeader="";
-
-    
     
     $rootScope.findTagByTagId = function(tagId){
 
