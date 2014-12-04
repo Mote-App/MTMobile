@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices'])
+angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices','pageslide-directive', 'angular-carousel'])
 
 /*.run(function($ionicPlatform, $rootScope, $firebaseSimpleLogin, $state, $window) {
   var dataRef = new Firebase("https://ionic-firebase-login.firebaseio.com/");
@@ -33,7 +33,9 @@ angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices'])
 	//AWS http://54.149.27.205
 	$rootScope.clhost = "http://54.149.27.205";
 	$rootScope.clport = ":8080";
+	$rootScope.lstTag = {};
 	
+
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -45,13 +47,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices'])
       StatusBar.styleDefault();
     }
 
-    Tags.query(function(tagData) { 
-        $rootScope.allSubtags = tagData.subtags;
-        $rootScope.smartArr =  $rootScope.allSubtags.smarts;
-        $rootScope.socialArr = $rootScope.allSubtags.socials;
-        $rootScope.genreArr =  $rootScope.allSubtags.genre;
-
-    });
+    
 
     $rootScope.userId = 0;
     $rootScope.collegeId = 0;

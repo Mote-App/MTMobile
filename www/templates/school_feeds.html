@@ -1,4 +1,6 @@
 
+
+
   <ion-view title="School">
   <ion-nav-buttons side="left">
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
@@ -11,17 +13,49 @@
  	</div>
   </div>
    
-  <div circular-menu subtags="subtagsArr" selectedtags="selectedTagsArr"></div>
+  <!--<div circular-menu subtags="subtagsArr" selectedtags="selectedTagsArr"></div>-->
+  
+  
 
   <ion-content class="has-header">
 	<!--<div water-wheel-carousel clcontext="carousel"></div>-->
 
     <ion-list>
-      <ion-item ng-repeat="user in schoolUsers">
-			
+    
+      <ion-item ng-repeat="user in schoolUsers" ng-click="toggleCustomMenu()">
+      
+      <style>
+      .ng-pageslide {
+          background: #eee;
+      }
+      </style>
+      <pageslide ps-side="top" ps-open="checked">
+	      <div>            
+	      	<ul rn-carousel rn-carousel-index="5" rn-carousel-transition="hexagon" rn-carousel-buffered class="carousel3">
+	      		<li ng-repeat="school in schools track by school.id">
+	      			<div ng-style="{'background-image': 'url(' + '{{clhost }}' + '/' + school.imgPath + ')'}"  class="bgimage">
+	      				#{{ school.id }}
+	      			</div>
+	      		</li>
+          	</ul>
+	      
+	      <div class="bar bar-subheader">
+		   		<div class="button-bar" style="width:80%;  margin-left:30px;">
+				   	  <a class="button" ng-click="showSubtags('socials')">Social Life</a>
+				   	  <a class="button" ng-click="showSubtags('smarts')">Smarts</a>
+				   	  <a class="button" ng-click="showSubtags('genre')">Rated R</a>
+				</div>
+		  </div>
+		  <div>
+			  <button class="button button-outline button-energized" ng-repeat="subTag in subTags">{{ subTag.subTag }}</button>
+		  </div>
+		  </div>
+      </pageslide>
+      
        <!--<ion-slide-box on-slide-changed="slideHasChanged($index)" active-slide="0">
         <ion-slide> -->
           <div class="card">
+          
           	<p align="right" class="image-post-time">{{ user.post.postingDate}}</p>
             <div class="align-card-header">
               <img ng-src="{{ clhost + '/' + user.profileImg}}">

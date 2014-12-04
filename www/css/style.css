@@ -135,3 +135,17 @@ ion-nav-bar, .card > div , .list > ion-item, ion-content ,  .item-complex  .item
 .custom-tag {
 	font-weight: bold;
 }
+
+.bgimage {
+    text-align:right;
+    color:white;
+    background-size:cover;
+    height: 100%;
+    background-position: center center;
+}
+
+ul[rn-carousel] {
+	width: 200px;
+	height: 100px;
+	margin: 0 auto;
+}

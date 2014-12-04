@@ -246,7 +246,7 @@ angular.module('clcontrollers', [])
 })
 
 // ***************** Use for the login page :: Start *****************
-.controller('LoginCtrl', function($scope, $rootScope, $state, Schools, loginService) {
+.controller('LoginCtrl', function($scope, $rootScope, $state, Schools, Tags, loginService) {
   
 	$scope.rememberMe = false;
 
@@ -254,10 +254,14 @@ angular.module('clcontrollers', [])
 	
 	$rootScope.appHeader = "CollegeLife";
 
-	Schools.query(function(schoolData) { 
-		$scope.schools = schoolData;
+	Schools.query(function(response) { 
+		$scope.schools = response;
 	});
-	  
+	 
+	Tags.query(function(response) { 
+    	$rootScope.lstTag = response;
+    });
+	
 	$scope.login = function() {
 		
 		loginService.authenticate($scope.loginDetail).$promise.then(
@@ -386,8 +390,8 @@ angular.module('clcontrollers', [])
                                         $state, 
                                         $rootScope,
                                         SchoolFeed, 
-                                        Tags, 
-                                        sliceTagFilter) {
+                                        sliceTagFilter,
+                                        Schools) {
 	
 	var data = SchoolFeed.query({collegeId: $rootScope.collegeId},function(schoolFeedData) { 
 		$scope.schoolUsers = schoolFeedData;
@@ -397,6 +401,33 @@ angular.module('clcontrollers', [])
 		$state.go('app.national_feeds');
 	};
 
+	$scope.checked = false;
+	$scope.toggleCustomMenu = function(){
+		$scope.checked = !$scope.checked;
+	};
+	
+	
+	Schools.query(function(schoolData) { 
+        $scope.schools = schoolData;
+    });
+	
+	$scope.subTags = [];
+	
+	$scope.showSubtags = function(tag){
+		
+		if(tag == 'socials'){
+			$scope.subTags  = $rootScope.lstTag.socials;
+		}
+		
+		if(tag == 'smarts'){
+			$scope.subTags  = $rootScope.lstTag.smarts;
+		}
+		
+		if(tag == 'genre'){
+			$scope.subTags  = $rootScope.lstTag.genre;
+		}
+	}
+	
 //This block of code needs to be repeated in every control where 
   //circular menu is required - need to fit in some directive
  /* $scope.subtagsArr = [];
@@ -438,7 +469,6 @@ angular.module('clcontrollers', [])
                                           $rootScope,
                                           NationalFeed, 
                                           Schools, 
-                                          Tags, 
                                           sliceTagFilter) {
 
 	NationalFeed.query({collegeId: $rootScope.collegeId}, function(nationalFeedData) { 
