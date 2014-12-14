@@ -136,6 +136,8 @@ ion-nav-bar, .card > div , .list > ion-item, ion-content ,  .item-complex  .item
 	font-weight: bold;
 }
 
+/*Custom Page CSS*/
+
 .bgimage {
     text-align:right;
     color:white;
@@ -149,3 +151,4 @@ ul[rn-carousel] {
 	height: 100px;
 	margin: 0 auto;
 }
+

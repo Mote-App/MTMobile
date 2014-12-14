@@ -246,7 +246,7 @@ angular.module('clcontrollers', [])
 })
 
 // ***************** Use for the login page :: Start *****************
-.controller('LoginCtrl', function($scope, $rootScope, $state, Schools, Tags, loginService) {
+.controller('LoginCtrl', function($scope, $rootScope, $state, Schools, Tags, loginService, createAccountService) {
   
 	$scope.rememberMe = false;
 
@@ -289,6 +289,12 @@ angular.module('clcontrollers', [])
 	};
 
   
+	$scope.createAccount = function(){
+		
+		createAccountService.create().$promise.then(
+				
+		);
+	}
 	
 	 /* $scope.validate = function(event){
 	
@@ -397,6 +403,9 @@ angular.module('clcontrollers', [])
 		$scope.schoolUsers = schoolFeedData;
 	});
 	
+	$scope.filterCollegeId = 0;
+	$scope.filterTags = [];
+	
 	$scope.nationalFeed = function(){  
 		$state.go('app.national_feeds');
 	};
@@ -404,6 +413,14 @@ angular.module('clcontrollers', [])
 	$scope.checked = false;
 	$scope.toggleCustomMenu = function(){
 		$scope.checked = !$scope.checked;
+		
+		/*
+		 * Call filter for School level post if user specified one
+		 */
+		if ($scope.filterCollegeId > 0 || $scope.filterTags.length > 0){
+			
+			
+		}
 	};
 	
 	

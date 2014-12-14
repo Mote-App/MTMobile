@@ -28,7 +28,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices','p
   });
 })*/
 
-.run(function($ionicPlatform, $rootScope, $filter, Tags) {
+.run(function($ionicPlatform, $rootScope, $filter) {
 
 	//AWS http://54.149.27.205
 	$rootScope.clhost = "http://54.149.27.205";

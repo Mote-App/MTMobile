@@ -7,6 +7,13 @@ angular.module('clservices', ['ngResource'])
     });
  }])
 
+.factory('createAccountService', ['$resource','$rootScope',
+  function($resource, $rootScope){
+    return $resource($rootScope.clhost + $rootScope.clport + '/create_account', {}, {
+    	create: {method:'POST', params:{}, isArray:false}
+    });
+ }])
+
 .factory('Tags', ['$resource','$rootScope',
   function($resource, $rootScope){
     return $resource($rootScope.clhost + $rootScope.clport + '/tags', {}, {
@@ -41,6 +48,14 @@ angular.module('clservices', ['ngResource'])
       query: {method:'GET', params:{collegeId:'@collegeId'}, isArray:true}
     });
   }])
+  
+ .factory('SchoolFeedFilter', ['$resource', '$rootScope',
+  function($resource, $rootScope){
+    return $resource($rootScope.clhost + $rootScope.clport + '/school_feed_filter?collegeId=:collegeId', {}, {
+      query: {method:'GET', params:{collegeId:'@collegeId'}, isArray:true}
+    });
+  }])
+  
   
   .factory('NationalFeed', ['$resource', '$rootScope',
   function($resource, $rootScope){
