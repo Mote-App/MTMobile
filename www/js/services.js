@@ -7,6 +7,15 @@ angular.module('clservices', ['ngResource'])
     });
  }])
 
+
+.factory('schoolFeedCutomizer', ['$resource','$rootScope',
+	  function($resource, $rootScope){
+	    return $resource($rootScope.clhost + $rootScope.clport + '/school_feed_filter', {}, {
+	    	query: {method:'POST', params:{}, isArray:false}
+	    });
+}])
+	 
+	    
 .factory('createAccountService', ['$resource','$rootScope',
   function($resource, $rootScope){
     return $resource($rootScope.clhost + $rootScope.clport + '/create_account', {}, {

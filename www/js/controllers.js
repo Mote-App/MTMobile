@@ -116,7 +116,6 @@ angular.module('clcontrollers', [])
     return {
         restrict: 'E',
         scope: {
-
         },
         controller: function($scope, $cordovaCamera){
 
@@ -260,6 +259,7 @@ angular.module('clcontrollers', [])
 	 
 	Tags.query(function(response) { 
     	$rootScope.lstTag = response;
+    	
     });
 	
 	$scope.login = function() {
@@ -397,29 +397,68 @@ angular.module('clcontrollers', [])
                                         $rootScope,
                                         SchoolFeed, 
                                         sliceTagFilter,
-                                        Schools) {
+                                        Schools,
+                                        schoolFeedCutomizer) {
 	
 	var data = SchoolFeed.query({collegeId: $rootScope.collegeId},function(schoolFeedData) { 
 		$scope.schoolUsers = schoolFeedData;
 	});
 	
-	$scope.filterCollegeId = 0;
-	$scope.filterTags = [];
+	$scope.feedFilterCollegeId = 0;
+	$scope.feedFilterTags = [];
 	
 	$scope.nationalFeed = function(){  
 		$state.go('app.national_feeds');
 	};
 
+	$scope.setFilterCollegeId = function(schoolId){
+		$scope.filterCollegeId = schoolId;
+	};
+	
+	$scope.tagSelected = false;
+	
+	$scope.setTagID = function(tagId){
+		
+		var ind = $scope.feedFilterTags.indexOf(tagId);
+		
+		var subTagObj = _.find($scope.subTags, function(tag){ return tag.id == tagId});
+		
+		//var subTagObj =  $scope.subTags[subTagIndex];
+				
+		if(ind == -1){
+			$scope.feedFilterTags.push(tagId);
+			$scope.tagSelected = true;
+			subTagObj.selected = true;
+		}else {
+			//Remove the existing one.
+			$scope.feedFilterTags = _.reject($scope.feedFilterTags, function(tag){
+			      return tag == tagId;
+			});
+			$scope.tagSelected = false;
+			subTagObj.selected = false;
+		}
+	};
+	
 	$scope.checked = false;
+	
 	$scope.toggleCustomMenu = function(){
 		$scope.checked = !$scope.checked;
 		
 		/*
 		 * Call filter for School level post if user specified one
 		 */
-		if ($scope.filterCollegeId > 0 || $scope.filterTags.length > 0){
+		if ($scope.feedFilterCollegeId > 0 || $scope.feedFilterTags.length > 0){
 			
-			
+			var schoolFilters = {collegeId: $scope.feedFilterCollegeId, lstTags: $scope.feedFilterTags};
+					
+			schoolFeedCutomizer.query(schoolFilters).$promise.then(
+				function(response){
+					$scope.schoolUsers = response;
+				},
+				function(error){
+					console.log("Filter failed");
+				}
+			);
 		}
 	};
 	
@@ -443,6 +482,11 @@ angular.module('clcontrollers', [])
 		if(tag == 'genre'){
 			$scope.subTags  = $rootScope.lstTag.genre;
 		}
+		
+		_.each($scope.subTags, function(tagObj){
+			
+			tagObj.selected = false;
+		});
 	}
 	
 //This block of code needs to be repeated in every control where 
