@@ -1,0 +1,45 @@
+	
+	<style>
+      .ng-pageslide {
+          background: #eee;
+      }
+      </style>
+      <pageslide ps-side="top" ps-size="90%" ps-open="checked">
+	      <div>
+	      	<div class="item item-input item-select body-color">
+				<div class="input-label">
+				  University
+				</div>
+				<select class="item-input-wrapper" ng-model="collegeId">
+					<option value="{{ school.id }}" ng-repeat="school in schools">{{school.name}}</option>
+				</select>
+			</div>
+	    	<div>
+		      	<ul rn-carousel rn-carousel-index="5" rn-carousel-transition="hexagon" rn-carousel-buffered class="carousel3">
+		      		<li ng-repeat="school in schools track by school.id">
+		      			<div ng-style="{'background-image': 'url(' + '{{clhost }}' + '/' + school.imgPath + ')'}" ng-click="setFilterCollegeId({{school.id}})" class="bgimage">
+		      				#{{ school.id }}
+		      			</div>
+		      		</li>
+	          	</ul>
+	          </div>
+		      <div class="bar">
+			   		<div class="button-bar" style="width:80%;">
+					   	  <a class="button" ng-click="showSubtags('socials')">Social Life</a>
+					   	  <a class="button" ng-click="showSubtags('smarts')">Smarts</a>
+					   	  <a class="button" ng-click="showSubtags('genre')">Rated R</a>
+					</div>
+			  </div>
+			  </br>
+			  <div style="margin-top: 30px;">
+				  <button style="border-radius: 10px;margin: 0px 0px 5px 5px;" 
+				  class="button button-small icon-right ion-checkmark-round button-balanced" 
+				  ng-class="{'button-outline' : !subTag.selected }"
+				  ng-repeat="subTag in subTags" ng-click="setTagID({{subTag.id}})">{{ subTag.subTag }}</button>
+			  </div>
+			  <a style="position:absolute; bottom:-14px; left:45%;color:black;" 
+			  ng-click="toggleCustomMenu()" class="button button-icon icon ion-drag button-dark"></a>
+		  </div>
+		  
+		  
+      </pageslide>

@@ -157,6 +157,100 @@ angular.module('clcontrollers', [])
     }
 })
 
+.directive('slidePage', function(){
+	
+	return{
+	
+		restrict: 'EA',
+		controller: function($scope, $rootScope, Schools,schoolFeedCutomizer){
+			 
+			$scope.feedFilterCollegeId = 0;
+			$scope.feedFilterTags = [];
+
+			$scope.setFilterCollegeId = function(schoolId){
+				$scope.filterCollegeId = schoolId;
+			};
+			
+			$scope.tagSelected = false;
+			
+			$scope.setTagID = function(tagId){
+				
+				var ind = $scope.feedFilterTags.indexOf(tagId);
+				
+				var subTagObj = _.find($scope.subTags, function(tag){ return tag.id == tagId});
+				
+				//var subTagObj =  $scope.subTags[subTagIndex];
+						
+				if(ind == -1){
+					$scope.feedFilterTags.push(tagId);
+					$scope.tagSelected = true;
+					subTagObj.selected = true;
+				}else {
+					//Remove the existing one.
+					$scope.feedFilterTags = _.reject($scope.feedFilterTags, function(tag){
+					      return tag == tagId;
+					});
+					$scope.tagSelected = false;
+					subTagObj.selected = false;
+				}
+			};
+			
+			//$scope.checked = false;
+			
+			$scope.toggleCustomMenu = function(){
+				$scope.checked = !$scope.checked;
+				
+				/*
+				 * Call filter for School level post if user specified one
+				 */
+				if ($scope.feedFilterCollegeId > 0 || $scope.feedFilterTags.length > 0){
+					
+					var schoolFilters = {collegeId: $scope.feedFilterCollegeId, lstTags: $scope.feedFilterTags};
+							
+					schoolFeedCutomizer.query(schoolFilters).$promise.then(
+						function(response){
+							$scope.schoolUsers = response;
+						},
+						function(error){
+							console.log("Filter failed");
+						}
+					);
+				}
+			};
+			
+			Schools.query(function(schoolData) { 
+		        $scope.schools = schoolData;
+		    });
+			
+			$scope.subTags = [];
+			
+			$scope.showSubtags = function(tag){
+				
+				if(tag == 'socials'){
+					$scope.subTags  = $rootScope.lstTag.socials;
+				}
+				
+				if(tag == 'smarts'){
+					$scope.subTags  = $rootScope.lstTag.smarts;
+				}
+				
+				if(tag == 'genre'){
+					$scope.subTags  = $rootScope.lstTag.genre;
+				}
+				
+				_.each($scope.subTags, function(tagObj){
+					
+					tagObj.selected = false;
+				});
+			}
+		},
+		link: function(scope, element, attrs){
+			
+		},
+		templateUrl: 'templates/pageslide.html'
+	}
+})
+
 .directive('circularMenu', function() {
 
   return {
@@ -404,12 +498,16 @@ angular.module('clcontrollers', [])
 		$scope.schoolUsers = schoolFeedData;
 	});
 	
-	$scope.feedFilterCollegeId = 0;
-	$scope.feedFilterTags = [];
+	$scope.checked = false;
 	
-	$scope.nationalFeed = function(){  
-		$state.go('app.national_feeds');
+	$scope.toggleCustomMenu = function(){
+		
+		$scope.checked = !$scope.checked;
 	};
+	
+	/*Required for School Feed filter - start*/
+	/*$scope.feedFilterCollegeId = 0;
+	$scope.feedFilterTags = [];
 
 	$scope.setFilterCollegeId = function(schoolId){
 		$scope.filterCollegeId = schoolId;
@@ -444,9 +542,9 @@ angular.module('clcontrollers', [])
 	$scope.toggleCustomMenu = function(){
 		$scope.checked = !$scope.checked;
 		
-		/*
+		
 		 * Call filter for School level post if user specified one
-		 */
+		 
 		if ($scope.feedFilterCollegeId > 0 || $scope.feedFilterTags.length > 0){
 			
 			var schoolFilters = {collegeId: $scope.feedFilterCollegeId, lstTags: $scope.feedFilterTags};
@@ -461,7 +559,6 @@ angular.module('clcontrollers', [])
 			);
 		}
 	};
-	
 	
 	Schools.query(function(schoolData) { 
         $scope.schools = schoolData;
@@ -487,7 +584,9 @@ angular.module('clcontrollers', [])
 			
 			tagObj.selected = false;
 		});
-	}
+	}*/
+	
+	/*School Feed filter - End*/
 	
 //This block of code needs to be repeated in every control where 
   //circular menu is required - need to fit in some directive
@@ -535,7 +634,13 @@ angular.module('clcontrollers', [])
 	NationalFeed.query({collegeId: $rootScope.collegeId}, function(nationalFeedData) { 
 		$scope.nationalUsers = nationalFeedData;
 	});
-  
+
+	/*For Slide Page */
+	$scope.checked = false;
+	$scope.toggleCustomMenu = function(){
+		$scope.checked = !$scope.checked;
+	};
+	
 //This block of code needs to be repeated in every control where 
   //circular menu is required - need to fit in some directive
  /* $scope.subtagsArr = [];
