@@ -18,7 +18,7 @@ angular.module('clservices', ['ngResource'])
 	    
 .factory('createAccountService', ['$resource','$rootScope',
   function($resource, $rootScope){
-    return $resource($rootScope.clhost + $rootScope.clport + '/create_account', {}, {
+    return $resource($rootScope.clhost + $rootScope.clport + '/user/create', {}, {
     	create: {method:'POST', params:{}, isArray:false}
     });
  }])
@@ -72,6 +72,13 @@ angular.module('clservices', ['ngResource'])
       query: {method:'GET', params:{collegeId:'@collegeId'}, isArray:true}
     });
   }])
+  
+  .factory('createAccountService', ['$resource','$rootScope',
+  function($resource, $rootScope){
+    return $resource($rootScope.clhost + $rootScope.clport + '/upload', {}, {
+    	create: {method:'POST', params:{}, isArray:false}
+    });
+ }])
   
   .factory('UserService', ['$resource', 
    function($resource) {

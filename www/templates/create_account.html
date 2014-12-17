@@ -8,28 +8,59 @@
   <ion-content class="has-header body-color">
     
     <div class="list">
-        <label class="item item-input item-select body-color">
-          <div class="input-label">
-            University
-          </div>
-          <select class="item-input-wrapper">
-              <option value="{{ school.id }}" ng-repeat="school in schools">{{school.comment}}</option>
-          </select>
-        </label>    
+	    <div class="item item-input item-select body-color">
+		    <div class="input-label">
+		      University
+		    </div>
+			<select class="item-input-wrapper" ng-model="userDetail.college">
+		  		<option value="{{ school }}" ng-repeat="school in schools">{{school.name}}</option>
+			</select>
+		</div>
+
+        <div class="item item-input-inset body-color">
+	        <label class="item-input-wrapper">
+	          <i class="icon ion-ios7-email-outline placeholder-icon"></i>
+	          <input type="text" placeholder="First Name" ng-model="userDetail.firstName">
+	        </label>  
+        </div>
+
+        <div class="item item-input-inset body-color">
+	        <label class="item-input-wrapper">
+	          <i class="icon ion-ios7-email-outline placeholder-icon"></i>
+	          <input type="text" placeholder="Last Name" ng-model="userDetail.lastName">
+	        </label>  
+        </div>
 
         <div class="item item-input-inset body-color">
           <label class="item-input-wrapper">
             <i class="icon ion-ios7-email-outline placeholder-icon"></i>
-            <input type="text" placeholder=".edu Email Address" ng-model="loginData.user_name">
+            <input type="text" placeholder=".edu Email Address" ng-model="userDetail.userName">
           </label>  
         </div>
   
         <div class="item item-input-inset body-color">
           <label class="item-input-wrapper">
             <i class="icon ion-locked placeholder-icon"></i>
-            <input type="password" placeholder="password" ng-model="loginData.password">
+            <input type="password" placeholder="password" ng-model="userDetail.password">
           </label>  
         </div>
+
+        <div class="item item-input-inset body-color">
+	        <label class="item-input-wrapper">
+	          Is Alumni: <input type="checkbox" ng-model="userDetail.isAlumni">
+	        </label>  
+        </div>
+
+        <label class="item item-input item-select body-color">
+        <div class="input-label">
+          Gender
+        </div>
+        <select class="item-input-wrapper" ng-model="userDetail.gender">
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+        </select>
+      </label>   
+
       </div>
     <ul class="list list-inset">
 
@@ -40,7 +71,7 @@
          Connect with Facebook
       </li>
 
-      <li class="item item-checkbox">
+      <!--<li class="item item-checkbox">
          <label class="checkbox">
            <input type="checkbox">
          </label>
@@ -52,11 +83,14 @@
            <input type="checkbox">
          </label>
          Connect with LinkedIn
-      </li>
+      </li>-->
 
     </ul>
-
-    <button class="button button-block button-energized">
+    <div class="input-label">
+    	{{ $scope.userCreateMessage}}
+    </div>
+    <button class="button button-block button-energized" ng-click="createAccount()">
       Join the CollegeLife Community
     </button>
+      
   </ion-content>

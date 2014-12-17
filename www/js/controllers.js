@@ -147,7 +147,7 @@ angular.module('clcontrollers', [])
           
         };
         
-        $scope.takePicture();
+        	$scope.takePicture();
 
         },
         link: function(scope, element, attrs){
@@ -382,11 +382,26 @@ angular.module('clcontrollers', [])
 		});*/	
 	};
 
-  
+	$scope.userCreateMessage="";
+	$scope.userDetail = {};
+	
 	$scope.createAccount = function(){
 		
-		createAccountService.create().$promise.then(
-				
+		/*Prepare for db update*/
+		
+		$scope.userDetail.college = angular.fromJson($scope.userDetail.college);
+		$scope.userDetail.isAlumni = $scope.userDetail.isAlumni == true ? "Y" : "N";
+		
+		$scope.userDetail.profilePictureUrl = "dummy";
+		
+		createAccountService.create($scope.userDetail).$promise.then(
+			function(response){
+				$scope.userCreateMessage = response;
+				$state.go('app.update_profile_img');
+			},
+			function(error){
+				$scope.userCreateMessage = error;
+			}
 		);
 	}
 	
@@ -774,4 +789,67 @@ angular.module('clcontrollers', [])
   $scope.filterByTags = [];
   $scope.searchCriteria = 0;
   
+})
+
+.controller('UploadProfileImgCtrl', function($scope, $stateParams, $rootScope, $cordovaFile) {
+
+	$scope.profileImgUrl = "";
+	
+	$scope.takePicture = function(){
+		
+		 var options = { 
+		            quality : 75, 
+		            destinationType : Camera.DestinationType.DATA_URL, 
+		            sourceType : Camera.PictureSourceType.CAMERA, 
+		            allowEdit : true,
+		            encodingType: Camera.EncodingType.JPEG,
+		            targetWidth: 300,
+		            targetHeight: 300,
+		            popoverOptions: CameraPopoverOptions,
+		            saveToPhotoAlbum: false
+		        };
+		 
+		navigator.camera.getPicture(function(imageURI) {
+
+		    // imageURI is the URL of the image that we can use for
+		    // an <img> element or backgroundImage.
+			$scope.profileImgUrl = imageURI;
+			
+		  }, function(err) {
+
+		    // Ruh-roh, something bad happened
+			  console.log(err);
+
+		  }, options);
+	};
+	  
+	$scope.uploadImg = function(){
+		
+		var fileURL = $scope.profileImgUrl;
+		
+		var options = new FileUploadOptions();
+		options.fileKey = "file";
+		options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
+		options.mimeType = "image/jpeg";
+		
+		var params = {};
+		params.value1 = "type";
+		params.value2 = "profile";
+
+		options.params = params;
+		
+		var ft = new FileTransfer();
+		ft.upload(fileURL, encodeURI($rootScope.clhost + $rootScope.clport + '/upload'), 
+				function(success){
+					console.log(success);
+					$state.go('app.login');
+				}, 
+				function(error){
+					console.log(error);
+				}, 
+				options
+		);
+
+	};
+	
 })

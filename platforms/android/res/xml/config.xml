@@ -27,4 +27,11 @@
     <preference name="LoadingDialog" value="My Title,My Message" />
     <preference name="SplashScreenDelay" value="10000" />
     <preference name="InAppBrowserStorageEnabled" value="true" />
+    <feature name="File">
+        <param name="android-package" value="org.apache.cordova.file.FileUtils" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="FileTransfer">
+        <param name="android-package" value="org.apache.cordova.filetransfer.FileTransfer" />
+    </feature>
 </widget>

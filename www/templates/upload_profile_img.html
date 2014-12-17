@@ -1,0 +1,26 @@
+
+<ion-view  title="Profile Image">
+	
+	<div class="card">
+		<div class="item">
+			<img class="full-image" ng-show="profileImgUrl !== undefined" ng-src="{{profileImgUrl}}">
+		</div>
+	
+		<div class="item tabs tabs-secondary tabs-icon-left">
+	        <a ng-click="takePicture()" class="tab-item">
+	        	<i class="icon ion-camera"></i>
+	        	Take Picture
+	        </a>
+	        <a ng-click="uploadImg()" class="tab-item">
+	        	<i class="icon ion-camera"></i>
+	        	Save
+	        </a>
+	        <a ng-click="" class="tab-item">
+	        	<i class="icon ion-pound"></i>
+	        	Skip
+	        </a>
+		</div>
+	</div>
+	
+
+</ion-view>

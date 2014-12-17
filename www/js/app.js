@@ -122,6 +122,16 @@ angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices','p
      }
     })
     
+    .state('app.update_profile_img', {
+      url: "/create_account",
+      views: {
+        'menuContent' :{
+      templateUrl: "templates/upload_profile_img.html",
+      controller: 'UploadProfileImgCtrl'
+      }
+     }
+    })
+    
     .state('app.forgot_password', {
       url: "/forgot_password",
       views: {
