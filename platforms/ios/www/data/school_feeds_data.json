@@ -1,0 +1,32 @@
+
+{
+	"schools" : 	[
+					{ 
+						"schoolId" : "1",	
+						"users" :  [
+
+										{
+											"userId"		: "2",
+											"userType"		: "student",
+											"name" 			: "Marty McFly",
+											"facebookName"	: "fcMarty",
+											"profileImg"	: "img/profiles/2.jpg",
+											"schoolId"		: "1",
+											"schoolName"	: "Alabama",
+											"schoolImg"		: "img/Alabama.jpg",
+											"post" : {
+														"postId"		: "",
+														"postingDate" 	: "5 Days",
+														"postImg" 		: "img/posts/2_20140119185104.jpg",
+														"tagCategory"	: "Genre",	
+														"tags" 			: ["Extravert","Best Face"],
+														"customTags"	: ["#stylish","#beauty"],
+														"likes" 		: "104",
+														"progressInd"	: "80%", 
+														"caption"		: "My first day at college"
+													}	  
+										}
+									]	
+					}	
+				]
+}

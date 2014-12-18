@@ -10,15 +10,17 @@
  	  <a class="button" href="#/app/national_feeds">National</a>
  	</div>
  	</div>
-  <div circular-menu subtags="subtagsArr" selectedtags="selectedTagsArr" mypagekey="friends"></div>
+  <!--<div circular-menu subtags="subtagsArr" selectedtags="selectedTagsArr" mypagekey="friends"></div>-->
   
   <ion-content class="has-header">
 	
 	<!--<div water-wheel-carousel clcontext="carousel"></div>-->
 
     <ion-list>
-      <ion-item ng-repeat="user in nationalUsers">
-       
+      <ion-item ng-repeat="user in nationalUsers" ng-click="toggleCustomMenu()">
+      
+      <slide-page></slide-page>
+      
       <!-- <ion-slide-box on-slide-changed="slideHasChanged($index)" active-slide="1">
         <ion-slide> -->
           <div class="card">

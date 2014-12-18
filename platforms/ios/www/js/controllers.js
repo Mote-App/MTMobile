@@ -116,7 +116,6 @@ angular.module('clcontrollers', [])
     return {
         restrict: 'E',
         scope: {
-
         },
         controller: function($scope, $cordovaCamera){
 
@@ -148,7 +147,7 @@ angular.module('clcontrollers', [])
           
         };
         
-        $scope.takePicture();
+        	$scope.takePicture();
 
         },
         link: function(scope, element, attrs){
@@ -156,6 +155,100 @@ angular.module('clcontrollers', [])
         },
         template: '<img class="full-image" ng-show="imgURI !== undefined" ng-src="{{imgURI}}">'  
     }
+})
+
+.directive('slidePage', function(){
+	
+	return{
+	
+		restrict: 'EA',
+		controller: function($scope, $rootScope, Schools,schoolFeedCutomizer){
+			 
+			$scope.feedFilterCollegeId = 0;
+			$scope.feedFilterTags = [];
+
+			$scope.setFilterCollegeId = function(schoolId){
+				$scope.filterCollegeId = schoolId;
+			};
+			
+			$scope.tagSelected = false;
+			
+			$scope.setTagID = function(tagId){
+				
+				var ind = $scope.feedFilterTags.indexOf(tagId);
+				
+				var subTagObj = _.find($scope.subTags, function(tag){ return tag.id == tagId});
+				
+				//var subTagObj =  $scope.subTags[subTagIndex];
+						
+				if(ind == -1){
+					$scope.feedFilterTags.push(tagId);
+					$scope.tagSelected = true;
+					subTagObj.selected = true;
+				}else {
+					//Remove the existing one.
+					$scope.feedFilterTags = _.reject($scope.feedFilterTags, function(tag){
+					      return tag == tagId;
+					});
+					$scope.tagSelected = false;
+					subTagObj.selected = false;
+				}
+			};
+			
+			//$scope.checked = false;
+			
+			$scope.toggleCustomMenu = function(){
+				$scope.checked = !$scope.checked;
+				
+				/*
+				 * Call filter for School level post if user specified one
+				 */
+				if ($scope.feedFilterCollegeId > 0 || $scope.feedFilterTags.length > 0){
+					
+					var schoolFilters = {collegeId: $scope.feedFilterCollegeId, lstTags: $scope.feedFilterTags};
+							
+					schoolFeedCutomizer.query(schoolFilters).$promise.then(
+						function(response){
+							$scope.schoolUsers = response;
+						},
+						function(error){
+							console.log("Filter failed");
+						}
+					);
+				}
+			};
+			
+			Schools.query(function(schoolData) { 
+		        $scope.schools = schoolData;
+		    });
+			
+			$scope.subTags = [];
+			
+			$scope.showSubtags = function(tag){
+				
+				if(tag == 'socials'){
+					$scope.subTags  = $rootScope.lstTag.socials;
+				}
+				
+				if(tag == 'smarts'){
+					$scope.subTags  = $rootScope.lstTag.smarts;
+				}
+				
+				if(tag == 'genre'){
+					$scope.subTags  = $rootScope.lstTag.genre;
+				}
+				
+				_.each($scope.subTags, function(tagObj){
+					
+					tagObj.selected = false;
+				});
+			}
+		},
+		link: function(scope, element, attrs){
+			
+		},
+		templateUrl: 'templates/pageslide.html'
+	}
 })
 
 .directive('circularMenu', function() {
@@ -246,22 +339,78 @@ angular.module('clcontrollers', [])
 })
 
 // ***************** Use for the login page :: Start *****************
-.controller('LoginCtrl', function($scope, $rootScope, $state, Schools) {
+.controller('LoginCtrl', function($scope, $rootScope, $state, Schools, Tags, loginService, createAccountService) {
   
-  $rootScope.appHeader = "CollegeLife";
-  $scope.loginData = {};
-  $scope.university = "";
-  
-  Schools.query(function(schoolData) { 
-    $scope.schools = schoolData.schools;
-  });
+	$scope.rememberMe = false;
 
-  $scope.validate = function(event){
+	$scope.loginDetail={};
+	
+	$rootScope.appHeader = "CollegeLife";
 
-      if( this.$parent.loginData.password == "cl123!"){
-         $state.go('app.friends_feeds');
-      }
-  }
+	Schools.query(function(response) { 
+		$scope.schools = response;
+	});
+	 
+	Tags.query(function(response) { 
+    	$rootScope.lstTag = response;
+    	
+    });
+	
+	$scope.login = function() {
+		
+		loginService.authenticate($scope.loginDetail).$promise.then(
+			function(success){
+				$rootScope.userId = success.userId;
+				$rootScope.collegeId = success.collegeId;
+		        $state.go('app.friends_feeds');
+			},
+			function(error){
+				
+			}
+		);
+		
+	/*	UserService.authenticate($.param({username: $scope.username, password: $scope.password}), function(authenticationResult) {
+			var authToken = authenticationResult.token;
+			$rootScope.authToken = authToken;
+			if ($scope.rememberMe) {
+				$cookieStore.put('authToken', authToken);
+			}
+			UserService.get(function(user) {
+				$rootScope.user = user;
+				$location.path("/");
+			});
+		});*/	
+	};
+
+	$scope.userCreateMessage="";
+	$scope.userDetail = {};
+	
+	$scope.createAccount = function(){
+		
+		/*Prepare for db update*/
+		
+		$scope.userDetail.college = angular.fromJson($scope.userDetail.college);
+		$scope.userDetail.isAlumni = $scope.userDetail.isAlumni == true ? "Y" : "N";
+		
+		$scope.userDetail.profilePictureUrl = "dummy";
+		
+		createAccountService.create($scope.userDetail).$promise.then(
+			function(response){
+				$scope.userCreateMessage = response;
+				$state.go('app.update_profile_img');
+			},
+			function(error){
+				$scope.userCreateMessage = error;
+			}
+		);
+	}
+	
+	 /* $scope.validate = function(event){
+	
+	      if( this.$parent.loginData.password == "cl123!"){
+	         $state.go('app.friends_feeds');
+	      }
+	  }*/
  
   /*var dataRef = new Firebase("https://ionic-firebase-login.firebaseio.com/");
   $scope.loginObj = $firebaseSimpleLogin(dataRef);
@@ -299,12 +448,13 @@ angular.module('clcontrollers', [])
   });*/
 
   
-  var data = FriendFeed.query(function(friendFeedData) { 
-    $scope.users = friendFeedData.users[0].friends;
+  var data = FriendFeed.query({userId: $rootScope.userId},function(friendFeedData) { 
+    $scope.users = friendFeedData;
   });
 
   $scope.schoolFeed = function(schoolId){
-     
+   
+   $rootScope.collegeId = schoolId;
    $state.go('app.school_feeds');
  
   };
@@ -315,10 +465,10 @@ angular.module('clcontrollers', [])
 	
   //This block of code needs to be repeated in every control where 
   //circular menu is required - need to fit in some directive
-  $scope.subtagsArr = [];
-  $scope.selectedTagsArr = [];
+ /* $scope.subtagsArr = [];
+  $scope.selectedTagsArr = [];*/
 
-  $scope.menu = function(menuType, tagsArr) {
+ /* $scope.menu = function(menuType, tagsArr) {
 
     $scope.selectedTagsArr = tagsArr;
 
@@ -333,9 +483,9 @@ angular.module('clcontrollers', [])
     }
 
     $(".circle").toggleClass('open');   
-  };
+  };*/
 
-  $scope.removeTag = function(tagId, tagsArr){
+  /*$scope.removeTag = function(tagId, tagsArr){
     $scope.selectedTagsArr = tagsArr;
 
     tagsArr = _.reject(tagsArr, function (tag){
@@ -346,7 +496,7 @@ angular.module('clcontrollers', [])
     angular.copy(tagsArr, $scope.selectedTagsArr);
 
   };
-
+*/
 })
 
 
@@ -355,20 +505,107 @@ angular.module('clcontrollers', [])
                                         $state, 
                                         $rootScope,
                                         SchoolFeed, 
-                                        Tags, 
-                                        sliceTagFilter) {
+                                        sliceTagFilter,
+                                        Schools,
+                                        schoolFeedCutomizer) {
 	
-	var data = SchoolFeed.query(function(schoolFeedData) { 
-		$scope.schoolUsers = schoolFeedData.schools[0].users;
+	var data = SchoolFeed.query({collegeId: $rootScope.collegeId},function(schoolFeedData) { 
+		$scope.schoolUsers = schoolFeedData;
 	});
 	
-	$scope.nationalFeed = function(){  
-		$state.go('app.national_feeds');
+	$scope.checked = false;
+	
+	$scope.toggleCustomMenu = function(){
+		
+		$scope.checked = !$scope.checked;
 	};
+	
+	/*Required for School Feed filter - start*/
+	/*$scope.feedFilterCollegeId = 0;
+	$scope.feedFilterTags = [];
 
+	$scope.setFilterCollegeId = function(schoolId){
+		$scope.filterCollegeId = schoolId;
+	};
+	
+	$scope.tagSelected = false;
+	
+	$scope.setTagID = function(tagId){
+		
+		var ind = $scope.feedFilterTags.indexOf(tagId);
+		
+		var subTagObj = _.find($scope.subTags, function(tag){ return tag.id == tagId});
+		
+		//var subTagObj =  $scope.subTags[subTagIndex];
+				
+		if(ind == -1){
+			$scope.feedFilterTags.push(tagId);
+			$scope.tagSelected = true;
+			subTagObj.selected = true;
+		}else {
+			//Remove the existing one.
+			$scope.feedFilterTags = _.reject($scope.feedFilterTags, function(tag){
+			      return tag == tagId;
+			});
+			$scope.tagSelected = false;
+			subTagObj.selected = false;
+		}
+	};
+	
+	$scope.checked = false;
+	
+	$scope.toggleCustomMenu = function(){
+		$scope.checked = !$scope.checked;
+		
+		
+		 * Call filter for School level post if user specified one
+		 
+		if ($scope.feedFilterCollegeId > 0 || $scope.feedFilterTags.length > 0){
+			
+			var schoolFilters = {collegeId: $scope.feedFilterCollegeId, lstTags: $scope.feedFilterTags};
+					
+			schoolFeedCutomizer.query(schoolFilters).$promise.then(
+				function(response){
+					$scope.schoolUsers = response;
+				},
+				function(error){
+					console.log("Filter failed");
+				}
+			);
+		}
+	};
+	
+	Schools.query(function(schoolData) { 
+        $scope.schools = schoolData;
+    });
+	
+	$scope.subTags = [];
+	
+	$scope.showSubtags = function(tag){
+		
+		if(tag == 'socials'){
+			$scope.subTags  = $rootScope.lstTag.socials;
+		}
+		
+		if(tag == 'smarts'){
+			$scope.subTags  = $rootScope.lstTag.smarts;
+		}
+		
+		if(tag == 'genre'){
+			$scope.subTags  = $rootScope.lstTag.genre;
+		}
+		
+		_.each($scope.subTags, function(tagObj){
+			
+			tagObj.selected = false;
+		});
+	}*/
+	
+	/*School Feed filter - End*/
+	
 //This block of code needs to be repeated in every control where 
   //circular menu is required - need to fit in some directive
-  $scope.subtagsArr = [];
+ /* $scope.subtagsArr = [];
   $scope.selectedTagsArr = [];
 
   $scope.menu = function(menuType, tagsArr) {
@@ -398,7 +635,7 @@ angular.module('clcontrollers', [])
     //Make a deep copy to reflect the changes and refresh the deletion
     angular.copy(tagsArr, $scope.selectedTagsArr);
 
-  };
+  };*/
 
 })
 
@@ -407,16 +644,21 @@ angular.module('clcontrollers', [])
                                           $rootScope,
                                           NationalFeed, 
                                           Schools, 
-                                          Tags, 
                                           sliceTagFilter) {
 
-	NationalFeed.query(function(nationalFeedData) { 
-		$scope.nationalUsers = nationalFeedData.nations[0].users;
+	NationalFeed.query({collegeId: $rootScope.collegeId}, function(nationalFeedData) { 
+		$scope.nationalUsers = nationalFeedData;
 	});
-  
+
+	/*For Slide Page */
+	$scope.checked = false;
+	$scope.toggleCustomMenu = function(){
+		$scope.checked = !$scope.checked;
+	};
+	
 //This block of code needs to be repeated in every control where 
   //circular menu is required - need to fit in some directive
-  $scope.subtagsArr = [];
+ /* $scope.subtagsArr = [];
   $scope.selectedTagsArr = [];
 
   $scope.menu = function(menuType, tagsArr) {
@@ -446,7 +688,7 @@ angular.module('clcontrollers', [])
     //Make a deep copy to reflect the changes and refresh the deletion
     angular.copy(tagsArr, $scope.selectedTagsArr);
 
-  };
+  };*/
 
 	//jQuery(document).ready(function(){
 		
@@ -547,4 +789,67 @@ angular.module('clcontrollers', [])
   $scope.filterByTags = [];
   $scope.searchCriteria = 0;
   
+})
+
+.controller('UploadProfileImgCtrl', function($scope, $stateParams, $rootScope, $cordovaFile) {
+
+	$scope.profileImgUrl = "";
+	
+	$scope.takePicture = function(){
+		
+		 var options = { 
+		            quality : 75, 
+		            destinationType : Camera.DestinationType.DATA_URL, 
+		            sourceType : Camera.PictureSourceType.CAMERA, 
+		            allowEdit : true,
+		            encodingType: Camera.EncodingType.JPEG,
+		            targetWidth: 300,
+		            targetHeight: 300,
+		            popoverOptions: CameraPopoverOptions,
+		            saveToPhotoAlbum: false
+		        };
+		 
+		navigator.camera.getPicture(function(imageURI) {
+
+		    // imageURI is the URL of the image that we can use for
+		    // an <img> element or backgroundImage.
+			$scope.profileImgUrl = imageURI;
+			
+		  }, function(err) {
+
+		    // Ruh-roh, something bad happened
+			  console.log(err);
+
+		  }, options);
+	};
+	  
+	$scope.uploadImg = function(){
+		
+		var fileURL = $scope.profileImgUrl;
+		
+		var options = new FileUploadOptions();
+		options.fileKey = "file";
+		options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
+		options.mimeType = "image/jpeg";
+		
+		var params = {};
+		params.value1 = "type";
+		params.value2 = "profile";
+
+		options.params = params;
+		
+		var ft = new FileTransfer();
+		ft.upload(fileURL, encodeURI($rootScope.clhost + $rootScope.clport + '/upload'), 
+				function(success){
+					console.log(success);
+					$state.go('app.login');
+				}, 
+				function(error){
+					console.log(error);
+				}, 
+				options
+		);
+
+	};
+	
 })
