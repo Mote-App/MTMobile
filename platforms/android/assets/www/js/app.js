@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices'])
+angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices','pageslide-directive', 'angular-carousel'])
 
 /*.run(function($ionicPlatform, $rootScope, $firebaseSimpleLogin, $state, $window) {
   var dataRef = new Firebase("https://ionic-firebase-login.firebaseio.com/");
@@ -28,7 +28,14 @@ angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices'])
   });
 })*/
 
-.run(function($ionicPlatform, $rootScope, $filter, Tags) {
+.run(function($ionicPlatform, $rootScope, $filter) {
+
+	//AWS http://54.149.27.205
+	$rootScope.clhost = "http://54.149.27.205";
+	$rootScope.clport = ":8080";
+	$rootScope.lstTag = {};
+	
+
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -40,16 +47,12 @@ angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices'])
       StatusBar.styleDefault();
     }
 
-    Tags.query(function(tagData) { 
-        $rootScope.allSubtags = tagData.subtags;
-        $rootScope.smartArr =  $rootScope.allSubtags.smarts;
-        $rootScope.socialArr = $rootScope.allSubtags.socials;
-        $rootScope.genreArr =  $rootScope.allSubtags.genre;
+    
 
-    });
-
+    $rootScope.userId = 0;
+    $rootScope.collegeId = 0;
     $rootScope.appHeader="";
-
+    
     $rootScope.findTagByTagId = function(tagId){
 
       var result = tagId.split('_');
@@ -70,11 +73,26 @@ angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices'])
       
       return tagObj.tagText;
     };
+    
+    $rootScope.formatTags = function(tagArr){
+    	
+    	var formattedStr = "";
+    	for( var i = 0; i < tagArr.length; i++){
+    		
+    		formattedStr = formattedStr + tagArr[i];
+    		
+    		if ( i != (tagArr.length -1)){
+    			formattedStr = formattedStr + ", ";
+    		}
+    	}
+    	
+    	return formattedStr;
+    };
 
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
   $stateProvider
 
     .state('app', {
@@ -100,6 +118,16 @@ angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices'])
         'menuContent' :{
       templateUrl: "templates/create_account.html",
       controller: 'LoginCtrl'
+      }
+     }
+    })
+    
+    .state('app.update_profile_img', {
+      url: "/create_account",
+      views: {
+        'menuContent' :{
+      templateUrl: "templates/upload_profile_img.html",
+      controller: 'UploadProfileImgCtrl'
       }
      }
     })
@@ -166,11 +194,12 @@ angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices'])
       }
     })
 
-    .state('app.browse', {
-      url: "/browse",
+    .state('app.logout', {
+      url: "/logout",
       views: {
         'menuContent' :{
-          templateUrl: "templates/browse.html"
+          templateUrl: "templates/login.html",
+          controller: 'LoginCtrl'
         }
       }
     })
@@ -228,5 +257,26 @@ angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices'])
   // if none of the above states are matched, use this as the fallback
   //$urlRouterProvider.otherwise('index');
   $urlRouterProvider.otherwise('/app/login');
+  
+  
+	  /* Registers auth token interceptor, auth token is either passed by header or by query parameter
+	   * as soon as there is an authenticated user */
+	/*  $httpProvider.interceptors.push(function ($q, $rootScope, $location) {
+	      return {
+	      	'request': function(config) {
+	      		var isRestCall = config.url.indexOf('rest') == 0;
+	      		if (isRestCall && angular.isDefined($rootScope.authToken)) {
+	      			var authToken = $rootScope.authToken;
+	      			if (exampleAppConfig.useAuthTokenHeader) {
+	      				config.headers['X-Auth-Token'] = authToken;
+	      			} else {
+	      				config.url = config.url + "?token=" + authToken;
+	      			}
+	      		}
+	      		return config || $q.when(config);
+	      	}
+	      };
+	  }
+	);*/
 });
 

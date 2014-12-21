@@ -1,17 +1,17 @@
-  <!--<div class="bar bar-header header-color">
-<ion-nav-buttons side="left">
-  <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
-</ion-nav-buttons>
-
-<a class="button icon-left ion-arrow-left-a button-clear button-dark" href="#/app/login"></a>
-<h1 class="header-font title">Friends</h1>
-  </div>-->
+ 
 <ion-view title="Friends">
   <ion-nav-buttons side="left">
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
+  <div class="bar bar-subheader">
+	<div class="button-bar" style="width:80%;  margin-left:30px;">
+	  <a class="button" href="#/app/friends_feeds">Friends</a>
+	  <a class="button" href="#/app/school_feeds">School</a>
+	  <a class="button" href="#/app/national_feeds">National</a>
+	</div>
+  </div>
 
-  <div circular-menu subtags="subtagsArr" selectedtags="selectedTagsArr" mypagekey="friends"></div>
+  <!--<div circular-menu subtags="subtagsArr" selectedtags="selectedTagsArr" mypagekey="friends"></div>-->
   
   <ion-content class="has-header">
     <ion-list>
@@ -20,37 +20,47 @@
        <ion-slide-box on-slide-changed="slideHasChanged($index)" active-slide="1">
         <ion-slide>
           <div class="card">
-            <div  class="item item-avatar align-card-header">
-              <img src="{{user.profileImg}}">
+          	<p align="right" class="image-post-time">{{ user.posts.popularPost.postingDate}}</p>
+            <div  class="align-card-header">
+              <img ng-src="{{ clhost + '/' + user.profileImg}}">
               <h4>{{user.name}}</h4>
-              <p>{{ user.posts.popularPost.postingDate}}</p>
             </div>
-			<div class="item item-avatar align-card-header">							
-				<img src="{{ user.SchoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">				
-				<h4 ng-click="schoolFeed( {{user.posts.popularPost.schoolId}})">{{ user.posts.popularPost.SchoolName}}</h4>
+			<div class="align-card-header">						
+				<img ng-src="{{ clhost + '/' + user.schoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
+				<h4 ng-click="schoolFeed( {{user.schoolId}})">{{ user.schoolName}}</h4>
 			</div>
-            
-            <div class="item">
-              <img class="full-image" src="{{user.posts.popularPost.postImg}}">
+            <div class="item post-img" style="clear:both;">
+              <img class="full-image" ng-src="{{ clhost + '/' + user.posts.popularPost.postImg}}">
+              <p class="likes">
+              	<a href="#" class="subdued">{{ user.posts.popularPost.likes}} Likes</a>
+              </p>
+              <div class="progress">
+              	<img src="img\progress.png" style="width:30px;">
+              	<h6>{{ user.posts.popularPost.progressInd }}</h6>
+              </div>
               <span>
                 <p class="image-caption">
                   {{user.posts.popularPost.caption}}
                 </p>
               </span>
-              <div class="card">
-                <span class="tagItem" ng-repeat="tag in user.posts.popularPost.tags"> 
-				  {{findTagByTagId(tag)}}
+              <div class="card item-text-wrap">
+              	
+                <p class="tagItem"> 
+                {{ user.posts.popularPost.tagCategory + " : "}}
+                
+                {{ formatTags(user.posts.popularPost.tags) }}
+				  <!--{{findTagByTagId(tag)}}
 					<a ng-click="removeTag( tag , user.posts.popularPost.tags)">
 						<i class="icon ion-close-round"></i>
-					</a>
-				</span>
+					</a> -->
+				</p>
+				<p class="custom-tag">
+					{{ formatTags(user.posts.popularPost.customTags) }} 
+				</p>
               </div>
-              <p>
-                <a href="#" class="subdued">{{ user.posts.popularPost.likes}} Like</a>
-              </p>
             </div>
 
-            <div class="item tabs tabs-secondary tabs-icon-left">
+            <!-- <div class="item tabs tabs-secondary tabs-icon-left">
               <a ng-click="menu('#social', user.posts.popularPost.tags)" class="tab-item">
                 <i class="icon ion-android-friends"></i>
                 Social Life
@@ -68,7 +78,7 @@
                 Custom Tag
               </a>
 
-            </div>
+            </div> -->
 
           </div>
         </ion-slide>
@@ -76,37 +86,47 @@
         <ion-slide>
 		
           <div class="card">			
+          	<p align="right" class="image-post-time">{{ user.posts.currentPost.postingDate}}</p>
+  			<div class="align-card-header">			
+  				<img ng-src="{{  clhost + '/' + user.profileImg}}">
+  				<h4>{{user.name}}</h4>
+  				
+  			</div>
+  			<div class="align-card-header">
+  				<img ng-src="{{  clhost + '/' + user.schoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
+  				<h4 ng-click="schoolFeed( {{user.schoolId}})">{{ user.schoolName}}</h4>
+  			</div>	
 			
-      			<div class="item item-avatar align-card-header">			
-      				<img src="{{ user.profileImg}}">
-      				<h4>{{user.name}}</h4>
-      				<p>{{ user.posts.currentPost.postingDate}}</p>
-      			</div>
-      			<div class="item item-avatar align-card-header">							
-      				<img src="{{ user.SchoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
-      				<h4 ng-click="schoolFeed( {{user.posts.currentPost.schoolId}})">{{ user.posts.currentPost.SchoolName}}</h4>
-      			</div>	
 			
-			
-            <div class="item">
-              <img class="full-image" src="{{user.posts.currentPost.postImg}}">
+            <div class="item post-img" style="clear:both;">
+              <img class="full-image" ng-src="{{ clhost + '/' + user.posts.currentPost.postImg}}">
+              <p class="likes">
+              	<a href="#" class="subdued">{{ user.posts.currentPost.likes}} Likes</a>
+              </p>
+              <div class="progress">
+            	<img src="img\progress.png" style="width:30px;">
+            	<h6>{{ user.posts.currentPost.progressInd }}</h6>
+              </div>
               <span>
                 <p class="image-caption">{{user.posts.currentPost.caption}}</p>
               </span>
-              <div class="card">
-                <span class="tagItem" ng-repeat="tag in user.posts.currentPost.tags"> 
-				  {{findTagByTagId(tag)}}
+              <div class="card item-text-wrap">
+                <p>
+                {{ user.posts.currentPost.tagCategory + ":" }}
+                {{ formatTags(user.posts.currentPost.tags) }}
+				  <!--{{findTagByTagId(tag)}}
 					<a ng-click="removeTag( tag, user.posts.currentPost.tags )">
 						<i class="icon ion-close-round"></i>
-					</a>
-				</span>
+					</a>-->
+				</p>
+				<p class="custom-tag">
+					{{ formatTags(user.posts.currentPost.customTags) }} 
+				</p>
               </div>
-              <p>
-                <a href="#" class="subdued">{{ user.posts.currentPost.likes}} Like</a>
-              </p>
+              
             </div>
 
-            <div class="item tabs tabs-secondary tabs-icon-left">
+            <!-- <div class="item tabs tabs-secondary tabs-icon-left">
 
               <a ng-click="menu('#social', user.posts.currentPost.tags )" class="tab-item">
                   <i class="icon ion-android-friends"></i>Social Life
@@ -120,44 +140,52 @@
                 <i class="icon ion-social-android"></i>
                 Smart
               </a>
-            </div>
+            </div> -->
 
           </div>
         </ion-slide>
 
         <ion-slide>
           <div class="card">
-            <div class="item item-avatar align-card-header">
-              <img src="{{ user.profileImg}}">
+          <p align="right" class="image-post-time">{{ user.posts.mostRecentPost.postingDate}}</p>
+            <div class="align-card-header">
+              <img ng-src="{{  clhost + '/' + user.profileImg}}">
               <h4>{{user.name}}</h4>
-              <p>{{ user.posts.mostRecentPost.postingDate}}</p>
             </div>
-			<div class="item item-avatar align-card-header">							
-				<img src="{{ user.SchoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
-				<h4 ng-click="schoolFeed( {{user.posts.mostRecentPost.schoolId}})">{{ user.posts.mostRecentPost.SchoolName}}</h4>
+			<div class="align-card-header">							
+				<img ng-src="{{  clhost + '/' + user.schoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
+				<h4 ng-click="schoolFeed( {{user.schoolId}})">{{ user.schoolName}}</h4>
 			</div>	
-            <div class="item item-body">
-              <img class="full-image" src="{{user.posts.mostRecentPost.postImg}}">
+            <div class="item post-img" style="clear:both;">
+              <img class="full-image" ng-src="{{  clhost + '/' + user.posts.mostRecentPost.postImg}}">
+              <p class="likes">
+              	<a href="#" class="subdued">{{ user.posts.mostRecentPost.likes}} Likes</a>
+              </p>
+              <div class="progress">
+            	<img src="img\progress.png" style="width:30px;">
+            	<h6>{{ user.posts.mostRecentPost.progressInd }}</h6>
+              </div>
               <span>
-                <p class="image-caption">
+                <p class="image-caption item-text-wrap">
                   {{user.posts.mostRecentPost.caption}}
                 </p>
               </span>
-              <div class="card">
-                <span class="tagItem" ng-repeat="tag in user.posts.mostRecentPost.tags"> 
-					{{findTagByTagId(tag)}} 
+              <div class="card item-text-wrap">
+              	<p>
+              		{{  user.posts.mostRecentPost.tagCategory }} : </span>
+              		{{ formatTags(user.posts.mostRecentPost.tags) }} 
+					<!--{{findTagByTagId(tag)}} 
 					<a ng-click="removeTag( '{{ tag }}', {{user.posts.mostRecentPost.tags}} )">
 					<i class="icon ion-close-round"></i>
-					</a>
-				</span>
+					</a> -->
+				</p>
+				<p class="custom-tag">
+					{{ formatTags(user.posts.mostRecentPost.customTags) }} 
+				</p>
               </div>
-
-              <p>
-                <a href="#" class="subdued">{{ user.posts.mostRecentPost.likes}} Like</a>
-              </p>
             </div>
 
-            <div class="item tabs tabs-secondary tabs-icon-left">
+            <!-- <div class="item tabs tabs-secondary tabs-icon-left">
               <a ng-click="menu('#social', user.posts.mostRecentPost.tags)" class="tab-item">
                 <i class="icon ion-android-friends"></i>
                 Social Life
@@ -170,7 +198,7 @@
                 <i class="icon ion-social-android"></i>
                 Smart
               </a>
-            </div>
+            </div> -->
 
           </div>
         </ion-slide>
@@ -180,6 +208,6 @@
   </ion-list>
 </ion-content>
 <div class="bar bar-footer bar-balanced">
-  <div class="title"><button class="button" ng-click="takePicture()"><i class="ion-ios7-camera-outline photo-icon-size"></i></button></div>
+  <div class="title"><a class="button" href="#/app/new_post"><i class="ion-ios7-camera-outline photo-icon-size"></i></a></div>
 </div>
 </ion-view>

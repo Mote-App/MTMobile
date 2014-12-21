@@ -9,7 +9,7 @@
   width: 200px;
   height: 200px;
   margin: 0 auto;
-  //position: relative;
+  position: relative;
 }
 
 
@@ -78,17 +78,15 @@
 
 .menu-button {
   position: absolute;
-  top: 48%;
-  left: 42%;
+  top: 65%;
+  left: 61%;
   text-decoration: none;
   text-align: center;
   color: #444;
   border-radius: 50%;
-  display: block;
   height: 40px;
   width: 40px;
   line-height: 40px;
-  padding: 10px;
   background-color: rgb(254, 198, 61);
 
 }
@@ -99,8 +97,9 @@
 }
 
 .tagItem {
-  color: green;
-  border-radius: 10%;
+  color: blue;
+  
+  //border-radius: 10%;
 }
 
 .menu-button:hover {

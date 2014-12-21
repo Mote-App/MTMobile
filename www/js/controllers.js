@@ -396,7 +396,10 @@ angular.module('clcontrollers', [])
 		
 		createAccountService.create($scope.userDetail).$promise.then(
 			function(response){
-				$scope.userCreateMessage = response;
+				//$scope.userCreateMessage = response;
+				
+				$rootScope.newUserId = response.id;
+				
 				$state.go('app.update_profile_img');
 			},
 			function(error){
@@ -694,11 +697,84 @@ angular.module('clcontrollers', [])
 		
 })
 
-.controller('NewPostCtrl', function($scope, $rootScope, Profile) {
+.controller('NewPostCtrl', function($scope, $rootScope, Profile, Camera) {
 
+	
+	$scope.profileImgUrl = "";
+	
+	$scope.takePicture = function(){
+
+		Camera.getPicture().then(function(imageURI){
+			$scope.profileImgUrl = imageURI;
+		},
+		function(error){
+			console.log(error);
+		},
+		{
+			quality : 75,
+			targetWidth: 300,
+            targetHeight: 300,
+            popoverOptions: CameraPopoverOptions,
+            saveToPhotoAlbum: false,
+            encodingType: navigator.camera.EncodingType.JPEG,
+            destinationType: navigator.camera.DestinationType.FILE_URI
+		}
+		);
+	};
+	  
+	$scope.uploadImg = function(){
+		
+		var fileURL = $scope.profileImgUrl;
+		
+		var options = new FileUploadOptions();
+		options.fileKey = "file";
+		options.fileName = fileURL.substr(fileURL.lastIndexOf('/')+1);
+		options.mimeType = "image/jpeg";
+		
+		var params = {};
+		params.name = $rootScope.newUserId;
+
+		options.params = params;
+		
+		var ft = new FileTransfer();
+		ft.upload(fileURL, encodeURI($rootScope.clhost + $rootScope.clport + '/upload'), 
+				function(success){
+					console.log(success);
+					$state.go('app.login');
+				}, 
+				function(error){
+					console.log(error);
+				}, 
+				options
+		);
+
+	};
+	
+	$scope.subTags = [];
+	
+	$scope.showSubtags = function(tag){
+		
+		if(tag == 'socials'){
+			$scope.subTags  = $rootScope.lstTag.socials;
+		}
+		
+		if(tag == 'smarts'){
+			$scope.subTags  = $rootScope.lstTag.smarts;
+		}
+		
+		if(tag == 'genre'){
+			$scope.subTags  = $rootScope.lstTag.genre;
+		}
+		
+		_.each($scope.subTags, function(tagObj){
+			
+			tagObj.selected = false;
+		});
+	}
+	
   //This block of code needs to be repeated in every control where 
   //circular menu is required - need to fit in some directive
-  $scope.subtagsArr = [];
+  /*$scope.subtagsArr = [];
   $scope.selectedTagsArr = [];
 
   $scope.menu = function(menuType, tagsArr) {
@@ -728,7 +804,7 @@ angular.module('clcontrollers', [])
     //Make a deep copy to reflect the changes and refresh the deletion
     angular.copy(tagsArr, $scope.selectedTagsArr);
 
-  };
+  };*/
   
 })
 
@@ -791,36 +867,28 @@ angular.module('clcontrollers', [])
   
 })
 
-.controller('UploadProfileImgCtrl', function($scope, $stateParams, $rootScope, $cordovaFile) {
+.controller('UploadProfileImgCtrl', function($scope, $stateParams, $rootScope, Camera) {
 
 	$scope.profileImgUrl = "";
 	
 	$scope.takePicture = function(){
-		
-		 var options = { 
-		            quality : 75, 
-		            destinationType : Camera.DestinationType.DATA_URL, 
-		            sourceType : Camera.PictureSourceType.CAMERA, 
-		            allowEdit : true,
-		            encodingType: Camera.EncodingType.JPEG,
-		            targetWidth: 300,
-		            targetHeight: 300,
-		            popoverOptions: CameraPopoverOptions,
-		            saveToPhotoAlbum: false
-		        };
-		 
-		navigator.camera.getPicture(function(imageURI) {
 
-		    // imageURI is the URL of the image that we can use for
-		    // an <img> element or backgroundImage.
+		Camera.getPicture().then(function(imageURI){
 			$scope.profileImgUrl = imageURI;
-			
-		  }, function(err) {
-
-		    // Ruh-roh, something bad happened
-			  console.log(err);
-
-		  }, options);
+		},
+		function(error){
+			console.log(error);
+		},
+		{
+			quality : 75,
+			targetWidth: 300,
+            targetHeight: 300,
+            popoverOptions: CameraPopoverOptions,
+            saveToPhotoAlbum: false,
+            encodingType: navigator.camera.EncodingType.JPEG,
+            destinationType: navigator.camera.DestinationType.FILE_URI
+		}
+		);
 	};
 	  
 	$scope.uploadImg = function(){
@@ -829,12 +897,11 @@ angular.module('clcontrollers', [])
 		
 		var options = new FileUploadOptions();
 		options.fileKey = "file";
-		options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
+		options.fileName = fileURL.substr(fileURL.lastIndexOf('/')+1);
 		options.mimeType = "image/jpeg";
 		
 		var params = {};
-		params.value1 = "type";
-		params.value2 = "profile";
+		params.name = $rootScope.newUserId;
 
 		options.params = params;
 		

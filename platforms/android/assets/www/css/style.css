@@ -1,5 +1,9 @@
 /* Empty. Add your own CSS if you like */
 
+body {
+ font-size:12px;
+}
+
 .tabs, .header-color{
 	background-color: rgb(76, 122, 52);
 }
@@ -10,7 +14,7 @@
 }
 
 ion-nav-bar, .card > div , .list > ion-item, ion-content ,  .item-complex  .item-content, .list > label , 
-.list > div, .list > li , .list > .card > a , .item-avatar, .card, .pane, .bg-color , .item-select select ,
+.list > div, .list > li , .list > .card > a , .item-avatar, .card, .pane, .bg-color , .item-select select , .bar-subheader, 
  #carousel{
 	background-color: rgb(254, 198, 61);
 }
@@ -32,12 +36,14 @@ ion-nav-bar, .card > div , .list > ion-item, ion-content ,  .item-complex  .item
 }
 
 .image-caption {
-	background-color: #ffffff;
-	margin-top: -5px;
-	border: black;
-	border-style: solid;
+	background-color: rgb(254, 198, 61);
+	margin-top: 10px;
+	//border: black;
+	//border-style: solid;
 	font-weight: bold;
-	border-width: 1px;	
+	font-size: 12px;
+	//border-width: 1px;	
+	white-space: normal !important;
 }
 
 
@@ -76,3 +82,73 @@ ion-nav-bar, .card > div , .list > ion-item, ion-content ,  .item-complex  .item
 .photo-icon-size {
 	font-size: 50px;
 }
+
+.item {
+	border-width : 0px;	
+	border-style: none;
+}
+
+.post-img {
+	padding: 0px;
+}
+
+/* username on each posting*/
+.align-card-header h4 {
+	padding-left: 40px;
+	margin-top: -15px;
+}
+.align-card-header img {
+	width:30px;
+}
+
+.progress {
+	padding-left: 87%;
+	margin-top: -40px;
+}
+
+.progress img {
+	width: 30px;
+}
+
+.progress h6 {
+	margin-top: -24px;
+	margin-left: 5px;
+	font-weight: bold;
+}
+
+.image-post-time {
+	margin-top: 10px;
+	font-size: 12px !important;
+}
+
+.likes {
+	margin-top: -28px;
+	margin-left: 2px;
+}
+
+.likes a {
+	color: rgb(119, 244, 119);
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.custom-tag {
+	font-weight: bold;
+}
+
+/*Custom Page CSS*/
+
+.bgimage {
+    text-align:right;
+    color:white;
+    background-size:cover;
+    height: 100%;
+    background-position: center center;
+}
+
+ul[rn-carousel] {
+	width: 200px;
+	height: 100px;
+	margin: 0 auto;
+}
+
