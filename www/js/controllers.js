@@ -697,12 +697,13 @@ angular.module('clcontrollers', [])
 		
 })
 
-.controller('NewPostCtrl', function($scope, $rootScope, Profile, Camera) {
+.controller('NewPostCtrl', function($scope, $rootScope, Profile, imageURI) {
 
 	
-	$scope.profileImgUrl = "";
-	
-	$scope.takePicture = function(){
+	$scope.profileImgUrl 	= imageURI;
+	$scope.customTags		= "";
+	$scope.caption			= "";
+	/*$scope.takePicture = function(){
 
 		Camera.getPicture().then(function(imageURI){
 			$scope.profileImgUrl = imageURI;
@@ -720,7 +721,7 @@ angular.module('clcontrollers', [])
             destinationType: navigator.camera.DestinationType.FILE_URI
 		}
 		);
-	};
+	};*/
 	  
 	$scope.uploadImg = function(){
 		
@@ -731,16 +732,21 @@ angular.module('clcontrollers', [])
 		options.fileName = fileURL.substr(fileURL.lastIndexOf('/')+1);
 		options.mimeType = "image/jpeg";
 		
+		
 		var params = {};
-		params.name = $rootScope.newUserId;
-
+		params.newPostDto = {};
+		params.newPostDto.userId 		= $rootScope.userId;
+		params.newPostDto.caption 		= $scope.caption;
+		params.newPostDto.tags 			= $scope.feedFilterTags
+		params.newPostDto.customTags	= $scope.customTags;
+		
 		options.params = params;
 		
 		var ft = new FileTransfer();
 		ft.upload(fileURL, encodeURI($rootScope.clhost + $rootScope.clport + '/upload'), 
 				function(success){
 					console.log(success);
-					$state.go('app.login');
+					$state.go('app.friends_feeds');
 				}, 
 				function(error){
 					console.log(error);
@@ -771,6 +777,33 @@ angular.module('clcontrollers', [])
 			tagObj.selected = false;
 		});
 	}
+	
+	$scope.feedFilterTags = [];
+
+	//$scope.tagSelected = false;
+	
+	$scope.setTagID = function(tagId){
+		
+		var ind = $scope.feedFilterTags.indexOf(tagId);
+		
+		var subTagObj = _.find($scope.subTags, function(tag){ return tag.id == tagId});
+		
+		//var subTagObj =  $scope.subTags[subTagIndex];
+				
+		if(ind == -1){
+			$scope.feedFilterTags.push(tagId);
+			//$scope.tagSelected = true;
+			subTagObj.selected = true;
+		}else {
+			//Remove the existing one.
+			$scope.feedFilterTags = _.reject($scope.feedFilterTags, function(tag){
+			      return tag == tagId;
+			});
+			//$scope.tagSelected = false;
+			subTagObj.selected = false;
+		}
+	};
+	
 	
   //This block of code needs to be repeated in every control where 
   //circular menu is required - need to fit in some directive

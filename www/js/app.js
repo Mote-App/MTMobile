@@ -248,7 +248,31 @@ angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices','p
     	views : {
     		'menuContent' :{
     			templateUrl: "templates/new_post.html",
-    			controller: 'NewPostCtrl' 		
+    			controller: 'NewPostCtrl',
+    			resolve: {
+    					takePicture: function($q, Camera){
+    						
+    						var deferred = $q.defer();
+					    	Camera.getPicture().then(function(imageURI){
+					    		deferred.resolve(imageURI);
+							},
+							function(error){
+								deferred.resolve(error);
+							},
+							{
+								quality : 75,
+								targetWidth: 300,
+					            targetHeight: 300,
+					            //popoverOptions: CameraPopoverOptions,
+					            saveToPhotoAlbum: false,
+					            encodingType: navigator.camera.EncodingType.JPEG,
+					            destinationType: navigator.camera.DestinationType.FILE_URI
+							}
+							);
+					    	return deferred.promise;
+    					}
+    			}
+    			
     		}
     	}
     })

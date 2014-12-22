@@ -23,8 +23,8 @@
 		  ng-class="{'button-outline' : !subTag.selected }"
 		  ng-repeat="subTag in subTags" ng-click="setTagID({{subTag.id}})">{{ subTag.subTag }}</button>
 		  
-		  <input type="text" placeholder="Custom Tags (comma separated)" ng-model="user.posts.popularPost.caption">
-		  <input type="text" placeholder="Caption" ng-model="user.posts.popularPost.caption">
+		  <input type="text" placeholder="Custom Tags (comma separated)" ng-model="customTags">
+		  <input type="text" placeholder="Caption" ng-model="caption">
 		  
 		</div>
 	</div>
