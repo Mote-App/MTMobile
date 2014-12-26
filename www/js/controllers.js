@@ -697,9 +697,9 @@ angular.module('clcontrollers', [])
 		
 })
 
-.controller('NewPostCtrl', function($scope, $rootScope, Profile, imageURI) {
+.controller('NewPostCtrl', function($scope, $rootScope, $state, Profile, imageURI) {
 
-	
+	console.log("imageURI in NewPostCtrl: " + imageURI);
 	$scope.profileImgUrl 	= imageURI;
 	$scope.customTags		= "";
 	$scope.caption			= "";
@@ -723,6 +723,10 @@ angular.module('clcontrollers', [])
 		);
 	};*/
 	  
+	$scope.cancel = function(){
+		
+	};
+	
 	$scope.uploadImg = function(){
 		
 		var fileURL = $scope.profileImgUrl;
@@ -733,17 +737,15 @@ angular.module('clcontrollers', [])
 		options.mimeType = "image/jpeg";
 		
 		
-		var params = {};
-		params.newPostDto = {};
-		params.newPostDto.userId 		= $rootScope.userId;
-		params.newPostDto.caption 		= $scope.caption;
-		params.newPostDto.tags 			= $scope.feedFilterTags
-		params.newPostDto.customTags	= $scope.customTags;
+		var postDto = {userId: $rootScope.userId, caption: $scope.caption, tags: $scope.feedFilterTags, customTags: $scope.customTags};
+		params = {};
+		params.post = angular.toJson(postDto);
 		
 		options.params = params;
+		//options.header = {'Content-Type': undefined};
 		
 		var ft = new FileTransfer();
-		ft.upload(fileURL, encodeURI($rootScope.clhost + $rootScope.clport + '/upload'), 
+		ft.upload(fileURL, encodeURI($rootScope.clhost + $rootScope.clport + '/upload_post'), 
 				function(success){
 					console.log(success);
 					$state.go('app.friends_feeds');
@@ -900,7 +902,7 @@ angular.module('clcontrollers', [])
   
 })
 
-.controller('UploadProfileImgCtrl', function($scope, $stateParams, $rootScope, Camera) {
+.controller('UploadProfileImgCtrl', function($scope, $stateParams, $state, $rootScope, Camera) {
 
 	$scope.profileImgUrl = "";
 	

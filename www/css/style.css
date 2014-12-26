@@ -35,6 +35,18 @@ ion-nav-bar, .card > div , .list > ion-item, ion-content ,  .item-complex  .item
 	font-size: 40px !important;
 }
 
+.fullscreen-image {
+  max-width: 100%;
+  max-height: 100%;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
 .image-caption {
 	background-color: rgb(254, 198, 61);
 	margin-top: 10px;

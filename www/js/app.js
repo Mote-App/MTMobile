@@ -250,7 +250,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices','p
     			templateUrl: "templates/new_post.html",
     			controller: 'NewPostCtrl',
     			resolve: {
-    					takePicture: function($q, Camera){
+    					imageURI: function($q, Camera){
     						
     						var deferred = $q.defer();
 					    	Camera.getPicture().then(function(imageURI){
