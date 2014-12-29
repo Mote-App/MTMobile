@@ -16,11 +16,16 @@ body {
 ion-nav-bar, .card > div , .list > ion-item, ion-content ,  .item-complex  .item-content, .list > label , 
 .list > div, .list > li , .list > .card > a , .item-avatar, .card, .pane, .bg-color , .item-select select , .bar-subheader, 
  #carousel{
-	background-color: rgb(254, 198, 61);
+	background-color: white; //rgb(254, 198, 61);
 }
 
 .item-complex  .item-content {
 	font-weight: bold;
+}
+
+.cl_error{
+	margin-left:40px;
+	color: red;
 }
 
 .bar.bar-stable {
@@ -48,7 +53,7 @@ ion-nav-bar, .card > div , .list > ion-item, ion-content ,  .item-complex  .item
 }
 
 .image-caption {
-	background-color: rgb(254, 198, 61);
+	background-color: white; //rgb(254, 198, 61);
 	margin-top: 10px;
 	//border: black;
 	//border-style: solid;

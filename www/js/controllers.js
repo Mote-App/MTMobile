@@ -342,7 +342,8 @@ angular.module('clcontrollers', [])
 .controller('LoginCtrl', function($scope, $rootScope, $state, Schools, Tags, loginService, createAccountService) {
   
 	$scope.rememberMe = false;
-
+	$scope.errorMsg = "";
+	
 	$scope.loginDetail={};
 	
 	$rootScope.appHeader = "CollegeLife";
@@ -365,7 +366,7 @@ angular.module('clcontrollers', [])
 		        $state.go('app.friends_feeds');
 			},
 			function(error){
-				
+				$scope.errorMsg = error.data.message;
 			}
 		);
 		
@@ -403,7 +404,7 @@ angular.module('clcontrollers', [])
 				$state.go('app.update_profile_img');
 			},
 			function(error){
-				$scope.userCreateMessage = error;
+				$scope.errorMsg = error.data.message;
 			}
 		);
 	}
@@ -902,9 +903,10 @@ angular.module('clcontrollers', [])
   
 })
 
-.controller('UploadProfileImgCtrl', function($scope, $stateParams, $state, $rootScope, Camera) {
+.controller('UploadProfileImgCtrl', function($scope, $state, $rootScope, Camera) {
 
 	$scope.profileImgUrl = "";
+	$scope.errorMsg="";
 	
 	$scope.takePicture = function(){
 
@@ -912,7 +914,7 @@ angular.module('clcontrollers', [])
 			$scope.profileImgUrl = imageURI;
 		},
 		function(error){
-			console.log(error);
+			$scope.errorMsg = error.data.message;
 		},
 		{
 			quality : 75,
@@ -943,11 +945,11 @@ angular.module('clcontrollers', [])
 		var ft = new FileTransfer();
 		ft.upload(fileURL, encodeURI($rootScope.clhost + $rootScope.clport + '/upload'), 
 				function(success){
-					console.log(success);
 					$state.go('app.login');
 				}, 
 				function(error){
 					console.log(error);
+					//$scope.errorMsg = error.data.message;
 				}, 
 				options
 		);

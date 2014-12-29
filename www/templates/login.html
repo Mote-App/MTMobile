@@ -11,25 +11,29 @@
 		      University
 		    </div>
 			<select class="item-input-wrapper" ng-model="loginDetail.collegeId">
-	      		<option value="{{ school.id }}" ng-repeat="school in schools">{{school.name}}</option>
-	    	</select>
-	    </div>
-		  <div class="item item-input-inset body-color">
+		  		<option value="{{ school.id }}" ng-repeat="school in schools">{{school.name}}</option>
+			</select>
+		</div>
+		<div ng-show="errorMsg.length > 0" class="cl_error">
+			<i class="icon ion-close-circled"></i> 
+			{{ errorMsg}}
+		</div>
+		<div class="item item-input-inset body-color">
 			<label class="item-input-wrapper">
 				<i class="icon ion-ios7-email-outline placeholder-icon"></i>
 				<input type="text" placeholder=".edu Email Address" ng-model="loginDetail.userName">
 			</label>	
-		  </div>
-	
-		  <div class="item item-input-inset body-color">
+		</div>
+
+		<div class="item item-input-inset body-color">
 			<label class="item-input-wrapper">
 				<i class="icon ion-locked placeholder-icon"></i>
 				<input type="password" placeholder="password" ng-model="loginDetail.password">
 			</label>	
-		  </div>
-		  <button class="button button-block button-energized" ng-click="login()">
+		</div>
+		<button class="button button-block button-energized" ng-click="login()">
 			Sign In
-		  </button>
+		</button>
 	</div>
 	<ul class="list">
 		<li class="item body-color">
