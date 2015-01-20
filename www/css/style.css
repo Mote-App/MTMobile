@@ -52,8 +52,10 @@ ion-nav-bar, .card > div , .list > ion-item, ion-content ,  .item-complex  .item
   top: 0;
 }
 
+/* Caption for each image post */
 .image-caption {
 	background-color: white; //rgb(254, 198, 61);
+	color: rgb(64,64,64);
 	margin-top: 10px;
 	//border: black;
 	//border-style: solid;
@@ -138,16 +140,7 @@ ion-nav-bar, .card > div , .list > ion-item, ion-content ,  .item-complex  .item
 	font-size: 12px !important;
 }
 
-.likes {
-	margin-top: -28px;
-	margin-left: 2px;
-}
 
-.likes a {
-	color: rgb(119, 244, 119);
-	font-weight: bold;
-	font-size: 14px;
-}
 
 .custom-tag {
 	font-weight: bold;
@@ -167,5 +160,27 @@ ul[rn-carousel] {
 	width: 200px;
 	height: 100px;
 	margin: 0 auto;
+}
+
+/* user Likes style */
+
+.likes {
+	margin-top: -28px;
+	margin-left: 8px;
+}
+
+.likes a {
+	color: rgb(119, 244, 119);
+	font-weight: bold;
+	font-size: 26px;
+}
+.subdued {
+
+}
+
+/* override item-avatar*/
+
+.align-card-header .item h2 {
+	font-size: 36px;
 }
 
