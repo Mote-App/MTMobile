@@ -5,21 +5,45 @@
     	<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
   	</ion-nav-buttons>
   
-  	<div circular-menu subtags="subtagsArr" selectedtags="selectedTagsArr" mypagekey="friends"></div>
-  
+
   	<ion-content class="has-header">
-  		
-  		<div class="card">
+  	
+  	<div style="position:absolute;margin-top:100px;">
+		<div class="button-bar">
+	   	  <a class="button button-energized" style="margin:20px;" ng-click="showSubtags('socials')">Social Life</a>
+	   	  <a class="button button-balanced" style="margin:20px;" ng-click="showSubtags('smarts')">Smarts</a>
+	   	  <a class="button button-assertive" style="margin:20px;" ng-click="showSubtags('genre')">Rated R</a>
+	   	</div>
+		</br>
+		<div style="margin-top: 30px;">
+		  <button style="border-radius: 10px;margin: 0px 0px 5px 5px;" 
+		  class="button button-small icon-right ion-checkmark-round button-balanced" 
+		  ng-class="{'button-outline' : !subTag.selected }"
+		  ng-repeat="subTag in subTags" ng-click="setTagID({{subTag.id}})">{{ subTag.subTag }}</button>
+		  
+		  <input type="text" placeholder="Custom Tags (comma separated)" ng-model="customTags" style="margin:20px;">
+		  <input type="text" placeholder="Caption" ng-model="caption" style="margin-top: 30px;margin:20px;">
+		  
+		</div>
+	</div>
+	<div stye="position:absolute; top:0;left:0">
+		<img ng-src="{{profileImgUrl}}">
+	</div>
+	<div class="bar bar-footer">
+		<a class="button button-balanced" href="#/app/friends_feeds">Cancel</a>
+		<a class="button button-balanced" ng-click="uploadImg()">Post</a>
+	</div>
+  	<!--<div class="card">
   			<div class="item">
               <media-data></media-data>
               <span>
                 <p class="image-caption">
-              		<input ng-modal="user.posts.popularPost.caption">
+              		
               	</p>
               </span>
 			</div>
-  		</div>
-  		<div class="card">
+  		</div>-->
+  		<!--<div class="card">
               <span class="tagItem" ng-repeat="tag in tags"> {{ tag.tagText }} <a ng-click="removeTag( '{{ tag.tagId}}' )"><i class="icon ion-close-round"></i></a></span>
           </div>
   		<div class="item tabs tabs-secondary tabs-icon-left">
@@ -39,7 +63,7 @@
             <i class="icon ion-social-android"></i>
             Custom Tag
           </a>
-        </div>
+        </div>-->
         
   	</ion-content>
   	
