@@ -102,10 +102,10 @@ ion-nav-bar, .card > div , .list > ion-item, ion-content ,  .item-complex  .item
 	font-size: 50px;
 }
 
-.item {
+/*.item {
 	border-width : 0px;	
 	border-style: none;
-}
+}*/
 
 .post-img {
 	padding: 0px;

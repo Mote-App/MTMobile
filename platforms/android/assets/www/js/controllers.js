@@ -342,7 +342,8 @@ angular.module('clcontrollers', [])
 .controller('LoginCtrl', function($scope, $rootScope, $state, Schools, Tags, loginService, createAccountService) {
   
 	$scope.rememberMe = false;
-
+	$scope.errorMsg = "";
+	
 	$scope.loginDetail={};
 	
 	$rootScope.appHeader = "CollegeLife";
@@ -365,7 +366,7 @@ angular.module('clcontrollers', [])
 		        $state.go('app.friends_feeds');
 			},
 			function(error){
-				
+				$scope.errorMsg = error.data.message;
 			}
 		);
 		
@@ -403,7 +404,7 @@ angular.module('clcontrollers', [])
 				$state.go('app.update_profile_img');
 			},
 			function(error){
-				$scope.userCreateMessage = error;
+				$scope.errorMsg = error.data.message;
 			}
 		);
 	}
@@ -697,11 +698,119 @@ angular.module('clcontrollers', [])
 		
 })
 
-.controller('NewPostCtrl', function($scope, $rootScope, Profile) {
+.controller('NewPostCtrl', function($scope, $rootScope, $state, Profile, imageURI) {
 
+	console.log("imageURI in NewPostCtrl: " + imageURI);
+	$scope.profileImgUrl 	= imageURI;
+	$scope.customTags		= "";
+	$scope.caption			= "";
+	/*$scope.takePicture = function(){
+
+		Camera.getPicture().then(function(imageURI){
+			$scope.profileImgUrl = imageURI;
+		},
+		function(error){
+			console.log(error);
+		},
+		{
+			quality : 75,
+			targetWidth: 300,
+            targetHeight: 300,
+            popoverOptions: CameraPopoverOptions,
+            saveToPhotoAlbum: false,
+            encodingType: navigator.camera.EncodingType.JPEG,
+            destinationType: navigator.camera.DestinationType.FILE_URI
+		}
+		);
+	};*/
+	  
+	$scope.cancel = function(){
+		
+	};
+	
+	$scope.uploadImg = function(){
+		
+		var fileURL = $scope.profileImgUrl;
+		
+		var options = new FileUploadOptions();
+		options.fileKey = "file";
+		options.fileName = fileURL.substr(fileURL.lastIndexOf('/')+1);
+		options.mimeType = "image/jpeg";
+		
+		
+		var postDto = {userId: $rootScope.userId, caption: $scope.caption, tags: $scope.feedFilterTags, customTags: $scope.customTags};
+		params = {};
+		params.post = angular.toJson(postDto);
+		
+		options.params = params;
+		//options.header = {'Content-Type': undefined};
+		
+		var ft = new FileTransfer();
+		ft.upload(fileURL, encodeURI($rootScope.clhost + $rootScope.clport + '/upload_post'), 
+				function(success){
+					console.log(success);
+					$state.go('app.friends_feeds');
+				}, 
+				function(error){
+					console.log(error);
+				}, 
+				options
+		);
+
+	};
+	
+	$scope.subTags = [];
+	
+	$scope.showSubtags = function(tag){
+		
+		if(tag == 'socials'){
+			$scope.subTags  = $rootScope.lstTag.socials;
+		}
+		
+		if(tag == 'smarts'){
+			$scope.subTags  = $rootScope.lstTag.smarts;
+		}
+		
+		if(tag == 'genre'){
+			$scope.subTags  = $rootScope.lstTag.genre;
+		}
+		
+		_.each($scope.subTags, function(tagObj){
+			
+			tagObj.selected = false;
+		});
+	}
+	
+	$scope.feedFilterTags = [];
+
+	//$scope.tagSelected = false;
+	
+	$scope.setTagID = function(tagId){
+		
+		var ind = $scope.feedFilterTags.indexOf(tagId);
+		
+		var subTagObj = _.find($scope.subTags, function(tag){ return tag.id == tagId});
+		
+		//var subTagObj =  $scope.subTags[subTagIndex];
+				
+		if(ind == -1){
+			$scope.feedFilterTags.push(tagId);
+			//$scope.tagSelected = true;
+			subTagObj.selected = true;
+		}else {
+			//Remove the existing one.
+			$scope.feedFilterTags = _.reject($scope.feedFilterTags, function(tag){
+			      return tag == tagId;
+			});
+			//$scope.tagSelected = false;
+			subTagObj.selected = false;
+		}
+	};
+	
+	
   //This block of code needs to be repeated in every control where 
   //circular menu is required - need to fit in some directive
-  $scope.subtagsArr = [];
+  /*$scope.subtagsArr = [];
   $scope.selectedTagsArr = [];
 
   $scope.menu = function(menuType, tagsArr) {
@@ -731,7 +840,7 @@ angular.module('clcontrollers', [])
     //Make a deep copy to reflect the changes and refresh the deletion
     angular.copy(tagsArr, $scope.selectedTagsArr);
 
-  };
+  };*/
   
 })
 
@@ -794,9 +903,10 @@ angular.module('clcontrollers', [])
   
 })
 
-.controller('UploadProfileImgCtrl', function($scope, $stateParams, $rootScope, Camera) {
+.controller('UploadProfileImgCtrl', function($scope, $state, $rootScope, Camera) {
 
 	$scope.profileImgUrl = "";
+	$scope.errorMsg="";
 	
 	$scope.takePicture = function(){
 
@@ -804,7 +914,7 @@ angular.module('clcontrollers', [])
 			$scope.profileImgUrl = imageURI;
 		},
 		function(error){
-			console.log(error);
+			$scope.errorMsg = error.data.message;
 		},
 		{
 			quality : 75,
@@ -835,11 +945,11 @@ angular.module('clcontrollers', [])
 		var ft = new FileTransfer();
 		ft.upload(fileURL, encodeURI($rootScope.clhost + $rootScope.clport + '/upload'), 
 				function(success){
-					console.log(success);
 					$state.go('app.login');
 				}, 
 				function(error){
 					console.log(error);
+					//$scope.errorMsg = error.data.message;
 				}, 
 				options
 		);
