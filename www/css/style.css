@@ -28,6 +28,21 @@ ion-nav-bar, .card > div , .list > ion-item, ion-content ,  .item-complex  .item
 	color: red;
 }
 
+/* Item Avatar setting*/
+.item-avatar {
+	padding-left: 52px;
+	min-height: 32px;
+	border-style:none;
+}
+
+.item-avatar > img:first-child {
+	top: 10px;
+	max-width: 30px;
+	max-height: 30px;
+}
+
+
+
 .bar.bar-stable {
 	border-color: rgb(76, 122, 52);
 	background-color: rgb(76, 122, 52);
@@ -107,6 +122,9 @@ ion-nav-bar, .card > div , .list > ion-item, ion-content ,  .item-complex  .item
 	border-style: none;
 }*/
 
+.post-img-size {
+	height: 300px;
+}
 .post-img {
 	padding: 0px;
 }
@@ -116,24 +134,7 @@ ion-nav-bar, .card > div , .list > ion-item, ion-content ,  .item-complex  .item
 	padding-left: 40px;
 	margin-top: -15px;
 }
-.align-card-header img {
-	width:30px;
-}
 
-.progress {
-	padding-left: 87%;
-	margin-top: -40px;
-}
-
-.progress img {
-	width: 30px;
-}
-
-.progress h6 {
-	margin-top: -24px;
-	margin-left: 5px;
-	font-weight: bold;
-}
 
 .image-post-time {
 	margin-top: 10px;
@@ -142,9 +143,7 @@ ion-nav-bar, .card > div , .list > ion-item, ion-content ,  .item-complex  .item
 
 
 
-.custom-tag {
-	font-weight: bold;
-}
+
 
 /*Custom Page CSS*/
 
@@ -164,18 +163,43 @@ ul[rn-carousel] {
 
 /* user Likes style */
 
+.like_layout {
+	width: 20%;
+	height: 30px;
+}
+
 .likes {
-	margin-top: -28px;
-	margin-left: 8px;
+	margin-top: -5px;
+	background-color: rgb(119, 244, 119);
+	
 }
 
 .likes a {
-	color: rgb(119, 244, 119);
+	
+	color: white;
 	font-weight: bold;
-	font-size: 26px;
+	margin-left: 4px;
+	width: 20px;
+	
 }
-.subdued {
 
+/* Progress indicator */
+.progress {
+	padding-left: 15%;
+	margin-top: -30px;
+}
+
+.progress img {
+	width: 20px;
+}
+
+
+/* Tags */
+
+.tag_item {
+	font-weight: bold;
+	color: rgb(119, 244, 119);
+	
 }
 
 /* override item-avatar*/
