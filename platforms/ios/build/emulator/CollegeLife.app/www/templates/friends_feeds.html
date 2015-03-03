@@ -22,17 +22,21 @@
           <div class="card">
           	<p align="right" class="image-post-time">{{ user.posts.popularPost.postingDate}}</p>
             <div  class="align-card-header">
-              <img ng-src="{{ clhost + '/' + user.profileImg}}">
-              <h4>{{user.name}}</h4>
+              	<div class="item item-avatar">
+              		<img ng-src="{{ clhost + '/' + user.profileImg}}">
+              		<h2>{{user.name}}</h2>
+              	</div>
             </div>
-			<div class="align-card-header">						
-				<img ng-src="{{ clhost + '/' + user.schoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
-				<h4 ng-click="schoolFeed( {{user.schoolId}})">{{ user.schoolName}}</h4>
+			<div class="align-card-header">	
+				<div class="item item-avatar">
+					<img ng-src="{{ clhost + '/' + user.schoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
+					<h2 ng-click="schoolFeed( {{user.schoolId}})">{{ user.schoolName}}</h2>
+				</div>
 			</div>
             <div class="item post-img" style="clear:both;">
-              <img class="full-image" ng-src="{{ clhost + '/' + user.posts.popularPost.postImg}}">
+              <img class="full-image" ng-src="{{ clhost + '/' + user.posts.popularPost.postImg}}" ng-click="updateLike(user.posts.popularPost)">
               <p class="likes">
-              	<a href="#" class="subdued">{{ user.posts.popularPost.likes}} Likes</a>
+              	<a ng-click="updateLike(user.posts.popularPost)" class="subdued">#<span ng-bind="user.posts.popularPost.likes"></span></a>
               </p>
               <div class="progress">
               	<img src="img\progress.png" style="width:30px;">
@@ -87,21 +91,24 @@
 		
           <div class="card">			
           	<p align="right" class="image-post-time">{{ user.posts.currentPost.postingDate}}</p>
-  			<div class="align-card-header">			
-  				<img ng-src="{{  clhost + '/' + user.profileImg}}">
-  				<h4>{{user.name}}</h4>
-  				
+  			<div class="align-card-header">	
+  				<div class="item item-avatar">
+  					<img ng-src="{{  clhost + '/' + user.profileImg}}">
+  					<h2>{{user.name}}</h2>
+  				</div>
   			</div>
   			<div class="align-card-header">
-  				<img ng-src="{{  clhost + '/' + user.schoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
-  				<h4 ng-click="schoolFeed( {{user.schoolId}})">{{ user.schoolName}}</h4>
+  				<div class="item item-avatar">
+  					<img ng-src="{{  clhost + '/' + user.schoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
+  					<h2 ng-click="schoolFeed( {{user.schoolId}})">{{ user.schoolName}}</h2>
+  				</div>
   			</div>	
 			
 			
             <div class="item post-img" style="clear:both;">
-              <img class="full-image" ng-src="{{ clhost + '/' + user.posts.currentPost.postImg}}">
+              <img class="full-image" ng-src="{{ clhost + '/' + user.posts.currentPost.postImg}}" ng-click="updateLike(user.posts.currentPost)">
               <p class="likes">
-              	<a href="#" class="subdued">{{ user.posts.currentPost.likes}} Likes</a>
+              	<a ng-click="updateLike(user.posts.currentPost)" class="subdued">#<span ng-bind="user.posts.currentPost.likes"></span></a>
               </p>
               <div class="progress">
             	<img src="img\progress.png" style="width:30px;">
@@ -149,17 +156,21 @@
           <div class="card">
           <p align="right" class="image-post-time">{{ user.posts.mostRecentPost.postingDate}}</p>
             <div class="align-card-header">
-              <img ng-src="{{  clhost + '/' + user.profileImg}}">
-              <h4>{{user.name}}</h4>
+            	<div class="item item-avatar">
+            		<img ng-src="{{  clhost + '/' + user.profileImg}}">
+            		<h2>{{user.name}}</h2>
+            	</div>
             </div>
 			<div class="align-card-header">							
-				<img ng-src="{{  clhost + '/' + user.schoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
-				<h4 ng-click="schoolFeed( {{user.schoolId}})">{{ user.schoolName}}</h4>
+				<div class="item item-avatar">
+					<img ng-src="{{ clhost + '/' + user.schoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
+					<h4 ng-click="schoolFeed( {{user.schoolId}})">{{ user.schoolName}}</h4>
+				</div>
 			</div>	
             <div class="item post-img" style="clear:both;">
-              <img class="full-image" ng-src="{{  clhost + '/' + user.posts.mostRecentPost.postImg}}">
+              <img class="full-image" ng-src="{{  clhost + '/' + user.posts.mostRecentPost.postImg}}" ng-click="updateLike(user.posts.mostRecentPost)">
               <p class="likes">
-              	<a href="#" class="subdued">{{ user.posts.mostRecentPost.likes}} Likes</a>
+              	<a ng-click="updateLike(user.posts.mostRecentPost)" class="subdued">#<span ng-bind="user.posts.mostRecentPost.likes"></span></a>
               </p>
               <div class="progress">
             	<img src="img\progress.png" style="width:30px;">

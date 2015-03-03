@@ -88,7 +88,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices','p
     	
     	return formattedStr;
     };
-
+    
   });
 })
 

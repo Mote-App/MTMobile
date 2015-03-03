@@ -35,18 +35,22 @@
           
           	<p align="right" class="image-post-time">{{ user.post.postingDate}}</p>
             <div class="align-card-header">
-              <img ng-src="{{ clhost + '/' + user.profileImg}}">
-              <h4>{{user.name}}</h4>
+            	<div class="item item-avatar">
+            		<img ng-src="{{ clhost + '/' + user.profileImg}}">
+            		<h2>{{user.name}}</h2>
+            	</div>
             </div>
 			<div class="align-card-header">
-		      <img ng-src="{{clhost + '/' + user.schoolImg}}">
-		      <h4>{{user.schoolName}} School</h4>
+				<div class="item item-avatar">
+					<img ng-src="{{clhost + '/' + user.schoolImg}}">
+					<h2>{{user.schoolName}} School</h2>
+				</div>
 		      <!--<a href="" ng-click="nationalFeed()">National</a>-->
 			</div>
             <div class="item post-img" style="clear:both;">
               <img class="full-image" ng-src="{{ clhost + '/' + user.post.postImg}}">
               <p class="likes">
-              	<a href="#" class="subdued">{{ user.post.likes}} Likes</a>
+              	<a ng-click="updateLike({{user.post.postId}})" class="subdued">{{ user.post.likes}} Likes</a>
               </p>
               <div class="progress">
             	<img src="img\progress.png" style="width:30px;">
