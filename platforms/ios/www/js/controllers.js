@@ -469,6 +469,8 @@ angular.module('clcontrollers', [])
   $scope.schoolFeed = function(schoolId){
    
    $rootScope.collegeId = schoolId;
+   $rootScope.setContext("school");
+   
    $state.go('app.school_feeds');
  
   };

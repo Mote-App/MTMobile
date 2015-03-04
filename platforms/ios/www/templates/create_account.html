@@ -1,100 +1,84 @@
 
   <div class="bar bar-header header-color">
 
-    <a class="button icon-left ion-arrow-left-a button-clear button-dark" href="#/app/login"></a>
+    <!--<a class="button icon-left ion-arrow-left-a button-clear button-dark"  href="#/app/login"></a>-->
 
     <h1 class="header-font title">CollegeLife</h1>
   </div>
   <ion-content class="has-header body-color">
     
-    <div class="list">
-    	<div ng-show="errorMsg.length > 0" class="cl_error">
+		<!--<div ng-show="errorMsg.length > 0" class="cl_error">
 			<i class="icon ion-close-circled"></i> 
 			{{ errorMsg}}
-		</div>
-	    <div class="item item-input item-select body-color">
+		</div>-->
+		
+		<div class="item item-input-inset">
+		    <label class="item-input-wrapper">
+		      <i class="icon ion-search placeholder-icon"></i>
+		      <input type="search" placeholder="University Search">
+		    </label>
+		    <!--<button class="button button-small">
+		      Search
+		    </button>-->
+	    </div>
+	  
+	    <label class="item item-input item-select">
 		    <div class="input-label">
-		      University
+		    	University
 		    </div>
-			<select class="item-input-wrapper" ng-model="userDetail.college">
-		  		<option value="{{ school }}" ng-repeat="school in schools">{{school.name}}</option>
-			</select>
+	    	<select class="item-input-wrapper" ng-model="userDetail.college">
+  				<option value="{{ school }}" ng-repeat="school in schools">{{school.name}}</option>
+  			</select>
+	    </label>
+	
+		<label class="item item-input item-floating-label">
+		    <span class="input-label">.Edu Email</span>
+		    <input type="email" placeholder=".edu Email Address" ng-model="userDetail.email">
+	    </label>
+	  
+	    <label class="item item-input item-floating-label">
+	    	<span class="input-label">User Name</span>
+	    	<input type="text" placeholder="User Name" ng-model="userDetail.userName">
+	    </label>
+	
+	    <label class="item item-input item-floating-label">
+	    	<span class="input-label">First Name</span>
+	    	<input type="text" placeholder="First Name" ng-model="userDetail.firstName">
+		</label>
+	
+	    <label class="item item-input item-floating-label">
+	    	<span class="input-label">Last Name</span>
+	    	<input type="text" placeholder="Last Name" ng-model="userDetail.lastName">
+		</label>
+			
+		<ul class="list">
+		
+			<li class="item item-toggle">
+			     Facebook
+			     <label class="toggle toggle-balanced">
+			       <input type="checkbox">
+			       <div class="track">
+			         <div class="handle"></div>
+			       </div>
+			     </label>
+		    </li>
+		    <li class="item item-toggle">
+			     Instagram
+			     <label class="toggle toggle-balanced">
+			       <input type="checkbox">
+			       <div class="track">
+			         <div class="handle"></div>
+			       </div>
+			     </label>
+		     </li>
+		
+		</ul>
+		<div class="input-label">
+			{{ $scope.userCreateMessage}}
 		</div>
-
-        <div class="item item-input-inset body-color">
-	        <label class="item-input-wrapper">
-	          <i class="icon ion-ios7-email-outline placeholder-icon"></i>
-	          <input type="text" placeholder="First Name" ng-model="userDetail.firstName">
-	        </label>  
-        </div>
-
-        <div class="item item-input-inset body-color">
-	        <label class="item-input-wrapper">
-	          <i class="icon ion-ios7-email-outline placeholder-icon"></i>
-	          <input type="text" placeholder="Last Name" ng-model="userDetail.lastName">
-	        </label>  
-        </div>
-
-        <div class="item item-input-inset body-color">
-          <label class="item-input-wrapper">
-            <i class="icon ion-ios7-email-outline placeholder-icon"></i>
-            <input type="text" placeholder=".edu Email Address" ng-model="userDetail.userName">
-          </label>  
-        </div>
-  
-        <div class="item item-input-inset body-color">
-          <label class="item-input-wrapper">
-            <i class="icon ion-locked placeholder-icon"></i>
-            <input type="password" placeholder="password" ng-model="userDetail.password">
-          </label>  
-        </div>
-
-        <div class="item item-input-inset body-color">
-	        <label class="item-input-wrapper">
-	          Is Alumni: <input type="checkbox" ng-model="userDetail.isAlumni">
-	        </label>  
-        </div>
-
-        <label class="item item-input item-select body-color">
-        <div class="input-label">
-          Gender
-        </div>
-        <select class="item-input-wrapper" ng-model="userDetail.gender">
-            <option value="M">Male</option>
-            <option value="F">Female</option>
-        </select>
-      </label>   
-
-      </div>
-    <ul class="list list-inset">
-
-      <li class="item item-checkbox">
-         <label class="checkbox">
-           <input type="checkbox">
-         </label>
-         Connect with Facebook
-      </li>
-
-      <!--<li class="item item-checkbox">
-         <label class="checkbox">
-           <input type="checkbox">
-         </label>
-         Connect with Instagram
-      </li>
-      
-      <li class="item item-checkbox">
-         <label class="checkbox">
-           <input type="checkbox">
-         </label>
-         Connect with LinkedIn
-      </li>-->
-
-    </ul>
-    <div class="input-label">
-    	{{ $scope.userCreateMessage}}
-    </div>
-    <button class="button button-block button-energized" ng-click="createAccount()">
-      Join the CollegeLife Community
-    </button>
-      
+		<div class="button-bar">
+			<button class="button button-small button-balanced align-right" ng-click="createAccount()">Join CollegeLife</button>
+		</div>
+		
+		<span style="padding-left:35%;">Have an account ?<a href="#/app/login"> Log In</a></span>
   </ion-content>
