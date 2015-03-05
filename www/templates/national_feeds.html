@@ -24,21 +24,14 @@
         <ion-slide> -->
 
           	<p align="right" class="image-post-time">{{ user.post.postingDate}}</p>
-            <div class="align-card-header">
-            	<!--<div class="item item-avatar">
-            		<img src="{{user.profileImg}}">-->
-            		<p align="left">{{user.name}}</p>
-            	</div>
-            </div>
-            <div class="align-card-header">
-				<div class="align-card-header">
-					<p align="right"><img style="width:30px; height:30px;" ng-src="{{ clhost + '/' + user.schoolImg}}"></p>
-				</div>
-				<div class="align-card-header">
-					<p>{{ user.schoolName}}</p>
-				</div>
-				<!--<a href="" ng-click="nationalFeed()">National</a>-->
-			</div>
+          	<div class="row">
+	  		  	<div class="col col-50" style="margin-top:15px;">{{user.name}}</div>
+	  		  	<div class="col">
+	  		  		<img style="width:30px; height:30px;" ng-src="{{ clhost + '/' + user.schoolImg}}">
+	  		  		<p>{{ user.schoolName}}</p>
+	  		  	</div>
+  		  	</div>
+	  	
 			<div class="item post-img" style="clear:both;">
             <img class="full-image" ng-src="{{ clhost + '/' + user.post.postImg}}">
             <div class="like_layout">
@@ -54,26 +47,28 @@
                 {{user.posts.popularPost.caption}}
               </p>
             </span>
-            <div>
-	              <p class="tag-item"> 
-	              	{{ user.post.tagCategory + " : "}}
-	              	
-	              	<!--{{ formatTags(user.post.tags) }}-->
-	              	
-	              	<button style="border-radius: 10px;margin: 0px 0px 5px 5px;" 
-  				  class="button button-small icon-right ion-checkmark-round button-balanced" 
-  				  ng-repeat="subTag in user.post.tags">{{ subTag }}</button>
-	              </p>
-	           </div>
-	           <div>
-	              <p class="tag-item">
-					<!--{{ formatTags(user.post.customTags) }} --> 
-					
+            
+            <div class="row">
+    		
+	          	<div class="col">{{ user.posts.mostRecentPost.tagCategory}}</div>
+	            <div class="col col-75"><p style="white-space: normal;">{{ formatTags(user.post.tags) }}</p></div>    
+	                <!-- 
+	                <button style="border-radius: 10px;margin: 0px 0px 5px 5px;" 
+	      				  class="button button-small icon-right ion-checkmark-round button-balanced" 
+	      				  ng-repeat="subTag in user.posts.popularPost.tags">{{ subTag }}</button>
+	      			-->
+			  </div>
+			  <div class="row">
+			  	<div class="col">Custom</div>
+				<div class="col col-75"><p style="white-space: normal;">{{ formatTags(user.post.customTags) }}</p></div> 
+				
+				<!-- <p class="tag_item">
 					<button style="border-radius: 10px;margin: 0px 0px 5px 5px;" 
 		      				  class="button button-small icon-right ion-checkmark-round button-balanced" 
-		      				  ng-repeat="customTag in user.post.customTags">{{ customTag }}</button>
-				  </p>
-            </div>
+		      				  ng-repeat="customTag in user.posts.popularPost.customTags">{{ customTag }}</button>
+		      				  
+				</p>-->
+			  </div>
             
           </div>
 
