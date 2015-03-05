@@ -445,13 +445,23 @@ angular.module('clcontrollers', [])
                                           $rootScope,
                                           FriendFeed, 
                                           Tags, 
-                                          sliceTagFilter) {
+                                          sliceTagFilter, 
+                                          updateLike) {
   
   /*var data = Schools.query(function(imgData) { 
     $scope.imglists = imgData.schools;
   });*/
 
-  
+	$scope.updateLike = function(post){
+		
+		if( post.likeDone == false){
+			$scope.selectedPost = post;
+		    updateLike.update({likeCount: post.likes, userId: $rootScope.userId, postId: post.postId, level:'F'},function(like) { 
+		    	$scope.selectedPost.likes = like.likeCount;
+		    });
+		}
+	};
+
   var data = FriendFeed.query({userId: $rootScope.userId},function(friendFeedData) { 
     $scope.users = friendFeedData;
   });
@@ -459,6 +469,8 @@ angular.module('clcontrollers', [])
   $scope.schoolFeed = function(schoolId){
    
    $rootScope.collegeId = schoolId;
+   $rootScope.setContext("school");
+   
    $state.go('app.school_feeds');
  
   };
@@ -513,9 +525,19 @@ angular.module('clcontrollers', [])
                                         Schools,
                                         schoolFeedCutomizer) {
 	
-	var data = SchoolFeed.query({collegeId: $rootScope.collegeId},function(schoolFeedData) { 
+	var data = SchoolFeed.query({collegeId: $rootScope.collegeId, userId: $rootScope.userId},function(schoolFeedData) { 
 		$scope.schoolUsers = schoolFeedData;
 	});
+	
+	$scope.updateLike = function(post){
+		
+		if( post.likeDone == false){
+			$scope.selectedPost = post;
+			updateLike.update({likeCount: post.likes, userId: $rootScope.userId, postId: post.postId, level:'S'},function(like) { 
+				$scope.selectedPost.likes = like.likeCount;
+			});
+		}
+	};
 	
 	$scope.checked = false;
 	
@@ -650,10 +672,20 @@ angular.module('clcontrollers', [])
                                           Schools, 
                                           sliceTagFilter) {
 
-	NationalFeed.query({collegeId: $rootScope.collegeId}, function(nationalFeedData) { 
+	NationalFeed.query({collegeId: $rootScope.collegeId, userId: $rootScope.userId}, function(nationalFeedData) { 
 		$scope.nationalUsers = nationalFeedData;
 	});
 
+	$scope.updateLike = function(post){
+		
+		if( post.likeDone == false){
+			$scope.selectedPost = post;
+		    updateLike.update({likeCount: post.likes, userId: $rootScope.userId, postId: post.postId, level:'N'},function(like) { 
+		    	$scope.selectedPost.likes = like.likeCount;
+		    });
+		}
+	};
+	
 	/*For Slide Page */
 	$scope.checked = false;
 	$scope.toggleCustomMenu = function(){

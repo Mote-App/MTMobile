@@ -34,8 +34,33 @@ angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices','p
 	$rootScope.clhost = "http://54.149.27.205";
 	$rootScope.clport = ":8080";
 	$rootScope.lstTag = {};
+	$rootScope.friends = true;
+	$rootScope.school = false;
+	$rootScope.nation = false;
 	
+	$rootScope.setContext = function(context){
+		
+		if( context == 'friends'){
+			$rootScope.friends = true;
+			$rootScope.school = false;
+			$rootScope.nation = false;
+			
+		}
+		if( context == 'school'){
+			$rootScope.friends = false;
+			$rootScope.school = true;
+			$rootScope.nation = false;
+			
+		}
+		if( context == 'nation'){
+			$rootScope.friends = false;
+			$rootScope.school = false;
+			$rootScope.nation = true;
 
+		}
+
+	}
+	
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -88,7 +113,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices','p
     	
     	return formattedStr;
     };
-
+    
   });
 })
 
@@ -280,7 +305,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices','p
   
   // if none of the above states are matched, use this as the fallback
   //$urlRouterProvider.otherwise('index');
-  $urlRouterProvider.otherwise('/app/login');
+  $urlRouterProvider.otherwise('/app/create_account');
   
   
 	  /* Registers auth token interceptor, auth token is either passed by header or by query parameter

@@ -4,16 +4,8 @@
   </div>
   <ion-content class="has-header body-color">
 
-	<div class="list">
+	<div class="list" style="padding-top:50%;">
 		 
-		<div class="item item-input item-select body-color">
-		    <div class="input-label">
-		      University
-		    </div>
-			<select class="item-input-wrapper" ng-model="loginDetail.collegeId">
-		  		<option value="{{ school.id }}" ng-repeat="school in schools">{{school.name}}</option>
-			</select>
-		</div>
 		<div ng-show="errorMsg.length > 0" class="cl_error">
 			<i class="icon ion-close-circled"></i> 
 			{{ errorMsg}}
@@ -31,19 +23,15 @@
 				<input type="password" placeholder="password" ng-model="loginDetail.password">
 			</label>	
 		</div>
-		<button class="button button-block button-energized" ng-click="login()">
-			Sign In
-		</button>
-	</div>
-	<ul class="list">
-		<li class="item body-color">
-			Don't have an account? <a href="#/app/create_account">Create Account</a>
-		</li>
-		<li class="item body-color">
-			Forgot password?  <a href="#/app/forgot_password">Forgot Password</a>
-		</li>
-	</ul>
-    
+		
+		<button class="button button-small button-block button-balanced" ng-click="login()">Sign In</button>
+
+		<span style="padding-left:25%;">Don't have an account ? <a href="#/app/create_account">Create Account</a></span></br>
+		<span style="padding-left:25%;">Forgot password ?       <a href="#/app/forgot_password">Retrieve Password</a></span>
+		
+	</div>    
+
+	
    
   </ion-content>
 

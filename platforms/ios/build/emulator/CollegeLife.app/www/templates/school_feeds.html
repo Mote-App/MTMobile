@@ -9,10 +9,9 @@
  
   <div class="bar bar-subheader">
  	<div class="button-bar" style="width:80%;  margin-left:30px;">
- 	  <a class="button" href="#/app/friends_feeds">Friends</a>
- 	  <a class="button" href="#/app/school_feeds">School</a>
- 	  <a class="button" href="#/app/national_feeds">National</a>
- 	</div>
+ 	  <a class="button" ng-class="{'button-stable': !friends, 'header-color': friends}" href="#/app/friends_feeds" ng-click="setContext('friends')">Friends</a>
+	  <a class="button" ng-class="{'button-stable': !school, 'header-color': school}" href="#/app/school_feeds" ng-click="setContext('school')">School</a>
+	  <a class="button" ng-class="{'button-stable': !nation, 'header-color': nation}" href="#/app/national_feeds" ng-click="setContext('nation')">National</a> 	</div>
   </div>
   
   
@@ -23,48 +22,64 @@
   <ion-content class="has-header">
   	<!--<div water-wheel-carousel clcontext="carousel"></div>-->
 
-    <ion-list>
-    
-      <ion-item ng-repeat="user in schoolUsers" ng-click="toggleCustomMenu()">
+  	 <ul class="list has-header"  >
+	  	<li class="item" style="padding: 0px;" ng-repeat="user in schoolUsers" ng-click="toggleCustomMenu()">
       
-      <slide-page></slide-page>
+	  		<slide-page></slide-page>
       
        <!--<ion-slide-box on-slide-changed="slideHasChanged($index)" active-slide="0">
         <ion-slide> -->
-          <div class="card">
-          
           	<p align="right" class="image-post-time">{{ user.post.postingDate}}</p>
             <div class="align-card-header">
-              <img ng-src="{{ clhost + '/' + user.profileImg}}">
-              <h4>{{user.name}}</h4>
+            	<!--<div class="item item-avatar">
+            		<img ng-src="{{ clhost + '/' + user.profileImg}}">-->
+            		<p align="left">{{user.name}}</p>
+            	</div>
             </div>
-			<div class="align-card-header">
-		      <img ng-src="{{clhost + '/' + user.schoolImg}}">
-		      <h4>{{user.schoolName}} School</h4>
-		      <!--<a href="" ng-click="nationalFeed()">National</a>-->
+            <div class="align-card-header">
+				<div class="align-card-header">
+					<p align="right"><img style="width:30px; height:30px;" ng-src="{{ clhost + '/' + user.schoolImg}}"></p>
+				</div>
+				<div class="align-card-header">
+					<p>{{ user.schoolName}}</p>
+				</div>
+				<!--<a href="" ng-click="nationalFeed()">National</a>-->
 			</div>
+			
             <div class="item post-img" style="clear:both;">
               <img class="full-image" ng-src="{{ clhost + '/' + user.post.postImg}}">
-              <p class="likes">
-              	<a href="#" class="subdued">{{ user.post.likes}} Likes</a>
-              </p>
+              <div class="like_layout">
+	              <p class="likes">
+	              	<a ng-click="updateLike({{user.post.postId}})" class="subdued">{{ user.post.likes}} Likes</a>
+	              </p>
+	          </div>
               <div class="progress">
-            	<img src="img\progress.png" style="width:30px;">
-            	<h6>{{ user.post.progressInd }}</h6>
+            	<img src="img\progress.png">
               </div>
               <span>
                 <p class="image-caption">
                   {{user.posts.popularPost.caption}}
                 </p>
               </span>
-              <div class="card item-text-wrap">
-              <p class="tagItem"> 
-              	{{ user.post.tagCategory + " : "}}
-              	{{ formatTags(user.post.tags) }}
-              </p>
-              <p class="custom-tag">
-				{{ formatTags(user.post.customTags) }} 
-			  </p>
+              <div>
+	              <p class="tag-item"> 
+	              	{{ user.post.tagCategory + " : "}}
+	              	
+	              	<!--{{ formatTags(user.post.tags) }}-->
+	              	
+	              	<button style="border-radius: 10px;margin: 0px 0px 5px 5px;" 
+    				  class="button button-small icon-right ion-checkmark-round button-balanced" 
+    				  ng-repeat="subTag in user.post.tags">{{ subTag }}</button>
+	              </p>
+	           </div>
+	           <div>
+	              <p class="tag-item">
+					<!--{{ formatTags(user.post.customTags) }} --> 
+					
+					<button style="border-radius: 10px;margin: 0px 0px 5px 5px;" 
+		      				  class="button button-small icon-right ion-checkmark-round button-balanced" 
+		      				  ng-repeat="customTag in user.post.customTags">{{ customTag }}</button>
+				  </p>
               </div>
               
             </div>
@@ -84,7 +99,6 @@
               </a>
             </div>-->
 
-          </div>
         <!--</ion-slide>-->
 
         <!--<ion-slide>
@@ -178,8 +192,8 @@
         </ion-slide>
       </ion-slide-box> -->
 
-    </ion-item>
-  </ion-list>
+    </li>
+  </ul>
 </ion-content>
 <div class="bar bar-footer bar-balanced">
   <div class="title"><button class="button"><i class="ion-ios7-camera-outline photo-icon-size"></i></button></div>
