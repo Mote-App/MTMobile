@@ -1,34 +1,41 @@
-<ion-view title="Search">
+
+	<div class="bar bar-header bar-royal">
+  		<h1 class="title" style=;font-size: 30px;">Customize</h1>
+	</div>
+	
   <ion-nav-buttons side="left">
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
   <ion-content class="has-header">
 
     <div class="card">
-        <div class="item item-divider">
+        <div class="item item-divider" >
             Filter Posts By one or more Tag
         </div>
         <span class="tagItem" ng-repeat="tag in filterByTags"> {{findTagByTagId(tag)}}<a ng-click="removeTag( tag , filterByTags)"><i class="icon ion-close-round"></i></a></span>
     </div>
 
-    <div class="item tabs tabs-secondary tabs-icon-left">
-      <a ng-click="menu('#social', user.posts.popularPost.tags)" class="tab-item">
-        <i class="icon ion-android-friends"></i>
-        Social Life
-      </a>
-      <a ng-click="menu('#genre', user.posts.popularPost.tags)" class="tab-item">
-        <i class="icon ion-male"></i>
-        Rated R
-      </a>
-      <a ng-click="menu('#smart', user.posts.popularPost.tags)" class="tab-item">
-        <i class="icon ion-social-android"></i>
-        Smart
-      </a>
-      <a ng-click="menu('#customTag', user.posts.popularPost.tags)" class="tab-item">
-        <i class="icon ion-social-android"></i>
-        Custom Tag
-      </a>
+     <!--     
+  	<div class="item tabs tabs-secondary tabs-icon-left" style = " background-color: #8a6de9;">
+        <a ng-click="menu('#social', user.posts.popularPost.tags)" class="tab-item">
+            <i class="icon ion-android-friends" style =" color: white;"></i>
+            Social Life
+        </a>
+        <a ng-click="menu('#genre', user.posts.popularPost.tags)" class="tab-item">
+            <i class="icon ion-beer" style = " color: white;"></i>
+            Rated R
+        </a>
+        <a ng-click="menu('#smart', user.posts.popularPost.tags)" class="tab-item">
+            <i class="icon ion-university" style = " color: white;"></i>
+            Smart
+        </a>
+        <a ng-click="menu('#customTag', user.posts.popularPost.tags)" class="tab-item">
+            <i class="icon ion-pricetag" style = " color: white;"></i>
+            Custom Tag
+        </a>
     </div>
+    --!>
+    
     
     <div class="card">
         
@@ -71,6 +78,20 @@
         </div>
 
     </div>
+    
+    <div class = "list">
+    	<label class="item item-input item-select body-color" style = "margin-left:11px; margin-right:11px;"> 
+                <div class="input-label">
+                    Category
+                </div>
+                <select class="item-input-wrapper">
+                    <option value="1">Social Life</option>
+                    <option value="2">Rated R</option>
+                    <option value="3">Smart</option>
+                    <option value="4">Custom Tag</option>
+                </select>
+            </label>
+        </div>
     
   </ion-content>
 </ion-view>
