@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.collegelifeapp.mobile" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>CollegeLife</name>
-    <description>College Life Hybrid App - An Ionic Framework and Cordova project.</description>
-    <author email="gibran@collegelifeapp.com" href="http://collegelifeapp.com/">CollegeLife, LLC Team</author>
+<widget id="com.mote.mobile" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Mote</name>
+    <description>Mote Hybrid App - An Ionic Framework and Cordova project.</description>
+    <author email="gibran@mote.com" href="http://mote.com/">Mote, LLC Team</author>
     <content src="index.html" />
     <access origin="*" />
     
