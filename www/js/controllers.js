@@ -346,7 +346,7 @@ angular.module('clcontrollers', [])
 	
 	$scope.loginDetail={};
 	
-	$rootScope.appHeader = "CollegeLife";
+	$rootScope.appHeader = "Mote";
 
 	Schools.query(function(response) { 
 		$scope.schools = response;
