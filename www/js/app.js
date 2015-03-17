@@ -28,7 +28,8 @@ angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices','p
   });
 })*/
 
-.run(function($ionicPlatform, $rootScope, $filter) {
+.run(['$ionicPlatform', '$rootScope', '$filter', '$window'],
+		function($ionicPlatform, $rootScope, $filter, $window) {
 
 	//AWS http://54.149.27.205
 	$rootScope.clhost = "http://54.149.27.205";
@@ -38,6 +39,36 @@ angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices','p
 	$rootScope.school = false;
 	$rootScope.nation = false;
 	
+	 $window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '956170854392949',
+          xfbml      : false,
+          version    : 'v2.1'
+        });
+      };
+	      
+      
+      (function(d){
+    	    // load the Facebook javascript SDK
+
+    	    var js, 
+    	    id = 'facebook-jssdk', 
+    	    ref = d.getElementsByTagName('script')[0];
+
+    	    if (d.getElementById(id)) {
+    	      return;
+    	    }
+
+    	    js = d.createElement('script'); 
+    	    js.id = id; 
+    	    js.async = true;
+    	    js.src = "//connect.facebook.net/en_US/all.js";
+
+    	    ref.parentNode.insertBefore(js, ref);
+
+    	}(document));
+
+      
 	$rootScope.setContext = function(context){
 		
 		if( context == 'friends'){
@@ -115,6 +146,8 @@ angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices','p
     };
     
   });
+  
+  
 })
 
 .config(function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {

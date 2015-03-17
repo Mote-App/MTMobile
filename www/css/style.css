@@ -1,7 +1,7 @@
-/* Empty. Add your own CSS if you like */
 
 body {
  font-size:12px;
+ font-style: 'Helvetica Neue'
 }
 
 .tabs, .header-color{
@@ -26,6 +26,28 @@ ion-nav-bar, .card > div , .list > ion-item, ion-content ,  .item-complex  .item
 .cl_error{
 	margin-left:40px;
 	color: red;
+}
+
+/* Button Styles */
+.sign-up {
+	
+	border-style: hidden;
+	border-radius: 6px;
+	margin-left:25%;
+	padding: 0 50px;
+	font-size: 30px;
+	line-height: 20px;
+	
+	
+}
+
+.login {
+	
+	border-radius: 6px;
+	margin-left:25%;
+	padding: 0 60px;
+	font-size: 30px;
+	line-height: 20px;
 }
 
 /* Item Avatar setting*/

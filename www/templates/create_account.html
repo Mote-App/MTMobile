@@ -4,8 +4,7 @@
   <div class="bar bar-header bar-royal">
 
     <!--<a class="button icon-left ion-arrow-left-a button-clear button-dark"  href="#/app/login"></a>-->
-
-    <h1 class="title" style = "font-size:200%">Mote</h1>
+    <img ng-src="img/mote-wordmark-white.png">
   </div>
   <ion-content class="has-header body-color">
     
@@ -16,18 +15,15 @@
 		
 	<ul class = "list">
 	  <div class = "list list-inset">
-	    <label class="item item-input item-floating-label">
-	    	<span class="input-label">Username</span>
+	    <label class="item item-input">
 	    	<input type="text" placeholder="Username" ng-model="userDetail.userName">
 	    </label>
 	
-	    <label class="item item-input item-floating-label">
-	    	<span class="input-label">First Name</span>
+	    <label class="item item-input">
 	    	<input type="text" placeholder="First Name" ng-model="userDetail.firstName">
 		</label>
 	
-	    <label class="item item-input item-floating-label">
-	    	<span class="input-label">Last Name</span>
+	    <label class="item item-input">
 	    	<input type="text" placeholder="Last Name" ng-model="userDetail.lastName">
 		</label>
 	   </div>
@@ -41,8 +37,7 @@
   			</select>
 	    </label>
 	
-		<label class="item item-input item-floating-label">
-		    <span class="input-label">.Edu Email</span>
+		<label class="item item-input">
 		    <input type="email" placeholder=".edu Email Address" ng-model="userDetail.email">
 	    </label>
 	   </div>
@@ -73,30 +68,14 @@
 		
 		</div>
 		<div class = "list list-inset">
-			<button class="button button-large button-royal button-block" ng-click="createAccount()">Sign Up</button>
+			<button class="button button-large button-royal sign-up" ng-click="createAccount()">Sign up</button>
+			<p align="center" style="margin-top:20px;">Already have an account?</p>
+			<a href="#/app/login"><button class = "button button-large button-light login">Login</button></a>
 		</div>
 	</ul>
-		<div class = "list list-inset">
-		<label class = item>
-		<div class = "row">
-			<div class = "col">
-				<span style="padding-top:0px;">Have an account?</span>
-			</div>
-			<div class = "col" style="text-align:right">
-				<a href="#/app/login"><button class = "button button-small button-outline button-royal">Login</button></a>
-			</div>
-		</div>
-		</div>
-		<div class="input-label">
-			{{ $scope.userCreateMessage}}
-		</div>
-<<<<<<< HEAD
-		<div class= "button-bar">
-			<button class="button button-small button-balanced align-right" ng-click="createAccount()">Join CollegeLife</button>
-		</div>
 		
-		<span style="padding-left:35%;">Have an account ?<a href="#/app/login"> Log In</a></span>
-=======
->>>>>>> origin/master
+	<div class="input-label">
+		{{ $scope.userCreateMessage}}
+	</div>
   </ion-content>
 
