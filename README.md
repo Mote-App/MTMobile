@@ -115,3 +115,11 @@ http://wiki.eclipse.org/EclipseLink/Examples/JPA/Pagination
 
 #Spring-boot maven configuration for almost all libraries
 https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml
+
+#Angular  Facebook integration
+http://ccoenraets.github.io/ionic-tutorial/ionic-facebook-integration.html
+https://github.com/ccoenraets/sociogram-angular-ionic
+
+
+
+

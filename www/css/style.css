@@ -31,12 +31,13 @@ ion-nav-bar, .card > div , .list > ion-item, ion-content ,  .item-complex  .item
 /* Button Styles */
 .sign-up {
 	
-	border-style: hidden;
+	//border-style: hidden;
 	border-radius: 6px;
 	margin-left:25%;
+	margin-right:25%;
 	padding: 0 50px;
-	font-size: 30px;
-	line-height: 20px;
+	font-size: 20px;
+	line-height: 10px;
 	
 	
 }
@@ -45,9 +46,20 @@ ion-nav-bar, .card > div , .list > ion-item, ion-content ,  .item-complex  .item
 	
 	border-radius: 6px;
 	margin-left:25%;
-	padding: 0 60px;
-	font-size: 30px;
-	line-height: 20px;
+	margin-right:25%;
+	padding: 0 58px;
+	font-size: 20px;
+	line-height: 10px;
+}
+
+.question {
+	margin-top: 3%;
+	margin-left:28%;
+	margin-right:25%;
+}
+
+.fore-color {
+	color: #8a6de9 !important;
 }
 
 /* Item Avatar setting*/

@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices','pageslide-directive', 'angular-carousel'])
+angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices','pageslide-directive', 'angular-carousel','ngFacebook'])
 
 /*.run(function($ionicPlatform, $rootScope, $firebaseSimpleLogin, $state, $window) {
   var dataRef = new Firebase("https://ionic-firebase-login.firebaseio.com/");
@@ -28,8 +28,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices','p
   });
 })*/
 
-.run(['$ionicPlatform', '$rootScope', '$filter', '$window'],
-		function($ionicPlatform, $rootScope, $filter, $window) {
+.run(function($ionicPlatform, $rootScope, $filter, $window) {
 
 	//AWS http://54.149.27.205
 	$rootScope.clhost = "http://54.149.27.205";
@@ -38,37 +37,31 @@ angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices','p
 	$rootScope.friends = true;
 	$rootScope.school = false;
 	$rootScope.nation = false;
-	
-	 $window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '956170854392949',
-          xfbml      : false,
-          version    : 'v2.1'
-        });
-      };
-	      
-      
-      (function(d){
-    	    // load the Facebook javascript SDK
 
-    	    var js, 
-    	    id = 'facebook-jssdk', 
-    	    ref = d.getElementsByTagName('script')[0];
+	(function(d){
+	    // load the Facebook javascript SDK
 
-    	    if (d.getElementById(id)) {
-    	      return;
-    	    }
+	    var js, 
+	    id = 'facebook-jssdk', 
+	    ref = d.getElementsByTagName('script')[0];
 
-    	    js = d.createElement('script'); 
-    	    js.id = id; 
-    	    js.async = true;
-    	    js.src = "//connect.facebook.net/en_US/all.js";
+	    if (d.getElementById(id)) {
+	      return;
+	    }
 
-    	    ref.parentNode.insertBefore(js, ref);
+	    js = d.createElement('script'); 
+	    js.id = id; 
+	    js.async = true;
+	    js.src = "//connect.facebook.net/en_US/all.js";
 
-    	}(document));
+	    ref.parentNode.insertBefore(js, ref);
 
-      
+	  }(document));
+    
+	$rootScope.$on('fb.load', function() {
+      $window.dispatchEvent(new Event('fb.load'));
+    });
+	    
 	$rootScope.setContext = function(context){
 		
 		if( context == 'friends'){
@@ -92,7 +85,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices','p
 
 	}
 	
-  $ionicPlatform.ready(function() {
+	$ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -150,9 +143,11 @@ angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices','p
   
 })
 
-.config(function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
-  $stateProvider
-
+.config(function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $facebookProvider) {
+  
+	$facebookProvider.setAppId('956170854392949').setPermissions(['email','user_friends']);
+	
+	$stateProvider
     .state('app', {
       url: "/app",
       abstract: true,
@@ -333,9 +328,8 @@ angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices','p
     			
     		}
     	}
-    })
-    ;
-  
+    });
+    
   // if none of the above states are matched, use this as the fallback
   //$urlRouterProvider.otherwise('index');
   $urlRouterProvider.otherwise('/app/create_account');
