@@ -1,6 +1,6 @@
  
-<ion-view title="Friends">
-  <ion-nav-buttons side="left">
+ <!--<ion-view title="Friends">
+ <ion-nav-buttons side="left">
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
   <div class="bar bar-subheader">
@@ -9,165 +9,28 @@
 	  <a class="button" ng-class="{'button-stable': !school, 'header-color': school}" href="#/app/school_feeds" ng-click="setContext('school')">School</a>
 	  <a class="button" ng-class="{'button-stable': !nation, 'header-color': nation}" href="#/app/national_feeds" ng-click="setContext('nation')">National</a>
 	</div>
-  </div>
-
-  <!--<div circular-menu subtags="subtagsArr" selectedtags="selectedTagsArr" mypagekey="friends"></div>-->
+  </div>-->
   
+  <header-bar-feed></header-bar-feed>
   <ion-content class="has-header">
-	  <ul class="list has-header"  >
+	  <ul class="list"  >
 	  	<li class="item" style="padding: 0px;" ng-repeat="user in users">
 		  	<ion-slide-box on-slide-changed="slideHasChanged($index)" active-slide="1">
 		  		<ion-slide>
-		  			<p align="right" class="image-post-time">{{ user.posts.popularPost.postingDate}}</p>
-			  		<div class="row">
-			  		  	<div class="col col-50" style="margin-top:15px;">{{user.name}}</div>
-			  		  	<div class="col">
-			  		  		<img style="width:30px; height:30px;" ng-src="{{ clhost + '/' + user.schoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
-			  		  		<a ng-click="schoolFeed( {{user.schoolId}})">{{ user.schoolName}}</a>
-			  		  	</div>
-		            </div>
-					<div class="item post-img" style="clear:both;">
-					  	
-					  <img class="full-image" ng-src="{{ clhost + '/' + user.posts.popularPost.postImg}}" ng-click="updateLike(user.posts.popularPost)">
-		              <div class="like_layout">
-			              <p class="likes">
-			              	<a ng-click="updateLike(user.posts.popularPost)" class="subdued"><span ng-bind="user.posts.popularPost.likes"></span></a>
-			              </p>
-		              </div>
-		              <div class="progress">
-		              	<img src="img\progress.png">
-		              </div>
-		              <span>
-		                <p class="image-caption">
-		                  {{user.posts.popularPost.caption}}
-		                </p>
-		              </span>
-		              <div class="row">
-		              		
-			                <div class="col">{{ user.posts.popularPost.tagCategory}}</div>
-				            <div class="col col-75"><p style="white-space: normal;">{{ formatTags(user.posts.popularPost.tags) }}</p></div>    
-				                <!-- 
-				                <button style="border-radius: 10px;margin: 0px 0px 5px 5px;" 
-				      				  class="button button-small icon-right ion-checkmark-round button-balanced" 
-				      				  ng-repeat="subTag in user.posts.popularPost.tags">{{ subTag }}</button>
-				      			-->
-					  </div>
-					  <div class="row">
-					  	<div class="col">Custom</div>
-						<div class="col col-75"><p style="white-space: normal;">{{ formatTags(user.posts.popularPost.customTags) }}</p></div> 
-						
-						<!-- <p class="tag_item">
-							<button style="border-radius: 10px;margin: 0px 0px 5px 5px;" 
-				      				  class="button button-small icon-right ion-checkmark-round button-balanced" 
-				      				  ng-repeat="customTag in user.posts.popularPost.customTags">{{ customTag }}</button>
-				      				  
-						</p>-->
-		              </div>
-		            </div>
+		  			<post-content post="user.posts.popularPost" user="user" clhost="{{clhost}}"></post-content>
 		  		</ion-slide>
 		  		<ion-slide>
-		  			<p align="right" class="image-post-time">{{ user.posts.currentPost.postingDate}}</p>
-		  			<div class="row">
-			  		  	<div class="col col-50" style="margin-top:15px;">{{user.name}}</div>
-			  		  	<div class="col">
-			  		  		<img style="width:30px; height:30px;" ng-src="{{ clhost + '/' + user.schoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
-			  		  		<a ng-click="schoolFeed( {{user.schoolId}})">{{ user.schoolName}}</a>
-			  		  	</div>
-		  		  	</div>
-		  			<div class="item post-img" style="clear:both;">
-				  	
-					  <img class="full-image" ng-src="{{ clhost + '/' + user.posts.currentPost.postImg}}" ng-click="updateLike(user.posts.currentPost)">
-		              <div class="like_layout">
-			              <p class="likes">
-			              	<a ng-click="updateLike(user.posts.currentPost)" class="subdued"><span ng-bind="user.posts.currentPost.likes"></span></a>
-			              </p>
-		              </div>
-		              <div class="progress">
-		              	<img src="img\progress.png">
-		              </div>
-		              <span>
-		                <p class="image-caption">
-		                  {{user.posts.currentPost.caption}}
-		                </p>
-		              </span>
-		              <div class="row">
-	              		
-		                <div class="col">{{ user.posts.currentPost.tagCategory}}</div>
-			            <div class="col col-75"><p style="white-space: normal;">{{ formatTags(user.posts.currentPost.tags) }}</p></div>    
-			                <!-- 
-			                <button style="border-radius: 10px;margin: 0px 0px 5px 5px;" 
-			      				  class="button button-small icon-right ion-checkmark-round button-balanced" 
-			      				  ng-repeat="subTag in user.posts.popularPost.tags">{{ subTag }}</button>
-			      			-->
-					  </div>
-					  <div class="row">
-					  	<div class="col">Custom</div>
-						<div class="col col-75"><p style="white-space: normal;">{{ formatTags(user.posts.currentPost.customTags) }}</p></div> 
-						
-						<!-- <p class="tag_item">
-							<button style="border-radius: 10px;margin: 0px 0px 5px 5px;" 
-				      				  class="button button-small icon-right ion-checkmark-round button-balanced" 
-				      				  ng-repeat="customTag in user.posts.popularPost.customTags">{{ customTag }}</button>
-				      				  
-						</p>-->
-		              </div>
-		              
-		            </div>
+		  			<post-content post="user.posts.currentPost" user="user" clhost="{{clhost}}"></post-content>
 		  		</ion-slide>
 		  		<ion-slide>
-		  			<p align="right" class="image-post-time">{{ user.posts.mostRecentPost.postingDate}}</p>
-		  			<div class="row">
-			  		  	<div class="col col-50" style="margin-top:15px;">{{user.name}}</div>
-			  		  	<div class="col">
-			  		  		<img style="width:30px; height:30px;" ng-src="{{ clhost + '/' + user.schoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
-			  		  		<a ng-click="schoolFeed( {{user.schoolId}})">{{ user.schoolName}}</a>
-			  		  	</div>
-		  		  	</div>
-					<div class="item post-img" style="clear:both;">
-				  	
-					  <img class="full-image" ng-src="{{ clhost + '/' + user.posts.mostRecentPost.postImg}}" ng-click="updateLike(user.posts.mostRecentPost)">
-		              <div class="like_layout">
-			              <p class="likes">
-			              	<a ng-click="updateLike(user.posts.mostRecentPost)" class="subdued"><span ng-bind="user.posts.mostRecentPost.likes"></span></a>
-			              </p>
-		              </div>
-		              <div class="progress">
-		              	<img src="img\progress.png">
-		              </div>
-		              <span>
-		                <p class="image-caption">
-		                  {{user.posts.mostRecentPost.caption}}
-		                </p>
-		              </span>
-		              
-		              <div class="row">
-	              		
-		                <div class="col">{{ user.posts.mostRecentPost.tagCategory}}</div>
-			            <div class="col col-75"><p style="white-space: normal;">{{ formatTags(user.posts.mostRecentPost.tags) }}</p></div>    
-			                <!-- 
-			                <button style="border-radius: 10px;margin: 0px 0px 5px 5px;" 
-			      				  class="button button-small icon-right ion-checkmark-round button-balanced" 
-			      				  ng-repeat="subTag in user.posts.popularPost.tags">{{ subTag }}</button>
-			      			-->
-					  </div>
-					  <div class="row">
-					  	<div class="col">Custom</div>
-						<div class="col col-75"><p style="white-space: normal;">{{ formatTags(user.posts.mostRecentPost.customTags) }}</p></div> 
-						
-						<!-- <p class="tag_item">
-							<button style="border-radius: 10px;margin: 0px 0px 5px 5px;" 
-				      				  class="button button-small icon-right ion-checkmark-round button-balanced" 
-				      				  ng-repeat="customTag in user.posts.popularPost.customTags">{{ customTag }}</button>
-				      				  
-						</p>-->
-		              </div>
-		            </div>
+		  			<post-content post="user.posts.mostRecentPost" user="user" clhost="{{clhost}}"></post-content>
 		  		</ion-slide>
 		  	</ion-slide-box>
 		</li>
 	 </ul>
   </ion-content>
-  <div class="bar bar-footer bar-balanced">
+  <footer-bar-feed></footer-bar-feed>
+  <!--<div class="bar bar-footer bar-balanced">
   	<div class="title"><a class="button" href="#/app/new_post"><i class="ion-ios7-camera-outline photo-icon-size"></i></a></div>
-  </div>
-</ion-view>
+  </div>-->
+<!--</ion-view>-->

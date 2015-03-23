@@ -1,0 +1,34 @@
+	
+
+	
+	<!--<div class="row">
+	  	<div class="col">
+	  		<img style="width:30px; height:30px;" ng-src="{{ clhost + '/' + user.schoolImg}}" ng-click="schoolFeed( {{user.schoolId}})">
+	  		<a ng-click="schoolFeed( {{user.schoolId}})">{{ user.schoolName}}</a>
+	  	</div>
+    </div>-->
+	<div class="item post-img">
+	  <img class="full-image" ng-src="{{ clhost + '/' + post.postImg}}" ng-click="updateLike(post)">
+      <div class="progress">
+    	<img src="img\mote_logo.png">
+      </div>
+
+      <p class="likes" align="right">{
+      	<a ng-click="updateLike(post)"><span ng-bind="post.likes"></span> Likes</a> }
+      </p>
+      <div>
+      	<img ng-src="{{ clhost + '/' + user.profileImg}}" class="profile-img-style">
+        <p style="white-space: normal;paddin-top: 10px;">
+        	<b style="color: #8a6de9;">{{user.name}}</b>&nbsp;{{post.caption}}
+        </p>
+      </div>
+      <div class="row">
+            <div class="col">{{ post.tagCategory}}</div>
+            <div class="col col-75"><p style="white-space: normal;">{{ formatTags(post.tags) }}</p></div>    
+	  </div>
+	  <div class="row">
+	  	<div class="col">tags</div>
+		<div class="col col-75"><p style="white-space: normal;">{{ formatTags(post.customTags) }}</p></div> 
+		<div class="col-15"><p align="right" class="image-post-time">{{ post.postingDate}}</p></div>
+      </div>
+    </div>

@@ -20,6 +20,59 @@ angular.module('clcontrollers', [])
 	};
 })
 
+.directive("headerBarFeed", function(){
+	
+	return{
+		restrict: 'E',
+		link: function(scope,element,attrs){
+		},
+		template:'<div class="bar bar-header bar-royal"><button class="button button-clear icon ion-ios7-search"></button><img style="width:25%;margin-left:65%;" ng-src="img/mote_logo.png"></div>'
+	};
+})
+
+.directive("postContent", function(){
+	
+	return{
+		
+		restrict: 'E',
+		scope: {
+			post: '=',
+			user: '=',
+			clhost: '@'
+		},
+		controller: function($scope){
+			 $scope.formatTags = function(tagArr){
+			    	
+			    	var formattedStr = "";
+			    	for( var i = 0; i < tagArr.length; i++){
+			    		
+			    		formattedStr = formattedStr + tagArr[i];
+			    		
+			    		if ( i != (tagArr.length -1)){
+			    			formattedStr = formattedStr + ", ";
+			    		}
+			    	}
+			    	
+			    	return formattedStr;
+			    };
+	    },
+		link: function(scope,element,attrs){
+		},
+		templateUrl: 'templates/post_content.html' 
+	}
+})
+
+.directive("footerBarFeed", function(){
+	
+	return{
+		restrict: 'E',
+		link: function(scope,element,attrs){
+		},
+		templateUrl:'templates/footer_bar.html'
+	};
+})
+
+
 .directive("waterWheelCarousel", function(){
 
     return {
