@@ -10,6 +10,69 @@ angular.module('clcontrollers', [])
   };
 })
 
+.directive("headerBar", function(){
+	
+	return{
+		restrict: 'E',
+		link: function(scope,element,attrs){
+		},
+		template:'<div class="bar bar-header bar-royal"><img style="width:50%; margin-left: 25%; margin-right:25%;" ng-src="img/mote-wordmark-white.png"></div>'
+	};
+})
+
+.directive("headerBarFeed", function(){
+	
+	return{
+		restrict: 'E',
+		link: function(scope,element,attrs){
+		},
+		template:'<div class="bar bar-header bar-royal"><button class="button button-clear icon ion-ios7-search"></button><img style="width:25%;margin-left:65%;" ng-src="img/mote_logo.png"></div>'
+	};
+})
+
+.directive("postContent", function(){
+	
+	return{
+		
+		restrict: 'E',
+		scope: {
+			post: '=',
+			user: '=',
+			clhost: '@'
+		},
+		controller: function($scope){
+			 $scope.formatTags = function(tagArr){
+			    	
+			    	var formattedStr = "";
+			    	for( var i = 0; i < tagArr.length; i++){
+			    		
+			    		formattedStr = formattedStr + tagArr[i];
+			    		
+			    		if ( i != (tagArr.length -1)){
+			    			formattedStr = formattedStr + ", ";
+			    		}
+			    	}
+			    	
+			    	return formattedStr;
+			    };
+	    },
+		link: function(scope,element,attrs){
+		},
+		templateUrl: 'templates/post_content.html' 
+	}
+})
+
+.directive("footerBarFeed", function(){
+	
+	return{
+		restrict: 'E',
+		link: function(scope,element,attrs){
+		},
+		templateUrl:'templates/footer_bar.html'
+	};
+})
+
+
 .directive("waterWheelCarousel", function(){
 
     return {
@@ -339,7 +402,7 @@ angular.module('clcontrollers', [])
 })
 
 // ***************** Use for the login page :: Start *****************
-.controller('LoginCtrl', function($scope, $rootScope, $state, Schools, Tags, loginService, createAccountService) {
+.controller('LoginCtrl', function($scope, $rootScope, $state, $facebook, $ionicModal, Schools, Tags, loginService, createAccountService) {
   
 	$scope.rememberMe = false;
 	$scope.errorMsg = "";
@@ -409,6 +472,64 @@ angular.module('clcontrollers', [])
 		);
 	}
 	
+	/*
+	 * Facebook event
+	 */
+	$scope.$on('fb.auth.authResponseChange', function() {
+	      $scope.status = $facebook.isConnected();
+	      if($scope.status) {
+	        $facebook.api('/me').then(function(user) {
+	          $scope.user = user;
+	          console.log(user);
+	        });
+	      }
+	 });
+	
+	$scope.getFriends = function() {
+	      if(!$scope.status) return;
+	      $facebook.cachedApi('/me/friends').then(function(friends) {
+	        $scope.friends = friends.data;
+	      });
+	};
+	
+	$scope.loginToggle = function() {
+	      if($scope.status) {
+	    	 console.log("Logout");
+	        $facebook.logout();
+	      } else {
+	        $facebook.login();
+	        console.log("Login");
+	      }
+	 };
+	   
+	 /*
+	  * University selection modal window
+	  * 
+	  */
+	 $scope.setCollege = function(school){
+		 $scope.userDetail.college = school;
+		 $scope.userDetail.univName = school.name;
+		 $scope.closeModal();
+	 };
+	 
+	 $ionicModal.fromTemplateUrl('univ-selection-modal.html', {
+		    scope: $scope,
+		    animation: 'slide-in-up'
+		  }).then(function(modal) {
+		    $scope.modal = modal;
+	 });
+	 
+	 $scope.openModal = function() {
+		    $scope.modal.show();
+	  };
+	  $scope.closeModal = function() {
+	    $scope.modal.hide();
+	  };
+	  //Cleanup the modal when we're done with it!
+	  $scope.$on('$destroy', function() {
+	    $scope.modal.remove();
+	  });
+	  
 	 /* $scope.validate = function(event){
 	
 	      if( this.$parent.loginData.password == "cl123!"){

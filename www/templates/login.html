@@ -1,35 +1,35 @@
 
-  <div class="bar bar-header header-color">
-    <h1 class="header-font title">Mote</h1>
-  </div>
+  <header-bar></header-bar>
   <ion-content class="has-header body-color">
-
-	<div class="list" style="padding-top:50%;">
-		 
-		<div ng-show="errorMsg.length > 0" class="cl_error">
-			<i class="icon ion-close-circled"></i> 
-			{{ errorMsg}}
-		</div>
-		<div class="item item-input-inset body-color">
-			<label class="item-input-wrapper">
+  	<div ng-show="errorMsg.length > 0" class="cl_error">
+		<i class="icon ion-close-circled"></i> 
+		{{ errorMsg}}
+	</div>
+	<ul class="list" style="margin-top:20%;">
+		
+		<div class = "list list-inset">
+			<label class="item item-input">
 				<i class="icon ion-ios7-email-outline placeholder-icon"></i>
 				<input type="text" placeholder=".edu Email Address" ng-model="loginDetail.userName">
 			</label>	
 		</div>
 
-		<div class="item item-input-inset body-color">
-			<label class="item-input-wrapper">
+		<div class = "list list-inset">
+			<label class="item item-input">
 				<i class="icon ion-locked placeholder-icon"></i>
 				<input type="password" placeholder="password" ng-model="loginDetail.password">
 			</label>	
 		</div>
 		
-		<button class="button button-small button-block button-balanced" ng-click="login()">Sign In</button>
+		<div class = "list list-inset">
+			<button class="button button-medium button-royal login" ng-click="login()">Login</button>
+			<button class="button button-dark button-small button-clear question">Still&nbsp;need&nbsp;an&nbsp;account?</button>
+			<a href="#/app/create_account"><button class = "button button-medium button-light sign-up fore-color">Sign&nbsp;up</button></a>
+		</div>
 
-		<span style="padding-left:25%;">Don't have an account ? <a href="#/app/create_account">Create Account</a></span></br>
 		<span style="padding-left:25%;">Forgot password ?       <a href="#/app/forgot_password">Retrieve Password</a></span>
 		
-	</div>    
+	</ul>    
 
 	
    

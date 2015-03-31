@@ -31,12 +31,13 @@ ion-nav-bar, .card > div , .list > ion-item, ion-content ,  .item-complex  .item
 /* Button Styles */
 .sign-up {
 	
-	border-style: hidden;
+	//border-style: hidden;
 	border-radius: 6px;
 	margin-left:25%;
+	margin-right:25%;
 	padding: 0 50px;
-	font-size: 30px;
-	line-height: 20px;
+	font-size: 20px;
+	line-height: 10px;
 	
 	
 }
@@ -45,9 +46,24 @@ ion-nav-bar, .card > div , .list > ion-item, ion-content ,  .item-complex  .item
 	
 	border-radius: 6px;
 	margin-left:25%;
-	padding: 0 60px;
-	font-size: 30px;
-	line-height: 20px;
+	margin-right:25%;
+	padding: 0 58px;
+	font-size: 20px;
+	line-height: 10px;
+}
+
+.question {
+	margin-top: 3%;
+	margin-left:28%;
+	margin-right:25%;
+}
+
+.fore-color {
+	color: #8a6de9 !important;
+}
+
+.button-bar img {
+	width: 50%;
 }
 
 /* Item Avatar setting*/
@@ -90,28 +106,12 @@ ion-nav-bar, .card > div , .list > ion-item, ion-content ,  .item-complex  .item
 }
 
 /* Caption for each image post */
-.image-caption {
-	background-color: white; //rgb(254, 198, 61);
-	color: rgb(64,64,64);
-	margin-top: 10px;
-	//border: black;
-	//border-style: solid;
-	font-weight: bold;
-	font-size: 12px;
-	//border-width: 1px;	
-	white-space: normal !important;
-}
-
 
 .profile-img-style {
 	float: left;
-	width: 33%;
+	width: 20%;
 	height: 30%;
-}
-.profile-img-size {
-	
-	width: 100%;
-	height: 30%;
+	border-radius: 40px;
 }
 
 .align-card-header {
@@ -192,27 +192,21 @@ ul[rn-carousel] {
 
 .likes {
 	margin-top: -5px;
-	background-color: rgb(119, 244, 119);
-	
 }
 
 .likes a {
-	
-	color: white;
+	color: #8a6de9;
 	font-weight: bold;
-	margin-left: 4px;
-	width: 20px;
-	
 }
 
 /* Progress indicator */
 .progress {
-	padding-left: 15%;
-	margin-top: -30px;
+	padding-left: 89%;
+	margin-top: -35px;
 }
 
 .progress img {
-	width: 20px;
+	width: 30px;
 }
 
 
