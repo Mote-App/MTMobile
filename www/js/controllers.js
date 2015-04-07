@@ -16,9 +16,10 @@ angular.module('clcontrollers', [])
 		restrict: 'E',
 		link: function(scope,element,attrs){
 		},
-		template:'<div class="bar bar-header bar-royal"><img style="width:50%; margin-left: 25%; margin-right:25%;" ng-src="img/mote-wordmark-white.png"></div>'
+		templateUrl:'templates/header_bar.html'
 	};
 })
+
 
 .directive("headerBarFeed", function(){
 	
@@ -26,7 +27,7 @@ angular.module('clcontrollers', [])
 		restrict: 'E',
 		link: function(scope,element,attrs){
 		},
-		template:'<div class="bar bar-header bar-royal"><button class="button button-clear icon ion-ios7-search"></button><img style="width:25%;margin-left:65%;" ng-src="img/mote_logo.png"></div>'
+		templateUrl:'templates/feed_header_bar.html'
 	};
 })
 
@@ -402,7 +403,15 @@ angular.module('clcontrollers', [])
 })
 
 // ***************** Use for the login page :: Start *****************
-.controller('LoginCtrl', function($scope, $rootScope, $state, $facebook, $ionicModal, Schools, Tags, loginService, createAccountService) {
+.controller('LoginCtrl', function($scope, 
+									$rootScope, 
+									$state, 
+									$ionicModal, 
+									Schools, 
+									Tags, 
+									loginService, 
+									createAccountService,
+									OpenFB) {
   
 	$scope.rememberMe = false;
 	$scope.errorMsg = "";
@@ -472,10 +481,77 @@ angular.module('clcontrollers', [])
 		);
 	}
 	
+	/*OpenFB Facebeeok */
+
+	$scope.facebookLogin = { checked: false};
+	$scope.isInstagramLogin = false;
+
+	$scope.checkFacebookLogin = function(){
+
+		if($scope.facebookLogin.checked == true){
+			$scope.facebookLogin();
+		}else if($scope.facebookLogin.checked == false){
+			$scope.logout();
+		}	
+	};
+
+	
+    $scope.facebookLogin = function () {
+
+    	OpenFB.login('email,public_profile,user_friends').then(
+        function () {
+            //$location.path('/app/person/me/feed');
+            $scope.getFriends();
+            //$scope.facebookLoginForFriends();
+        },
+        function () {
+            alert('OpenFB login failed');
+        });
+	};
+
+	$scope.facebookLoginForFriends = function () {
+
+    	OpenFB.login('').then(
+        function () {
+            //$location.path('/app/person/me/feed');
+            $scope.getFriends();
+        },
+        function () {
+            alert('OpenFB login failed');
+        });
+	};
+
+	$scope.logout = function () {
+        OpenFB.logout();
+        $state.go('app.create_account');
+    };
+
+    $scope.revokePermissions = function () {
+        OpenFB.revokePermissions().then(
+            function () {
+                $state.go('app.create_account');
+            },
+            function () {
+                alert('Revoke permissions failed');
+            });
+    };
+
+	$scope.getFriends = function() {
+		OpenFB.get('/friend-list-id', {limit: 50})
+            .success(function (result) {
+                $scope.friends = result.data;
+                console.log($scope.friends);
+                $state.go('app.create_account');
+            })
+            .error(function(data) {
+                alert(data.error.message);
+            });
+    };
+
 	/*
-	 * Facebook event
+	 *  ng-facebook Facebook event
 	 */
-	$scope.$on('fb.auth.authResponseChange', function() {
+	/*$scope.$on('fb.auth.authResponseChange', function() {
 	      $scope.status = $facebook.isConnected();
 	      if($scope.status) {
 	        $facebook.api('/me').then(function(user) {
@@ -500,7 +576,7 @@ angular.module('clcontrollers', [])
 	        $facebook.login();
 	        console.log("Login");
 	      }
-	 };
+	 };*/
 	   
 	 /*
 	  * University selection modal window

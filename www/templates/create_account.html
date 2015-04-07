@@ -15,7 +15,7 @@
 		  
 		  <div class="list">
 		    <a class="item item-thumbnail-left" ng-click="setCollege(school)" ng-repeat="school in schools | filter:{ name: searchUniv }" >
-		      <img ng-src="{{ clhost + '/' + school.imgPath}}">
+		      <!--<img ng-src="{{ clhost + '/' + school.imgPath}}">-->
 		      <h2>{{ school.name}}</h2>
 		    </a>
 		   </div>
@@ -63,19 +63,21 @@
 	    </label>
 	   </div>
 	   <div class = "list list-inset">
-		
-				<li class="item item-toggle">
+				<ion-toggle ng-model="facebookLogin.checked" ng-checked="facebookLogin.checked" ng-change="checkFacebookLogin()" toggle-class="toggle-balanced">Facebook</ion-toggle>
+				<ion-toggle ng-model="isInstagramLogin" ng-checked="isInstagramLogin" toggle-class="toggle-balanced">Instagram</ion-toggle>
+
+				<!--<li class="item item-toggle">
 		      		Facebook
 			     	<label class="toggle toggle-balanced">
-				      	 <input type="checkbox" ng-model="fb_login_status" ng-change="loginToggle()">
+				      	 <input type="checkbox" ng-model="fb_login_status" ng-change="facebookLogin()">
 	
 				       	<div class="track">
 				         	<div class="handle"></div>
 				      	 </div>
 			    	</label>
-		    	</li>
+		    	</li>-->
 		    	
-				 <li class="item item-toggle">
+				 <!--<li class="item item-toggle">
 			     Instagram
 			     <label class="toggle toggle-balanced">
 			       <input type="checkbox">
@@ -83,7 +85,7 @@
 			         <div class="handle"></div>
 			       </div>
 			     </label>
-		     	</li>
+		     	</li>-->
 		    </div>
 			
 		

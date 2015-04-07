@@ -7,28 +7,51 @@
 	  		<a ng-click="schoolFeed( {{user.schoolId}})">{{ user.schoolName}}</a>
 	  	</div>
     </div>-->
-	<div class="item post-img">
-	  <img class="full-image" ng-src="{{ clhost + '/' + post.postImg}}" ng-click="updateLike(post)">
-      <div class="progress">
-    	<img src="img\mote_logo.png">
+  
+	<div class="item post-img">    
+      
+      <p align="right" class="image-post-time">{{ post.postingDate}}</p>
+      <div style="position:relative;">
+        <div style="position:absolute; top:0; left:0; width:50%;"><p align="left"><b style="color: #8a6de9;">{{user.name}}</b></p></div>
+        <div style="position:absolute; top:0; right:0; width:50%;"><p align="right"><b style="color: #8a6de9;">{{ user.schoolName}}</b></p></div>
       </div>
+      </br>
+	     <img class="full-image" ng-src="{{ clhost + '/' + post.postImg}}" ng-click="updateLike(post)">
 
-      <p class="likes" align="right">{
-      	<a ng-click="updateLike(post)"><span ng-bind="post.likes"></span> Likes</a> }
-      </p>
-      <div>
-      	<img ng-src="{{ clhost + '/' + user.profileImg}}" class="profile-img-style">
-        <p style="white-space: normal;paddin-top: 15px;">
-        	<b style="color: #8a6de9;">{{user.name}}</b>&nbsp;{{post.caption}}
+        <p class="likes" align="left">
+        	<a ng-click="updateLike(post)"><span ng-bind="post.likes"></span> Likes</a>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button style="border-radius: 10px;margin: 0px 0px 5px 5px;" 
+          class="button button-small button-outline button-royal" 
+          ng-repeat="tag in post.tags" >{{ tag }}</button>
+
+          <button style="border-radius: 10px;margin: 0px 0px 5px 5px;" 
+          class="button button-small button-outline button-royal" 
+          ng-repeat="tag in post.customTags" >{{ tag }}</button>
+
         </p>
-      </div>
-      <div class="row">
-            <div class="col">{{ post.tagCategory}}</div>
-            <div class="col col-75"><p style="white-space: normal;">{{ formatTags(post.tags) }}</p></div>    
-	  </div>
-	  <div class="row">
-	  	<div class="col">tags</div>
-		<div class="col col-75"><p style="white-space: normal;">{{ formatTags(post.customTags) }}</p></div> 
-		<div class="col-15"><p align="right" class="image-post-time">{{ post.postingDate}}</p></div>
-      </div>
+
+  
+        <div>
+        	<!--<img ng-src="{{ clhost + '/' + user.profileImg}}" class="profile-img-style">-->
+
+          <p style="margin-top: 10px;margin-bottom: 50px;">
+          	<!--<div class="progress">-->
+                <img src="img\mote_logo.jpg" style="width:5%;">&nbsp;{{post.caption}}
+            <!--</div>-->
+            
+          </p>
+        </div>
+
+        
+        <!--<div class="row">
+              <div class="col">{{ post.tagCategory}}</div>
+              <div class="col col-75"><p style="white-space: normal;">{{ formatTags(post.tags) }}</p></div>    
+  	   </div>
+	     <div class="row">
+	  	    <div class="col">tags</div>
+		      <div class="col col-75"><p style="white-space: normal;">{{ formatTags(post.customTags) }}</p></div> 
+		      
+      </div>-->
+
     </div>

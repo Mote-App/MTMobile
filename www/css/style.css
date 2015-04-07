@@ -148,7 +148,7 @@ ion-nav-bar, .card > div , .list > ion-item, ion-content ,  .item-complex  .item
 	height: 300px;
 }
 .post-img {
-	padding: 0px;
+	padding: 10px;
 }
 
 /* username on each posting*/
@@ -191,7 +191,7 @@ ul[rn-carousel] {
 }
 
 .likes {
-	margin-top: -5px;
+	margin-top: 5px;
 }
 
 .likes a {
@@ -201,7 +201,7 @@ ul[rn-carousel] {
 
 /* Progress indicator */
 .progress {
-	padding-left: 89%;
+	padding-left: 0%;
 	margin-top: -35px;
 }
 

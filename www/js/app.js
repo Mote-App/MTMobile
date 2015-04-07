@@ -4,7 +4,13 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices','pageslide-directive', 'angular-carousel','ngFacebook'])
+angular.module('starter', ['ionic', 
+                            'ngCordova', 
+                            'clcontrollers',
+                            'clservices',
+                            'pageslide-directive', 
+                            'angular-carousel',
+                            'openfb'])
 
 /*.run(function($ionicPlatform, $rootScope, $firebaseSimpleLogin, $state, $window) {
   var dataRef = new Firebase("https://ionic-firebase-login.firebaseio.com/");
@@ -28,7 +34,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices','p
   });
 })*/
 
-.run(function($ionicPlatform, $rootScope, $filter, $window) {
+.run(function($ionicPlatform, $rootScope, $filter, $window, $state, OpenFB) {
 
 	//AWS http://54.149.27.205
 	$rootScope.clhost = "http://54.149.27.205";
@@ -38,7 +44,26 @@ angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices','p
 	$rootScope.school = false;
 	$rootScope.nation = false;
 
-	(function(d){
+  OpenFB.init('956170854392949');
+
+  $ionicPlatform.ready(function () {
+      if (window.StatusBar) {
+          StatusBar.styleDefault();
+      }
+  });
+
+  /*$rootScope.$on('$stateChangeStart', function(event, toState) {
+      if (toState.name !== "app.login" && toState.name !== "app.logout" && !$window.sessionStorage['fbtoken']) {
+          $state.go('app.create_account');
+          event.preventDefault();
+      }
+  });*/
+
+  $rootScope.$on('OAuthException', function() {
+      $state.go('app.login');
+  });
+
+	/*(function(d){
 	    // load the Facebook javascript SDK
 
 	    var js, 
@@ -61,13 +86,15 @@ angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices','p
 	$rootScope.$on('fb.load', function() {
       $window.dispatchEvent(new Event('fb.load'));
     });
-	    
+	  */  
 	$rootScope.setContext = function(context){
 		
 		if( context == 'friends'){
 			$rootScope.friends = true;
 			$rootScope.school = false;
 			$rootScope.nation = false;
+
+      $state.go('app.friends_feeds');
 			
 		}
 		if( context == 'school'){
@@ -75,12 +102,14 @@ angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices','p
 			$rootScope.school = true;
 			$rootScope.nation = false;
 			
+      $state.go('app.school_feeds');
 		}
 		if( context == 'nation'){
 			$rootScope.friends = false;
 			$rootScope.school = false;
 			$rootScope.nation = true;
 
+      $state.go('app.national_feeds');
 		}
 
 	}
@@ -143,9 +172,9 @@ angular.module('starter', ['ionic', 'ngCordova', 'clcontrollers','clservices','p
   
 })
 
-.config(function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $facebookProvider) {
+.config(function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
   
-	$facebookProvider.setAppId('956170854392949').setPermissions(['email','user_friends']);
+	//$facebookProvider.setAppId('956170854392949').setPermissions(['email','user_friends']);
 	
 	$stateProvider
     .state('app', {

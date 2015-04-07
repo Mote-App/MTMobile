@@ -7,10 +7,13 @@
   </div>-->
   <!--<div circular-menu subtags="subtagsArr" selectedtags="selectedTagsArr"></div>-->
 
-  <ion-content class="has-header">
+  <header-bar></header-bar>
+  <header-bar-feed></header-bar-feed>
+
+  <ion-content class="has-subheader">
   	<!--<div water-wheel-carousel clcontext="carousel"></div>-->
 
-  	 <ul class="list"  >
+  	 <ul class="list"  style="padding-top:80px;">
 	  	<li class="item" style="padding: 0px;" ng-repeat="user in schoolUsers" ng-click="toggleCustomMenu()">
       
 	  		<slide-page></slide-page>
