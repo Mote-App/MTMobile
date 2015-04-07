@@ -5,6 +5,7 @@
   <author email="gibran@mote.com" href="http://mote.com/">Mote, LLC Team</author>
   <content src="index.html"/>
   <access origin="*"/>
+  
   <preference name="Fullscreen" value="true"/>
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
@@ -16,6 +17,7 @@
   <preference name="LoadingDialog" value="My Title,My Message"/>
   <preference name="SplashScreenDelay" value="10000"/>
   <preference name="InAppBrowserStorageEnabled" value="true"/>
+  
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
@@ -32,6 +34,7 @@
   <feature name="Device">
     <param name="android-package" value="org.apache.cordova.device.Device"/>
   </feature>
+  
   <platform name="android">
     <icon src="resources/android/icon/drawable-ldpi-icon.png" density="ldpi"/>
     <icon src="resources/android/icon/drawable-mdpi-icon.png" density="mdpi"/>
@@ -49,6 +52,7 @@
     <splash src="resources/android/splash/drawable-port-hdpi-screen.png" density="port-hdpi"/>
     <splash src="resources/android/splash/drawable-port-xhdpi-screen.png" density="port-xhdpi"/>
   </platform>
+  
   <platform name="ios">
     <icon src="resources/ios/icon/icon.png" width="57" height="57"/>
     <icon src="resources/ios/icon/icon@2x.png" width="114" height="114"/>
@@ -72,5 +76,6 @@
     <splash src="resources/ios/splash/Default@2x~iphone.png" width="640" height="960"/>
     <splash src="resources/ios/splash/Default~iphone.png" width="320" height="480"/>
   </platform>
+  
   <icon src="resources/android/icon/drawable-xhdpi-icon.png"/>
 </widget>
