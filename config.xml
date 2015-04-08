@@ -2,7 +2,8 @@
 <widget id="com.mote.mobile" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>Mote</name>
   <description>Mote Hybrid App - An Ionic Framework and Cordova project.</description>
-  <author email="gibran@mote.com" href="http://mote.com/">Mote, LLC Team</author>
+  <author email="gibran@mote-app.com" href="http://mote-app.com/">Mote, LLC Team</author>
+  
   <content src="index.html"/>
   <access origin="*"/>
   
@@ -41,6 +42,7 @@
     <icon src="resources/android/icon/drawable-hdpi-icon.png" density="hdpi"/>
     <icon src="resources/android/icon/drawable-xhdpi-icon.png" density="xhdpi"/>
     <icon src="resources/android/icon/drawable-xxhdpi-icon.png" density="xxhdpi"/>
+    <icon src="resources/android/icon/drawable-xxxhdpi-icon.png" density="xxxhdpi"/>
     <splash src="resources/android/splash/drawable-land-ldpi-screen.png" density="land-ldpi"/>
     <splash src="resources/android/splash/drawable-land-mdpi-screen.png" density="land-mdpi"/>
     <splash src="resources/android/splash/drawable-land-hdpi-screen.png" density="land-hdpi"/>
@@ -51,6 +53,8 @@
     <splash src="resources/android/splash/drawable-port-mdpi-screen.png" density="port-mdpi"/>
     <splash src="resources/android/splash/drawable-port-hdpi-screen.png" density="port-hdpi"/>
     <splash src="resources/android/splash/drawable-port-xhdpi-screen.png" density="port-xhdpi"/>
+    <splash src="resources/android/splash/drawable-port-xxhdpi-screen.png" density="port-xxhdpi"/>
+    <splash src="resources/android/splash/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
   </platform>
   
   <platform name="ios">
@@ -62,6 +66,7 @@
     <icon src="resources/ios/icon/icon-50@2x.png" width="100" height="100"/>
     <icon src="resources/ios/icon/icon-60.png" width="60" height="60"/>
     <icon src="resources/ios/icon/icon-60@2x.png" width="120" height="120"/>
+    <icon src="resources/ios/icon/icon-60@3x.png" width="180" height="180"/>
     <icon src="resources/ios/icon/icon-72.png" width="72" height="72"/>
     <icon src="resources/ios/icon/icon-72@2x.png" width="144" height="144"/>
     <icon src="resources/ios/icon/icon-76.png" width="76" height="76"/>
@@ -71,6 +76,8 @@
     <icon src="resources/ios/icon/icon-small@3x.png" width="87" height="87"/>
     <splash src="resources/ios/splash/Default-568h@2x~iphone.png" width="640" height="1136"/>
     <splash src="resources/ios/splash/Default-667h.png" width="750" height="1334"/>
+    <splash src="resources/ios/splash/Default-Landscape-736h.png" width="2208" height="1242"/>
+    <splash src="resources/ios/splash/Default-Landscape@2x~ipad.png" width="2048" height="1536"/>
     <splash src="resources/ios/splash/Default-Landscape~ipad.png" width="1024" height="768"/>
     <splash src="resources/ios/splash/Default-Portrait~ipad.png" width="768" height="1024"/>
     <splash src="resources/ios/splash/Default@2x~iphone.png" width="640" height="960"/>
@@ -78,4 +85,5 @@
   </platform>
   
   <icon src="resources/android/icon/drawable-xhdpi-icon.png"/>
+
 </widget>
