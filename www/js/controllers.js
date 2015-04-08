@@ -1036,7 +1036,24 @@ angular.module('clcontrollers', [])
 		}
 	};
 	
-	
+	//Handle model to show option for adding post details
+	$ionicModal.fromTemplateUrl('new-post.html', {
+		    scope: $scope,
+		    animation: 'slide-in-up'
+		  }).then(function(modal) {
+		    $scope.modal = modal;
+	 });
+	 
+	 $scope.openModal = function() {
+		    $scope.modal.show();
+	  };
+	  $scope.closeModal = function() {
+	    $scope.modal.hide();
+	  };
+	  //Clean up the modal when we're done with it!
+	  $scope.$on('$destroy', function() {
+	    $scope.modal.remove();
+	  });
   //This block of code needs to be repeated in every control where 
   //circular menu is required - need to fit in some directive
   /*$scope.subtagsArr = [];

@@ -40,10 +40,14 @@ angular.module('starter', ['ionic',
 	$rootScope.clhost = "http://54.149.27.205";
 	$rootScope.clport = ":8080";
 	$rootScope.lstTag = {};
+	
 	$rootScope.friends = true;
 	$rootScope.school = false;
 	$rootScope.nation = false;
-
+	$rootScope.public = true;
+	$rootScope.username = false;
+	$rootScope.anonymous = false;
+			
   OpenFB.init('956170854392949');
 
   $ionicPlatform.ready(function () {
@@ -94,7 +98,7 @@ angular.module('starter', ['ionic',
 			$rootScope.school = false;
 			$rootScope.nation = false;
 
-      $state.go('app.friends_feeds');
+			$state.go('app.friends_feeds');
 			
 		}
 		if( context == 'school'){
@@ -102,14 +106,34 @@ angular.module('starter', ['ionic',
 			$rootScope.school = true;
 			$rootScope.nation = false;
 			
-      $state.go('app.school_feeds');
+			$state.go('app.school_feeds');
 		}
 		if( context == 'nation'){
 			$rootScope.friends = false;
 			$rootScope.school = false;
 			$rootScope.nation = true;
 
-      $state.go('app.national_feeds');
+			$state.go('app.national_feeds');
+		}
+		
+		if( context == 'anonymous'){
+			$rootScope.anonymous = true;
+			$rootScope.public = false;
+			$rootScope.username = false;
+			
+		}
+		
+		if( context == 'username'){
+			$rootScope.username = true;
+			$rootScope.public = false;
+			$rootScope.anonymous = false;
+		}
+		
+		if( context == 'public'){
+			$rootScope.public = true;
+			$rootScope.anonymous = false;
+			$rootScope.username = false;
+			
 		}
 
 	}
@@ -325,6 +349,17 @@ angular.module('starter', ['ionic',
       }
     })
     
+	.state('app.test_page', {
+		url: "/test_page",
+		views: {
+			'menuContent' :{
+				templateUrl: "templates/test_page.html",
+				controller: 'FriendsFeedsCtrl'
+				
+			}
+		}
+	})
+	
     .state('app.new_post', { 
     	url: "/new_post",
     	views : {
@@ -362,7 +397,7 @@ angular.module('starter', ['ionic',
   // if none of the above states are matched, use this as the fallback
   //$urlRouterProvider.otherwise('index');
   $urlRouterProvider.otherwise('/app/create_account');
-  
+  //$urlRouterProvider.otherwise('/app/test_page');
   
 	  /* Registers auth token interceptor, auth token is either passed by header or by query parameter
 	   * as soon as there is an authenticated user */

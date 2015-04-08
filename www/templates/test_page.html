@@ -1,0 +1,33 @@
+
+<ion-content style="padding: 10px;">
+	<p align="right"><i class="icon ion-camera" style="font-size:400%; color: #8a6de9;"></i></p>
+		
+	<p align="center" style="font-size: 30px; color: #8a6de9; margin-top:40px;">post your <img src="img/mote-wordmark-21.png" style="width:30%;"/></p>
+	
+		
+	<div class="row">	  
+		<div class="col">
+			
+			<a class="button round-button" ng-class="{'button-royal': anonymous, 'button-outline button-royal': !anonymous}" ng-click="setContext('anonymous')" >Anonymous
+			</a>
+		</div>
+		<div class="col">    
+			<a class="button round-button" ng-class="{'button-royal': username, 'button-outline button-royal': !username}" ng-click="setContext('username')">Username</a>
+		</div>
+		<div class="col">
+			<a class="button round-button" ng-class="{'button-royal': public, 'button-outline button-royal': !public}" ng-click="setContext('public')" >Public</a>
+		</div>
+	</div>
+	<div style="border-style: solid;border-width: medium;border-color: #8a6de9; margin-top: 40px;">
+		<input type="text" placeholder="Caption">
+	</div>
+	
+	<div style="border-style: solid;border-width: medium;border-color: #8a6de9; margin-top: 70px;margin-bottom:50px;">
+		<input type="text" placeholder="Tag">
+	</div>
+	
+	<p align="center"><button class="button button-medium button-royal post" ng-click="setContext('friends')">post
+	</button><p>
+				
+	
+</ion-content>

@@ -42,6 +42,19 @@ ion-nav-bar, .card > div , .list > ion-item, ion-content ,  .item-complex  .item
 	
 }
 
+.post {
+	
+	//border-style: hidden;
+	border-radius: 20px;
+	margin-left:25%;
+	margin-right:25%;
+	padding: 0 50px;
+	font-size: 20px;
+	line-height: 10px;
+	
+	
+}
+
 .login {
 	
 	border-radius: 6px;
@@ -148,7 +161,7 @@ ion-nav-bar, .card > div , .list > ion-item, ion-content ,  .item-complex  .item
 	height: 300px;
 }
 .post-img {
-	padding: 10px;
+	padding: 0px;
 }
 
 /* username on each posting*/
@@ -224,3 +237,15 @@ ul[rn-carousel] {
 	font-size: 36px;
 }
 
+.round-button{
+	display:block;
+	width:90px;
+	height:90px;
+	border-radius:50px;
+	font-size:11px;
+	font-weight: bold;
+	color:#fff;
+	line-height:90px;
+	text-align:center;
+
+}

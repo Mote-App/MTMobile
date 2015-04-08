@@ -1,70 +1,63 @@
 
-<ion-view  title="New Post">
-	
-	<ion-nav-buttons side="left">
-    	<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
-  	</ion-nav-buttons>
   
+<script id="new-post.html" type="text/ng-template">
 
-  	<ion-content class="has-header">
-  	
-  	<div style="position:absolute;margin-top:100px;">
-		<div class="button-bar">
-	   	  <a class="button button-energized" style="margin:20px;" ng-click="showSubtags('socials')">Social Life</a>
-	   	  <a class="button button-balanced" style="margin:20px;" ng-click="showSubtags('smarts')">Smarts</a>
-	   	  <a class="button button-assertive" style="margin:20px;" ng-click="showSubtags('genre')">Rated R</a>
-	   	</div>
-		</br>
-		<div style="margin-top: 30px;">
-		  <button style="border-radius: 10px;margin: 0px 0px 5px 5px;" 
-		  class="button button-small icon-right ion-checkmark-round button-balanced" 
-		  ng-class="{'button-outline' : !subTag.selected }"
-		  ng-repeat="subTag in subTags" ng-click="setTagID({{subTag.id}})">{{ subTag.subTag }}</button>
-		  
-		  <input type="text" placeholder="Custom Tags (comma separated)" ng-model="customTags" style="margin:20px;">
-		  <input type="text" placeholder="Caption" ng-model="caption" style="margin-top: 30px;margin:20px;">
-		  
-		</div>
-	</div>
-	<div stye="position:absolute; top:0;left:0">
-		<img ng-src="{{profileImgUrl}}">
-	</div>
-	<div class="bar bar-footer">
-		<a class="button button-balanced" href="#/app/friends_feeds">Cancel</a>
-		<a class="button button-balanced" ng-click="uploadImg()">Post</a>
-	</div>
-  	<!--<div class="card">
-  			<div class="item">
-              <media-data></media-data>
-              <span>
-                <p class="image-caption">
-              		
-              	</p>
-              </span>
+	<ion-content style="padding: 10px;">
+		<p align="right"><i class="icon ion-camera" style="font-size:400%; color: #8a6de9;"></i></p>
+			
+		<p align="center" style="font-size: 30px; color: #8a6de9; margin-top:40px;">post your <img src="img/mote-wordmark-21.png" style="width:30%;"/></p>
+		
+			
+		<div class="row">	  
+			<div class="col">
+				
+				<a class="button round-button" ng-class="{'button-royal': anonymous, 'button-outline button-royal': !anonymous}" ng-click="setContext('anonymous')" >Anonymous
+				</a>
 			</div>
-  		</div>-->
-  		<!--<div class="card">
-              <span class="tagItem" ng-repeat="tag in tags"> {{ tag.tagText }} <a ng-click="removeTag( '{{ tag.tagId}}' )"><i class="icon ion-close-round"></i></a></span>
-          </div>
-  		<div class="item tabs tabs-secondary tabs-icon-left">
-          <a ng-click="menu('#social', user.posts.popularPost.tags)" class="tab-item">
-            <i class="icon ion-android-friends"></i>
-            Social Life
-          </a>
-          <a ng-click="menu('#genre', user.posts.popularPost.tags)" class="tab-item">
-            <i class="icon ion-male"></i>
-            Rated R
-          </a>
-          <a ng-click="menu('#smart', user.posts.popularPost.tags)" class="tab-item">
-            <i class="icon ion-social-android"></i>
-            Smart
-          </a>
-          <a ng-click="menu('#customTag', user.posts.popularPost.tags)" class="tab-item">
-            <i class="icon ion-social-android"></i>
-            Custom Tag
-          </a>
-        </div>-->
-        
-  	</ion-content>
-  	
-</ion_view>
+			<div class="col">    
+				<a class="button round-button" ng-class="{'button-royal': username, 'button-outline button-royal': !username}" ng-click="setContext('username')">Username</a>
+			</div>
+			<div class="col">
+				<a class="button round-button" ng-class="{'button-royal': public, 'button-outline button-royal': !public}" ng-click="setContext('public')" >Public</a>
+			</div>
+		</div>
+		<div style="border-style: solid;border-width: medium;border-color: #8a6de9; margin-top: 40px;">
+			<input type="text" ng-model="caption" placeholder="Caption">
+		</div>
+		
+		<div style="border-style: solid;border-width: medium;border-color: #8a6de9; margin-top: 70px;">
+			<input type="text" ng-model="customTags" placeholder="Tag">
+		</div>
+		
+		
+	
+		<div style="margin-top:100px;">
+	
+			<div style="margin-top: 10px;">
+			  <button style="border-radius: 10px;margin: 0px 0px 5px 5px;" 
+			  class="button button-small icon-right ion-checkmark-round button-balanced" 
+			  ng-class="{'button-outline' : !subTag.selected }"
+			  ng-repeat="subTag in subTags" ng-click="setTagID({{subTag.id}})">{{ subTag.subTag }}</button>
+			  
+			  <input type="text" placeholder="Custom Tags (comma separated)" ng-model="customTags" style="margin:20px;">
+			  <input type="text" placeholder="Caption" ng-model="caption" style="margin-top: 30px;margin:20px;">
+			  
+			</div>
+		</div>
+		
+		<p align="center"><button class="button button-medium button-royal post" ng-click="setContext('friends')">post</button><p>
+		<!--<p align="center"><button class="button button-medium button-royal post" ng-click="setContext('friends')">cancel</button><p>-->
+	</ion-content>
+ 
+</script>
+	
+<ion-content class="has-header">
+
+	<div stye="position:absolute; top:0;left:0">
+		<img ng-src="{{profileImgUrl}}" ng-click="openModal()">
+	</div>
+	
+	
+</ion-content>
+
+<footer-bar-feed></footer-bar-feed>
