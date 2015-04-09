@@ -268,9 +268,8 @@ angular.module('clcontrollers', [])
 				}
 			};
 			
-			//$scope.checked = false;
 			
-			$scope.toggleCustomMenu = function(){
+			$scope.applyCustomization = function(){
 				$scope.checked = !$scope.checked;
 				
 				/*
@@ -740,6 +739,15 @@ angular.module('clcontrollers', [])
 	
 	var data = SchoolFeed.query({collegeId: $rootScope.collegeId, userId: $rootScope.userId},function(schoolFeedData) { 
 		$scope.schoolUsers = schoolFeedData;
+		
+		for ( var i=0; i < $scope.schoolUsers.length; i ++ ){
+			var user = $scope.schoolUsers[i];
+			user.post.tags.push("football");
+			user.post.tags.push("baseball");
+			
+			user.post.tags.push("tailgate");
+		}
+		
 	});
 	
 	$scope.updateLike = function(post){
@@ -887,6 +895,13 @@ angular.module('clcontrollers', [])
 
 	NationalFeed.query({collegeId: $rootScope.collegeId, userId: $rootScope.userId}, function(nationalFeedData) { 
 		$scope.nationalUsers = nationalFeedData;
+		for ( var i=0; i < $scope.nationalUsers .length; i ++ ){
+			var user = $scope.nationalUsers[i];
+			user.post.tags.push("football");
+			user.post.tags.push("baseball");
+			user.post.tags.push("soccer");
+			
+		}
 	});
 
 	$scope.updateLike = function(post){
@@ -971,6 +986,11 @@ angular.module('clcontrollers', [])
 		);
 	};
 	
+	/*For Slide Page */
+	$scope.checked = false;
+	$scope.toggleCustomMenu = function(){
+		$scope.checked = !$scope.checked;
+	};
 	//$scope.$on('$ionicView.enter', function( ){
 	//	console.log("Entered view");
 	//});

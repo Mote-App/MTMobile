@@ -91,29 +91,34 @@ angular.module('starter', ['ionic',
       $window.dispatchEvent(new Event('fb.load'));
     });
 	  */  
-	$rootScope.setContext = function(context){
+	$rootScope.setContext = function(context, nonav){
 		
 		if( context == 'friends'){
 			$rootScope.friends = true;
 			$rootScope.school = false;
 			$rootScope.nation = false;
-
-			$state.go('app.friends_feeds');
 			
+			if(nonav != "nonav"){
+				$state.go('app.friends_feeds');
+			}
 		}
 		if( context == 'school'){
 			$rootScope.friends = false;
 			$rootScope.school = true;
 			$rootScope.nation = false;
 			
-			$state.go('app.school_feeds');
+			if(nonav != "nonav"){
+				$state.go('app.school_feeds');
+			}
 		}
 		if( context == 'nation'){
 			$rootScope.friends = false;
 			$rootScope.school = false;
 			$rootScope.nation = true;
-
-			$state.go('app.national_feeds');
+			
+			if(nonav != "nonav"){
+				$state.go('app.national_feeds');
+			}
 		}
 		
 		if( context == 'anonymous'){

@@ -1,51 +1,67 @@
 	
 	<style>
       .ng-pageslide {
-          background: #eee;
+          background: white;
       }
       </style>
       <pageslide ps-side="left" ps-size="90%" ps-open="checked">
-	      
-		 <p style="margin-top:10px; margin-right:5px;" align="right"><img ng-src="img/search_icon_mote.jpg" width="10%"/><p>
+	    <div style="background: white; padding:10px;">  
+			<p style="margin-top:10px; margin-right:5px;" align="right"><img ng-src="img/search_icon_mote.jpg" width="10%" ng-click="toggleCustomMenu()"></p>
 		 
-		<div class="row" style="margin-top:-25px;">
-	      	<div class="col-10"></div>
-	      	<div class="col-10"></div>
-		    <div class="col">    
-		        <button class="button" ng-class="{'button-royal': school, 'button-outline button-royal': !school}" ng-click="setContext('school')" style="border-radius: 30px; font-size:18px">school</button>
-		    </div>
-		    <div class="col">
-				<button class="button" ng-class="{'button-royal': nation, 'button-outline button-royal': !nation}" ng-click="setContext('nation')" style="border-radius: 30px; font-size:18px">national</button>
-		    </div>
-	        <div class="col-10"></div>
-			<div class="col-10"></div>
-		</div>
+			<div class="row" style="margin-top:-25px;">
+				<div class="col-10"></div>
+				<div class="col-10"></div>
+				<div class="col">    
+					<button class="button" ng-class="{'button-royal': school, 'button-outline button-royal': !school}" ng-click="setContext('school', 'nonav')" style="border-radius: 30px; font-size:16px">school</button>
+				</div>
+				<div class="col">
+					<button class="button" ng-class="{'button-royal': nation, 'button-outline button-royal': !nation}" ng-click="setContext('nation', 'nonav')" style="border-radius: 30px; font-size:16px">national</button>
+				</div>
+				<div class="col-10"></div>
+				<div class="col-10"></div>
+			</div>
 	
-		<div style="border-style: solid;border-width: medium;border-color: #8a6de9; margin-top: 40px;">
-			<input type="text" ng-model="collegeId" placeholder="University">
+			<div style="border-style: solid;border-width: medium;border-color: #8a6de9; margin-top: 10px;">
+				<input type="text" ng-model="collegeName" placeholder="University">
+			</div>
+			
+			<div style="border-style: solid;border-width: thin;border-color: #8a6de9; margin-top: 10px;">
+					<input type="text" ng-model="collegeName" placeholder="University">
+			</div>
+			
+			
+			<div style="border-style: solid;border-width: thin;border-color: #8a6de9; margin-top: 10px;">
+				<input type="text" ng-model="collegeName" placeholder="University">
+			</div>
+			
+			<div style="border-style: solid;border-width: thin;border-color: #8a6de9; margin-top: 10px;">
+				<input type="text" ng-model="collegeName" placeholder="University">
+			</div>
+			
+			<div style="margin-top: 10px;">
+				<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
+				class="button button-small button-royal">football</button>
+			</div>
+			<div style="border-style: solid;border-width: medium;border-color: #8a6de9; ">
+				<input type="text" value="football" placeholder="Tag">
+			</div>
+			<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
+			class="button button-small button-outline button-royal" 
+			ng-repeat="tag in user.post.tags" >{{ tag }}</button>
+			
+			<div class="row" style="margin-top:10px;">
+				
+				<div class="col-50">   
+					<button class="button button-royal" ng-click="applyCustomization()" style="border-radius: 30px; font-size:12px">recent feed</button>
+				</div>
+				<div class="col-50">   
+					<button class="button button-royal" ng-click="applyCustomization()" style="border-radius: 30px; font-size:12px">customize feed</button>
+				</div>  
+								
+								
+			</div>
+		
 		</div>
-		
-		<div style="border-style: solid;border-width: thin;border-color: #8a6de9; margin-top: 40px;">
-			<input type="text" ng-model="collegeId" placeholder="University">
-		</div>
-		
-		<div style="border-style: solid;border-width: thin;border-color: #8a6de9; margin-top: 40px;">
-			<input type="text" ng-model="collegeId" placeholder="University">
-		</div>
-		
-		<div style="border-style: solid;border-width: thin;border-color: #8a6de9; margin-top: 40px;">
-			<input type="text" ng-model="collegeId" placeholder="University">
-		</div>
-		
-		
-		<div style="border-style: solid;border-width: medium;border-color: #8a6de9; margin-top: 70px;">
-			<input type="text" ng-model="customTags" placeholder="Tag">
-		</div>
-		
-		<p align="center"><button class="button button-medium button-royal post" ng-click="setContext('friends')">recent feed</button><p>
-		<p align="center"><button class="button button-medium button-royal post" ng-click="setContext('friends')">customize feed</button><p>
-		
-		
       </pageslide>
 	  
 	  <!-- 

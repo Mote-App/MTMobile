@@ -1,46 +1,57 @@
-<ion-content class="has-header" style="padding: 10px;">
+<div style="background: white; padding:10px;">
 		<p align="right"><i class="icon ion-camera" style="font-size:400%; color: #8a6de9;"></i></p>
-			
-		<p align="center" style="font-size: 30px; color: #8a6de9; margin-top:20px;">post your <img src="img/mote-wordmark-21.png" style="width:30%;"/></p>
-		
-			
-		<div class="row">	  
-			<div class="col">
 				
-				<a class="button round-button" ng-class="{'button-royal': anonymous, 'button-outline button-royal': !anonymous}" ng-click="setContext('anonymous')" >Anonymous
-				</a>
+			<p align="center" style="font-size: 30px; color: #8a6de9; margin-top:20px;">post your <img src="img/mote-wordmark-21.png" style="width:30%;"/></p>
+			
+				
+			<div class="row">	  
+				<div class="col">
+					
+					<a class="button round-button" ng-class="{'button-royal': anonymous, 'button-outline button-royal': !anonymous}" ng-click="setContext('anonymous')" >Anonymous
+					</a>
+				</div>
+				<div class="col">    
+					<a class="button round-button" ng-class="{'button-royal': username, 'button-outline button-royal': !username}" ng-click="setContext('username')">Username</a>
+				</div>
+				<div class="col">
+					<a class="button round-button" ng-class="{'button-royal': public, 'button-outline button-royal': !public}" ng-click="setContext('public')" >Public</a>
+				</div>
 			</div>
-			<div class="col">    
-				<a class="button round-button" ng-class="{'button-royal': username, 'button-outline button-royal': !username}" ng-click="setContext('username')">Username</a>
+			<div style="border-style: solid;border-width: medium;border-color: #8a6de9; margin-top: 20px;">
+				<input type="text" ng-model="caption" placeholder="Caption">
 			</div>
-			<div class="col">
-				<a class="button round-button" ng-class="{'button-royal': public, 'button-outline button-royal': !public}" ng-click="setContext('public')" >Public</a>
+			
+			<div style="margin-top: 20px;">
+				<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
+				class="button button-small button-royal">football</button>
 			</div>
-		</div>
-		<div style="border-style: solid;border-width: medium;border-color: #8a6de9; margin-top: 40px;">
-			<input type="text" ng-model="caption" placeholder="Caption">
-		</div>
-		
-		<div style="border-style: solid;border-width: medium;border-color: #8a6de9; margin-top: 70px;">
-			<input type="text" ng-model="customTags" placeholder="Tag">
-		</div>
-		
-		
-	
-		<!--<div style="margin-top:100px;">
-	
-			<div style="margin-top: 10px;">
-			  <button style="border-radius: 10px;margin: 0px 0px 5px 5px;" 
-			  class="button button-small icon-right ion-checkmark-round button-balanced" 
-			  ng-class="{'button-outline' : !subTag.selected }"
-			  ng-repeat="subTag in subTags" ng-click="setTagID({{subTag.id}})">{{ subTag.subTag }}</button>
-			  
-			  <input type="text" placeholder="Custom Tags (comma separated)" ng-model="customTags" style="margin:20px;">
-			  <input type="text" placeholder="Caption" ng-model="caption" style="margin-top: 30px;margin:20px;">
-			  
+			<div style="border-style: solid;border-width: medium;border-color: #8a6de9;">
+				<input type="text" value="football" placeholder="Tag">
 			</div>
-		</div>-->
+			<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
+			class="button button-small button-outline button-royal" >football</button>
+			<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
+			class="button button-small button-outline button-royal" 
+			>baseball</button>
+			<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
+			class="button button-small button-outline button-royal" 
+			>tailgate</button>
+			
 		
-		<p align="center" style="margin-top: 40px;"><button class="button button-medium button-royal post" ng-click="setContext('friends')">post</button><p>
-		<!--<p align="center"><button class="button button-medium button-royal post" ng-click="setContext('friends')">cancel</button><p>-->
-	</ion-content>
+			<!--<div style="margin-top:100px;">
+		
+				<div style="margin-top: 10px;">
+				  <button style="border-radius: 10px;margin: 0px 0px 5px 5px;" 
+				  class="button button-small icon-right ion-checkmark-round button-balanced" 
+				  ng-class="{'button-outline' : !subTag.selected }"
+				  ng-repeat="subTag in subTags" ng-click="setTagID({{subTag.id}})">{{ subTag.subTag }}</button>
+				  
+				  <input type="text" placeholder="Custom Tags (comma separated)" ng-model="customTags" style="margin:20px;">
+				  <input type="text" placeholder="Caption" ng-model="caption" style="margin-top: 30px;margin:20px;">
+				  
+				</div>
+			</div>-->
+			
+			<p align="center" style="margin-top: 20px;"><button class="button button-medium button-royal post" ng-click="setContext('friends')">post</button><p>
+
+	</div>

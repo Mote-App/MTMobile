@@ -13,7 +13,8 @@
       <p align="right" class="image-post-time">{{ post.postingDate}}</p>
       <div style="position:relative;">
         <div style="position:absolute; top:0; left:0; width:50%;"><p align="left"><b style="color: #8a6de9;">{{user.name}}</b></p></div>
-        <div style="position:absolute; top:0; right:0; width:50%;"><p align="right"><b style="color: #8a6de9;">{{ user.schoolName}}</b></p></div>
+        <div style="position:absolute; top:0; right:0; width:50%;"><p align="right"><b style="color: #8a6de9;">James Madison University</b></p></div>
+		<!-- hardcoding for POC {{ user.schoolName}}-->
       </div>
       </br>
 	     <img class="full-image" ng-src="{{ clhost + '/' + post.postImg}}" ng-click="updateLike(post)">
@@ -21,11 +22,11 @@
         <p class="likes" align="left" style="white-space: normal;">
         	<a ng-click="updateLike(post)"><span ng-bind="post.likes"></span> Likes</a>
           &nbsp;&nbsp;&nbsp;&nbsp;
-          <button style="border-radius: 10px;margin: 0px 0px 5px 5px;" 
+          <button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
           class="button button-small button-outline button-royal" 
           ng-repeat="tag in post.tags" >{{ tag }}</button>
 
-          <button style="border-radius: 10px;margin: 0px 0px 5px 5px;" 
+          <button style="border-radius: 10px;margin: 0px 0px 5px 5px;font-size:10px;" 
           class="button button-small button-outline button-royal" 
           ng-repeat="tag in post.customTags" >{{ tag }}</button>
 
