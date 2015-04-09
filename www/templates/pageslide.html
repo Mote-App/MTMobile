@@ -4,8 +4,53 @@
           background: #eee;
       }
       </style>
-      <pageslide ps-side="top" ps-size="90%" ps-open="checked">
-	      <div>
+      <pageslide ps-side="left" ps-size="90%" ps-open="checked">
+	      
+		 <p style="margin-top:10px; margin-right:5px;" align="right"><img ng-src="img/search_icon_mote.jpg" width="10%"/><p>
+		 
+		<div class="row" style="margin-top:-25px;">
+	      	<div class="col-10"></div>
+	      	<div class="col-10"></div>
+		    <div class="col">    
+		        <button class="button" ng-class="{'button-royal': school, 'button-outline button-royal': !school}" ng-click="setContext('school')" style="border-radius: 30px; font-size:18px">school</button>
+		    </div>
+		    <div class="col">
+				<button class="button" ng-class="{'button-royal': nation, 'button-outline button-royal': !nation}" ng-click="setContext('nation')" style="border-radius: 30px; font-size:18px">national</button>
+		    </div>
+	        <div class="col-10"></div>
+			<div class="col-10"></div>
+		</div>
+	
+		<div style="border-style: solid;border-width: medium;border-color: #8a6de9; margin-top: 40px;">
+			<input type="text" ng-model="collegeId" placeholder="University">
+		</div>
+		
+		<div style="border-style: solid;border-width: thin;border-color: #8a6de9; margin-top: 40px;">
+			<input type="text" ng-model="collegeId" placeholder="University">
+		</div>
+		
+		<div style="border-style: solid;border-width: thin;border-color: #8a6de9; margin-top: 40px;">
+			<input type="text" ng-model="collegeId" placeholder="University">
+		</div>
+		
+		<div style="border-style: solid;border-width: thin;border-color: #8a6de9; margin-top: 40px;">
+			<input type="text" ng-model="collegeId" placeholder="University">
+		</div>
+		
+		
+		<div style="border-style: solid;border-width: medium;border-color: #8a6de9; margin-top: 70px;">
+			<input type="text" ng-model="customTags" placeholder="Tag">
+		</div>
+		
+		<p align="center"><button class="button button-medium button-royal post" ng-click="setContext('friends')">recent feed</button><p>
+		<p align="center"><button class="button button-medium button-royal post" ng-click="setContext('friends')">customize feed</button><p>
+		
+		
+      </pageslide>
+	  
+	  <!-- 
+	  
+		<div>
 	      	<div class="item item-input item-select body-color">
 				<div class="input-label">
 				  University
@@ -40,6 +85,5 @@
 			  <a style="position:absolute; bottom:-14px; left:45%;color:black;" 
 			  ng-click="toggleCustomMenu()" class="button button-icon icon ion-drag button-dark"></a>
 		  </div>
-		  
-		  
-      </pageslide>
+	  
+	  -->

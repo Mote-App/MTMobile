@@ -361,20 +361,22 @@ angular.module('starter', ['ionic',
 	})
 	
     .state('app.new_post', { 
-    	url: "/new_post",
+    	url: "/new_post/:take",
     	views : {
     		'menuContent' :{
     			templateUrl: "templates/new_post.html",
-    			controller: 'NewPostCtrl',
+    			controller: 'NewPostCtrl' /*,
     			resolve: {
-    					imageURI: function($q, Camera){
+    					imageURI: function(Camera){ //$q, 
     						
-    						var deferred = $q.defer();
+    						//var deferred = $q.defer();
 					    	Camera.getPicture().then(function(imageURI){
-					    		deferred.resolve(imageURI);
+					    		//deferred.resolve(imageURI);
+								return imageURI;
 							},
 							function(error){
-								deferred.resolve(error);
+								//deferred.resolve(error);
+								return imageURI;
 							},
 							{
 								quality : 75,
@@ -386,9 +388,9 @@ angular.module('starter', ['ionic',
 					            destinationType: navigator.camera.DestinationType.FILE_URI
 							}
 							);
-					    	return deferred.promise;
+					    	//return deferred.promise;
     					}
-    			}
+    			}*/
     			
     		}
     	}

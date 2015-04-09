@@ -1,6 +1,19 @@
 
-  
-<script id="new-post.html" type="text/ng-template">
+<header-bar></header-bar>
+
+
+<ion-content class="has-header">
+	
+	<div stye="position:absolute; top:0px;left:0">
+		<img ng-src="{{postImgUrl}}" src="{{postImgUrl}}" ng-click="openModal()">
+	</div>
+</ion-content>
+
+
+<footer-bar-post></footer-bar-post>
+
+
+<script id="new_post.html" type="text/ng-template">
 
 	<ion-content style="padding: 10px;">
 		<p align="right"><i class="icon ion-camera" style="font-size:400%; color: #8a6de9;"></i></p>
@@ -31,7 +44,7 @@
 		
 		
 	
-		<div style="margin-top:100px;">
+		<!--<div style="margin-top:100px;">
 	
 			<div style="margin-top: 10px;">
 			  <button style="border-radius: 10px;margin: 0px 0px 5px 5px;" 
@@ -43,21 +56,10 @@
 			  <input type="text" placeholder="Caption" ng-model="caption" style="margin-top: 30px;margin:20px;">
 			  
 			</div>
-		</div>
+		</div>-->
 		
 		<p align="center"><button class="button button-medium button-royal post" ng-click="setContext('friends')">post</button><p>
 		<!--<p align="center"><button class="button button-medium button-royal post" ng-click="setContext('friends')">cancel</button><p>-->
 	</ion-content>
  
 </script>
-	
-<ion-content class="has-header">
-
-	<div stye="position:absolute; top:0;left:0">
-		<img ng-src="{{profileImgUrl}}" ng-click="openModal()">
-	</div>
-	
-	
-</ion-content>
-
-<footer-bar-feed></footer-bar-feed>
