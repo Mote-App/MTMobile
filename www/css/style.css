@@ -46,9 +46,9 @@ ion-nav-bar, .card > div , .list > ion-item, ion-content ,  .item-complex  .item
 	
 	//border-style: hidden;
 	border-radius: 20px;
-	margin-left:25%;
-	margin-right:25%;
-	padding: 0 50px;
+	margin-left:10%;
+	margin-right:10%;
+	padding: 0 40px;
 	font-size: 20px;
 	line-height: 10px;
 	

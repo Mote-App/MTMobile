@@ -961,9 +961,9 @@ angular.module('clcontrollers', [])
 			},
 			{
 				quality : 75,
-				targetWidth: 300,
-				targetHeight: 300,
-				popoverOptions: CameraPopoverOptions,
+				targetWidth: 320,
+				targetHeight: 320,
+				//popoverOptions: CameraPopoverOptions,
 				saveToPhotoAlbum: false,
 				encodingType: navigator.camera.EncodingType.JPEG,
 				destinationType: navigator.camera.DestinationType.FILE_URI
@@ -971,12 +971,12 @@ angular.module('clcontrollers', [])
 		);
 	};
 	
-	$scope.$on('$ionicView.enter', function( ){
-		console.log("Entered view");
-	});
+	//$scope.$on('$ionicView.enter', function( ){
+	//	console.log("Entered view");
+	//});
 	
 	if( $stateParams.take == 1){
-	//	$scope.takePicture();
+		$scope.takePicture();
 	}
 	
 	$scope.cancel = function(){

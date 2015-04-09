@@ -5,7 +5,7 @@
 <ion-content class="has-header">
 	
 	<div stye="position:absolute; top:0px;left:0">
-		<img ng-src="{{postImgUrl}}" src="{{postImgUrl}}" ng-click="openModal()">
+		<img ng-src="{{postImgUrl}}" ng-click="openModal()" style="max-width:100%;">
 	</div>
 </ion-content>
 
@@ -15,10 +15,10 @@
 
 <script id="new_post.html" type="text/ng-template">
 
-	<ion-content style="padding: 10px;">
+	<ion-content class="has-header" style="padding: 10px;">
 		<p align="right"><i class="icon ion-camera" style="font-size:400%; color: #8a6de9;"></i></p>
 			
-		<p align="center" style="font-size: 30px; color: #8a6de9; margin-top:40px;">post your <img src="img/mote-wordmark-21.png" style="width:30%;"/></p>
+		<p align="center" style="font-size: 30px; color: #8a6de9; margin-top:20px;">post your <img src="img/mote-wordmark-21.png" style="width:30%;"/></p>
 		
 			
 		<div class="row">	  
@@ -58,7 +58,7 @@
 			</div>
 		</div>-->
 		
-		<p align="center"><button class="button button-medium button-royal post" ng-click="setContext('friends')">post</button><p>
+		<p align="center" style="margin-top: 40px;"><button class="button button-medium button-royal post" ng-click="setContext('friends')">post</button><p>
 		<!--<p align="center"><button class="button button-medium button-royal post" ng-click="setContext('friends')">cancel</button><p>-->
 	</ion-content>
  
