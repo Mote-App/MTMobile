@@ -35,6 +35,10 @@
                         {
                             "xml": "<feature name=\"FileTransfer\"><param name=\"ios-package\" value=\"CDVFileTransfer\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -57,6 +61,10 @@
                         {
                             "xml": "false",
                             "count": 2
+                        },
+                        {
+                            "xml": false,
+                            "count": 1
                         }
                     ],
                     "AssetsLibrary.framework": [
@@ -103,6 +111,9 @@
         },
         "org.apache.cordova.file-transfer": {
             "PACKAGE_NAME": "com.collegelifeapp.mobile"
+        },
+        "org.apache.cordova.inappbrowser": {
+            "PACKAGE_NAME": "com.mote.mobile"
         }
     },
     "dependent_plugins": {}
