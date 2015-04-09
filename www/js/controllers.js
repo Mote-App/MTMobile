@@ -976,7 +976,7 @@ angular.module('clcontrollers', [])
 	//});
 	
 	if( $stateParams.take == 1){
-		$scope.takePicture();
+		//$scope.takePicture();
 	}
 	
 	$scope.cancel = function(){
