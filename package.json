@@ -22,5 +22,9 @@
     "org.apache.cordova.file",
     "org.apache.cordova.file-transfer",
     "org.apache.cordova.inappbrowser"
+  ],
+  "cordovaPlatforms": [
+    "ios",
+    "android"
   ]
 }
