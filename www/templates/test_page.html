@@ -1,33 +1,48 @@
 
-<ion-content style="padding: 10px;">
-	<p align="right"><i class="icon ion-camera" style="font-size:400%; color: #8a6de9;"></i></p>
-		
-	<p align="center" style="font-size: 30px; color: #8a6de9; margin-top:40px;">post your <img src="img/mote-wordmark-21.png" style="width:30%;"/></p>
+<ion-content style="padding: 20px;">
+	<p style="margin-top:10px; margin-right:5px;" align="right"><img ng-src="img/search_icon_mote.jpg" width="10%"/><p>
+		 
+		<div class="row" style="margin-top:-25px;">
+	      	<div class="col-10"></div>
+	      	<div class="col-10"></div>
+		    <div class="col">    
+		        <button class="button" ng-class="{'button-royal': school, 'button-outline button-royal': !school}" ng-click="setContext('school')" style="border-radius: 30px; font-size:18px">school</button>
+		    </div>
+		    <div class="col">
+				<button class="button" ng-class="{'button-royal': nation, 'button-outline button-royal': !nation}" ng-click="setContext('nation')" style="border-radius: 30px; font-size:18px">national</button>
+		    </div>
+	        <div class="col-10"></div>
+			<div class="col-10"></div>
+		</div>
 	
-		
-	<div class="row">	  
-		<div class="col">
+		<div style="border-style: solid;border-width: medium;border-color: #8a6de9; margin-top: 20px;">
 			
-			<a class="button round-button" ng-class="{'button-royal': anonymous, 'button-outline button-royal': !anonymous}" ng-click="setContext('anonymous')" >Anonymous
-			</a>
+				<input type="text" ng-model="collegeName" placeholder="University" >
+				
 		</div>
-		<div class="col">    
-			<a class="button round-button" ng-class="{'button-royal': username, 'button-outline button-royal': !username}" ng-click="setContext('username')">Username</a>
+		
+		<div  style="border-style: solid;border-width: thin;border-color: #8a6de9; margin-top: 10px;">
+			<label class="item item-input">
+				<input type="text" ng-model="collegeName" placeholder="University">
+				<i class="icon ion-close-round placeholder-icon" style="margin-top: -25px;"></i>
+			</label>
 		</div>
-		<div class="col">
-			<a class="button round-button" ng-class="{'button-royal': public, 'button-outline button-royal': !public}" ng-click="setContext('public')" >Public</a>
+		
+		<div style="border-style: solid;border-width: thin;border-color: #8a6de9; margin-top: 10px;">
+			<input type="text" ng-model="collegeName" placeholder="University">
 		</div>
-	</div>
-	<div style="border-style: solid;border-width: medium;border-color: #8a6de9; margin-top: 40px;">
-		<input type="text" placeholder="Caption">
-	</div>
-	
-	<div style="border-style: solid;border-width: medium;border-color: #8a6de9; margin-top: 70px;margin-bottom:50px;">
-		<input type="text" placeholder="Tag">
-	</div>
-	
-	<p align="center"><button class="button button-medium button-royal post" ng-click="setContext('friends')">post
-	</button><p>
+		
+		<div style="border-style: solid;border-width: thin;border-color: #8a6de9; margin-top: 10px;">
+			<input type="text" ng-model="collegeName" placeholder="University">
+		</div>
+		
+		
+		<div style="border-style: solid;border-width: medium;border-color: #8a6de9; margin-top: 70px;">
+			<input type="text" ng-model="customTags" placeholder="Tag">
+		</div>
+		
+		<p align="center"><button class="button button-medium button-royal post" ng-click="setContext('friends')">recent feed</button><p>
+		<p align="center"><button class="button button-medium button-royal post" ng-click="setContext('friends')">customize feed</button><p>
 				
 	
 </ion-content>

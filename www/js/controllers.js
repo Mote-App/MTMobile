@@ -63,6 +63,16 @@ angular.module('clcontrollers', [])
 	}
 })
 
+.directive("footerBarPost", function(){
+	
+	return{
+		restrict: 'E',
+		link: function(scope,element,attrs){
+		},
+		templateUrl:'templates/footer_bar_post.html'
+	};
+})
+
 .directive("footerBarFeed", function(){
 	
 	return{
@@ -72,7 +82,6 @@ angular.module('clcontrollers', [])
 		templateUrl:'templates/footer_bar.html'
 	};
 })
-
 
 .directive("waterWheelCarousel", function(){
 
@@ -672,6 +681,13 @@ angular.module('clcontrollers', [])
  
   };
 
+	$scope.checked = false;
+	
+	$scope.toggleCustomMenu = function(){
+		
+		$scope.checked = !$scope.checked;
+	};
+	
  /*$scope.takePicture = function(){
 	$state.go('app.new_post');			
  };*/
@@ -927,39 +943,49 @@ angular.module('clcontrollers', [])
 		
 })
 
-.controller('NewPostCtrl', function($scope, $rootScope, $state, Profile, imageURI) {
+.controller('NewPostCtrl', function($scope, $rootScope, $state, $ionicModal, $stateParams, Camera) {
 
-	console.log("imageURI in NewPostCtrl: " + imageURI);
-	$scope.profileImgUrl 	= imageURI;
+	//alert("imageURI in NewPostCtrl: " + imageURI);
+	$scope.postImgUrl;
 	$scope.customTags		= "";
 	$scope.caption			= "";
-	/*$scope.takePicture = function(){
-
-		Camera.getPicture().then(function(imageURI){
-			$scope.profileImgUrl = imageURI;
-		},
-		function(error){
-			console.log(error);
-		},
-		{
-			quality : 75,
-			targetWidth: 300,
-            targetHeight: 300,
-            popoverOptions: CameraPopoverOptions,
-            saveToPhotoAlbum: false,
-            encodingType: navigator.camera.EncodingType.JPEG,
-            destinationType: navigator.camera.DestinationType.FILE_URI
-		}
+	
+	$scope.takePicture = function(){
+		
+		Camera.getPicture().then(
+			function(imageURI){
+				$scope.postImgUrl = imageURI;
+			},
+			function(error){
+				console.log(error);
+			},
+			{
+				quality : 75,
+				targetWidth: 300,
+				targetHeight: 300,
+				popoverOptions: CameraPopoverOptions,
+				saveToPhotoAlbum: false,
+				encodingType: navigator.camera.EncodingType.JPEG,
+				destinationType: navigator.camera.DestinationType.FILE_URI
+			}
 		);
-	};*/
-	  
+	};
+	
+	$scope.$on('$ionicView.enter', function( ){
+		console.log("Entered view");
+	});
+	
+	if( $stateParams.take == 1){
+	//	$scope.takePicture();
+	}
+	
 	$scope.cancel = function(){
 		
 	};
 	
 	$scope.uploadImg = function(){
 		
-		var fileURL = $scope.profileImgUrl;
+		var fileURL = $scope.postImgUrl;
 		
 		var options = new FileUploadOptions();
 		options.fileKey = "file";
@@ -1037,7 +1063,7 @@ angular.module('clcontrollers', [])
 	};
 	
 	//Handle model to show option for adding post details
-	$ionicModal.fromTemplateUrl('new-post.html', {
+	$ionicModal.fromTemplateUrl('new_post.html', {
 		    scope: $scope,
 		    animation: 'slide-in-up'
 		  }).then(function(modal) {
@@ -1054,6 +1080,7 @@ angular.module('clcontrollers', [])
 	  $scope.$on('$destroy', function() {
 	    $scope.modal.remove();
 	  });
+	  
   //This block of code needs to be repeated in every control where 
   //circular menu is required - need to fit in some directive
   /*$scope.subtagsArr = [];
