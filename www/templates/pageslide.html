@@ -45,11 +45,12 @@
 			<div style="border-style: solid;border-width: medium;border-color: #8a6de9; ">
 				<input type="text" value="football" placeholder="Tag">
 			</div>
+			<div style="margin-top: 2px;">
 			<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
 			class="button button-small button-outline button-royal" 
 			ng-repeat="tag in user.post.tags" >{{ tag }}</button>
-			
-			<div class="row" style="margin-top:10px;">
+			</div>
+			<div class="row" style="margin-top:8px;">
 				
 				<div class="col-50">   
 					<button class="button button-royal" ng-click="applyCustomization()" style="border-radius: 30px; font-size:12px">recent feed</button>
