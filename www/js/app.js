@@ -37,6 +37,7 @@ angular.module('starter', ['ionic',
 .run(function($ionicPlatform, $rootScope, $filter, $window, $state, OpenFB) {
 
 	//AWS http://54.149.27.205
+	
 	$rootScope.clhost = "http://54.149.27.205";
 	$rootScope.clport = ":8080";
 	$rootScope.lstTag = {};

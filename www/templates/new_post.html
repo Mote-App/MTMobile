@@ -41,13 +41,13 @@
 			</div>
 			
 			<div style="margin-top: 20px;">
-				<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
-				class="button button-small button-royal">football</button>
+			<!-- 	<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
+				class="button button-small button-royal">football</button> -->
 			</div>
 			<div style="border-style: solid;border-width: medium;border-color: #8a6de9;">
-				<input type="text" value="football" placeholder="Tag">
+				<input type="text" ng-value="{{feedFilterTags}}" placeholder="Tag">
 			</div>
-			<div style="margin-top:2px;">
+			<!-- <div style="margin-top:2px;">
 			<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
 			class="button button-small button-outline button-royal" >football</button>
 			<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
@@ -56,23 +56,18 @@
 			<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
 			class="button button-small button-outline button-royal" 
 			>tailgate</button>
+			</div> -->
+		
+			<div style="margin-top:2px;">
+		
+				  <button style="border-radius: 10px;margin: 0px 0px 5px 5px;font-size:10px;" 
+				  class="button button-small button-outline button-royal" 
+				  ng-class="{'button-outline' : !tag.selected }"
+				  ng-repeat="tag in lstTag" ng-click="setTagID({{tag.tagId}})">{{ tag.tagDescription }}</button>
+				  
 			</div>
-		
-			<!--<div style="margin-top:100px;">
-		
-				<div style="margin-top: 10px;">
-				  <button style="border-radius: 10px;margin: 0px 0px 5px 5px;" 
-				  class="button button-small icon-right ion-checkmark-round button-balanced" 
-				  ng-class="{'button-outline' : !subTag.selected }"
-				  ng-repeat="subTag in subTags" ng-click="setTagID({{subTag.id}})">{{ subTag.subTag }}</button>
-				  
-				  <input type="text" placeholder="Custom Tags (comma separated)" ng-model="customTags" style="margin:20px;">
-				  <input type="text" placeholder="Caption" ng-model="caption" style="margin-top: 30px;margin:20px;">
-				  
-				</div>
-			</div>-->
 			
-			<p align="center" style="margin-top: 18px;"><button class="button button-medium button-royal post" ng-click="setContext('friends')">post</button><p>
+			<p align="center" style="margin-top: 18px;"><button class="button button-medium button-royal post" ng-click="uploadImg()">post</button><p>
 
 	</div>
 </pageslide>

@@ -471,7 +471,7 @@ angular.module('clcontrollers', [])
 		/*Prepare for db update*/
 		
 		$scope.userDetail.college = angular.fromJson($scope.userDetail.college);
-		$scope.userDetail.isAlumni = $scope.userDetail.isAlumni == true ? "Y" : "N";
+		//$scope.userDetail.isAlumni = $scope.userDetail.isAlumni == true ? "Y" : "N";
 		
 		$scope.userDetail.profilePictureUrl = "dummy";
 		
@@ -592,7 +592,7 @@ angular.module('clcontrollers', [])
 	  */
 	 $scope.setCollege = function(school){
 		 $scope.userDetail.college = school;
-		 $scope.userDetail.univName = school.name;
+		 $scope.userDetail.collegeName = school.collegeName;
 		 $scope.closeModal();
 	 };
 	 
@@ -667,7 +667,7 @@ angular.module('clcontrollers', [])
 		}
 	};
 
-  var data = FriendFeed.query({userId: $rootScope.userId},function(friendFeedData) { 
+  var data = FriendFeed.query({profileId: $rootScope.userId},function(friendFeedData) { 
     $scope.users = friendFeedData;
   });
 
@@ -850,39 +850,7 @@ angular.module('clcontrollers', [])
 	
 	/*School Feed filter - End*/
 	
-//This block of code needs to be repeated in every control where 
-  //circular menu is required - need to fit in some directive
- /* $scope.subtagsArr = [];
-  $scope.selectedTagsArr = [];
 
-  $scope.menu = function(menuType, tagsArr) {
-
-    $scope.selectedTagsArr = tagsArr;
-
-    if ( menuType == "#social"){
-      $scope.subtagsArr = $rootScope.socialArr;
-    }
-    if ( menuType == "#smart"){
-      $scope.subtagsArr = $rootScope.smartArr;
-    }
-    if ( menuType == "#genre"){
-      $scope.subtagsArr = $rootScope.genreArr;
-    }
-
-    $(".circle").toggleClass('open');   
-  };
-
-  $scope.removeTag = function(tagId, tagsArr){
-    $scope.selectedTagsArr = tagsArr;
-
-    tagsArr = _.reject(tagsArr, function (tag){
-      return tag == tagId;
-    });
-
-    //Make a deep copy to reflect the changes and refresh the deletion
-    angular.copy(tagsArr, $scope.selectedTagsArr);
-
-  };*/
 
 })
 
@@ -920,41 +888,6 @@ angular.module('clcontrollers', [])
 		$scope.checked = !$scope.checked;
 	};
 	
-//This block of code needs to be repeated in every control where 
-  //circular menu is required - need to fit in some directive
- /* $scope.subtagsArr = [];
-  $scope.selectedTagsArr = [];
-
-  $scope.menu = function(menuType, tagsArr) {
-
-    $scope.selectedTagsArr = tagsArr;
-
-    if ( menuType == "#social"){
-      $scope.subtagsArr = $rootScope.socialArr;
-    }
-    if ( menuType == "#smart"){
-      $scope.subtagsArr = $rootScope.smartArr;
-    }
-    if ( menuType == "#genre"){
-      $scope.subtagsArr = $rootScope.genreArr;
-    }
-
-    $(".circle").toggleClass('open');   
-  };
-
-  $scope.removeTag = function(tagId, tagsArr){
-    $scope.selectedTagsArr = tagsArr;
-
-    tagsArr = _.reject(tagsArr, function (tag){
-      return tag == tagId;
-    });
-
-    //Make a deep copy to reflect the changes and refresh the deletion
-    angular.copy(tagsArr, $scope.selectedTagsArr);
-
-  };*/
-
-	//jQuery(document).ready(function(){
 		
 })
 
@@ -1034,7 +967,12 @@ angular.module('clcontrollers', [])
 
 	};
 	
-	$scope.subTags = [];
+	$scope.tags = $rootScope.lstTag;
+	_.each($scope.tags, function(tagObj){		
+		tagObj.selected = false;
+	});
+	
+	/*$scope.subTags = [];
 	
 	$scope.showSubtags = function(tag){
 		
@@ -1050,11 +988,8 @@ angular.module('clcontrollers', [])
 			$scope.subTags  = $rootScope.lstTag.genre;
 		}
 		
-		_.each($scope.subTags, function(tagObj){
-			
-			tagObj.selected = false;
-		});
-	}
+		
+	}*/
 	
 	$scope.feedFilterTags = [];
 
@@ -1064,21 +999,21 @@ angular.module('clcontrollers', [])
 		
 		var ind = $scope.feedFilterTags.indexOf(tagId);
 		
-		var subTagObj = _.find($scope.subTags, function(tag){ return tag.id == tagId});
+		var tagObj = _.find($scope.tags, function(tag){ return tag.tagId == tagId});
 		
 		//var subTagObj =  $scope.subTags[subTagIndex];
 				
 		if(ind == -1){
 			$scope.feedFilterTags.push(tagId);
 			//$scope.tagSelected = true;
-			subTagObj.selected = true;
+			tagObj .selected = true;
 		}else {
 			//Remove the existing one.
 			$scope.feedFilterTags = _.reject($scope.feedFilterTags, function(tag){
 			      return tag == tagId;
 			});
 			//$scope.tagSelected = false;
-			subTagObj.selected = false;
+			tagObj .selected = false;
 		}
 	};
 	
@@ -1101,39 +1036,6 @@ angular.module('clcontrollers', [])
 	    $scope.modal.remove();
 	  });
 	  
-  //This block of code needs to be repeated in every control where 
-  //circular menu is required - need to fit in some directive
-  /*$scope.subtagsArr = [];
-  $scope.selectedTagsArr = [];
-
-  $scope.menu = function(menuType, tagsArr) {
-
-    $scope.selectedTagsArr = tagsArr;
-
-    if ( menuType == "#social"){
-      $scope.subtagsArr = $rootScope.socialArr;
-    }
-    if ( menuType == "#smart"){
-      $scope.subtagsArr = $rootScope.smartArr;
-    }
-    if ( menuType == "#genre"){
-      $scope.subtagsArr = $rootScope.genreArr;
-    }
-
-    $(".circle").toggleClass('open');   
-  };
-
-  $scope.removeTag = function(tagId, tagsArr){
-    $scope.selectedTagsArr = tagsArr;
-
-    tagsArr = _.reject(tagsArr, function (tag){
-      return tag == tagId;
-    });
-
-    //Make a deep copy to reflect the changes and refresh the deletion
-    angular.copy(tagsArr, $scope.selectedTagsArr);
-
-  };*/
   
 })
 
