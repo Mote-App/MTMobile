@@ -91,7 +91,10 @@ angular.module('starter', ['ionic',
 	$rootScope.$on('fb.load', function() {
       $window.dispatchEvent(new Event('fb.load'));
     });
-	  */  
+	  */
+  
+  	$rootScope.postType = "anonymous";
+  	
 	$rootScope.setContext = function(context, nonav){
 		
 		if( context == 'friends'){
@@ -126,6 +129,7 @@ angular.module('starter', ['ionic',
 			$rootScope.anonymous = true;
 			$rootScope.public = false;
 			$rootScope.username = false;
+			$rootScope.postType = "anonymous";
 			
 		}
 		
@@ -133,12 +137,14 @@ angular.module('starter', ['ionic',
 			$rootScope.username = true;
 			$rootScope.public = false;
 			$rootScope.anonymous = false;
+			$rootScope.postType = "username";
 		}
 		
 		if( context == 'public'){
 			$rootScope.public = true;
 			$rootScope.anonymous = false;
 			$rootScope.username = false;
+			$rootScope.postType = "public";
 			
 		}
 

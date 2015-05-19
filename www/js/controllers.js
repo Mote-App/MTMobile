@@ -946,7 +946,7 @@ angular.module('clcontrollers', [])
 		options.mimeType = "image/jpeg";
 		
 		
-		var postDto = {userId: $rootScope.userId, caption: $scope.caption, tags: $scope.feedFilterTags, customTags: $scope.customTags};
+		var postDto = {postType:$rootScope.postType, userId: $rootScope.userId, caption: $scope.caption, tags: $scope.feedFilterTags, customTags: $scope.customTags};
 		params = {};
 		params.post = angular.toJson(postDto);
 		
