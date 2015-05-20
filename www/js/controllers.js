@@ -39,9 +39,21 @@ angular.module('clcontrollers', [])
 		scope: {
 			post: '=',
 			user: '=',
-			clhost: '@'
+			clhost: '@',
+			level: '@'
 		},
-		controller: function($scope){
+		controller: function($scope, $rootScope, Like){
+			
+			$scope.updateLike = function(post){
+				
+				if( post.likeDone == false){
+					$scope.selectedPost = post;
+					Like.update({likeCount: post.likes, userId: $rootScope.userId, postId: post.postId, level:$scope.level},function(like) { 
+				    	$scope.selectedPost.likes = like.likeCount;
+				    });
+				}
+			};
+			
 			 $scope.formatTags = function(tagArr){
 			    	
 			    	var formattedStr = "";
@@ -56,6 +68,8 @@ angular.module('clcontrollers', [])
 			    	
 			    	return formattedStr;
 			    };
+			    
+			    
 	    },
 		link: function(scope,element,attrs){
 		},
@@ -651,21 +665,8 @@ angular.module('clcontrollers', [])
                                           FriendFeed, 
                                           Tags, 
                                           sliceTagFilter, 
-                                          updateLike) {
-  
-  /*var data = Schools.query(function(imgData) { 
-    $scope.imglists = imgData.schools;
-  });*/
-
-	$scope.updateLike = function(post){
-		
-		if( post.likeDone == false){
-			$scope.selectedPost = post;
-		    updateLike.update({likeCount: post.likes, userId: $rootScope.userId, postId: post.postId, level:'F'},function(like) { 
-		    	$scope.selectedPost.likes = like.likeCount;
-		    });
-		}
-	};
+                                          Like) {
+  	
 
   var data = FriendFeed.query({profileId: $rootScope.userId},function(friendFeedData) { 
     $scope.users = friendFeedData;
@@ -691,40 +692,7 @@ angular.module('clcontrollers', [])
 	$state.go('app.new_post');			
  };*/
 	
-  //This block of code needs to be repeated in every control where 
-  //circular menu is required - need to fit in some directive
- /* $scope.subtagsArr = [];
-  $scope.selectedTagsArr = [];*/
-
- /* $scope.menu = function(menuType, tagsArr) {
-
-    $scope.selectedTagsArr = tagsArr;
-
-    if ( menuType == "#social"){
-      $scope.subtagsArr = $rootScope.socialArr;
-    }
-    if ( menuType == "#smart"){
-      $scope.subtagsArr = $rootScope.smartArr;
-    }
-    if ( menuType == "#genre"){
-      $scope.subtagsArr = $rootScope.genreArr;
-    }
-
-    $(".circle").toggleClass('open');   
-  };*/
-
-  /*$scope.removeTag = function(tagId, tagsArr){
-    $scope.selectedTagsArr = tagsArr;
-
-    tagsArr = _.reject(tagsArr, function (tag){
-      return tag == tagId;
-    });
-
-    //Make a deep copy to reflect the changes and refresh the deletion
-    angular.copy(tagsArr, $scope.selectedTagsArr);
-
-  };
-*/
+ 
 })
 
 
@@ -735,7 +703,8 @@ angular.module('clcontrollers', [])
                                         SchoolFeed, 
                                         sliceTagFilter,
                                         Schools,
-                                        schoolFeedCutomizer) {
+                                        schoolFeedCutomizer,
+                                        Like) {
 	
 	var data = SchoolFeed.query({collegeId: $rootScope.collegeId, userId: $rootScope.userId},function(schoolFeedData) { 
 		$scope.schoolUsers = schoolFeedData;
@@ -749,17 +718,7 @@ angular.module('clcontrollers', [])
 		}
 		
 	});
-	
-	$scope.updateLike = function(post){
 		
-		if( post.likeDone == false){
-			$scope.selectedPost = post;
-			updateLike.update({likeCount: post.likes, userId: $rootScope.userId, postId: post.postId, level:'S'},function(like) { 
-				$scope.selectedPost.likes = like.likeCount;
-			});
-		}
-	};
-	
 	$scope.checked = false;
 	
 	$scope.toggleCustomMenu = function(){
@@ -859,7 +818,8 @@ angular.module('clcontrollers', [])
                                           $rootScope,
                                           NationalFeed, 
                                           Schools, 
-                                          sliceTagFilter) {
+                                          sliceTagFilter,
+                                          Like) {
 
 	NationalFeed.query({collegeId: $rootScope.collegeId, userId: $rootScope.userId}, function(nationalFeedData) { 
 		$scope.nationalUsers = nationalFeedData;
@@ -871,16 +831,6 @@ angular.module('clcontrollers', [])
 			
 		}
 	});
-
-	$scope.updateLike = function(post){
-		
-		if( post.likeDone == false){
-			$scope.selectedPost = post;
-		    updateLike.update({likeCount: post.likes, userId: $rootScope.userId, postId: post.postId, level:'N'},function(like) { 
-		    	$scope.selectedPost.likes = like.likeCount;
-		    });
-		}
-	};
 	
 	/*For Slide Page */
 	$scope.checked = false;
@@ -1112,7 +1062,7 @@ angular.module('clcontrollers', [])
 			$scope.errorMsg = error.data.message;
 		},
 		{
-			quality : 75,
+			quality : 40,
 			targetWidth: 300,
             targetHeight: 300,
             popoverOptions: CameraPopoverOptions,
