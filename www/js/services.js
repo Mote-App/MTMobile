@@ -73,7 +73,7 @@ angular.module('clservices', ['ngResource'])
     });
   }])
 
-  .factory('updateLike', ['$resource', '$rootScope',
+  .factory('Like', ['$resource', '$rootScope',
   function($resource, $rootScope){
     return $resource($rootScope.clhost + $rootScope.clport + '/likes', {}, {
       update: {method:'POST', params:{}, isArray:false}
