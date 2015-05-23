@@ -54,6 +54,11 @@ angular.module('clcontrollers', [])
 				}
 			};
 			
+			 $scope.findTagByTagId = function(tagId){
+				 return $rootScope.findTagByTagId(tagId); 
+			 }
+			
+			
 			 $scope.formatTags = function(tagArr){
 			    	
 			    	var formattedStr = "";
@@ -264,22 +269,24 @@ angular.module('clcontrollers', [])
 				
 				var ind = $scope.feedFilterTags.indexOf(tagId);
 				
-				var subTagObj = _.find($scope.subTags, function(tag){ return tag.id == tagId});
+				var tagObj = _.find($scope.lstTag.tags, function(tag){ return tag.tagId == tagId});
 				
 				//var subTagObj =  $scope.subTags[subTagIndex];
 						
 				if(ind == -1){
 					$scope.feedFilterTags.push(tagId);
-					$scope.tagSelected = true;
-					subTagObj.selected = true;
+					//$scope.tagSelected = true;
+					tagObj.selected = true;
 				}else {
 					//Remove the existing one.
 					$scope.feedFilterTags = _.reject($scope.feedFilterTags, function(tag){
 					      return tag == tagId;
 					});
-					$scope.tagSelected = false;
-					subTagObj.selected = false;
+					//$scope.tagSelected = false;
+					tagObj.selected = false;
 				}
+				
+				$scope.selectedTagDescriptions = $rootScope.formatTags($scope.feedFilterTags);
 			};
 			
 			
@@ -308,7 +315,7 @@ angular.module('clcontrollers', [])
 		        $scope.schools = schoolData;
 		    });
 			
-			$scope.subTags = [];
+			/*$scope.subTags = [];
 			
 			$scope.showSubtags = function(tag){
 				
@@ -328,7 +335,7 @@ angular.module('clcontrollers', [])
 					
 					tagObj.selected = false;
 				});
-			}
+			}*/
 		},
 		link: function(scope, element, attrs){
 			
@@ -667,31 +674,28 @@ angular.module('clcontrollers', [])
                                           sliceTagFilter, 
                                           Like) {
   	
-
-  var data = FriendFeed.query({profileId: $rootScope.userId},function(friendFeedData) { 
-    $scope.users = friendFeedData;
-  });
-
-  $scope.schoolFeed = function(schoolId){
-   
-   $rootScope.collegeId = schoolId;
-   $rootScope.setContext("school");
-   
-   $state.go('app.school_feeds');
- 
-  };
-
-	$scope.checked = false;
 	
+	var data = FriendFeed.query({profileId: $rootScope.userId},function(friendFeedData) { 
+	    $scope.users = friendFeedData;
+	});
+	
+	$scope.schoolFeed = function(schoolId){
+	   
+	   $rootScope.collegeId = schoolId;
+	   $rootScope.setContext("school");
+	   
+	   $state.go('app.school_feeds');
+	 
+	};
+
+	/*
+	 * This flag is required for the slide page to customize the feeds
+	 */
+	$scope.checked = false;
 	$scope.toggleCustomMenu = function(){
-		
 		$scope.checked = !$scope.checked;
 	};
-	
- /*$scope.takePicture = function(){
-	$state.go('app.new_post');			
- };*/
-	
+		
  
 })
 
@@ -718,13 +722,13 @@ angular.module('clcontrollers', [])
 		}
 		
 	});
-		
-	$scope.checked = false;
 	
+	
+	$scope.checked = false;
 	$scope.toggleCustomMenu = function(){
-		
 		$scope.checked = !$scope.checked;
 	};
+
 	
 	/*Required for School Feed filter - start*/
 	/*$scope.feedFilterCollegeId = 0;
@@ -943,28 +947,24 @@ angular.module('clcontrollers', [])
 	
 	$scope.feedFilterTags = [];
 
-	//$scope.tagSelected = false;
-	
 	$scope.setTagID = function(tagId){
 		
 		var ind = $scope.feedFilterTags.indexOf(tagId);
 		
-		var tagObj = _.find($scope.tags, function(tag){ return tag.tagId == tagId});
+		var tagObj = _.find($scope.lstTag.tags, function(tag){ return tag.tagId == tagId});
 		
-		//var subTagObj =  $scope.subTags[subTagIndex];
-				
 		if(ind == -1){
 			$scope.feedFilterTags.push(tagId);
-			//$scope.tagSelected = true;
-			tagObj .selected = true;
+			tagObj.selected = true;
 		}else {
 			//Remove the existing one.
 			$scope.feedFilterTags = _.reject($scope.feedFilterTags, function(tag){
 			      return tag == tagId;
 			});
-			//$scope.tagSelected = false;
-			tagObj .selected = false;
+			tagObj.selected = false;
 		}
+		
+		$scope.selectedTagDescriptions = $rootScope.formatTags($scope.feedFilterTags);
 	};
 	
 	//Handle model to show option for adding post details

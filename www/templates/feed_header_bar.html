@@ -1,13 +1,13 @@
 
-<div class="bar bar-subheader" style="border-style:none; height:100px;">
-	
-	<!--<p align="left" background></button></p>-->
 
-	<p style="margin-top:10px; margin-left:5px;"><img ng-src="img/search_icon_mote.jpg" width="10%" ng-click="toggleCustomMenu()"></p>
+<!-- <div class="bar bar-subheader" style="border-style:none; "> -->
 
-	<div class="row" style="margin-top:-25px;">
-	      <!--<div class="button-bar" style="width:80%;  margin-left:30px;">-->
-	      	<div class="col-10"></div>
+<ion-header-bar class="bar-subheader has-header padding-top ">	
+	<!-- <p style="margin-top:10px; margin-left:5px;"></p> -->
+
+	<div class="row">
+	      
+	      	<div class="col-10"><img ng-src="img/search_icon_mote.jpg" width="80%" ng-click="toggleCustomMenu()" ></div>
 	      	<div class="col">
 		        <button class="button" ng-class="{'button-royal': friends, 'button-outline button-royal': !friends}" ng-click="setContext('friends')" style="border-radius: 30px; font-size:18px">friends
 		        </button>
@@ -19,7 +19,10 @@
 				<button class="button" ng-class="{'button-royal': nation, 'button-outline button-royal': !nation}" ng-click="setContext('nation')" style="border-radius: 30px; font-size:18px">national</button>
 		    </div>
 	        <div class="col-10"></div>
-	      <!--</div>-->
+	      
 	</div>
-</div>
+
+</ion-header-bar>	
+<!-- </div> -->
+
 

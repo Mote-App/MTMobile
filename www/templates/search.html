@@ -12,7 +12,11 @@
         <div class="item item-divider" >
             Filter Posts By one or more Tag
         </div>
-        <span class="tagItem" ng-repeat="tag in filterByTags"> {{findTagByTagId(tag)}}<a ng-click="removeTag( tag , filterByTags)"><i class="icon ion-close-round"></i></a></span>
+        <span class="tagItem" ng-repeat="tag in filterByTags"> {{findTagByTagId(tag)}} 
+        	<a ng-click="removeTag( tag , filterByTags)">
+        		<i class="icon ion-close-round"></i>
+        	</a>
+        </span>
     </div>
 
      <!--     

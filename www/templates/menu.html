@@ -1,19 +1,78 @@
 <ion-side-menus>
 
-  <ion-pane ion-side-menu-content>
+  <ion-pane ion-side-menu-content drag-content="false">
     <ion-nav-bar class="bar-stable nav-title-slide-ios7">
     </ion-nav-bar>
     <ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
   </ion-pane>
 
-  <ion-side-menu side="left" is-enabled="false">
+  <ion-side-menu side="left" is-enabled="false" width="280">
   
-  	<div class="bar bar-header bar-royal">
-  		<h1 class="title">Menu</h1>
-	</div>
-    
     <ion-content class="has-header">
-      <ion-list>
+    
+    	<div style="background: white; padding:10px;">  
+			<p style="margin-top:10px; margin-right:5px;" align="right"><img menu-close ng-src="img/search_icon_mote.jpg" width="10%" ></p>
+		 
+			<div class="row" style="margin-top:-25px;">
+				<div class="col-10"></div>
+				<div class="col-10"></div>
+				<div class="col">    
+					<button class="button" ng-class="{'button-royal': school, 'button-outline button-royal': !school}" ng-click="setContext('school', 'nonav')" style="border-radius: 30px; font-size:16px">school</button>
+				</div>
+				<div class="col">
+					<button class="button" ng-class="{'button-royal': nation, 'button-outline button-royal': !nation}" ng-click="setContext('nation', 'nonav')" style="border-radius: 30px; font-size:16px">national</button>
+				</div>
+				<div class="col-10"></div>
+				<div class="col-10"></div>
+			</div>
+	
+			<div style="border-style: solid;border-width: medium;border-color: #8a6de9; margin-top: 10px;">
+				<input type="text" ng-model="collegeName" placeholder="University">
+			</div>
+			
+			<div style="border-style: solid;border-width: thin;border-color: #8a6de9; margin-top: 10px;">
+					<input type="text" ng-model="collegeName" placeholder="University">
+			</div>
+			
+			
+			<div style="border-style: solid;border-width: thin;border-color: #8a6de9; margin-top: 10px;">
+				<input type="text" ng-model="collegeName" placeholder="University">
+			</div>
+			
+			<div style="border-style: solid;border-width: thin;border-color: #8a6de9; margin-top: 10px;">
+				<input type="text" ng-model="collegeName" placeholder="University">
+			</div>
+			
+		<!-- 	<div style="margin-top: 10px;">
+				<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
+				class="button button-small button-royal">football</button>
+			</div>
+ -->			
+ 			<div style="margin-top: 10px;">
+				<button style="border-radius: 10px;margin: 0px 0px 5px 5px;font-size:10px;" 
+				  class="button button-small button-outline button-royal" 
+				  ng-class="{'button-outline' : !tag.selected }"
+				  ng-repeat="tag in lstTag" ng-click="setTagID({{tag.tagId}})">{{ tag.tagDescription }}</button>
+			</div>
+	
+			<div style="border-style: solid;border-width: medium;border-color: #8a6de9; ">
+				<input type="text" value="football" placeholder="Tag">
+			</div>
+			<div class="row" style="margin-top:8px;">
+				
+				<div class="col-50">   
+					<button class="button button-royal" ng-click="applyCustomization()" style="border-radius: 30px; font-size:12px">recent feed</button>
+				</div>
+				<div class="col-50">   
+					<button class="button button-royal" ng-click="applyCustomization()" style="border-radius: 30px; font-size:12px">customize feed</button>
+				</div>  
+								
+								
+			</div>
+		
+		</div>
+		
+      <!-- <ion-list>
         <ion-item nav-clear menu-close href="#/app/profile">
           My Profile
         </ion-item>
@@ -36,10 +95,17 @@
           Logout
         </ion-item>
 
-      </ion-list>
+      </ion-list> -->
     </ion-content>
   </ion-side-menu>
+  
+	
+	<ion-side-menu side="right" is-enabled="false">
+	</ion-side-menu>
+  
+  
 </ion-side-menus>
+
 
 
 

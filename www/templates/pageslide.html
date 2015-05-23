@@ -3,7 +3,11 @@
       .ng-pageslide {
           background: white;
       }
+      
+      #tagContainer ul li { display: inline; list-style-type: none;}
+      
       </style>
+      
       <pageslide ps-side="left" ps-size="90%" ps-open="checked">
 	    <div style="background: white; padding:10px;">  
 			<p style="margin-top:10px; margin-right:5px;" align="right"><img ng-src="img/search_icon_mote.jpg" width="10%" ng-click="toggleCustomMenu()"></p>
@@ -39,17 +43,18 @@
 			</div>
 			
 			<div style="margin-top: 10px;">
-				<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
-				class="button button-small button-royal">football</button>
+				<ion-scroll direction="x" class="item">
+					<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
+					class="button button-small button-outline button-royal" 
+					ng-class="{'button-outline' : !tag.selected }"
+					ng-repeat="tag in lstTag.tags" ng-click="setTagID({{tag.tagId}})">{{ tag.tagDescription }}</button>								
+				</ion-scroll>
 			</div>
+			
 			<div style="border-style: solid;border-width: medium;border-color: #8a6de9; ">
-				<input type="text" value="football" placeholder="Tag">
+				<input type="text" ng-value="selectedTagDescriptions" placeholder="Selected Tags">
 			</div>
-			<div style="margin-top: 2px;">
-			<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
-			class="button button-small button-outline button-royal" 
-			ng-repeat="tag in user.post.tags" >{{ tag }}</button>
-			</div>
+			
 			<div class="row" style="margin-top:8px;">
 				
 				<div class="col-50">   

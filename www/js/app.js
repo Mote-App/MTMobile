@@ -169,9 +169,20 @@ angular.module('starter', ['ionic',
     
     $rootScope.findTagByTagId = function(tagId){
 
-      var result = tagId.split('_');
+      //var result = tagId.split('_');
       var tagObj = {};
-      //smart
+      
+      /*
+       * Using angularJS provided filter, 
+       * one issue is it filters value using pattern matching for string
+       * For example if tagId = 1, then it returns arrays of 1, 10, 11 and so on.
+       * So using the first index [0] to aget the right result, assuming the master 
+       * tag list is sorted in ASC order
+       */
+      
+      tagObj = ($filter('filter')($rootScope.lstTag.tags,{tagId: tagId}))[0];
+      
+      /*//smart
       if( result[0] == "1"){
         tagObj = ($filter('filter')($rootScope.smartArr,{id: tagId}))[0];
         //($rootScope.smartArr | filter:{id: tagId } )[0].tagText;
@@ -183,9 +194,9 @@ angular.module('starter', ['ionic',
       //genre
       if( result[0] == "3"){
         tagObj = ($filter('filter')($rootScope.genreArr,{id: tagId}))[0];
-      }
+      }*/
       
-      return tagObj.tagText;
+      return tagObj.tagDescription;
     };
     
     $rootScope.formatTags = function(tagArr){
@@ -193,7 +204,9 @@ angular.module('starter', ['ionic',
     	var formattedStr = "";
     	for( var i = 0; i < tagArr.length; i++){
     		
-    		formattedStr = formattedStr + tagArr[i];
+    		var tagDescription = $rootScope.findTagByTagId(tagArr[i]);
+    		
+    		formattedStr = formattedStr + tagDescription;
     		
     		if ( i != (tagArr.length -1)){
     			formattedStr = formattedStr + ", ";
@@ -208,7 +221,7 @@ angular.module('starter', ['ionic',
   
 })
 
-.config(function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+.config(function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $ionicConfigProvider) {
   
 	//$facebookProvider.setAppId('956170854392949').setPermissions(['email','user_friends']);
 	

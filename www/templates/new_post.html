@@ -45,26 +45,16 @@
 				class="button button-small button-royal">football</button> -->
 			</div>
 			<div style="border-style: solid;border-width: medium;border-color: #8a6de9;">
-				<input type="text" ng-value="{{feedFilterTags}}" placeholder="Tag">
+				<input type="text" ng-value="selectedTagDescriptions" placeholder="Selected Tag">
 			</div>
-			<!-- <div style="margin-top:2px;">
-			<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
-			class="button button-small button-outline button-royal" >football</button>
-			<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
-			class="button button-small button-outline button-royal" 
-			>baseball</button>
-			<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
-			class="button button-small button-outline button-royal" 
-			>tailgate</button>
-			</div> -->
 		
 			<div style="margin-top:2px;">
-		
-				  <button style="border-radius: 10px;margin: 0px 0px 5px 5px;font-size:10px;" 
-				  class="button button-small button-outline button-royal" 
-				  ng-class="{'button-outline' : !tag.selected }"
-				  ng-repeat="tag in lstTag" ng-click="setTagID({{tag.tagId}})">{{ tag.tagDescription }}</button>
-				  
+				<ion-scroll direction="x" class="item">
+					<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
+					class="button button-small button-outline button-royal" 
+					ng-class="{'button-outline' : !tag.selected }"
+					ng-repeat="tag in lstTag.tags" ng-click="setTagID({{tag.tagId}})">{{ tag.tagDescription }}</button>								
+				</ion-scroll>
 			</div>
 			
 			<p align="center" style="margin-top: 18px;"><button class="button button-medium button-royal post" ng-click="uploadImg()">post</button><p>
