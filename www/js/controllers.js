@@ -46,6 +46,11 @@ angular.module('clcontrollers', [])
 			
 			$scope.updateLike = function(post){
 				
+				/*
+				 * Always a post will be liked once by a given user. So to avoid duplicate likes
+				 * post.likeDone attribute is used. Only update like if post.likeDone == false
+				 *  
+				 */
 				if( post.likeDone == false){
 					$scope.selectedPost = post;
 					Like.update({likeCount: post.likes, userId: $rootScope.userId, postId: post.postId, level:$scope.level},function(like) { 
@@ -57,23 +62,6 @@ angular.module('clcontrollers', [])
 			 $scope.findTagByTagId = function(tagId){
 				 return $rootScope.findTagByTagId(tagId); 
 			 }
-			
-			
-			 $scope.formatTags = function(tagArr){
-			    	
-			    	var formattedStr = "";
-			    	for( var i = 0; i < tagArr.length; i++){
-			    		
-			    		formattedStr = formattedStr + tagArr[i];
-			    		
-			    		if ( i != (tagArr.length -1)){
-			    			formattedStr = formattedStr + ", ";
-			    		}
-			    	}
-			    	
-			    	return formattedStr;
-			    };
-			    
 			    
 	    },
 		link: function(scope,element,attrs){
@@ -878,6 +866,7 @@ angular.module('clcontrollers', [])
 	$scope.toggleCustomMenu = function(){
 		$scope.checked = !$scope.checked;
 	};
+	
 	//$scope.$on('$ionicView.enter', function( ){
 	//	console.log("Entered view");
 	//});

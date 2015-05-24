@@ -1,0 +1,50 @@
+<style>
+      .ng-pageslide {
+          background: white;
+      }
+      </style>
+<pageslide ps-side="left" ps-size="90%" ps-open="checked">
+	<div style="background: white; padding:10px;">
+		<p align="right" ng-click="toggleCustomMenu()"><i class="icon ion-camera" style="font-size:400%; color: #8a6de9;"></i></p>
+				
+			<p align="center" style="font-size: 30px; color: #8a6de9; margin-top:20px;">post your <img src="img/mote-wordmark-21.png" style="width:30%;"/></p>
+			
+				
+			<div class="row">	  
+				<div class="col">
+					
+					<a class="button round-button" ng-class="{'button-royal': anonymous, 'button-outline button-royal': !anonymous}" ng-click="setContext('anonymous')" >Anonymous
+					</a>
+				</div>
+				<div class="col">    
+					<a class="button round-button" ng-class="{'button-royal': username, 'button-outline button-royal': !username}" ng-click="setContext('username')">Username</a>
+				</div>
+				<div class="col">
+					<a class="button round-button" ng-class="{'button-royal': public, 'button-outline button-royal': !public}" ng-click="setContext('public')" >Public</a>
+				</div>
+			</div>
+			<div style="border-style: solid;border-width: medium;border-color: #8a6de9; margin-top: 20px;">
+				<input type="text" ng-model="caption" placeholder="Caption">
+			</div>
+			
+			<div style="margin-top: 20px;">
+			<!-- 	<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
+				class="button button-small button-royal">football</button> -->
+			</div>
+			<div style="border-style: solid;border-width: medium;border-color: #8a6de9;">
+				<input type="text" ng-value="selectedTagDescriptions" placeholder="Selected Tag">
+			</div>
+		
+			<div style="margin-top:2px;">
+				<ion-scroll direction="x" class="item">
+					<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
+					class="button button-small button-outline button-royal" 
+					ng-class="{'button-outline' : !tag.selected }"
+					ng-repeat="tag in lstTag.tags" ng-click="setTagID({{tag.tagId}})">{{ tag.tagDescription }}</button>								
+				</ion-scroll>
+			</div>
+			
+			<p align="center" style="margin-top: 18px;"><button class="button button-medium button-royal post" ng-click="uploadImg()">post</button><p>
+
+	</div>
+</pageslide>
