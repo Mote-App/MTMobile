@@ -121,5 +121,16 @@ http://ccoenraets.github.io/ionic-tutorial/ionic-facebook-integration.html
 https://github.com/ccoenraets/sociogram-angular-ionic
 
 
+#HTTP Authentication and Interceptor
+http://www.espeo.pl/1-authentication-in-angularjs-application/
+http://witoldsz.github.io/angular-http-auth/
+https://github.com/witoldsz/angular-http-auth
+
+
+#Image Upload
+http://forum.ionicframework.com/t/best-approach-to-resize-and-upload-images-to-server-cloud-image-processing-services/13694/4
+http://cloudinary.com/
+Amazon S3
+https://calendee.com/2015/01/15/posting-images-to-cloudinary-in-ionic-apps/
 
 

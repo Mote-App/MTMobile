@@ -660,8 +660,12 @@ angular.module('clcontrollers', [])
                                           FriendFeed, 
                                           Tags, 
                                           sliceTagFilter, 
-                                          Like) {
+                                          Like,
+                                          $stateParams ) {
   	
+	
+	
+	$scope.moteActiveSlide = 1;
 	
 	var data = FriendFeed.query({profileId: $rootScope.userId},function(friendFeedData) { 
 	    $scope.users = friendFeedData;
@@ -833,14 +837,48 @@ angular.module('clcontrollers', [])
 		
 })
 
-.controller('NewPostCtrl', function($scope, $rootScope, $state, $ionicModal, $stateParams, Camera) {
+.controller('NewPostCtrl', function($scope, $rootScope, $state, $ionicModal, $stateParams, $ionicPopup, CameraService) {
 
-	//alert("imageURI in NewPostCtrl: " + imageURI);
-	$scope.postImgUrl;
+	
+	/*$ionicPopup.alert({
+		title: "Image Path",
+		template: $stateParams.imageURI
+	});*/
+	
+	$scope.postImgUrl = "";
 	$scope.customTags		= "";
 	$scope.caption			= "";
 	
 	$scope.takePicture = function(){
+		
+		CameraService.takePicture().then(
+				
+				function(imageURI){
+					$scope.postImgUrl = imageURI;
+				},
+				function(error){
+					
+					$ionicPopup.alert({
+						title: "Image Capture Error",
+						template: error
+					});
+				}
+			);
+	};
+	
+	$scope.takePicture();
+	
+	
+	/*
+	
+	if( $stateParams.take !=null && $stateParams.take == 1){
+		//$scope.postImgUrl = CameraService.takePicture();
+		$scope.takePicture();
+	}
+*/
+	
+	
+	/*$scope.takePicture = function(){
 		
 		Camera.getPicture().then(
 			function(imageURI){
@@ -848,18 +886,18 @@ angular.module('clcontrollers', [])
 			},
 			function(error){
 				console.log(error);
+				$ionicPopup.alert({
+					title: "Camera capture Failed",
+					template: error
+				});
 			},
 			{
-				quality : 75,
-				targetWidth: 320,
-				targetHeight: 320,
-				//popoverOptions: CameraPopoverOptions,
-				saveToPhotoAlbum: false,
+				quality : 25,
 				encodingType: navigator.camera.EncodingType.JPEG,
 				destinationType: navigator.camera.DestinationType.FILE_URI
 			}
 		);
-	};
+	};*/
 	
 	/*For Slide Page */
 	$scope.checked = false;
@@ -867,17 +905,6 @@ angular.module('clcontrollers', [])
 		$scope.checked = !$scope.checked;
 	};
 	
-	//$scope.$on('$ionicView.enter', function( ){
-	//	console.log("Entered view");
-	//});
-	
-	if( $stateParams.take == 1){
-		//$scope.takePicture();
-	}
-	
-	$scope.cancel = function(){
-		
-	};
 	
 	$scope.uploadImg = function(){
 		
@@ -887,6 +914,7 @@ angular.module('clcontrollers', [])
 		options.fileKey = "file";
 		options.fileName = fileURL.substr(fileURL.lastIndexOf('/')+1);
 		options.mimeType = "image/jpeg";
+		options.headers = {Connection: "close"};
 		
 		
 		var postDto = {postType:$rootScope.postType, userId: $rootScope.userId, caption: $scope.caption, tags: $scope.feedFilterTags, customTags: $scope.customTags};
@@ -904,6 +932,10 @@ angular.module('clcontrollers', [])
 				}, 
 				function(error){
 					console.log(error);
+					$ionicPopup.alert({
+						title: "File Upload Failed",
+						template: error
+					});
 				}, 
 				options
 		);

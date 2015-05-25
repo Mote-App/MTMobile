@@ -4,27 +4,28 @@
 	<header-bar-feed></header-bar-feed>
 
 	<ion-content class="has-subheader padding-top">
-	 <ul class="list" >
-	 	<li class="item" style="padding: 0px; border:none;" ng-repeat="user in users">
-	  	<ion-slide-box on-slide-changed="slideHasChanged($index)" active-slide="1">
-	  		<ion-slide>
-	  			<post-content post="user.posts.popularPost" user="user" clhost="{{clhost}}" level="F"></post-content>
-	  		</ion-slide>
-	  		<ion-slide>
-	  			<post-content post="user.posts.currentPost" user="user" clhost="{{clhost}}" level="F"></post-content>
-	  		</ion-slide>
-	  		<ion-slide>
-	  			<post-content post="user.posts.mostRecentPost" user="user" clhost="{{clhost}}" level="F"></post-content>
-	  		</ion-slide>
-	  	</ion-slide-box>
-	</li>
-	</ul>
 	
-	<slide-page></slide-page>
+		 <ul class="list" >
+		 	<li class="item" style="padding: 0px; border:none;" ng-repeat="user in users">
+		  	<ion-slide-box on-slide-changed="slideHasChanged($index)" active-slide="moteActiveSlide" show-pager="false">
+		  		<ion-slide>
+		  			<post-content post="user.posts.popularPost" user="user" clhost="{{clhost}}" level="F"></post-content>
+		  		</ion-slide>
+		  		<ion-slide>
+		  			<post-content post="user.posts.currentPost" user="user" clhost="{{clhost}}" level="F"></post-content>
+		  		</ion-slide>
+		  		<ion-slide>
+		  			<post-content post="user.posts.mostRecentPost" user="user" clhost="{{clhost}}" level="F"></post-content>
+		  		</ion-slide>
+		  	</ion-slide-box>
+		</li>
+		</ul>
+		
+		<slide-page></slide-page>
+		
 	</ion-content>
 	
 		
 	<footer-bar-feed></footer-bar-feed>
-  
 </ion-view>
 

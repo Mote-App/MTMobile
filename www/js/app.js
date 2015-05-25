@@ -383,11 +383,12 @@ angular.module('Mote', ['ionic',
 	})
 	
     .state('app.new_post', { 
-    	url: "/new_post/:take",
+    	url: "/new_post",
     	views : {
     		'menuContent' :{
     			templateUrl: "templates/new_post.html",
-    			controller: 'NewPostCtrl' /*,
+    			controller: 'NewPostCtrl' 
+    				/*,
     			resolve: {
     					imageURI: function(Camera){ //$q, 
     						
@@ -444,12 +445,12 @@ angular.module('Mote', ['ionic',
 	);*/
 })
 
-/*.constant('$ionicLoadingConfig', {
-	  template: '<ion-spinner></ion-spinner>Loading...'
-	})
+.constant('$ionicLoadingConfig', {
+	  template: '<ion-spinner class="spinner-royal"></ion-spinner>Mote Processing...</span>',
+	  
+})
 
 .config(function($httpProvider) {
   $httpProvider.interceptors.push('MoteInterceptor');
-})
-*/;
+});
 

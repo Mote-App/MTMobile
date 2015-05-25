@@ -28,12 +28,7 @@
           class="button button-small button-outline button-royal" 
           ng-repeat="tag in post.tags" >{{findTagByTagId(tag)}}</button>
 
-          <!-- <button style="border-radius: 10px;margin: 0px 0px 5px 5px;font-size:10px;" 
-          class="button button-small button-outline button-royal" 
-          ng-repeat="tag in post.customTags" >{{ tag }}</button>
- -->
         </p>
-
   
         <div>
         	<!--<img ng-src="{{ clhost + '/' + user.profileImg}}" class="profile-img-style">-->
@@ -45,16 +40,5 @@
             
           </p>
         </div>
-
         
-        <!--<div class="row">
-              <div class="col">{{ post.tagCategory}}</div>
-              <div class="col col-75"><p style="white-space: normal;">{{ formatTags(post.tags) }}</p></div>    
-  	   </div>
-	     <div class="row">
-	  	    <div class="col">tags</div>
-		      <div class="col col-75"><p style="white-space: normal;">{{ formatTags(post.customTags) }}</p></div> 
-		      
-      </div>-->
-
     </div>
