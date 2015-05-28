@@ -133,4 +133,8 @@ http://cloudinary.com/
 Amazon S3
 https://calendee.com/2015/01/15/posting-images-to-cloudinary-in-ionic-apps/
 
+#Creating custom iOS Camera plugin.
+http://codrspace.com/vote539/writing-a-custom-camera-plugin-for-phonegap/
+
+
 

@@ -450,7 +450,8 @@ angular.module('Mote', ['ionic',
 	  
 })
 
-.config(function($httpProvider) {
+.config(function($httpProvider, $compileProvider) {
   $httpProvider.interceptors.push('MoteInterceptor');
+  $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
 });
 
