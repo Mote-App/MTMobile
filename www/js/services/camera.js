@@ -13,6 +13,8 @@ angular.module('Mote')
 			var options  = options || {
 				quality : 25,
 				encodingType: Camera.EncodingType.PNG,
+				targetWidth: 300,
+				targetHeight: 300,
 				correctOrientation: true,
 				destinationType: Camera.DestinationType.FILE_URI,
 			    sourceType: Camera.PictureSourceType.CAMERA
