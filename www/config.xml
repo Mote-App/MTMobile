@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.mote.mobile" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="co.motelife" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Mote</name>
     <description>Mote Hybrid App - An Ionic Framework and Cordova project.</description>
     <author email="gibran@mote.com" href="http://mote.com/">Mote, LLC Team</author>
@@ -28,6 +28,9 @@
     </feature>    
     <feature name="Camera">
     	<param name="ios-package" value="CDVCamera" />
+	</feature>
+	<feature name="Capture">
+	    <param name="ios-package" value="CDVCapture" />
 	</feature>
     
     <!-- Android Configuration -->

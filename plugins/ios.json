@@ -13,19 +13,19 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"Console\"><param name=\"ios-package\" value=\"CDVLogger\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"Camera\"><param name=\"ios-package\" value=\"CDVCamera\" /></feature>",
                             "count": 1
                         },
                         {
                             "xml": "<preference name=\"CameraUsesGeolocation\" value=\"false\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Console\"><param name=\"ios-package\" value=\"CDVLogger\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
                             "count": 1
                         },
                         {
@@ -47,35 +47,31 @@
                 "parents": {
                     "ImageIO.framework": [
                         {
-                            "xml": "true",
+                            "xml": true,
                             "count": 1
                         }
                     ],
                     "CoreLocation.framework": [
                         {
-                            "xml": "false",
+                            "xml": false,
                             "count": 1
                         }
                     ],
                     "CoreGraphics.framework": [
                         {
-                            "xml": "false",
-                            "count": 2
-                        },
-                        {
                             "xml": false,
-                            "count": 1
+                            "count": 3
                         }
                     ],
                     "AssetsLibrary.framework": [
                         {
-                            "xml": "false",
+                            "xml": false,
                             "count": 3
                         }
                     ],
                     "MobileCoreServices.framework": [
                         {
-                            "xml": "false",
+                            "xml": false,
                             "count": 2
                         }
                     ]
@@ -95,25 +91,25 @@
     },
     "installed_plugins": {
         "com.ionic.keyboard": {
-            "PACKAGE_NAME": "com.ionicframework.starter"
-        },
-        "org.apache.cordova.console": {
-            "PACKAGE_NAME": "com.ionicframework.starter"
-        },
-        "org.apache.cordova.device": {
-            "PACKAGE_NAME": "com.ionicframework.starter"
+            "PACKAGE_NAME": "co.motelife"
         },
         "org.apache.cordova.camera": {
-            "PACKAGE_NAME": "com.collegelifeapp.mobile"
+            "PACKAGE_NAME": "co.motelife"
+        },
+        "org.apache.cordova.console": {
+            "PACKAGE_NAME": "co.motelife"
+        },
+        "org.apache.cordova.device": {
+            "PACKAGE_NAME": "co.motelife"
         },
         "org.apache.cordova.file": {
-            "PACKAGE_NAME": "com.collegelifeapp.mobile"
+            "PACKAGE_NAME": "co.motelife"
         },
         "org.apache.cordova.file-transfer": {
-            "PACKAGE_NAME": "com.collegelifeapp.mobile"
+            "PACKAGE_NAME": "co.motelife"
         },
         "org.apache.cordova.inappbrowser": {
-            "PACKAGE_NAME": "com.mote.mobile"
+            "PACKAGE_NAME": "co.motelife"
         }
     },
     "dependent_plugins": {}
