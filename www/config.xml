@@ -29,17 +29,10 @@
     <feature name="Camera">
     	<param name="ios-package" value="CDVCamera" />
 	</feature>
-<<<<<<< HEAD
 	<feature name="Capture">
 	    <param name="ios-package" value="CDVCapture" />
 	</feature>
     
-=======
-    <feature name="Capture">
-    	<param name="ios-package" value="CDVCapture" />
- 	</feature>
- 
->>>>>>> origin/master
     <!-- Android Configuration -->
     <preference name="SplashScreen" value="screen"/>
     <preference name="LoadingDialog" value="My Title,My Message"/>
