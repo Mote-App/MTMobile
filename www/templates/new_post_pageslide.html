@@ -38,13 +38,13 @@
 			<div style="margin-top:2px;">
 				<ion-scroll direction="x" class="item">
 					<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
-					class="button button-small button-outline button-royal" 
+					class="tag button-outline button-royal" 
 					ng-class="{'button-outline' : !tag.selected }"
 					ng-repeat="tag in lstTag.tags" ng-click="setTagID({{tag.tagId}})">{{ tag.tagDescription }}</button>								
 				</ion-scroll>
 			</div>
 			
-			<p align="center" style="margin-top: 18px;"><button class="button button-medium button-royal post" ng-click="uploadImg()">post</button><p>
+			<p align="center" style="margin-top: 18px;"><button class="post-button button-royal" ng-click="uploadImg()">post</button><p>
 
 	</div>
 </pageslide>

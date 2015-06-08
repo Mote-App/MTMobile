@@ -153,7 +153,8 @@ angular.module('Mote', ['ionic',
     }
     if(window.StatusBar) {
       // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
+      //StatusBar.styleDefault();
+    	StatusBar.hide();
     }
 
     

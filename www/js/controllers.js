@@ -923,7 +923,7 @@ angular.module('clcontrollers', [])
 		var options = new FileUploadOptions();
 		options.fileKey = "file";
 		options.fileName = fileURL.substr(fileURL.lastIndexOf('/')+1);
-		options.mimeType = "image/jpeg";
+		options.mimeType = "image/png";
 		options.headers = {Connection: "close"};
 		
 		
@@ -982,7 +982,7 @@ angular.module('clcontrollers', [])
 		
 		var ind = $scope.feedFilterTags.indexOf(tagId);
 		
-		var tagObj = _.find($scope.lstTag.tags, function(tag){ return tag.tagId == tagId});
+		var tagObj = _.find($rootScope.lstTag.tags, function(tag){ return tag.tagId == tagId});
 		
 		if(ind == -1){
 			$scope.feedFilterTags.push(tagId);

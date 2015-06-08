@@ -18,9 +18,9 @@ $dark:                            #444 !default;
 
 $royal:                           #7F56C5 !default;
 
-/* To control header bar height*/
-$bar-height:                      49px !default;
 
+/* To control header bar height*/
+$bar-height:                      51px !default;
 
 $font-size-base:                  12px !default;
 $font-size-large:                 16px !default;
@@ -64,6 +64,11 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 body {
 	font-family: "Futura Medium";
+}
+
+.bar-header {
+	@extend .bar-header; 
+  border-bottom-width: 0px;
 }
 
 .caption {
@@ -112,7 +117,7 @@ body {
 	 }
 }
 
-.bar .nav-button {
+.bar .nav-button, .nav-button {
 	@extend .button-small;
 	
 	border-radius: 30px;
@@ -127,6 +132,52 @@ body {
 	    @include button-outline($button-royal-bg);
 	  }
 	 
+}
+
+.customize-button {
+	@extend .button;
+	
+	border-radius: 30px;
+	font-size: 16px;	
+	padding: 0 8px;
+	border-width: $button-border-width;
+  	border-style: solid;
+  
+	&.button-royal {
+	    @include button-style($button-royal-bg, $button-royal-border, $button-royal-active-bg, $button-royal-active-border, $button-royal-text);
+	    @include button-clear($button-royal-bg);
+	    @include button-outline($button-royal-bg);
+	  }
+	
+}
+
+.post-button {
+	@extend .button;
+	
+	border-radius: 30px;
+	font-size: 16px;	
+	padding: 0 38px;
+	border-width: $button-border-width;
+  	border-style: solid;
+  
+	&.button-royal {
+	    @include button-style($button-royal-bg, $button-royal-border, $button-royal-active-bg, $button-royal-active-border, $button-royal-text);
+	    @include button-clear($button-royal-bg);
+	    @include button-outline($button-royal-bg);
+	  }
+	
+}
+
+.round-button{
+	display:block;
+	width:80px;
+	height:80px;
+	border-radius:50px;
+	font-size:9px;
+	font-weight: bold;
+	line-height:80px;
+	text-align:center;
+
 }
 
 .post-image {

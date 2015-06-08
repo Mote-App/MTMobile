@@ -16,10 +16,10 @@
 				<div class="col-10"></div>
 				<div class="col-10"></div>
 				<div class="col">    
-					<button class="button" ng-class="{'button-royal': school, 'button-outline button-royal': !school}" ng-click="setContext('school', 'nonav')" style="border-radius: 30px; font-size:16px">school</button>
+					<button class="nav-button" ng-class="{'button-royal': school, 'button-outline button-royal': !school}" ng-click="setContext('school', 'nonav')" style="border-radius: 30px; font-size:16px">school</button>
 				</div>
 				<div class="col">
-					<button class="button" ng-class="{'button-royal': nation, 'button-outline button-royal': !nation}" ng-click="setContext('nation', 'nonav')" style="border-radius: 30px; font-size:16px">national</button>
+					<button class="nav-button" ng-class="{'button-royal': nation, 'button-outline button-royal': !nation}" ng-click="setContext('nation', 'nonav')" style="border-radius: 30px; font-size:16px">national</button>
 				</div>
 				<div class="col-10"></div>
 				<div class="col-10"></div>
@@ -45,7 +45,7 @@
 			<div style="margin-top: 10px;">
 				<ion-scroll direction="x" class="item">
 					<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
-					class="button button-small button-outline button-royal" 
+					class="tag button-outline button-royal" 
 					ng-class="{'button-outline' : !tag.selected }"
 					ng-repeat="tag in lstTag.tags" ng-click="setTagID({{tag.tagId}})">{{ tag.tagDescription }}</button>								
 				</ion-scroll>
@@ -58,10 +58,10 @@
 			<div class="row" style="margin-top:8px;">
 				
 				<div class="col-50">   
-					<button class="button button-royal" ng-click="applyCustomization()" style="border-radius: 30px; font-size:12px">recent feed</button>
+					<button class="customize-button button-royal" ng-click="applyCustomization()" style="border-radius: 30px; font-size:12px">&nbsp;&nbsp;recent feed&nbsp;&nbsp;</button>
 				</div>
 				<div class="col-50">   
-					<button class="button button-royal" ng-click="applyCustomization()" style="border-radius: 30px; font-size:12px">customize feed</button>
+					<button class="customize-button button-royal" ng-click="applyCustomization()" style="border-radius: 30px; font-size:12px">customize feed</button>
 				</div>  
 								
 								
