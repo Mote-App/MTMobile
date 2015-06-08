@@ -928,6 +928,7 @@ angular.module('clcontrollers', [])
 		
 		
 		var postDto = {postType:$rootScope.postType, userId: $rootScope.userId, caption: $scope.caption, tags: $scope.feedFilterTags, customTags: $scope.customTags};
+
 		params = {};
 		params.post = angular.toJson(postDto);
 		
