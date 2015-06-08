@@ -32,8 +32,10 @@
 			<i class="icon ion-close-circled"></i> 
 			{{ errorMsg}}
 		</div>-->
+	
 		
 	<ul class = "list">
+	
 	  <div class = "list list-inset">
 	    <label class="item item-input">
 	    	<input type="text" placeholder="Username" ng-model="userDetail.userName">
@@ -46,7 +48,7 @@
 	    <label class="item item-input">
 	    	<input type="text" placeholder="Last Name" ng-model="userDetail.lastName">
 		</label>
-	   </div>
+	  </div>
 	   <div class = "list list-inset">
 		<!--<label class="item item-input item-select">
 		    <div class="input-label">
@@ -91,15 +93,22 @@
 			
 		
 		</div>
-		<div class = "list list-inset">
-			<button class="button button-medium button-royal sign-up" ng-click="createAccount()">Sign&nbsp;up</button>
+
+		<p align="center">
+			<button class="sign-up button-royal" ng-click="createAccount()">Sign&nbsp;up</button>
+		</p>
+		<p align="center">
 			<div ng-show="errorMsg.length > 0" class="cl_error question">
 				<i class="icon ion-close-circled"></i> 
 				{{ errorMsg}}
 			</div>
+		</p>
+		<p align="center">
 			<button class="button button-dark button-small button-clear question">Already&nbsp;have&nbsp;an&nbsp;account?</button>
-			<a href="#/app/login"><button class = "button button-medium button-light login fore-color">Login</button></a>
-		</div>
+		</p>
+		<p align="center" style="margin-top: -10px;">
+			<button class="login button-light fore-color" ng-click="goToLogin()">Login&nbsp;&nbsp;</button>
+		</p>
 		
 	</ul>
 		

@@ -15,9 +15,134 @@ $royal:                           #8a6de9 !default;
 $dark:                            #444 !default;
 */
 
+
+$royal:                           #7F56C5 !default;
+
+/* To control header bar height*/
+$bar-height:                      49px !default;
+
+
+$font-size-base:                  12px !default;
+$font-size-large:                 16px !default;
+$font-size-small:                 8px !default;
+
+$item-font-size:                  12px !default;
+$item-padding:                    10px !default;
+
+$list-header-margin-top:          5px !default;
+
+/*
+	This effects the padding around list content
+*/
+$content-padding:                 5px !default;
+
+/*
+control toggle control for Facebook and instagram
+*/
+$toggle-width:                    44px !default;
+$toggle-height:                   22px !default;
+
+$ios7-statusbar-height:	40px;
+
+
+/*
+	Mote ios6 default values
+*/
+
+//Across App configuration
+$mt-header: 49.392px;
+
+//Registration page
+$mt-reg-input-box-height: 45px;
+
+
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+body {
+	font-family: "Futura Medium";
+}
+
+.caption {
+	vertical-align: top;
+	color: $royal !important;
+	font-size: 11px;
+}
+
+/*
+	Sign-up button style
+*/
+.sign-up {
+	@extend .button;
+	
+	border-radius: 6px;
+	font-size: 14px;
+	padding: 0 38px;
+}
+
+.login {
+	@extend .button;
+		
+	border-radius: 6px;
+	font-size: 14px;
+	padding: 0 38px;
+}
+
+.tag {
+	
+	@extend .button-small;
+	
+	border-radius: 30px;
+	margin: 0px 0px 2px 2px;
+	padding: 0 8px; 
+	font-size: 8px;
+	border-width: $button-border-width;
+  	border-style: solid;
+  	border-width: 2px;
+	
+	@include button-outline($button-default-border);
+	
+	&.button-royal {
+	    @include button-style($button-royal-bg, $button-royal-border, $button-royal-active-bg, $button-royal-active-border, $button-royal-text);
+	    @include button-clear($button-royal-bg);
+	    @include button-outline($button-royal-bg);
+	 }
+}
+
+.bar .nav-button {
+	@extend .button-small;
+	
+	border-radius: 30px;
+	font-size: 16px;	
+	padding: 0 8px;
+	border-width: $button-border-width;
+  	border-style: solid;
+  
+	&.button-royal {
+	    @include button-style($button-royal-bg, $button-royal-border, $button-royal-active-bg, $button-royal-active-border, $button-royal-text);
+	    @include button-clear($button-royal-bg);
+	    @include button-outline($button-royal-bg);
+	  }
+	 
+}
+
+.post-image {
+
+	@extend .full-image;
+	height:200px;	
+}
+
+.likes {
+	margin-top:5px; 
+	white-space: normal !important;
+	color: $royal !important;
+	font-weight: bold;
+	font-size: 10px !important;
+}
+
+.item p {
+	font-size: 10px;
+}

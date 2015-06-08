@@ -475,6 +475,16 @@ angular.module('clcontrollers', [])
 	$scope.userCreateMessage="";
 	$scope.userDetail = {};
 	
+	
+	$scope.goToLogin = function(){
+		$state.go('app.login');
+	}
+
+	$scope.goToCreateAccount = function(){
+		$state.go('app.create_account');
+	}
+
+	
 	$scope.createAccount = function(){
 		
 		/*Prepare for db update*/

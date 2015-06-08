@@ -2,5 +2,13 @@
   "name": "CLMobile",
   "email": "",
   "app_id": "2be7daa5",
-  "package_name": ""
+  "package_name": "",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
 }
