@@ -244,9 +244,14 @@ angular.module('clcontrollers', [])
 		restrict: 'EA',
 		controller: function($scope, $rootScope, Schools,schoolFeedCutomizer){
 			 
+			$scope.collegeName1 = "";
+			$scope.collegeName2 = "";
+			$scope.collegeName3 = "";
+			$scope.collegeName4 = "";
+			
 			$scope.feedFilterCollegeId = 0;
 			$scope.feedFilterTags = [];
-
+			
 			$scope.setFilterCollegeId = function(schoolId){
 				$scope.filterCollegeId = schoolId;
 			};
@@ -330,6 +335,54 @@ angular.module('clcontrollers', [])
 		},
 		templateUrl: 'templates/pageslide.html'
 	}
+})
+
+.directive('newPostSlidePage', function(){
+	
+	return{
+		
+		restrict: 'EA',
+		controller: function($scope, $rootScope){
+			
+			$scope.caption="";
+			
+			$scope.updateRootScope = function(){
+				
+				$rootScope.caption = $scope.caption
+			};
+			
+			$scope.setTagID = function(tagId){
+				
+				var ind = $scope.feedFilterTags.indexOf(tagId);
+				
+				var tagObj = _.find($rootScope.lstTag.tags, function(tag){ return tag.tagId == tagId});
+				
+				//var subTagObj =  $scope.subTags[subTagIndex];
+						
+				if(ind == -1){
+					$scope.feedFilterTags.push(tagId);
+					//$scope.tagSelected = true;
+					tagObj.selected = true;
+				}else {
+					//Remove the existing one.
+					$scope.feedFilterTags = _.reject($scope.feedFilterTags, function(tag){
+					      return tag == tagId;
+					});
+					//$scope.tagSelected = false;
+					tagObj.selected = false;
+				}
+				
+				$scope.selectedTagDescriptions = $rootScope.formatTags($scope.feedFilterTags);
+			};
+			
+			
+		},
+		link: function(scope, element, attrs){
+			
+		},
+		templateUrl: 'templates/new_post_pageslide.html'
+	}
+	
 })
 
 .directive('circularMenu', function() {
@@ -677,6 +730,7 @@ angular.module('clcontrollers', [])
 	
 	$scope.moteActiveSlide = 1;
 	
+	
 	var data = FriendFeed.query({profileId: $rootScope.userId},function(friendFeedData) { 
 	    $scope.users = friendFeedData;
 	});
@@ -856,8 +910,8 @@ angular.module('clcontrollers', [])
 	});*/
 	
 	$scope.postImgUrl = "";
-	$scope.customTags		= "";
-	$scope.caption			= "";
+	$scope.customTags = "";
+	$scope.feedFilterTags = [];
 	
 	$scope.takePicture = function(){
 		
@@ -865,6 +919,7 @@ angular.module('clcontrollers', [])
 				
 				function(imageURI){
 					$scope.postImgUrl = imageURI;
+					$scope.caption = "";
 				},
 				function(error){
 					
@@ -879,35 +934,6 @@ angular.module('clcontrollers', [])
 	$scope.takePicture();
 	
 	
-	/*
-	
-	if( $stateParams.take !=null && $stateParams.take == 1){
-		//$scope.postImgUrl = CameraService.takePicture();
-		$scope.takePicture();
-	}
-*/
-	
-	
-	/*$scope.takePicture = function(){
-		
-		Camera.getPicture().then(
-			function(imageURI){
-				$scope.postImgUrl = imageURI;
-			},
-			function(error){
-				console.log(error);
-				$ionicPopup.alert({
-					title: "Camera capture Failed",
-					template: error
-				});
-			},
-			{
-				quality : 25,
-				encodingType: navigator.camera.EncodingType.JPEG,
-				destinationType: navigator.camera.DestinationType.FILE_URI
-			}
-		);
-	};*/
 	
 	/*For Slide Page */
 	$scope.checked = false;
@@ -927,7 +953,11 @@ angular.module('clcontrollers', [])
 		options.headers = {Connection: "close"};
 		
 		
-		var postDto = {postType:$rootScope.postType, userId: $rootScope.userId, caption: $scope.caption, tags: $scope.feedFilterTags, customTags: $scope.customTags};
+		var postDto = {postType:$rootScope.postType, 
+						userId: $rootScope.userId, 
+						caption: $rootScope.caption, 
+						tags: $scope.feedFilterTags, 
+						customTags: $scope.customTags};
 
 		params = {};
 		params.post = angular.toJson(postDto);
@@ -953,10 +983,10 @@ angular.module('clcontrollers', [])
 
 	};
 	
-	$scope.tags = $rootScope.lstTag;
+	/*$scope.tags = $rootScope.lstTag;
 	_.each($scope.tags, function(tagObj){		
 		tagObj.selected = false;
-	});
+	});*/
 	
 	/*$scope.subTags = [];
 	
@@ -977,30 +1007,10 @@ angular.module('clcontrollers', [])
 		
 	}*/
 	
-	$scope.feedFilterTags = [];
-
-	$scope.setTagID = function(tagId){
-		
-		var ind = $scope.feedFilterTags.indexOf(tagId);
-		
-		var tagObj = _.find($rootScope.lstTag.tags, function(tag){ return tag.tagId == tagId});
-		
-		if(ind == -1){
-			$scope.feedFilterTags.push(tagId);
-			tagObj.selected = true;
-		}else {
-			//Remove the existing one.
-			$scope.feedFilterTags = _.reject($scope.feedFilterTags, function(tag){
-			      return tag == tagId;
-			});
-			tagObj.selected = false;
-		}
-		
-		$scope.selectedTagDescriptions = $rootScope.formatTags($scope.feedFilterTags);
-	};
+	
 	
 	//Handle model to show option for adding post details
-	$ionicModal.fromTemplateUrl('new_post.html', {
+	/*$ionicModal.fromTemplateUrl('new_post.html', {
 		    scope: $scope,
 		    animation: 'slide-in-up'
 		  }).then(function(modal) {
@@ -1016,7 +1026,7 @@ angular.module('clcontrollers', [])
 	  //Clean up the modal when we're done with it!
 	  $scope.$on('$destroy', function() {
 	    $scope.modal.remove();
-	  });
+	  });*/
 	  
   
 })

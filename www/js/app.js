@@ -43,7 +43,9 @@ angular.module('Mote', ['ionic',
 	$rootScope.public = true;
 	$rootScope.username = false;
 	$rootScope.anonymous = false;
-			
+	$rootScope.caption = false;
+
+	
   OpenFB.init('956170854392949');
 
   $ionicPlatform.ready(function () {
