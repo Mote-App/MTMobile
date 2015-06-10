@@ -449,7 +449,6 @@ angular.module('Mote', ['ionic',
 })
 
 .constant('$ionicLoadingConfig', {
-	  template: '<ion-spinner class="spinner-royal"></ion-spinner>Mote Processing...</span>',
 	  
 })
 

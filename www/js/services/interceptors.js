@@ -12,7 +12,7 @@ angular.module('Mote')
 
     return {
       request: function(config) {
-        $injector.get('$ionicLoading').show();
+        $injector.get('$ionicLoading').show({content:'<i class="ion-loading-c progress-indicator"></i>'});
 
         // Handle adding the access_token for instagram api requests
         /*var InstagramService = $injector.get('InstagramService');

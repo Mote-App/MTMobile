@@ -683,7 +683,11 @@ angular.module('clcontrollers', [])
 	  };
 	  //Cleanup the modal when we're done with it!
 	  $scope.$on('$destroy', function() {
-	    $scope.modal.remove();
+		
+		  if( $scope.modal != undefined){
+			  $scope.modal.remove();
+		  }
+	    
 	  });
 	  
 	 /* $scope.validate = function(event){
@@ -901,7 +905,7 @@ angular.module('clcontrollers', [])
 		
 })
 
-.controller('NewPostCtrl', function($scope, $rootScope, $state, $ionicModal, $stateParams, $ionicPopup, CameraService) {
+.controller('NewPostCtrl', function($scope, $rootScope, $state, $ionicModal, $stateParams, $ionicPopup, $ionicLoading, CameraService) {
 
 	
 	/*$ionicPopup.alert({
@@ -927,6 +931,8 @@ angular.module('clcontrollers', [])
 						title: "Image Capture Error",
 						template: error
 					});
+					
+					//$state.go('app.friends_feeds');
 				}
 			);
 	};
@@ -943,6 +949,8 @@ angular.module('clcontrollers', [])
 	
 	
 	$scope.uploadImg = function(){
+		
+		$ionicLoading.show({content:'<i class="ion-loading-c progress-indicator"></i>'});
 		
 		var fileURL = $scope.postImgUrl;
 		
@@ -965,18 +973,24 @@ angular.module('clcontrollers', [])
 		options.params = params;
 		//options.header = {'Content-Type': undefined};
 		
+		
+		
 		var ft = new FileTransfer();
 		ft.upload(fileURL, encodeURI($rootScope.clhost + $rootScope.clport + '/upload_post'), 
 				function(success){
 					console.log(success);
+					$ionicLoading.hide();
 					$state.go('app.friends_feeds');
 				}, 
 				function(error){
 					console.log(error);
+					$ionicLoading.hide();
 					$ionicPopup.alert({
 						title: "File Upload Failed",
 						template: error
 					});
+					
+					
 				}, 
 				options
 		);
