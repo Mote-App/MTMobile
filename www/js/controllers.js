@@ -1,4 +1,4 @@
-angular.module('clcontrollers', [])
+angular.module('mtControllers', [])
 
 .filter('sliceTag', function() {
   return function(input, indexRange) {
@@ -470,19 +470,25 @@ angular.module('clcontrollers', [])
 })
 
 .controller('AppCtrl', function($scope) {
+	
 })
+
+
 
 // ***************** Use for the login page :: Start *****************
 .controller('LoginCtrl', function($scope, 
 									$rootScope, 
 									$state, 
-									$ionicModal, 
+									$ionicModal,
+									$localstorage,
 									Schools, 
 									Tags, 
 									loginService, 
 									createAccountService,
 									OpenFB) {
   
+	
+	
 	$scope.rememberMe = false;
 	$scope.errorMsg = "";
 	
@@ -503,7 +509,14 @@ angular.module('clcontrollers', [])
 		
 		loginService.authenticate($scope.loginDetail).$promise.then(
 			function(success){
-				$rootScope.userId = success.userId;
+				
+				/*
+				 * Store the user id as token for future call for 
+				 * friends, schools and National feed
+				 */
+				$localstorage.set("token",success.userId);
+				//$rootScope.userId = success.userId;
+				
 				$rootScope.collegeId = success.collegeId;
 		        $state.go('app.friends_feeds');
 			},
@@ -718,12 +731,91 @@ angular.module('clcontrollers', [])
 
 // ***************** Use for the login page :: End *****************
 
+
+.controller('AddFriendsCtrl', function(	$scope,
+										$localstorage,
+										addFriend,
+										removeFriend,
+										usersProfile,
+										userFriends){
+	
+	$scope.profiles = [];
+	$scope.userFriends = [];
+	
+	usersProfile.query({userId: $localstorage.get('token')}).$promise.then(
+			
+			function(success){
+				$scope.profiles = success;
+			},
+			function(error){
+				console.log(error);
+			}
+	);
+	
+	
+	userFriends.query({userId: $localstorage.get('token')}).$promise.then(
+			
+			function(success){
+				$scope.userFriends = success;
+			},
+			function(error){
+				console.log(error);
+			}
+	);
+	
+
+	/*
+	 * This method will toggle to call makeFriend/makeStanger
+	 */
+	$scope.toggelAddRemoveFriend = function(friend){
+		
+		if( friend.isFriend == 0){
+			$scope.makeFriend(friend);
+		}
+		
+		if( friend.isFriend == 1){
+			$scope.makeStanger(friend);
+		}
+		
+	};
+	
+	$scope.makeFriend = function(friend){
+				
+		addFriend.save({userId: $localstorage.get('token'), friendId: friend.profileId }).$promise.then(
+			
+				function(success){
+					
+					friend.isFriend = 1;
+				},
+				function(error){
+					console.log(error);
+				}
+		); 
+	};
+	
+	$scope.makeStanger = function(friend){
+		
+		removeFriend.save({userId: $localstorage.get('token'), friendId: friend.profileId }).$promise.then(
+			
+				function(success){
+					
+					friend.isFriend = 0;
+				},
+				function(error){
+					console.log(error);
+				}
+		);
+	};
+	
+})
+
 .controller('FriendsFeedsCtrl', function($scope, 
                                           $http, 
                                           $ionicSlideBoxDelegate, 
                                           $state, 
                                           $filter, 
                                           $rootScope,
+                                          $localstorage,
                                           FriendFeed, 
                                           Tags, 
                                           sliceTagFilter, 
@@ -732,10 +824,17 @@ angular.module('clcontrollers', [])
   	
 	
 	
+	$rootScope.showSettingMenu = true;
 	$scope.moteActiveSlide = 1;
 	
+	if( $rootScope.lstTag == undefined ||$rootScope.lstTag == null){
+		Tags.query(function(response) { 
+	    	$rootScope.lstTag = response;
+	    });
+
+	}
 	
-	var data = FriendFeed.query({profileId: $rootScope.userId},function(friendFeedData) { 
+	var data = FriendFeed.query({profileId: $localstorage.get('token')},function(friendFeedData) { 
 	    $scope.users = friendFeedData;
 	});
 	
@@ -764,13 +863,16 @@ angular.module('clcontrollers', [])
                                         $stateParams, 
                                         $state, 
                                         $rootScope,
+                                        $localstorage,
                                         SchoolFeed, 
                                         sliceTagFilter,
                                         Schools,
                                         schoolFeedCutomizer,
                                         Like) {
 	
-	var data = SchoolFeed.query({collegeId: $rootScope.collegeId, userId: $rootScope.userId},function(schoolFeedData) { 
+	$rootScope.showSettingMenu = true;
+	
+	var data = SchoolFeed.query({collegeId: $rootScope.collegeId, userId: $localstorage.get('token')},function(schoolFeedData) { 
 		$scope.schoolUsers = schoolFeedData;
 		
 		for ( var i=0; i < $scope.schoolUsers.length; i ++ ){
@@ -880,12 +982,15 @@ angular.module('clcontrollers', [])
 .controller('NationalFeedsCtrl', function($scope, 
                                           $stateParams, 
                                           $rootScope,
+                                          $localstorage,
                                           NationalFeed, 
                                           Schools, 
                                           sliceTagFilter,
                                           Like) {
 
-	NationalFeed.query({collegeId: $rootScope.collegeId, userId: $rootScope.userId}, function(nationalFeedData) { 
+	$rootScope.showSettingMenu = true;
+	
+	NationalFeed.query({collegeId: $rootScope.collegeId, userId: $localstorage.get('token')}, function(nationalFeedData) { 
 		$scope.nationalUsers = nationalFeedData;
 		for ( var i=0; i < $scope.nationalUsers .length; i ++ ){
 			var user = $scope.nationalUsers[i];
@@ -905,7 +1010,7 @@ angular.module('clcontrollers', [])
 		
 })
 
-.controller('NewPostCtrl', function($scope, $rootScope, $state, $ionicModal, $stateParams, $ionicPopup, $ionicLoading, CameraService) {
+.controller('NewPostCtrl', function($scope, $rootScope, $localstorage, $state, $ionicModal, $stateParams, $ionicPopup, $ionicLoading, CameraService) {
 
 	
 	/*$ionicPopup.alert({
@@ -962,7 +1067,7 @@ angular.module('clcontrollers', [])
 		
 		
 		var postDto = {postType:$rootScope.postType, 
-						userId: $rootScope.userId, 
+						userId: $localstorage.get('token'), 
 						caption: $rootScope.caption, 
 						tags: $scope.feedFilterTags, 
 						customTags: $scope.customTags};

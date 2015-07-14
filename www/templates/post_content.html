@@ -21,13 +21,17 @@
       
 	  <img class="post-image" ng-src="{{ clhost + '/' + post.postImg}}" ng-click="updateLike(post)">
 
-        <p class="likes" align="left" >
+	  <div>
+        <div class="likes" style="float:left;">
         	<a ng-click="updateLike(post)"><span ng-bind="post.likes"></span> Likes</a>
-          	&nbsp;&nbsp;&nbsp;&nbsp;
-          <button class="tag button button-outline button-royal" ng-repeat="tag in post.tags" >{{findTagByTagId(tag)}}</button>
-
-        </p>
-  
+        </div>
+        <div style="float:right;">
+          		<button class="tag button button-outline button-royal" ng-repeat="tag in post.tags" >{{findTagByTagId(tag)}}</button>
+        </div>
+	  </div>
+	  
+	  <div style="clear:both;"></div>
+  		
         <div>
         	<!--<img ng-src="{{ clhost + '/' + user.profileImg}}" class="profile-img-style">-->
 

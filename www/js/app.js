@@ -1,8 +1,8 @@
 'use strict';
 angular.module('Mote', ['ionic', 
                             'ngCordova', 
-                            'clcontrollers',
-                            'clservices',
+                            'mtControllers',
+                            'mtServices',
                             'pageslide-directive',
                             'http-auth-interceptor',
                             'openfb'])
@@ -29,13 +29,15 @@ angular.module('Mote', ['ionic',
   });
 })*/
 
-.run(function($ionicPlatform, $rootScope, $filter, $window, $state, OpenFB) {
+.run(function($ionicPlatform, $rootScope, $filter, $window, $state, $localstorage, OpenFB) {
 
 	//AWS http://54.149.27.205
 	
 	$rootScope.clhost = "http://54.149.27.205";
 	$rootScope.clport = ":8080";
-	$rootScope.lstTag = {};
+	$rootScope.lstTag = null;
+	
+	$rootScope.showSettingMenu = false;
 	
 	$rootScope.friends = true;
 	$rootScope.school = false;
@@ -44,7 +46,43 @@ angular.module('Mote', ['ionic',
 	$rootScope.username = false;
 	$rootScope.anonymous = false;
 	$rootScope.caption = false;
-
+	
+	$rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams, error){ 
+		
+		if (toState.data == undefined || !angular.isFunction(toState.data.rule)) return;
+		
+		var result = toState.data.rule();
+		
+		if (result) {
+			
+			event.preventDefault();
+			
+			/*
+			 * Several decision point to make user to land safely on required page
+			 * 1. First time user installed the App, check with installed flag, if undefined then it is new install. Store the installed flag with true value.
+			 * 2. User re-installed the App. while deleting App, the "installed" flag should be removed. So that consider fresh install.  
+			 * 3. User logged out. Check for "token" flag if undefined or null then redirect to login page.
+			 * 4. User password is stored in cache then redirect to friends feed page.
+			 *  
+			 */
+			
+			var installed = $localstorage.get('installed');
+			
+			if( installed == undefined || installed == null){
+				$localstorage.set("installed","true");
+				$state.go('app.create_account', toParams, {notify: true});
+			}
+			
+			var token = $localstorage.get('token');
+			
+			if( token == undefined || token == ""){
+				$state.go('app.login',toParams, {notify: true});
+			}else if( token.length > 0){
+				$state.go('app.friends_feeds',toParams, {notify: true});
+			}	
+		}
+	});
+			
 	
   OpenFB.init('956170854392949');
 
@@ -174,7 +212,7 @@ angular.module('Mote', ['ionic',
        * Using angularJS provided filter, 
        * one issue is it filters value using pattern matching for string
        * For example if tagId = 1, then it returns arrays of 1, 10, 11 and so on.
-       * So using the first index [0] to aget the right result, assuming the master 
+       * So using the first index [0] to get the right result, assuming the master 
        * tag list is sorted in ASC order
        */
       
@@ -233,6 +271,29 @@ angular.module('Mote', ['ionic',
       controller: 'AppCtrl'
     })
 
+    .state('app.initialize', {
+      url: "/initialize",
+      data: {
+    	  
+    	  rule: function(){
+    		  return true;
+    	  }
+      }
+    })
+    
+    .state('app.logout', {
+      url: "/logout",
+      data: {
+    	  
+    	  rule: function($localstorage){
+    		  
+    		  $localstorage.set('token',"");
+    		  $rootScope.showSettingMenu = false;
+    		  return false;
+    	  }
+      }
+    })
+    
     .state('app.login', {
       url: "/login",
       views: {
@@ -282,8 +343,6 @@ angular.module('Mote', ['ionic',
       }
     })
     
-    
-    
     .state('app.signup', {
       url: "/signup",
       views: {
@@ -325,15 +384,6 @@ angular.module('Mote', ['ionic',
       }
     })
 
-    .state('app.logout', {
-      url: "/logout",
-      views: {
-        'menuContent' :{
-          templateUrl: "templates/login.html",
-          controller: 'LoginCtrl'
-        }
-      }
-    })
     .state('app.friends_feeds', {
       url: "/friends_feeds",
       views: {
@@ -385,6 +435,18 @@ angular.module('Mote', ['ionic',
 		}
 	})
 	
+	.state('app.add_friends',{
+		url:"/add_friends",
+		views:{
+			'menuContent' :{
+				templateUrl: "templates/add_friends.html",
+				controller: 'AddFriendsCtrl'
+				
+			}
+		}
+			
+	})
+	
     .state('app.new_post', { 
     	url: "/new_post",
     	views : {
@@ -424,7 +486,7 @@ angular.module('Mote', ['ionic',
     
   // if none of the above states are matched, use this as the fallback
   //$urlRouterProvider.otherwise('index');
-  $urlRouterProvider.otherwise('/app/create_account');
+  $urlRouterProvider.otherwise('/app/initialize');
   //$urlRouterProvider.otherwise('/app/test_page');
   
 	  /* Registers auth token interceptor, auth token is either passed by header or by query parameter
@@ -453,7 +515,8 @@ angular.module('Mote', ['ionic',
 })
 
 .config(function($httpProvider, $compileProvider) {
-  $httpProvider.interceptors.push('MoteInterceptor');
-  $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
+	
+	$httpProvider.interceptors.push('MoteInterceptor');
+	$compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
 });
 

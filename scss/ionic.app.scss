@@ -101,12 +101,14 @@ body {
 	@extend .button-small;
 	
 	border-radius: 30px;
-	margin: 0px 0px 2px 2px;
+	min-height: 20px;
+	margin: 0px 0px 0px 0px;
 	padding: 0 8px; 
 	font-size: 8px;
-	border-width: $button-border-width;
-  	border-style: solid;
-  	border-width: 2px;
+	font-family: Futura;
+	//border-width: $button-border-width;
+  	border-style: solid;  
+  	border-width: 1px;
 	
 	@include button-outline($button-default-border);
 	
@@ -201,4 +203,11 @@ body {
 .progress-indicator {
   font-size: 34px;
   color : $royal;
+}
+
+.align-center {
+	display: flex;
+   	flex-direction: column;
+   	justify-content: center;
+   	text-align: center;
 }

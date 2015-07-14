@@ -97,6 +97,8 @@ Warning: the nightly version is not stable.
 Installing Git
 http://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 
+
+
 ## Issues
 Issues have been disabled on this repo, if you do find an issue or have a question consider posting it on the [Ionic Forum](http://forum.ionicframework.com/).  Or else if there is truly an error, follow our guidelines for [submitting an issue](http://ionicframework.com/contribute/#issues) to the main Ionic repository. On the other hand, pull requests are welcome here!
 
@@ -110,13 +112,32 @@ phone camera usage
 http://blog.nraboy.com/2014/09/use-android-ios-camera-ionic-framework/
 http://ngcordova.com/docs/#Camera
 
+
+##iCloud Backup
+When using localStorage in a mobile app that you intend to deploy to the Apple App Store, you must take into account iCloud storage and the iOS Data Storage Guidelines which suggest, among other things, that only data the user creates should be backed up to iCloud.
+
+To make sure data stored in localStorage does not get backed up to iCloud and thus resulting in Apple rejecting your app for voilating the Data Storage Guidelines, make sure to set BackupWebStorage to none in your config.xml for Cordova/PhoneGap:
+
+<!-- config.xml -->
+
+<?xml version='1.0' encoding='utf-8'?>
+<widget ...>
+  <preference name="BackupWebStorage" value="none" />
+</widget>
+
+More detail check here : http://learn.ionicframework.com/formulas/localstorage/
+https://docs.webplatform.org/wiki/apis/indexeddb
+
+#Angular $StateProvider
+https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions#how-to-create-rules-to-prevent-access-to-a-state
+
 #JPA Pagination link
 http://wiki.eclipse.org/EclipseLink/Examples/JPA/Pagination 
 
 #Spring-boot maven configuration for almost all libraries
 https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml
 
-#Angular  Facebook integration
+#Angular Facebook integration
 http://ccoenraets.github.io/ionic-tutorial/ionic-facebook-integration.html
 https://github.com/ccoenraets/sociogram-angular-ionic
 
@@ -125,6 +146,7 @@ https://github.com/ccoenraets/sociogram-angular-ionic
 http://www.espeo.pl/1-authentication-in-angularjs-application/
 http://witoldsz.github.io/angular-http-auth/
 https://github.com/witoldsz/angular-http-auth
+http://jasonwatmore.com/post/2014/05/26/AngularJS-Basic-HTTP-Authentication-Example.aspx
 
 
 #Image Upload

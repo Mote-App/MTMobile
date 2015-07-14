@@ -1,0 +1,18 @@
+
+<ion-view>
+	
+	<ion-content>
+		<div class="list">
+			<a ng-repeat="profile in profiles" class="item item-avatar" ng-click="toggelAddRemoveFriend(profile)">
+				<img src="{{ clhost + '/' + profile.profilePictureUrl}}">
+      			<h2>{{profile.firstName + ' ' + profile.lastName}}</h2><div ng-if="profile.isFriend == 1" style="float:right"><i style="font-size:20px;" class="icon ion-ios7-personadd"></i></div>
+      			<p>{{ profile.college.collegeName}}</p>
+			</a>
+		</div>
+	</ion-content>
+	
+	<div class="bar bar-footer bar-dark align-center">
+	  <a class="button button-clear button-large" href="#/app/friends_feeds">Done</a>
+	</div>
+	
+</ion-view>
