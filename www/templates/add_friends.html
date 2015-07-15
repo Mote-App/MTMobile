@@ -3,7 +3,7 @@
 	
 	<ion-content>
 		<div class="list">
-			<a ng-repeat="profile in profiles" class="item item-avatar" ng-click="toggelAddRemoveFriend(profile)">
+			<a ng-repeat="profile in profiles" class="item item-avatar" ng-click="toggleAddRemoveFriend(profile)">
 				<img src="{{ clhost + '/' + profile.profilePictureUrl}}">
       			<h2>{{profile.firstName + ' ' + profile.lastName}}</h2><div ng-if="profile.isFriend == 1" style="float:right"><i style="font-size:20px;" class="icon ion-ios7-personadd"></i></div>
       			<p>{{ profile.college.collegeName}}</p>

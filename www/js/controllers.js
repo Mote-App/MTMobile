@@ -42,7 +42,7 @@ angular.module('mtControllers', [])
 			clhost: '@',
 			level: '@'
 		},
-		controller: function($scope, $rootScope, Like){
+		controller: function($scope, $rootScope, Like, View){
 			
 			$scope.updateLike = function(post){
 				
@@ -53,15 +53,20 @@ angular.module('mtControllers', [])
 				 */
 				if( post.likeDone == false){
 					$scope.selectedPost = post;
-					Like.update({likeCount: post.likes, userId: $rootScope.userId, postId: post.postId, level:$scope.level},function(like) { 
+					Like.update({likeCount: 1, profileId: $rootScope.userId, postId: post.postId, level:$scope.level},function(like) { 
 				    	$scope.selectedPost.likes = like.likeCount;
 				    });
 				}
 			};
 			
-			 $scope.findTagByTagId = function(tagId){
-				 return $rootScope.findTagByTagId(tagId); 
-			 }
+			$scope.updateView = function(post){
+				
+				View.update({viewCount: 1, profileId: $rootScope.userId, postId: post.postId, level:$scope.level});
+			};
+			
+			$scope.findTagByTagId = function(tagId){
+			 return $rootScope.findTagByTagId(tagId); 
+			}
 			    
 	    },
 		link: function(scope,element,attrs){
@@ -767,7 +772,7 @@ angular.module('mtControllers', [])
 	/*
 	 * This method will toggle to call makeFriend/makeStanger
 	 */
-	$scope.toggelAddRemoveFriend = function(friend){
+	$scope.toggleAddRemoveFriend = function(friend){
 		
 		if( friend.isFriend == 0){
 			$scope.makeFriend(friend);
@@ -788,6 +793,7 @@ angular.module('mtControllers', [])
 					friend.isFriend = 1;
 				},
 				function(error){
+					friend.isFriend = 0;
 					console.log(error);
 				}
 		); 
@@ -802,6 +808,7 @@ angular.module('mtControllers', [])
 					friend.isFriend = 0;
 				},
 				function(error){
+					friend.isFriend = 1;
 					console.log(error);
 				}
 		);

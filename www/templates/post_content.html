@@ -13,20 +13,19 @@
       <p align="right" class="image-post-time">{{ post.postingDate}}&nbsp;</p>
       <div style="position:relative;">
         <div style="position:absolute; top:0; left:0; width:50%;"><p align="left"><b style="color: #8a6de9;">{{user.name}}</b></p></div>
-        <div style="position:absolute; top:0; right:0; width:50%;"><p align="right"><b style="color: #8a6de9;">James Madison University</b></p></div>
-		<!-- hardcoding for POC {{ user.schoolName}}-->
+        <div style="position:absolute; top:0; right:0; width:50%;"><p align="right"><b style="color: #8a6de9;">{{user.schoolName}}</b></p></div>
       </div>
       
       </br>
       
-	  <img class="post-image" ng-src="{{ clhost + '/' + post.postImg}}" ng-click="updateLike(post)">
+	  <img class="post-image" ng-src="{{ clhost + '/' + post.postImg}}" ng-click="updateLike(post)" on-touch="updateView(post)">
 
 	  <div>
         <div class="likes" style="float:left;">
-        	<a ng-click="updateLike(post)"><span ng-bind="post.likes"></span> Likes</a>
+        	<a ng-click="updateLike(post)" on-touch="updateView(post)"><span ng-bind="post.likes"></span> Likes</a>
         </div>
         <div style="float:right;">
-          		<button class="tag button button-outline button-royal" ng-repeat="tag in post.tags" >{{findTagByTagId(tag)}}</button>
+          	<button class="tag button button-outline button-royal" ng-repeat="tag in post.tags" >{{findTagByTagId(tag)}}</button>
         </div>
 	  </div>
 	  

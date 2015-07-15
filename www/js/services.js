@@ -115,6 +115,13 @@ angular.module('mtServices', ['ngResource'])
     });
   }])
   
+  .factory('View', ['$resource', '$rootScope',
+  function($resource, $rootScope){
+    return $resource($rootScope.clhost + $rootScope.clport + '/views', {}, {
+      update: {method:'POST', params:{}, isArray:false}
+    });
+  }])
+  
 
 .factory('Camera', ['$q', function($q) {
  
