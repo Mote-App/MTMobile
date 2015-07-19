@@ -36,6 +36,7 @@ angular.module('Mote', ['ionic',
 	$rootScope.clhost = "http://54.149.27.205";
 	$rootScope.clport = ":8080";
 	$rootScope.lstTag = null;
+	$rootScope.colleges = null;
 	
 	$rootScope.showSettingMenu = false;
 	
@@ -205,7 +206,6 @@ angular.module('Mote', ['ionic',
     
     $rootScope.findTagByTagId = function(tagId){
 
-      //var result = tagId.split('_');
       var tagObj = {};
       
       /*
@@ -218,23 +218,26 @@ angular.module('Mote', ['ionic',
       
       tagObj = ($filter('filter')($rootScope.lstTag.tags,{tagId: tagId}))[0];
       
-      /*//smart
-      if( result[0] == "1"){
-        tagObj = ($filter('filter')($rootScope.smartArr,{id: tagId}))[0];
-        //($rootScope.smartArr | filter:{id: tagId } )[0].tagText;
-      }
-      //social
-      if( result[0] == "2"){
-        tagObj = ($filter('filter')($rootScope.socialArr,{id: tagId}))[0];
-      }
-      //genre
-      if( result[0] == "3"){
-        tagObj = ($filter('filter')($rootScope.genreArr,{id: tagId}))[0];
-      }*/
-      
       return tagObj.tagDescription;
     };
     
+    $rootScope.findCollegeByCollegeId = function(collegeId){
+
+        var collegeObj = {};
+        
+        /*
+         * Using angularJS provided filter, 
+         * one issue is it filters value using pattern matching for string
+         * For example if tagId = 1, then it returns arrays of 1, 10, 11 and so on.
+         * So using the first index [0] to get the right result, assuming the master 
+         * tag list is sorted in ASC order
+         */
+        
+        collegeObj = ($filter('filter')($rootScope.colleges,{collegeId: collegeId}))[0];
+        
+        return tagObj.tagDescription;
+      };
+      
     $rootScope.formatTags = function(tagArr){
     	
     	var formattedStr = "";
@@ -245,6 +248,23 @@ angular.module('Mote', ['ionic',
     		formattedStr = formattedStr + tagDescription;
     		
     		if ( i != (tagArr.length -1)){
+    			formattedStr = formattedStr + ", ";
+    		}
+    	}
+    	
+    	return formattedStr;
+    };
+    
+    $rootScope.formatColleges = function(collegeArr){
+    	
+    	var formattedStr = "";
+    	for( var i = 0; i < collegeArr.length; i++){
+    		
+    		var collegeName = $rootScope.findCollegeByCollegeId(collegeArr[i]);
+    		
+    		formattedStr = formattedStr + collegeName;
+    		
+    		if ( i != (collegeArr.length -1)){
     			formattedStr = formattedStr + ", ";
     		}
     	}

@@ -1989,7 +1989,7 @@ body, .ionic-body {
   color: #000;
   word-wrap: break-word;
   font-size: 12px;
-  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: "Futura";
   line-height: 17px;
   text-rendering: optimizeLegibility;
   -webkit-backface-visibility: hidden;
@@ -2273,7 +2273,7 @@ cite {
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   color: #000;
   font-weight: 500;
-  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: "Futura";
   line-height: 1.2; }
   h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small {
     font-weight: normal;
@@ -4150,7 +4150,7 @@ label, input, button, select, textarea {
   line-height: 1.42857; }
 
 input, button, select, textarea {
-  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
+  font-family: "Futura"; }
 
 .item-input {
   display: -webkit-box;
@@ -6719,9 +6719,9 @@ a.button, a.sign-up, a.login, a.customize-button, a.post-button {
  * Apply roboto font
  */
 .roboto {
-  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
+  font-family: "Roboto", "Futura"; }
   .roboto input {
-    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
+    font-family: "Roboto", "Futura"; }
 
 /*
 .platform-android {
@@ -6828,7 +6828,7 @@ a.button, a.sign-up, a.login, a.customize-button, a.post-button {
   transition: none !important; }
 
 body {
-  font-family: "Futura Medium"; }
+  font-family: "Futura"; }
 
 .bar-header {
   border-bottom-width: 0px; }
@@ -6836,7 +6836,8 @@ body {
 .caption {
   vertical-align: top;
   color: #7F56C5 !important;
-  font-size: 11px; }
+  font-size: 11px;
+  font-family: "Futura"; }
 
 /*
 	Sign-up button style
@@ -6856,10 +6857,11 @@ body {
   min-height: 20px;
   margin: 0px 0px 0px 0px;
   padding: 0 8px;
-  font-size: 8px;
-  font-family: Futura;
+  font-size: 10px;
+  font-family: "Futura";
   border-style: solid;
-  border-width: 1px; }
+  border-width: 1px;
+  line-height: inherit; }
   .tag.button-outline {
     border-color: #b2b2b2;
     background: transparent;
@@ -6901,7 +6903,8 @@ body {
   font-size: 16px;
   padding: 0 8px;
   border-width: 1px;
-  border-style: solid; }
+  border-style: solid;
+  font-family: "Futura" !important; }
   .bar .nav-button.button-royal, .nav-button.button-royal {
     border-color: #5a359a;
     background-color: #7F56C5;
@@ -7011,15 +7014,22 @@ body {
 .post-image {
   height: 200px; }
 
+.post-item {
+  color: #7F56C5;
+  font-size: 12px;
+  font-family: "Futura" !important; }
+
+.post-history {
+  color: #7F56C5;
+  font-size: 9px;
+  font-style: italic; }
+
 .likes {
-  margin-top: 5px;
   white-space: normal !important;
   color: #7F56C5 !important;
   font-weight: bold;
-  font-size: 10px !important; }
-
-.item p {
-  font-size: 10px; }
+  font-size: 10px !important;
+  font-family: "Futura" !important; }
 
 .progress-indicator {
   font-size: 34px;
@@ -7030,3 +7040,9 @@ body {
   flex-direction: column;
   justify-content: center;
   text-align: center; }
+
+.menu-item {
+  color: #7F56C5;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Futura" !important; }

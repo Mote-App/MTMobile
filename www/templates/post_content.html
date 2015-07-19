@@ -10,10 +10,10 @@
   
 	<div class="item post-img">    
       
-      <p align="right" class="image-post-time">{{ post.postingDate}}&nbsp;</p>
+      <p align="right" style="margin-bottom:0px;"><b class="post-history">{{post.postingDate}}</b>&nbsp;</p>
       <div style="position:relative;">
-        <div style="position:absolute; top:0; left:0; width:50%;"><p align="left"><b style="color: #8a6de9;">{{user.name}}</b></p></div>
-        <div style="position:absolute; top:0; right:0; width:50%;"><p align="right"><b style="color: #8a6de9;">{{user.schoolName}}</b></p></div>
+        <div style="position:absolute; top:0; left:0; width:50%;"><p align="left"><b class="post-item">{{user.name}}</b></p></div>
+        <div style="position:absolute; top:0; right:0; width:50%;"><p align="right"><b class="post-item">{{user.schoolName}}</b></p></div>
       </div>
       
       </br>
@@ -34,7 +34,7 @@
         <div>
         	<!--<img ng-src="{{ clhost + '/' + user.profileImg}}" class="profile-img-style">-->
 
-          <p style="margin-top: 1px;margin-bottom: 50px;">
+          <p style="margin-top: 10px;margin-bottom: 50px;">
           	<!--<div class="progress">-->
                 <img src="img\mote_logo.jpg" style="width:5%;"><span class="caption">&nbsp;{{post.caption}}</span>
             <!--</div>-->

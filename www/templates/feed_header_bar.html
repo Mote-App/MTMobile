@@ -4,20 +4,20 @@
 	<!-- <p style="margin-top:10px; margin-left:5px;"></p> -->
 
 	<div class="row">
-	   	<div class="col-10"><img ng-src="img/search_icon_mote.jpg" width="80%" ng-click="toggleCustomMenu()" ></div>
+	   	<div class="col-10"><img ng-src="img/search_icon_mote.jpg" width="60%" ng-click="toggleCustomMenu()" ></div>
 	</div>
-	<div class="row" style="margin-top: -30px;">
+	<div class="row" style="margin-top: -21px;">
 			<div class="col-10"></div>
 	      	<div class="col">
-		        <button class="nav-button" ng-class="{'button-royal': friends, 'button-outline button-royal': !friends}" 
-		        	ng-click="setContext('friends')">friends</button>
+		        <button class="nav-button" ng-class="{'button-royal': !friends, 'button-outline button-royal': friends}" 
+		        	ng-click="setContext('friends')" style="padding:0 12px;">friends</button>
 		    </div>
 		    <div class="col">    
-		        <button class="nav-button" ng-class="{'button-royal': school, 'button-outline button-royal': !school}" 
-		        	ng-click="setContext('school')">school</button>
+		        <button class="nav-button" ng-class="{'button-royal': !school, 'button-outline button-royal': school}" 
+		        	ng-click="setContext('school')" style="padding:0 13px;">school</button>
 		    </div>
 		    <div class="col">
-				<button class="nav-button" ng-class="{'button-royal': nation, 'button-outline button-royal': !nation}" 
+				<button class="nav-button" ng-class="{'button-royal': !nation, 'button-outline button-royal': nation}" 
 				ng-click="setContext('nation')" >national</button>
 		    </div>
 	      	<div class="col-10"></div>

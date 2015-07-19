@@ -22,6 +22,7 @@ $royal:                           #7F56C5 !default;
 /* To control header bar height*/
 $bar-height:                      51px !default;
 
+$font-family-base:				  "Futura" !default;	
 $font-size-base:                  12px !default;
 $font-size-large:                 16px !default;
 $font-size-small:                 8px !default;
@@ -63,7 +64,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "www/lib/ionic/scss/ionic";
 
 body {
-	font-family: "Futura Medium";
+	font-family: $font-family-base;
 }
 
 .bar-header {
@@ -75,6 +76,7 @@ body {
 	vertical-align: top;
 	color: $royal !important;
 	font-size: 11px;
+	font-family: $font-family-base;
 }
 
 /*
@@ -104,11 +106,12 @@ body {
 	min-height: 20px;
 	margin: 0px 0px 0px 0px;
 	padding: 0 8px; 
-	font-size: 8px;
-	font-family: Futura;
+	font-size: 10px;
+	font-family: $font-family-base;
 	//border-width: $button-border-width;
   	border-style: solid;  
   	border-width: 1px;
+	line-height: inherit;  	
 	
 	@include button-outline($button-default-border);
 	
@@ -117,6 +120,8 @@ body {
 	    @include button-clear($button-royal-bg);
 	    @include button-outline($button-royal-bg);
 	 }
+	 
+
 }
 
 .bar .nav-button, .nav-button {
@@ -127,6 +132,7 @@ body {
 	padding: 0 8px;
 	border-width: $button-border-width;
   	border-style: solid;
+  	font-family: $font-family-base !important;
   
 	&.button-royal {
 	    @include button-style($button-royal-bg, $button-royal-border, $button-royal-active-bg, $button-royal-active-border, $button-royal-text);
@@ -188,16 +194,25 @@ body {
 	height:200px;	
 }
 
+.post-item {
+	color: $royal;
+	font-size: 12px;
+	font-family: $font-family-base !important;
+}
+
+.post-history {
+	color: $royal;
+	font-size: 9px;
+	font-style: italic;
+		
+} 
+
 .likes {
-	margin-top:5px; 
 	white-space: normal !important;
 	color: $royal !important;
 	font-weight: bold;
 	font-size: 10px !important;
-}
-
-.item p {
-	font-size: 10px;
+	font-family: $font-family-base !important;
 }
 
 .progress-indicator {
@@ -210,4 +225,11 @@ body {
    	flex-direction: column;
    	justify-content: center;
    	text-align: center;
+}
+
+.menu-item {
+	color: $royal;
+	font-size: $font-size-large;
+	font-weight: bold;
+	font-family: $font-family-base !important;
 }

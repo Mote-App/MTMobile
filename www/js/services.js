@@ -46,8 +46,8 @@ angular.module('mtServices', ['ngResource'])
 
   .factory('FriendFeed', ['$resource', '$rootScope',
   function($resource, $rootScope){
-    return $resource($rootScope.clhost + $rootScope.clport + '/friend_feeds?userId=:userId', {}, {
-      query: {method:'GET', params:{userId:'@userId'}, isArray:true}
+    return $resource($rootScope.clhost + $rootScope.clport + '/friend_feeds?profileId=:profileId', {}, {
+      query: {method:'GET', params:{profileId:'@profileId'}, isArray:true}
     });
   }])
 
@@ -56,7 +56,7 @@ angular.module('mtServices', ['ngResource'])
    */
  .factory('usersProfile', ['$resource', '$rootScope',
   function($resource, $rootScope){
-    return $resource($rootScope.clhost + $rootScope.clport + '/users/profile?profileId=:userId', {}, {
+    return $resource($rootScope.clhost + $rootScope.clport + '/users/profile?userId=:userId', {}, {
       query: {method:'GET', params:{userId:'@userId'}, isArray:true}
     });
   }])

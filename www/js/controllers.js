@@ -249,42 +249,35 @@ angular.module('mtControllers', [])
 		restrict: 'EA',
 		controller: function($scope, $rootScope, Schools,schoolFeedCutomizer){
 			 
-			$scope.collegeName1 = "";
-			$scope.collegeName2 = "";
-			$scope.collegeName3 = "";
-			$scope.collegeName4 = "";
-			
-			$scope.feedFilterCollegeId = 0;
 			$scope.feedFilterTags = [];
-			
-			$scope.setFilterCollegeId = function(schoolId){
-				$scope.filterCollegeId = schoolId;
-			};
 			
 			$scope.tagSelected = false;
 			
 			$scope.setTagID = function(tagId){
 				
-				var ind = $scope.feedFilterTags.indexOf(tagId);
+				//var ind = $scope.feedFilterTags.indexOf(tagId);
 				
-				var tagObj = _.find($scope.lstTag.tags, function(tag){ return tag.tagId == tagId});
+				var searchObj = _.findWhere($scope.feedFilterTags, {tagId: tagId});
+					
+				var tagObj = _.find($rootScope.lstTag.tags, function(tag){ return tag.tagId == tagId});
 				
 				//var subTagObj =  $scope.subTags[subTagIndex];
 						
-				if(ind == -1){
-					$scope.feedFilterTags.push(tagId);
+				if(searchObj == undefined || searchObj == null){
+					$scope.feedFilterTags.push(tagObj);
 					//$scope.tagSelected = true;
+					
 					tagObj.selected = true;
 				}else {
 					//Remove the existing one.
 					$scope.feedFilterTags = _.reject($scope.feedFilterTags, function(tag){
-					      return tag == tagId;
+					      return tag.tagId == tagId;
 					});
 					//$scope.tagSelected = false;
 					tagObj.selected = false;
 				}
 				
-				$scope.selectedTagDescriptions = $rootScope.formatTags($scope.feedFilterTags);
+				//$scope.selectedTagDescriptions = $rootScope.formatTags($scope.feedFilterTags);
 			};
 			
 			
@@ -309,9 +302,36 @@ angular.module('mtControllers', [])
 				}
 			};
 			
-			Schools.query(function(schoolData) { 
-		        $scope.schools = schoolData;
-		    });
+			
+			$scope.feedFilterColleges = [];
+			
+			$scope.collegeSelected = false;
+			
+			$scope.setCollegeId = function(collegeId){
+				
+				//var ind = $scope.feedFilterColleges.indexOf(collegeId);
+				
+				var searchObj = _.findWhere($scope.feedFilterColleges, {collegeId: collegeId});
+				
+				var collegeObj = _.find($rootScope.colleges, function(college){ return college.collegeId == collegeId});
+				
+				//var subTagObj =  $scope.subTags[subTagIndex];
+						
+				if(searchObj == undefined || searchObj == null){
+					$scope.feedFilterColleges.push(collegeObj);
+					//$scope.tagSelected = true;
+					collegeObj.selected = true;
+				}else {
+					//Remove the existing one.
+					$scope.feedFilterColleges = _.reject($scope.feedFilterColleges, function(college){
+					      return college.collegeId == collegeId;
+					});
+					//$scope.tagSelected = false;
+					collegeObj.selected = false;
+				}
+				
+				//$scope.selectedCollegeDescriptions = $rootScope.formatTags($scope.feedFilterColleges);
+			};
 			
 			/*$scope.subTags = [];
 			
@@ -502,7 +522,7 @@ angular.module('mtControllers', [])
 	$rootScope.appHeader = "Mote";
 
 	Schools.query(function(response) { 
-		$scope.schools = response;
+		$rootScope.colleges = response;
 	});
 	 
 	Tags.query(function(response) { 
@@ -824,7 +844,8 @@ angular.module('mtControllers', [])
                                           $rootScope,
                                           $localstorage,
                                           FriendFeed, 
-                                          Tags, 
+                                          Tags,
+                                          Schools,
                                           sliceTagFilter, 
                                           Like,
                                           $stateParams ) {
@@ -834,12 +855,23 @@ angular.module('mtControllers', [])
 	$rootScope.showSettingMenu = true;
 	$scope.moteActiveSlide = 1;
 	
+	//It is possible if user is already logged in and detail is stored locally
 	if( $rootScope.lstTag == undefined ||$rootScope.lstTag == null){
 		Tags.query(function(response) { 
 	    	$rootScope.lstTag = response;
 	    });
 
 	}
+	
+	//It is possible if user is already logged in and detail is stored locally
+	if( $rootScope.colleges == undefined || $rootScope.colleges == null){
+		Schools.query(function(response) { 
+			$rootScope.colleges = response;
+	    });
+
+	}
+	
+	
 	
 	var data = FriendFeed.query({profileId: $localstorage.get('token')},function(friendFeedData) { 
 	    $scope.users = friendFeedData;

@@ -16,16 +16,16 @@
 				<div class="col-10"></div>
 				<div class="col-10"></div>
 				<div class="col">    
-					<button class="nav-button" ng-class="{'button-royal': school, 'button-outline button-royal': !school}" ng-click="setContext('school', 'nonav')" style="border-radius: 30px; font-size:16px">school</button>
+					<button class="nav-button" ng-class="{'button-royal': !school, 'button-outline button-royal': school}" ng-click="setContext('school', 'nonav')" style="padding:0 13px;">school</button>
 				</div>
 				<div class="col">
-					<button class="nav-button" ng-class="{'button-royal': nation, 'button-outline button-royal': !nation}" ng-click="setContext('nation', 'nonav')" style="border-radius: 30px; font-size:16px">national</button>
+					<button class="nav-button" ng-class="{'button-royal': !nation, 'button-outline button-royal': nation}" ng-click="setContext('nation', 'nonav')">national</button>
 				</div>
 				<div class="col-10"></div>
 				<div class="col-10"></div>
 			</div>
 	
-			<div style="border-style: solid;border-width: medium;border-color: #8a6de9; margin-top: 10px;">
+			<!-- <div style="border-style: solid;border-width: medium;border-color: #8a6de9; margin-top: 10px;">
 				<input type="text" ng-model="collegeName1" placeholder="University" ng-change="update1()">
 			</div>
 			
@@ -40,20 +40,44 @@
 			
 			<div style="border-style: solid;border-width: thin;border-color: #8a6de9; margin-top: 10px;">
 				<input type="text" ng-model="collegeName4" placeholder="University">
+			</div>  -->
+			
+			
+			<div style="margin-top: 10px;">
+				<p class="post-item" style="margin-bottom:0px;">Select College(s)</p>
+				<ion-scroll direction="xy" zooming="true" class="item" style="height: 100px; white-space:pre-wrap;">
+					<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
+					class="tag button-outline button-royal" 
+					ng-class="{'button-outline' : !college.selected }"
+					ng-repeat="college in colleges" ng-click="setCollegeId({{college.collegeId}})">{{ college.collegeName }}</button>								
+				</ion-scroll>
+				<p class="post-item" style="margin-bottom:0px;">Selected College(s)</p>
+				<ion-scroll direction="x" zooming="true" class="item">
+					<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
+					class="tag button-royal" 
+					ng-repeat="college in feedFilterColleges" ng-click="setCollegeId({{college.collegeId}})">{{ college.collegeName }}</button>								
+				</ion-scroll>
 			</div>
 			
 			<div style="margin-top: 10px;">
-				<ion-scroll direction="x" class="item">
+				<p class="post-item" style="margin-bottom:0px;">Select Tag(s)</p>
+				<ion-scroll direction="xy" zooming="true" class="item" style="height: 100px; white-space:pre-wrap;">
 					<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
 					class="tag button-outline button-royal" 
 					ng-class="{'button-outline' : !tag.selected }"
 					ng-repeat="tag in lstTag.tags" ng-click="setTagID({{tag.tagId}})">{{ tag.tagDescription }}</button>								
 				</ion-scroll>
+				<p class="post-item" style="margin-bottom:0px;">Selected Tag(s)</p>
+				<ion-scroll direction="x" zooming="true" class="item">
+					<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
+					class="tag button-royal" 
+					ng-repeat="tag in feedFilterTags" ng-click="setTagID({{tag.tagId}})">{{ tag.tagDescription }}</button>								
+				</ion-scroll>
 			</div>
 			
-			<div style="border-style: solid;border-width: medium;border-color: #8a6de9; ">
+			<!-- <div style="border-style: solid;border-width: medium;border-color: #8a6de9; ">
 				<input type="text" ng-value="selectedTagDescriptions" placeholder="Selected Tags">
-			</div>
+			</div> -->
 			
 			<div class="row" style="margin-top:8px;">
 				
