@@ -583,7 +583,7 @@ angular.module('mtControllers', [])
 		$scope.userDetail.college = angular.fromJson($scope.userDetail.college);
 		//$scope.userDetail.isAlumni = $scope.userDetail.isAlumni == true ? "Y" : "N";
 		
-		$scope.userDetail.profilePictureUrl = "dummy";
+		$scope.userDetail.profilePictureUrl = "img/profiles/blank_person.jpg";
 		
 		createAccountService.create($scope.userDetail).$promise.then(
 			function(response){
@@ -700,9 +700,9 @@ angular.module('mtControllers', [])
 	  * University selection modal window
 	  * 
 	  */
-	 $scope.setCollege = function(school){
-		 $scope.userDetail.college = school;
-		 $scope.userDetail.collegeName = school.collegeName;
+	 $scope.setCollege = function(college){
+		 $scope.userDetail.college = college;
+		 $scope.userDetail.collegeName = college.collegeName;
 		 $scope.closeModal();
 	 };
 	 

@@ -16,9 +16,9 @@
 	    <ion-content>
 		  
 		  <div class="list">
-		    <a class="item" ng-click="setCollege(school)" ng-repeat="school in schools | filter:{ name: searchUniv }" >
+		    <a class="item" ng-click="setCollege(college)" ng-repeat="college in colleges | filter:{ collegeName: searchUniv }" >
 		      <!--<img ng-src="{{ clhost + '/' + school.collegeImgPath}}">-->
-		      <h2>{{ school.collegeName}}</h2>
+		      <h2>{{ college.collegeName}}</h2>
 		    </a>
 		   </div>
 	    </ion-content>

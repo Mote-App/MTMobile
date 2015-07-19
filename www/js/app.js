@@ -52,6 +52,9 @@ angular.module('Mote', ['ionic',
 		
 		if (toState.data == undefined || !angular.isFunction(toState.data.rule)) return;
 		
+		if( toState.name == "app.logout"){
+			$localstorage.set("token","");
+		}
 		var result = toState.data.rule();
 		
 		if (result) {
@@ -305,11 +308,11 @@ angular.module('Mote', ['ionic',
       url: "/logout",
       data: {
     	  
-    	  rule: function($localstorage){
+    	  rule: function(){
     		  
-    		  $localstorage.set('token',"");
-    		  $rootScope.showSettingMenu = false;
-    		  return false;
+    		  //$localstorage.set('token',"");
+    		  //$rootScope.showSettingMenu = false;
+    		  return true;
     	  }
       }
     })
