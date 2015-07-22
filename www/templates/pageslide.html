@@ -45,14 +45,14 @@
 			
 			<div style="margin-top: 10px;">
 				<p class="post-item" style="margin-bottom:0px;">Select College(s)</p>
-				<ion-scroll direction="xy" zooming="true" class="item" style="height: 100px; white-space:pre-wrap;">
+				<ion-scroll direction="xy" zooming="true" class="item input-border-color" style="height: 100px; white-space:pre-wrap;">
 					<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
 					class="tag button-outline button-royal" 
 					ng-class="{'button-outline' : !college.selected }"
 					ng-repeat="college in colleges" ng-click="setCollegeId({{college.collegeId}})">{{ college.collegeName }}</button>								
 				</ion-scroll>
 				<p class="post-item" style="margin-bottom:0px;">Selected College(s)</p>
-				<ion-scroll direction="x" zooming="true" class="item">
+				<ion-scroll direction="x" zooming="true" class="item input-border-color">
 					<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
 					class="tag button-royal" 
 					ng-repeat="college in feedFilterColleges" ng-click="setCollegeId({{college.collegeId}})">{{ college.collegeName }}</button>								
@@ -61,14 +61,14 @@
 			
 			<div style="margin-top: 10px;">
 				<p class="post-item" style="margin-bottom:0px;">Select Tag(s)</p>
-				<ion-scroll direction="xy" zooming="true" class="item" style="height: 100px; white-space:pre-wrap;">
+				<ion-scroll direction="xy" zooming="true" class="item input-border-color" style="height: 100px; white-space:pre-wrap;">
 					<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
 					class="tag button-outline button-royal" 
 					ng-class="{'button-outline' : !tag.selected }"
 					ng-repeat="tag in lstTag.tags" ng-click="setTagID({{tag.tagId}})">{{ tag.tagDescription }}</button>								
 				</ion-scroll>
 				<p class="post-item" style="margin-bottom:0px;">Selected Tag(s)</p>
-				<ion-scroll direction="x" zooming="true" class="item">
+				<ion-scroll direction="x" zooming="true" class="item input-border-color">
 					<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
 					class="tag button-royal" 
 					ng-repeat="tag in feedFilterTags" ng-click="setTagID({{tag.tagId}})">{{ tag.tagDescription }}</button>								

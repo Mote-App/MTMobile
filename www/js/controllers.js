@@ -287,7 +287,7 @@ angular.module('mtControllers', [])
 				/*
 				 * Call filter for School level post if user specified one
 				 */
-				if ($scope.feedFilterCollegeId > 0 || $scope.feedFilterTags.length > 0){
+				if ($scope.feedFilterColleges.length > 0 || $scope.feedFilterTags.length > 0){
 					
 					var schoolFilters = {collegeId: $scope.feedFilterCollegeId, lstTags: $scope.feedFilterTags};
 							
@@ -378,26 +378,29 @@ angular.module('mtControllers', [])
 			
 			$scope.setTagID = function(tagId){
 				
-				var ind = $scope.feedFilterTags.indexOf(tagId);
+				//var ind = $scope.feedFilterTags.indexOf(tagId);
 				
+				var searchObj = _.findWhere($scope.feedFilterTags, {tagId: tagId});
+					
 				var tagObj = _.find($rootScope.lstTag.tags, function(tag){ return tag.tagId == tagId});
 				
 				//var subTagObj =  $scope.subTags[subTagIndex];
 						
-				if(ind == -1){
-					$scope.feedFilterTags.push(tagId);
+				if(searchObj == undefined || searchObj == null){
+					$scope.feedFilterTags.push(tagObj);
 					//$scope.tagSelected = true;
+					
 					tagObj.selected = true;
 				}else {
 					//Remove the existing one.
 					$scope.feedFilterTags = _.reject($scope.feedFilterTags, function(tag){
-					      return tag == tagId;
+					      return tag.tagId == tagId;
 					});
 					//$scope.tagSelected = false;
 					tagObj.selected = false;
 				}
 				
-				$scope.selectedTagDescriptions = $rootScope.formatTags($scope.feedFilterTags);
+				//$scope.selectedTagDescriptions = $rootScope.formatTags($scope.feedFilterTags);
 			};
 			
 			

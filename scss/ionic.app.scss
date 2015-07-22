@@ -233,3 +233,10 @@ body {
 	font-weight: bold;
 	font-family: $font-family-base !important;
 }
+
+.input-border-color {
+	
+	border-style: solid;
+	border-width: medium;
+	border-color: $royal;
+}
