@@ -1078,12 +1078,12 @@ angular.module('mtControllers', [])
 				},
 				function(error){
 					
-					$ionicPopup.alert({
+					/*$ionicPopup.alert({
 						title: "Image Capture Error",
 						template: error
-					});
+					});*/
 					
-					//$state.go('app.friends_feeds');
+					$state.go('app.friends_feeds');
 				}
 			);
 	};
