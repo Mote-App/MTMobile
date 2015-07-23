@@ -289,7 +289,10 @@ angular.module('mtControllers', [])
 				 */
 				if ($scope.feedFilterColleges.length > 0 || $scope.feedFilterTags.length > 0){
 					
-					var schoolFilters = {collegeId: $scope.feedFilterCollegeId, lstTags: $scope.feedFilterTags};
+					$scope.feedFilterCollegeIds = _.pluck($scope.feedFilterColleges, 'collegeId');
+					$scope.feedFilterTagIds = _.pluck($scope.feedFilterTags, 'tagId');
+					
+					var schoolFilters = {collegeIds: $scope.feedFilterCollegeIds, lstTags: $scope.feedFilterTagIds};
 							
 					schoolFeedCutomizer.query(schoolFilters).$promise.then(
 						function(response){
@@ -914,7 +917,7 @@ angular.module('mtControllers', [])
 	
 	$rootScope.showSettingMenu = true;
 	
-	var data = SchoolFeed.query({collegeId: $rootScope.collegeId, userId: $localstorage.get('token')},function(schoolFeedData) { 
+	var data = SchoolFeed.query({collegeId: $rootScope.collegeId, profileId: $localstorage.get('token')},function(schoolFeedData) { 
 		$scope.schoolUsers = schoolFeedData;
 		
 		for ( var i=0; i < $scope.schoolUsers.length; i ++ ){
@@ -1107,11 +1110,12 @@ angular.module('mtControllers', [])
 		options.mimeType = "image/png";
 		options.headers = {Connection: "close"};
 		
+		$scope.feedFilterTagIds = _.pluck($scope.feedFilterTags,'tagId');
 		
 		var postDto = {postType:$rootScope.postType, 
 						userId: $localstorage.get('token'), 
 						caption: $rootScope.caption, 
-						tags: $scope.feedFilterTags, 
+						tags: $scope.feedFilterTagIds, 
 						customTags: $scope.customTags};
 
 		params = {};
