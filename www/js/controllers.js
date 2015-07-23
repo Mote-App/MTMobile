@@ -546,6 +546,7 @@ angular.module('mtControllers', [])
 				 * friends, schools and National feed
 				 */
 				$localstorage.set("token",success.userId);
+				$localstorage.set("collegeId",success.collegeId);
 				//$rootScope.userId = success.userId;
 				
 				$rootScope.collegeId = success.collegeId;
@@ -917,7 +918,7 @@ angular.module('mtControllers', [])
 	
 	$rootScope.showSettingMenu = true;
 	
-	var data = SchoolFeed.query({collegeId: $rootScope.collegeId, profileId: $localstorage.get('token')},function(schoolFeedData) { 
+	var data = SchoolFeed.query({collegeId: $localstorage.get('collegeId'), profileId: $localstorage.get('token')},function(schoolFeedData) { 
 		$scope.schoolUsers = schoolFeedData;
 		
 		for ( var i=0; i < $scope.schoolUsers.length; i ++ ){
@@ -1035,7 +1036,7 @@ angular.module('mtControllers', [])
 
 	$rootScope.showSettingMenu = true;
 	
-	NationalFeed.query({collegeId: $rootScope.collegeId, userId: $localstorage.get('token')}, function(nationalFeedData) { 
+	NationalFeed.query({collegeId: $localstorage.get('collegeId'), profileId: $localstorage.get('token')}, function(nationalFeedData) { 
 		$scope.nationalUsers = nationalFeedData;
 		for ( var i=0; i < $scope.nationalUsers .length; i ++ ){
 			var user = $scope.nationalUsers[i];
