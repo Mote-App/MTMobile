@@ -54,6 +54,7 @@ angular.module('Mote', ['ionic',
 		
 		if( toState.name == "app.logout"){
 			$localstorage.set("token","");
+			$localstorage.set("collegeId","");
 		}
 		var result = toState.data.rule();
 		

@@ -103,8 +103,8 @@ angular.module('mtServices', ['ngResource'])
   
   .factory('NationalFeed', ['$resource', '$rootScope',
   function($resource, $rootScope){
-    return $resource($rootScope.clhost + $rootScope.clport + '/national_feeds?collegeId=:collegeId', {}, {
-      query: {method:'GET', params:{collegeId:'@collegeId'}, isArray:true}
+    return $resource($rootScope.clhost + $rootScope.clport + '/national_feeds?collegeId=:collegeId&profileId=:profileId', {}, {
+      query: {method:'GET', params:{collegeId:'@collegeId', profileId: '@profileId'}, isArray:true}
     });
   }])
 
