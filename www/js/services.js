@@ -56,7 +56,7 @@ angular.module('mtServices', ['ngResource'])
    */
  .factory('usersProfile', ['$resource', '$rootScope',
   function($resource, $rootScope){
-    return $resource($rootScope.clhost + $rootScope.clport + '/users/profile?userId=:userId', {}, {
+    return $resource($rootScope.clhost + $rootScope.clport + '/users/profile?profileId=:userId', {}, {
       query: {method:'GET', params:{userId:'@userId'}, isArray:true}
     });
   }])
