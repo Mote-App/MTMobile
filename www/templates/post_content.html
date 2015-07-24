@@ -18,7 +18,7 @@
       
       </br>
       
-	  <img class="post-image" ng-src="{{ clhost + '/' + post.postImg}}" ng-click="updateLike(post)" on-touch="updateView(post)">
+	  <img class="post-image" ng-src="{{ clhost + '/' + post.postImg}}" ng-click="updateLike(post)" on-swipe-up="updateView(post)" on-swipe-down="updateView(post)">
 
 	  <div>
         <div class="likes" style="float:left;">

@@ -53,8 +53,8 @@ angular.module('Mote', ['ionic',
 		if (toState.data == undefined || !angular.isFunction(toState.data.rule)) return;
 		
 		if( toState.name == "app.logout"){
-			$localstorage.set("token","");
-			$localstorage.set("collegeId","");
+			$localstorage.set("token","0");
+			$localstorage.set("collegeId","0");
 		}
 		var result = toState.data.rule();
 		
@@ -73,16 +73,16 @@ angular.module('Mote', ['ionic',
 			
 			var installed = $localstorage.get('installed');
 			
-			if( installed == undefined || installed == null){
-				$localstorage.set("installed","true");
+			if( installed == undefined || isNaN(installed ) || installed == 0){
+				$localstorage.set("installed","1");
 				$state.go('app.create_account', toParams, {notify: true});
 			}
 			
 			var token = $localstorage.get('token');
 			
-			if( token == undefined || token == ""){
+			if( token == undefined || isNaN(token) || token == 0){
 				$state.go('app.login',toParams, {notify: true});
-			}else if( token.length > 0){
+			}else if( token > 0){
 				$state.go('app.friends_feeds',toParams, {notify: true});
 			}	
 		}

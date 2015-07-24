@@ -42,7 +42,7 @@ angular.module('mtControllers', [])
 			clhost: '@',
 			level: '@'
 		},
-		controller: function($scope, $rootScope, Like, View){
+		controller: function($scope, $rootScope, $localstorage, Like, View){
 			
 			$scope.updateLike = function(post){
 				
@@ -53,7 +53,7 @@ angular.module('mtControllers', [])
 				 */
 				if( post.likeDone == false){
 					$scope.selectedPost = post;
-					Like.update({likeCount: 1, profileId: $rootScope.userId, postId: post.postId, level:$scope.level},function(like) { 
+					Like.update({likeCount: 1, profileId: $localstorage.get('token'), postId: post.postId, level:$scope.level},function(like) { 
 				    	$scope.selectedPost.likes = like.likeCount;
 				    });
 				}
@@ -61,7 +61,7 @@ angular.module('mtControllers', [])
 			
 			$scope.updateView = function(post){
 				
-				View.update({viewCount: 1, profileId: $rootScope.userId, postId: post.postId, level:$scope.level});
+				View.update({viewCount: 1, profileId: $localstorage.get('token'), postId: post.postId, level:$scope.level});
 			};
 			
 			$scope.findTagByTagId = function(tagId){
@@ -1149,51 +1149,6 @@ angular.module('mtControllers', [])
 
 	};
 	
-	/*$scope.tags = $rootScope.lstTag;
-	_.each($scope.tags, function(tagObj){		
-		tagObj.selected = false;
-	});*/
-	
-	/*$scope.subTags = [];
-	
-	$scope.showSubtags = function(tag){
-		
-		if(tag == 'socials'){
-			$scope.subTags  = $rootScope.lstTag.socials;
-		}
-		
-		if(tag == 'smarts'){
-			$scope.subTags  = $rootScope.lstTag.smarts;
-		}
-		
-		if(tag == 'genre'){
-			$scope.subTags  = $rootScope.lstTag.genre;
-		}
-		
-		
-	}*/
-	
-	
-	
-	//Handle model to show option for adding post details
-	/*$ionicModal.fromTemplateUrl('new_post.html', {
-		    scope: $scope,
-		    animation: 'slide-in-up'
-		  }).then(function(modal) {
-		    $scope.modal = modal;
-	 });
-	 
-	 $scope.openModal = function() {
-		    $scope.modal.show();
-	  };
-	  $scope.closeModal = function() {
-	    $scope.modal.hide();
-	  };
-	  //Clean up the modal when we're done with it!
-	  $scope.$on('$destroy', function() {
-	    $scope.modal.remove();
-	  });*/
-	  
   
 })
 
