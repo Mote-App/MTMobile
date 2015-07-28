@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Facebook Graph API js-sdk - facebook user login/authorization</tittle>
+	<style>
+		body {
+			font-family: Helvetica, Verdana, Arial, sans-serif;
+		}
+		a {
+			text-decoration:none;
+		}
+		a:hover {
+			text-decoration:underline;
+		}
+	</style>
+</head>
+<body>
+	<div id="fb-root"></div>
+	
+	<!-- To learn/review jQuery API go to http://api.jquery.com/category/ajax -->
+	<script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		// run the script code to get the latest facebook javascript sdk dynamically
+		(function() {
+			var e = document.createElement('script');
+			e.async = true;
+			e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+			document.getElementById('fb-root').appendChild(e);
+		}()};
+		
+		// run when sychronization of facebook javascript sdk is finished
+		window.fbAsyncInit = function() {
+			//initialize the application
+			FB.init({appId: 'moteAppID>', status: true, cookie: true, xfbml: true, authResponse: true, oauth: true});
+			//FB.Canvas.setAutoResize();
+		};
+		
+		// function to prompt for facebook permissions for the mote application
+		function PromptFacebookLogin() {
+			//declare variables
+			var response;
+			
+			//login handler
+			FB.login(function(response) {
+				if(response.authResponse) {
+					// user successfully logged in
+					// get the user from the facebook graph api
+					FB.api('/me', function(response) {
+						// api call worked so show something!
+						var divHTML = '<h2>Welcome</h2><img src="https://graph.facebook.com/' + response.id + '/picture"><br/><a href="' + response.link + '">' + response.name + '</a><br/><br/>Gender: ' + response.gender + '<br/>Locale: ' + response.locale + <br/>Username: ' + response.username + '<br/>Email: ' + response.email + '<br/>';
+                        
+						//document.getElementById("output").innerHTML = divHTML;
+						$("#output").html(divHTML);
+						$("#addbutton").html('Click the button below to add yourself to the birthdays database! <input type="button" onClick="Ajax(' + response.id + ',\'' + response.birthday + '\');" value="Add me!" />');
+					});
+					
+					// access token is in the session object
+					var access_tokenHTML = '<br/><br/><br/>Access token from login:<br /> ' + response.authResponse.accessToken;
+					document.getElementById("access_token").innerHTML = access_tokenHTML;
+				} else {
+					// user is not logged in or cancelled login
+					alert("You are not logged in to Facebook or have not granted the required permissions.  Please log in and grant basic permissions to use this Mote App FB aggregation");
+				}
+			}, {scope:'publish_stream, email, user_checkins, user_birthday'});
+		}
+		
+		function Ajax(uid, birthday) {
+			//using jQuery to make the call very simple and async [fire/forget or non-blocking]
+			//set a "sending..." message...
+			$("#output").html("Sending your data to MySQL...");
+			$("#addbutton").html("");
+			
+			//send the data to the mt.jar RESTful service to ave to the MySQL motedb database
+			$.ajax({
+				url: "mt.jar RESTful service",
+				data: { action:"add", uid: uid, birthday: birthday },
+				dataType: "html",
+				sucess: function(data) {
+					$("#output").html(data);
+				}
+			});
+		}
+		
+		function getAuthResponse() {
+			//another way to get the access token
+			var authResponse = FB.getAuthResponse();
+			var access_token = authResponse.accessToken;\
+			alert(access_token);
+			var access_tokenHTML = '<br/><br/><br/>Access token from getAuthResponse:<br/> ' + access_token;
+			document.getElementById("access_token").innerHTML = access_tokenHTML;
+		}
+		
+		//get the session PLUS the login status
+		function getStatus(function(response) {
+			//get the session PLUS the login status
+			FB.getLoginStatus(function(response) {
+				if(response.authResponse) {
+					// logged in and connected user, someone you know
+					alert(response.authResponse.accessToken);
+					var access_tokenHTML = '<br/><br/><br/>Login status: ' + response.status + '<br/>Access token from getStatus:<br/> ' + response.authResponse.accessToken;
+					document.getElementById("access_token").innerHTML = access_tokenHTML;
+				} else {
+					// no user session available
+				}
+			});
+		}
+	</script>
+	<input type="button" onClick="PromptFacebookLogin();" value="Login" />
+	<input type="button" onClick="getAuthResponse();" value="Get Session" />
+	<input type="button" onClick="getStatus();" value="Get Login Status" />
+	
+	<div id="output">You are not yet logged into the App.  Please log in to display your details here</div>
+	<div id="access_token"><br/>No access token present</div>
+	<div id="addbutton"></div>
+	
+</body>
+</html>
