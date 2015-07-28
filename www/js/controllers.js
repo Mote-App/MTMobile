@@ -56,12 +56,19 @@ angular.module('mtControllers', [])
 					Like.update({likeCount: 1, profileId: $localstorage.get('token'), postId: post.postId, level:$scope.level},function(like) { 
 				    	$scope.selectedPost.likes = like.likeCount;
 				    });
+					
+					//Update the view count if user liked the post.
+					$scope.updateView($scope.selectedPost); 
 				}
 			};
 			
 			$scope.updateView = function(post){
 				
-				View.update({viewCount: 1, profileId: $localstorage.get('token'), postId: post.postId, level:$scope.level});
+				//View is once per user per post
+				if( post.viewDone == false){
+					View.update({viewCount: 1, profileId: $localstorage.get('token'), postId: post.postId, level:$scope.level});
+				}
+				
 			};
 			
 			$scope.findTagByTagId = function(tagId){
@@ -893,6 +900,10 @@ angular.module('mtControllers', [])
 	 
 	};
 
+	$scope.onGesture = function(gesture) {
+	    //$scope.gesture.used = gesture;
+	    console.log(gesture);
+	 }
 	/*
 	 * This flag is required for the slide page to customize the feeds
 	 */

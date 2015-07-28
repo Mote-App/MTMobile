@@ -8,7 +8,7 @@
 	  	</div>
     </div>-->
   
-	<div class="item post-img">    
+	<div class="item">    
       
       <p align="right" style="margin-bottom:0px;"><b class="post-history">{{post.postingDate}}</b>&nbsp;</p>
       <div style="position:relative;">
@@ -17,12 +17,11 @@
       </div>
       
       </br>
-      
-	  <img class="post-image" ng-src="{{ clhost + '/' + post.postImg}}" ng-click="updateLike(post)" on-swipe-up="updateView(post)" on-swipe-down="updateView(post)">
+	  	<img class="post-image" ng-src="{{ clhost + '/' + post.postImg}}" ng-click="updateLike(post)">
 
 	  <div>
         <div class="likes" style="float:left;">
-        	<a ng-click="updateLike(post)" on-touch="updateView(post)"><span ng-bind="post.likes"></span> Likes</a>
+        	<a ng-click="updateLike(post)"><span ng-bind="post.likes"></span> Likes</a>
         </div>
         <div style="float:right;">
           	<button class="tag button button-outline button-royal" ng-repeat="tag in post.tags" >{{findTagByTagId(tag)}}</button>
