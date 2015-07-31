@@ -142,23 +142,6 @@ body {
 	 
 }
 
-.customize-button {
-	@extend .button;
-	
-	border-radius: 30px;
-	font-size: 16px;	
-	padding: 0 8px;
-	border-width: $button-border-width;
-  	border-style: solid;
-  
-	&.button-royal {
-	    @include button-style($button-royal-bg, $button-royal-border, $button-royal-active-bg, $button-royal-active-border, $button-royal-text);
-	    @include button-clear($button-royal-bg);
-	    @include button-outline($button-royal-bg);
-	  }
-	
-}
-
 .post-button {
 	@extend .button;
 	
@@ -234,9 +217,38 @@ body {
 	font-family: $font-family-base !important;
 }
 
-.input-border-color {
+
+.customize-button {
+	@extend .button;
+	
+	border-radius: 30px;
+	font-size: 16px;	
+	padding: 0 8px;
+	border-width: $button-border-width;
+  	border-style: solid;
+  
+	&.button-royal {
+	    @include button-style($button-royal-bg, $button-royal-border, $button-royal-active-bg, $button-royal-active-border, $button-royal-text);
+	    @include button-clear($button-royal-bg);
+	    @include button-outline($button-royal-bg);
+	  }
+	
+}
+
+.customize-feed-selected {
+
+	border-style: none;
+	border-color: $royal;
+
+}
+
+.customize-feed-select {
 	
 	border-style: solid;
-	border-width: medium;
+	border-width: thin;
 	border-color: $royal;
+	border-radius: 5px;
+	height: 100px; 
+	white-space:pre-wrap;
+	padding: 0px;
 }

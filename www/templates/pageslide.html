@@ -8,11 +8,11 @@
       
       </style>
       
-      <pageslide ps-side="left" ps-size="90%" ps-open="checked">
+      <pageslide ps-side="left" ps-size="100%" ps-open="checked">
 	    <div style="background: white; padding:10px;">  
 			<p style="margin-top:10px; margin-right:5px;" align="right"><img ng-src="img/search_icon_mote.jpg" width="10%" ng-click="toggleCustomMenu()"></p>
 		 
-			<div class="row" style="margin-top:-25px;">
+			<div class="row" style="margin-top:-45px;">
 				<div class="col-10"></div>
 				<div class="col-10"></div>
 				<div class="col">    
@@ -25,111 +25,53 @@
 				<div class="col-10"></div>
 			</div>
 	
-			<!-- <div style="border-style: solid;border-width: medium;border-color: #8a6de9; margin-top: 10px;">
-				<input type="text" ng-model="collegeName1" placeholder="University" ng-change="update1()">
-			</div>
-			
-			<div style="border-style: solid;border-width: thin;border-color: #8a6de9; margin-top: 10px;">
-					<input type="text" ng-model="collegeName2" placeholder="University">
-			</div>
-			
-			
-			<div style="border-style: solid;border-width: thin;border-color: #8a6de9; margin-top: 10px;">
-				<input type="text" ng-model="collegeName3" placeholder="University">
-			</div>
-			
-			<div style="border-style: solid;border-width: thin;border-color: #8a6de9; margin-top: 10px;">
-				<input type="text" ng-model="collegeName4" placeholder="University">
-			</div>  -->
-			
-			
 			<div style="margin-top: 10px;">
-				<p class="post-item" style="margin-bottom:0px;">Select College(s)</p>
-				<ion-scroll direction="xy" zooming="true" class="item input-border-color" style="height: 100px; white-space:pre-wrap;">
+				<p class="post-item" style="margin-bottom:0px;">Filter by Colleges</p>
+				
+				<ion-scroll direction="x" zooming="true" class="item customize-feed-selected">
+					<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
+					class="tag button-royal" 
+					ng-repeat="college in feedFilterColleges" ng-click="setCollegeId({{college.collegeId}})">{{ college.collegeName }}</button>								
+				</ion-scroll>
+				
+				<ion-scroll direction="xy" zooming="true" class="item customize-feed-select" style="height: 100px; white-space:pre-wrap;">
 					<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
 					class="tag button-outline button-royal" 
 					ng-class="{'button-outline' : !college.selected }"
 					ng-repeat="college in colleges" ng-click="setCollegeId({{college.collegeId}})">{{ college.collegeName }}</button>								
 				</ion-scroll>
-				<p class="post-item" style="margin-bottom:0px;">Selected College(s)</p>
-				<ion-scroll direction="x" zooming="true" class="item input-border-color">
-					<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
-					class="tag button-royal" 
-					ng-repeat="college in feedFilterColleges" ng-click="setCollegeId({{college.collegeId}})">{{ college.collegeName }}</button>								
-				</ion-scroll>
+				<!-- <p class="post-item" style="margin-bottom:0px;">Selected College(s)</p> -->
+				
 			</div>
 			
 			<div style="margin-top: 10px;">
-				<p class="post-item" style="margin-bottom:0px;">Select Tag(s)</p>
-				<ion-scroll direction="xy" zooming="true" class="item input-border-color" style="height: 100px; white-space:pre-wrap;">
+				<p class="post-item" style="margin-bottom:0px;">Filter by Tags</p>
+				
+				<ion-scroll direction="x" zooming="true" class="item customize-feed-selected">
+					<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
+					class="tag button-royal" 
+					ng-repeat="tag in feedFilterTags" ng-click="setTagID({{tag.tagId}})">{{ tag.tagDescription }}</button>								
+				</ion-scroll>
+				
+				<ion-scroll direction="xy" zooming="true" class="item customize-feed-select">
 					<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
 					class="tag button-outline button-royal" 
 					ng-class="{'button-outline' : !tag.selected }"
 					ng-repeat="tag in lstTag.tags" ng-click="setTagID({{tag.tagId}})">{{ tag.tagDescription }}</button>								
 				</ion-scroll>
-				<p class="post-item" style="margin-bottom:0px;">Selected Tag(s)</p>
-				<ion-scroll direction="x" zooming="true" class="item input-border-color">
-					<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
-					class="tag button-royal" 
-					ng-repeat="tag in feedFilterTags" ng-click="setTagID({{tag.tagId}})">{{ tag.tagDescription }}</button>								
-				</ion-scroll>
+				<!-- <p class="post-item" style="margin-bottom:0px;">Selected Tag(s)</p> -->
+				
 			</div>
 			
 			<!-- <div style="border-style: solid;border-width: medium;border-color: #8a6de9; ">
 				<input type="text" ng-value="selectedTagDescriptions" placeholder="Selected Tags">
 			</div> -->
 			
-			<div class="row" style="margin-top:8px;">
-				
-				<div class="col-50">   
-					<button class="customize-button button-royal" ng-click="applyCustomization()" style="border-radius: 30px; font-size:12px">&nbsp;&nbsp;recent feed&nbsp;&nbsp;</button>
-				</div>
-				<div class="col-50">   
-					<button class="customize-button button-royal" ng-click="applyCustomization()" style="border-radius: 30px; font-size:12px">customize feed</button>
-				</div>  
-								
-								
-			</div>
+			 <p align="center" style="margin-top:18px;">
+				<button class="customize-button button-royal" ng-click="applyCustomization()">customize feed</button>
+			 </p>
 		
 		</div>
       </pageslide>
 	  
-	  <!-- 
-	  
-		<div>
-	      	<div class="item item-input item-select body-color">
-				<div class="input-label">
-				  University
-				</div>
-				<select class="item-input-wrapper" ng-model="collegeId">
-					<option value="{{ school.id }}" ng-repeat="school in schools">{{school.name}}</option>
-				</select>
-			</div>
-	    	<div>
-		      	<ul rn-carousel rn-carousel-index="5" rn-carousel-transition="hexagon" rn-carousel-buffered class="carousel3">
-		      		<li ng-repeat="school in schools track by school.id">
-		      			<div ng-style="{'background-image': 'url(' + '{{clhost }}' + '/' + school.imgPath + ')'}" ng-click="setFilterCollegeId({{school.id}})" class="bgimage">
-		      				#{{ school.id }}
-		      			</div>
-		      		</li>
-	          	</ul>
-	          </div>
-		      <div class="bar">
-			   		<div class="button-bar">
-					   	  <a class="button" ng-click="showSubtags('socials')">Social Life</a>
-					   	  <a class="button" ng-click="showSubtags('smarts')">Smarts</a>
-					   	  <a class="button" ng-click="showSubtags('genre')">Rated R</a>
-					</div>
-			  </div>
-			  </br>
-			  <div style="margin-top: 30px;">
-				  <button style="border-radius: 10px;margin: 0px 0px 5px 5px;" 
-				  class="button button-small icon-right ion-checkmark-round button-balanced" 
-				  ng-class="{'button-outline' : !subTag.selected }"
-				  ng-repeat="subTag in subTags" ng-click="setTagID({{subTag.id}})">{{ subTag.subTag }}</button>
-			  </div>
-			  <a style="position:absolute; bottom:-14px; left:45%;color:black;" 
-			  ng-click="toggleCustomMenu()" class="button button-icon icon ion-drag button-dark"></a>
-		  </div>
-	  
-	  -->
+	 
