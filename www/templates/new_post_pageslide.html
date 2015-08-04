@@ -26,31 +26,28 @@
 				<input type="text" ng-model="caption" placeholder="Caption" ng-change="updateRootScope()">
 			</div>
 			
-			<div style="margin-top: 20px;">
-			<!-- 	<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
-				class="button button-small button-royal">football</button> -->
-			</div>
-			<!-- <div style="border-style: solid;border-width: medium;border-color: #8a6de9;">
-				<input type="text" ng-value="selectedTagDescriptions" placeholder="Selected Tag">
-			</div> -->
-		
+					
 			<div style="margin-top:2px;">
-				<p class="post-item" style="margin-bottom:0px;">Select Tag(s)</p>
-				<ion-scroll direction="xy" zooming="true" class="item input-border-color" style="height: 100px; white-space:pre-wrap;">
+				<p class="post-item" style="margin-bottom:0px;">Tag your post</p>
+				
+				<ion-scroll direction="x" zooming="true" class="item customize-feed-selected">
+					<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
+					class="tag button-royal" 
+					ng-repeat="tag in feedFilterTags" ng-click="setTagID({{tag.tagId}})">{{ tag.tagDescription }}</button>								
+				</ion-scroll>
+				
+				<ion-scroll direction="xy" zooming="true" class="item customize-feed-select" style="height: 100px; white-space:pre-wrap;">
 					<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
 					class="tag button-outline button-royal" 
 					ng-class="{'button-outline' : !tag.selected }"
 					ng-repeat="tag in lstTag.tags" ng-click="setTagID({{tag.tagId}})">{{ tag.tagDescription }}</button>								
 				</ion-scroll>
-				<p class="post-item" style="margin-bottom:0px;">Selected Tag(s)</p>
-				<ion-scroll direction="x" zooming="true" class="item input-border-color">
-					<button style="border-radius: 10px;margin: 0px 0px 5px 5px; font-size:10px;" 
-					class="tag button-royal" 
-					ng-repeat="tag in feedFilterTags" ng-click="setTagID({{tag.tagId}})">{{ tag.tagDescription }}</button>								
-				</ion-scroll>
+				
 			</div>
 			
-			<p align="center" style="margin-top: 18px;"><button class="post-button button-royal" ng-click="uploadImg()">post</button><p>
+			<p align="center" style="margin-top: 18px;">
+				<button class="post-button button-royal" ng-click="uploadImg()">post</button>
+			<p>
 
 	</div>
 </pageslide>
