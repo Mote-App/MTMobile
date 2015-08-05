@@ -862,6 +862,7 @@ angular.module('mtControllers', [])
                                           Schools,
                                           sliceTagFilter, 
                                           Like,
+                                          View,
                                           $stateParams ) {
   	
 	
@@ -884,7 +885,6 @@ angular.module('mtControllers', [])
 	    });
 
 	}
-	
 	
 	
 	var data = FriendFeed.query({profileId: $localstorage.get('token')},function(friendFeedData) { 
@@ -912,6 +912,33 @@ angular.module('mtControllers', [])
 		$scope.checked = !$scope.checked;
 	};
 		
+	$scope.updateView = function(post){
+		
+		//View is once per user per post
+		if( post.viewDone == false){
+			View.update({viewCount: 1, profileId: $localstorage.get('token'), postId: post.postId, level:'F'});
+		}
+		
+	};
+	
+	$scope.slideHasChanged = function(index, posts){
+		
+		if(index == 0){
+			//Popular Post
+			$scope.updateView(posts.popularPost);
+		}
+		
+		if( index == 1){
+			//Current Post
+			$scope.updateView(posts.currentPost);
+		}
+		
+		if( index == 2){
+			//Most recent post
+			$scope.updateView(posts.mostRecentPost);
+		}
+	};
+	
  
 })
 
