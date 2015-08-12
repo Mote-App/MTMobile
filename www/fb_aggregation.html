@@ -35,7 +35,7 @@
 		window.fbAsyncInit = function() {
 			alert("initialize the application");
 			//initialize the application
-			FB.init({appId: '956170854392949', status: true, cookie: true, xfbml: true, authResponse: true, oauth: true});
+			FB.init({appId: '956170854392949', status: true, cookie: true, xfbml: true, version: 'v2.2', authResponse: true, oauth: true});
 			//FB.Canvas.setAutoResize();
 		};
 		
@@ -278,6 +278,15 @@
 				data: 'special tracking data for the app'
 			});
 		}
+		
+		  // This function is called when someone finishes with the Login
+		  // Button.  See the onlogin handler attached to it in the sample
+		  // code below.
+		  function checkLoginState() {
+		    FB.getLoginStatus(function(response) {
+		      statusChangeCallback(response);
+		    });
+		  }
 	</script>
 	<input type="button" onClick="PromptFacebookLogin();" value="Login" />
 	<input type="button" onClick="getAuthResponse();" value="Get Session" />
@@ -285,6 +294,8 @@
 	<input type="button" onClick="postToFeedDialog();" value="Post to feed - Dialog Boxes" />
 	<input type="button" onClick="postToFeedGraph();" value="Post to feed - Graph API" />
 	<input type="button" onClick="sendRequest();" value="Send Request" />
+	
+	<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"> </fb:login-button>
 	
 	<div id="output">You are not yet logged into the App.  Please log in to display your details here</div>
 	<div id="access_token"><br/>No access token present</div>
