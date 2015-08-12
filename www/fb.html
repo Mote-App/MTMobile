@@ -1,46 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-    	<meta charset="utf-8" />
-    	<title>Facebook Graph API JSON Sample</title>
-    </head>
-    <body>
-    	<div id="placeholder"></div>
-    	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-    	<script>
-    		//$.getJSON('https://graph.facebook.com/eris.risyana/friends?limit=100&access_token=[your_access_token]', function(mydata) {
-    		//$.getJSON('https://graph.facebook.com/v2.4/me/friends?limit=25&offset=0&format=json&access_token=CAACEdEose0cBAGZBBkpdRhS6gvODQpLXxmOmXPNME1HH8tFz2PnPv1nbXtVw4PF66YDZB5E97UahnikM8H5wGdHDJL4005rYTw1e9ODOSGcnLTbVKMpb6a94IaFjBhkSCr7vf80XkYoulBhDgohsTmOqxZCVtzfiNZCnTC8qfhoCiCXLeX3DhZC5B2htcLyy5l72y4cuNOhuZAXawnmcyn', function(mydata) {
-    		//$.getJSON('https://graph.facebook.com/v2.4/me/friends?fields=first_name,last_name,name,about,address,birthday,albums&limit=25&offset=0&format=json&access_token=CAACEdEose0cBAGZBBkpdRhS6gvODQpLXxmOmXPNME1HH8tFz2PnPv1nbXtVw4PF66YDZB5E97UahnikM8H5wGdHDJL4005rYTw1e9ODOSGcnLTbVKMpb6a94IaFjBhkSCr7vf80XkYoulBhDgohsTmOqxZCVtzfiNZCnTC8qfhoCiCXLeX3DhZC5B2htcLyy5l72y4cuNOhuZAXawnmcyn', function(mydata) {
-    		$.getJSON('https://graph.facebook.com/v2.4/me/friends?fields=email,first_name,hometown,id,last_name,location,name,albums{count,id,name,comments,likes,photos,picture},feed{caption,comments,likes,picture},photos{picture,comments,likes},videos{captions,comments,likes}&limit=100&format=json&access_token=CAACEdEose0cBANv2lTRrIKnY7v4LZBJO8CZCZBaS2TiPVTmgxphgmj9pc3zWZBHZBkZCtTTwLoe0PutnFq9wPH0XqAxNpyuFoz9yobk5wpGhKrDYYC0zihs6JRwACiYhIJjV23PLUKxk0d7JStricVsLTgLF66f7CyzrDCEXprojA4cT0GNwVFiTZBqWbq32aRWb6nYXVZAt9AZDZD', function(mydata) {
-        		var output="<ul>";
-        		
-        		for(var i in mydata.data) {
-            		//output+="<li>NAMA : " + mydata.data[i].name + "<br/>ID : " + mydata.data[i].id + "</li>";
-        			output+="<li>" +
-        					"First Name: " + mydata.data[i].first_name + "<br/>" +
-        					"Last Name: " + mydata.data[i].last_name + "<br/>" +
-        					"Full Name: " + mydata.data[i].name + "<br/>" +
-        					"ID: " + mydata.data[i].id + "<br/>" +
-        					"Home Town: " + mydata.data[i].hometown + "<br/>" +
-        					"Location: " + mydata.data[i].location + "<br/>" +
-        					"Albums: " + mydata.data[i].albums + "<br/>" +
-        					
-        					"Feed: " + mydata.data[i].feed + "<br/>" +
-        					"Photos: " + mydata.data[i].photos + "<br/>" +
-        					"Videos: " + mydata.data[i].videos + "<br/>" +
-        					"</li>";
-        		}
-        		
-        		output+="</ul>";
-        		document.getElementById("placeholder").innerHTML=output;
-        	});
-    	</script>
-    </body>
-</html>
-
-
-
-<!-- <!DOCTYPE html>
 <html>
 <head>
 <title>Facebook Login JavaScript Example</title>
@@ -112,7 +70,7 @@
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
     js = d.createElement(s); js.id = id;
-    js.src = "http://connect.facebook.net/en_US/sdk.js";
+    js.src = "//connect.facebook.net/en_US/sdk.js";
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 
@@ -128,11 +86,11 @@
   }
 </script>
 
-
+<!--
   Below we include the Login Button social plugin. This button uses
   the JavaScript SDK to present a graphical Login button that triggers
   the FB.login() function when clicked.
-
+-->
 
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button>
@@ -141,4 +99,4 @@
 </div>
 
 </body>
-</html> -->
+</html>

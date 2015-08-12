@@ -26,8 +26,8 @@
 			alert("get the latest facebook javascript sdk dynamically");
 			var e = document.createElement('script');
 			e.async = true;
-			e.src = 'http://connect.facebook.net/en_US/all.js';
-			//e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+			//e.src = 'http://connect.facebook.net/en_US/all.js';
+			e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
 			document.getElementById('fb-root').appendChild(e);
 		}());
 		
@@ -71,13 +71,14 @@
 					// user is not logged in or cancelled login
 					alert("You are not logged in to Facebook or have not granted the required permissions.  Please log in and grant basic permissions to use this Mote App FB aggregation");
 				}
-			}, {scope:'publish_stream, email, user_checkins, user_birthday'});
+			}, {scope:'email, user_birthday'});
+			//}, {scope:'publish_stream, email, user_checkins, user_birthday'});
 			
 			//user photos he or she is tagged
-			/* FB.login(function(response) {
+			/*FB.login(function(response) {
 				if(response.authResponse) {
 					// user successfully logged in, get the user photos he or she is tagged in from the facebook graph api
-					FB.api('/me/photos?access_token=' + response.authResponse.accessToken, function(response)) {
+					FB.api('/me/photos?access_token=' + response.authResponse.accessToken, function(response) {
 						// api call worked so show something!
 						if(response.error) {
 							alert(response.error);
@@ -98,7 +99,7 @@
 							
 							document.getElementById("output").innerHTML = divHTML;
 						}
-					}
+					});
 				} else {
 					// user is not logged in or cancelled login
 					alert("You are not logged in to Facebook or have not granted the required permissions.  Please log in and grant basic permissions to use this Mote App FB aggregation");
@@ -109,7 +110,7 @@
 			FB.login(function(response) {
 				if(response.authResponse) {
 					// user successfully logged in, get the user photos he or she is tagged in from the facebook graph api
-					FB.api('/me/albums?access_token=' + response.authResponse.accessToken, function(response)) {
+					FB.api('/me/albums?access_token=' + response.authResponse.accessToken, function(response) {
 						// api call worked so show something!
 						if(response.error) {
 							alert(response.error);
@@ -122,7 +123,7 @@
 							var i = 0;
 							
 							for(i = 0; i < albumsCount; i++) {
-								albumsString += "<a href='#' onClick='getPhotos(" + albums[i].id + ",\"" + albums[i].name + "\");' >" + albums.[i].name + "</a><br/>";
+								albumsString += "<a href='#' onClick='getPhotos(" + albums[i].id + ",\"" + albums[i].name + "\");'>" + albums.[i].name + "</a><br/>";
 							}
 							
 							//alert(albumsString);
@@ -130,7 +131,7 @@
 							
 							document.getElementById("output").innerHTML = divHTML;
 						}
-					}
+					});
 				} else {
 					// user is not logged in or cancelled login
 					alert("You are not logged in to Facebook or have not granted the required permissions.  Please log in and grant basic permissions to use this Mote App FB aggregation");
@@ -300,6 +301,15 @@
 	<div id="output">You are not yet logged into the App.  Please log in to display your details here</div>
 	<div id="access_token"><br/>No access token present</div>
 	<div id="addbutton"></div>
+	
+	<br><br>
+	
+	<div
+		class="fb-like"
+		data-share="true"
+		data-width="450"
+		data-show-faces="true">
+	</div>
 	
 </body>
 </html>
