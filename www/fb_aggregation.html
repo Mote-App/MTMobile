@@ -44,12 +44,12 @@
 			//declare variables
 			var response;
 			
-			alert("PromptFacebookLogin()");
+			//alert("PromptFacebookLogin()");
 			
 			//login handler, get user information....
 			FB.login(function(response) {
 				if(response.authResponse) {
-					var divHTML = '<h2>Welcome</h2>';
+					var accessToken = response.authResponse.accessToken
 					
 					/*
 					 * user successfully logged in, get the user gender, locale, username, email, userid and birthday from the facebook graph api
@@ -59,23 +59,23 @@
 					 */
 					FB.api('/me', function(response) {
 						// api call worked so show something!
-						divHTML += '<img src="https://graph.facebook.com/' + response.id + '/picture"><br/><a href="' + response.link + '">' + response.name + 
+						var divHTML1 = '<h2>User Profile</h2><img src="https://graph.facebook.com/' + response.id + '/picture"><br/><a href="' + response.link + '">' + response.name + 
 						              '</a><br/><br/>Gender: ' + response.gender + '<br/>Locale: ' + response.locale + '<br/>Username: ' + response.username + '<br/>Email: ' + response.email + 
 						              '<br/>Time Zone: ' + response.timezone + '<br/>Updated Time: ' + response.updated_time + '<br/>Verified: ' + response.verified + '<br/>';
 						
-						document.getElementById("output").innerHTML = divHTML;
+						document.getElementById("output1").innerHTML = divHTML1;
 					});
 					
 					// user successfully logged in, get the user photos he or she is tagged in from the facebook graph api
-					FB.api('/me/photos?access_token=' + response.authResponse.accessToken, function(response) {
+					FB.api('/me/photos?access_token=' + accessToken, function(response) {
 						// api call worked so show something!
 						if(response.error) {
-							alert(response.error);
+							alert("/me/photos?access_token= ... response.error: " + response.error);
 						} else {
 							var photos = new Array();
 							photos = response.data;
 							var photosCount = photos.length;
-							alert("photosCount: " + photosCount);
+							//alert("photosCount: " + photosCount);
 							var photosString = "";
 							var i = 0;
 							
@@ -83,23 +83,23 @@
 								photosString += "<img src='" + photos[i].picture + "' /><br/>By " + photos[i].from.name + "<br/><br/>";
 							}
 							
-							alert("photosString: " + photosString);
-							divHTML += '<h2>Photos you\'re tagged in</h2>' + photosString + '<br/>';
+							//alert("photosString: " + photosString);
+							var divHTML2 = '<h2>Photos you\'re tagged in</h2>' + photosString + '<br/>';
 							
-							document.getElementById("output").innerHTML = divHTML;
+							document.getElementById("output2").innerHTML = divHTML2;
 						}
 					});
 					
 					// user successfully logged in, get the user photos he or she is tagged in from the facebook graph api
-					FB.api('/me/albums?access_token=' + response.authResponse.accessToken, function(response) {
+					FB.api('/me/albums?access_token=' + accessToken, function(response) {
 						// api call worked so show something!
 						if(response.error) {
-							alert(response.error);
+							alert("/me/albums?access_token= ... response.error: " + response.error);
 						} else {
 							var albums = new Array();
 							albums = response.data;
 							var albumsCount = albums.length;
-							alert("albumsCount: " + albumsCount);
+							//alert("albumsCount: " + albumsCount);
 							var albumsString = "";
 							var i = 0;
 							
@@ -107,23 +107,23 @@
 								//albumsString += '<a href="#" onClick="getPhotos(' + albums[i].id + ',\'' + albums[i].name + '\');">' + albums.[i].name + '</a><br/>';
 							}
 							
-							alert("albumsString: " + albumsString);
-							divHTML += "<h2>Your albums</h2>" + albumsString + "<br/>";
+							//alert("albumsString: " + albumsString);
+							var divHTML3 = "<h2>Your albums</h2>" + albumsString + "<br/>";
 							
-							document.getElementById("output").innerHTML = divHTML;
+							document.getElementById("output3").innerHTML = divHTML3;
 						}
 					});
 					
 					// user successfully logged in and granted some permissions
-					FB.api('/me/location?access_token=' + response.authResponse.accessToken, function(response) {
+					FB.api('/me/location?access_token=' + accessToken, function(response) {
 						// api call worked so show something!
 						if(response.error) {
-							alert(response.error);
+							alert("/me/location?access_token= ... response.error: " + response.error);
 						} else {
 							var checkins = new Array();
 							checkins = response.data;
 							var checkinsCount = checkins.length;
-							alert("checkinsCount: " + checkinsCount);
+							//alert("checkinsCount: " + checkinsCount);
 							var checkinsString = "";
 							var i = 0;
 							
@@ -131,26 +131,77 @@
 								checkinsString += "You checked in at " + checkins[i].place.name + " on " + checkins[i].created_time + "<br/>";
 							}
 							
-							alert("checkinsString: " + checkinsString);
-							divHTML += "<h2>Your Checkins:</h2>" + checkinsString + "<br/>";
+							//alert("checkinsString: " + checkinsString);
+							var divHTML4 = "<h2>Your Checkins:</h2>" + checkinsString + "<br/>";
 							
-							document.getElementById("output").innerHTML = divHTML;
+							document.getElementById("output4").innerHTML = divHTML4;
 						}
 					});
 					
-					//document.getElementById("output").innerHTML = divHTML;
-					$("#output").html(divHTML);
-					$("#addbutton").html('Click the button below to add yourself to the birthdays database! <input type="button" onClick="Ajax(' + response.id + ',\'' + response.birthday + '\');" value="Add me!" />');
+					// Get friends list
+					FB.api('/me/friends?fields=email,first_name,hometown,id,last_name,location,name,albums{count,id,name,comments,likes,photos,picture},feed{caption,comments,likes,picture},photos{picture,comments,likes},videos{captions,comments,likes}&limit=10&format=json&access_token=' + accessToken, function(response) {
+						// api call worked so show something!
+						if(response.error) {
+							alert("me/friends?fields=email,first_name... ... response.error: " + response.error);
+						} else {
+							var friends = new Array();
+							friends = response.data;
+							var friendsCount = friends.length;
+							//alert("friendsCount: " + friendsCount);
+							var friendsString = "";
+							var divHTML5 = "<ul>";
+							var i = 0;
+							
+							for(i = 0; i < friendsCount; i++) {
+								friendsString += 
+									"<li>" +
+	        							"First Name: " + response.data[i].first_name + "<br/>" +
+		        						"Last Name: " + response.data[i].last_name + "<br/>" +
+		        						"Full Name: " + response.data[i].name + "<br/>" +
+	    	    						"ID: " + response.data[i].id + "<br/>" +
+	        							"Home Town: " + response.data[i].hometown + "<br/>" +
+	        							"Location: " + response.data[i].location + "<br/>" +
+	        							"Albums: " + response.data[i].albums + "<br/>" +
+	        							
+	        							"Feed: " + response.data[i].feed + "<br/>" +
+	        							"Photos: " + response.data[i].photos + "<br/>" +
+	        							"Videos: " + response.data[i].videos + "<br/>" +
+	        						"</li>" +
+	        						"<br/>";
+							}
+							
+							divHTML5 +="</ul>";
+							//alert("friendsString: " + friendsString);
+							divHTML5 += "<h2>Your Friends List:</h2><br/>" + friendsString + "<br/>";
+							
+							document.getElementById("output5").innerHTML = divHTML5;
+						}
+					});
+					
+					//if we wish to popup a Friend selection dialog, where the user chooses a number of Facebook friends, we just omit the to: '100002661414117' parameter
+					// Mote App ID:  1437406679906415      Gibran's ID:  10152532487146806
+					/* FB.ui({
+						method: 'apprequests',
+						to: '1437406679906415',
+						message: 'A mote test request, Gibran just install mote, check it out http://www.motelife.co',
+						data: 'special tracking data for the app'
+					}); */
 					
 					// access token is in the session object
-					var access_tokenHTML = '<br/><br/><br/>Access token from login:<br /> ' + response.authResponse.accessToken;
+					var access_tokenHTML = '<br/><br/><br/>Access token from login:<br /> ' + accessToken;
 					document.getElementById("access_token").innerHTML = access_tokenHTML;
+					
+					$("#addbutton").html('Click the button below to add yourself to the birthdays database! <input type="button" onClick="Ajax(' + response.id + ',\'' + response.birthday + '\');" value="Add me!" />');
+					
+					
 				} else {
 					// user is not logged in or cancelled login
 					alert("You are not logged in to Facebook or have not granted the required permissions.  Please log in and grant basic permissions to use this Mote App FB aggregation");
 				}
-			}, {scope:'public_profile, email, user_birthday, user_photos, user_location, publish_actions'});
+			}, {scope:'public_profile, email, user_birthday, user_photos, user_location, user_friends, read_friendlists, publish_actions'});
 		}
+		
+		// For v2.4 read_custom_friendlists before v2.3 was called read_friendlists
 		
 		function Ajax(uid, birthday) {
 			//using jQuery to make the call very simple and async [fire/forget or non-blocking]
@@ -174,7 +225,7 @@
 			FB.api('/' + id + '/photos?access_token=' + FB.getAuthResponse().accessToken, function(response) {
 				//api call worked so show something!
 				if(response.error) {
-					alert(response.error);
+					alert("/" + id + "/photos?access_token= ... response.error: " + response.error);
 				} else {
 					var photos = new Array();
 					photos = response.data;
@@ -188,9 +239,9 @@
 					}
 					
 					//alert(photosString);
-					var divHTML = "<h2>Photos for the Album " + name + ": </h2>" + photosString + "<br/>";
+					var divHTML6 = "<h2>Photos for the Album " + name + ": </h2>" + photosString + "<br/>";
 					
-					document.getElementById("output").innerHTML = divHTML;
+					document.getElementById("output6").innerHTML = divHTML6;
 				}
 			});
 		}
@@ -199,7 +250,7 @@
 			//another way to get the access token
 			var authResponse = FB.getAuthResponse();
 			var access_token = authResponse.accessToken;
-			alert(access_token);
+			alert("access_token: " + access_token);
 			var access_tokenHTML = '<br/><br/><br/>Access token from getAuthResponse:<br/> ' + access_token;
 			document.getElementById("access_token").innerHTML = access_tokenHTML;
 		}
@@ -225,7 +276,7 @@
 				method: 'feed',
 				name: 'Test App',
 				link: 'http://www.motelife.co/',
-				picture: '<some_image>.png',
+				picture: 'http://www.motelife.co/&picture=http://motelife.co/images/mote-app-ios-android.png',
 				caption: 'Testing Application',
 				description: 'This is a Wall Post sent from a Dialog in mote test app',
 				message: 'It worked'
@@ -243,19 +294,19 @@
 		function postToFeedGraph() {
 			//method=post is needed to force the Graph API to accept this as a POST - we can't send on HTTP POST from here!
 			//Using and linking thru Facebook's open graph jpeg http://fbmote.com/<some_image>.png
-			var api_string = "/feed/?name=Test&link=http://www.motelife.co/&picture=http://fbmote.com/<some_image>.png&caption=Testing Application&"
-					+ "descriptiong=This is a Wall Post sent from the Graph API via JavaScript SDK in mote test app&message=It worked&method=post";
+			var api_string = "/feed/?name=Test&link=http://www.motelife.co/&picture=http://motelife.co/images/mote-app-ios-android.png&caption=Testing Application&"
+					+ "descriptiong=This is a Wall Post sent from the Graph API via JavaScript SDK in mote test app http://www.motelife.co&message=It worked&method=post";
 			
+			//Check this out http://www.fbrell.com/examples/
 			FB.api(api_string, function(response) {
-				alert(response);
+				alert("postToFeedGraph() response: " + response);
 			});
 		}
 		
 		function sendRequest() {
-			//if we wish to popup a Friend selection dialog, where the user chooses a number of Facebook friends, we just omit the to: '100002661414117' parameter
+			//if we wish to popup a Friend selection dialog, where the user chooses a number of Facebook friends, we just omit the to: '10152532487146806' parameter
 			FB.ui({
 				method: 'apprequests',
-				to: '100002661414117',
 				message: 'A mote test request, Gibran just install mote, check it out http://www.motelife.co',
 				data: 'special tracking data for the app'
 			});
@@ -277,13 +328,25 @@
 	<input type="button" onClick="postToFeedGraph();" value="Post to feed - Graph API" />
 	<input type="button" onClick="sendRequest();" value="Send Request" />
 	
-	<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"> </fb:login-button>
-	
-	<div id="output">You are not yet logged into the App.  Please log in to display your details here</div>
-	<div id="access_token"><br/>No access token present</div>
-	<div id="addbutton"></div>
+	<!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"> </fb:login-button> -->
 	
 	<br><br>
+	<div id="output1">You are not yet logged into the App.  Please log in to display your details here</div>
+	<br>
+	<div id="output2"></div>
+	<br>
+	<div id="output3"></div>
+	<br>
+	<div id="output4"></div>
+	<br>
+	<div id="output5"></div>
+	<br>
+	<div id="output6"></div>
+	<br>
+	<div id="access_token"><br/>No access token present</div>
+	<br>
+	<div id="addbutton"></div>
+	<br>
 	
 	<div
 		class="fb-like"
@@ -292,5 +355,6 @@
 		data-show-faces="true">
 	</div>
 	
+	<br><br>
 </body>
 </html>
