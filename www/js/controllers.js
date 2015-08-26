@@ -623,24 +623,38 @@ angular.module('mtControllers', [])
 		if($scope.facebookLogin.checked == true){
 			$scope.facebookLogin();
 		}else if($scope.facebookLogin.checked == false){
-			$scope.logout();
+			$scope.facebookLogout();
 		}	
 	};
 
 	
     $scope.facebookLogin = function () {
 
-    	OpenFB.login('email,public_profile,user_friends').then(
-        function () {
-            //$location.path('/app/person/me/feed');
-            $scope.getFriends();
-            //$scope.facebookLoginForFriends();
-        },
-        function () {
-            alert('OpenFB login failed');
-        });
+    	FB.login(function(response){
+    		
+    		//login successful
+    		if ( response.authResponse){
+    			
+    			FB.api('/me/feed', function(response) {
+    			     console.log('Good to see you: ');
+    			     console.log(response);
+    			});
+    		}
+    		
+    		console.log("Login : ");
+    		console.log(response);
+    				
+    	},{scope: 'public_profile,email', return_scopes: true});
 	};
 
+	$scope.facebookLogout = function(){
+		
+		FB.logout(function(response){
+			
+			console.log("logout " + response);
+		});
+	};
+	
 	$scope.facebookLoginForFriends = function () {
 
     	OpenFB.login('').then(
