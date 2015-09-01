@@ -630,7 +630,7 @@ angular.module('mtControllers', [])
 	
     $scope.facebookLogin = function () {
 
-    	FB.login(function(response){
+    	/*FB.login(function(response){
     		
     		//login successful
     		if ( response.authResponse){
@@ -644,7 +644,71 @@ angular.module('mtControllers', [])
     		console.log("Login : ");
     		console.log(response);
     				
-    	},{scope: 'public_profile,email', return_scopes: true});
+    	},{scope: 'public_profile,email', return_scopes: true});*/
+    	
+    	FB.login(function(response) {
+			if(response.authResponse) {
+				var accessToken = response.authResponse.accessToken
+				
+				//For POC:  Get friends list
+				FB.api('/me?fields=id,name,email,first_name,last_name,photos{link,id,name},videos{permalink_url,id,is_instagram_eligible},friendlists{id,name},friends{first_name,last_name,id,posts{comments_mirroring_domain,comments{message},description,from}}&limit=10&format=json&access_token=' + accessToken, function(response) {
+				//FB.api('/me/friends?fields=email,first_name,id,last_name,name,albums{id,name,comments,likes,photos,picture},feed{caption,comments,likes,picture},photos{picture,comments,likes},videos{captions,comments,likes}&limit=10&format=json&access_token=' + accessToken, function(response) {
+					// api call worked so show something!
+					if(response.error) {
+						alert("me/friends?fields=email,first_name... ... response.error: " + response.error);
+					} else {
+						var friends = new Array();
+						friends = response.data;
+						var friendsCount = friends.length;
+						//alert("friendsCount: " + friendsCount);
+						var friendsString = "";
+						//var divHTML5 = "<ul>";
+						var i = 0;
+						
+						for(i = 0; i < friendsCount; i++) {
+							friendsString += 
+								"<li>" +
+									"ID: " + response.data[i].id + "<br/>" +
+									"Full Name: " + response.data[i].name + "<br/>" +
+    								"First Name: " + response.data[i].first_name + "<br/>" +
+    								"Last Name: " + response.data[i].last_name + "<br/>" +
+    								"Photos: " + response.data[i].photos + "<br/>" +
+    								"Videos: " + response.data[i].videos + "<br/>" +
+    								"Friend Lists: " + response.data[i].friendlists + "<br/>" +
+    								"Friends: " + response.data[i].friends + "<br/>" +
+    							"</li>" +
+    							"<br/>";
+						}
+						
+						//divHTML5 +="</ul>";
+						alert("friendsString: " + friendsString);
+						//divHTML5 += "<h2>Your Friends List:</h2><br/>" + friendsString + "<br/>";
+						
+						//document.getElementById("output5").innerHTML = divHTML5;
+					}
+				});
+			} else {
+				// user is not logged in or cancelled login
+				alert("You are not logged in to Facebook or have not granted the required permissions.  Please log in and grant basic permissions to use this Mote App FB aggregation");
+			}
+		}, {scope:'public_profile, email, user_photos, user_videos, user_friends, read_friendlists, publish_actions'});
+
+    	function Ajax(fname, lname) {
+    		//using jQuery to make the call very simple and async [fire/forget or non-blocking]
+    		//set a "sending..." message...
+    		$("#output").html("Sending your data to MySQL...");
+    		$("#addbutton").html("");
+    		
+    		//send the data to the mt.jar RESTful service to get to the MySQL motedb.profile database
+    		$.ajax({
+    			url: "mt.jar RESTful service",
+    			data: { action:"add", fname: fname, lname: lname },
+    			dataType: "html",
+    			sucess: function(data) {
+    				$("#output").html(data);
+    			}
+    		});
+    	}
 	};
 
 	$scope.facebookLogout = function(){
