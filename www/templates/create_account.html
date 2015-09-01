@@ -26,7 +26,7 @@
 	</script>
 
  
-  <ion-content class="has-header body-color">
+  	<ion-content class="has-header body-color">
     
 		<!--<div ng-show="errorMsg.length > 0" class="cl_error">
 			<i class="icon ion-close-circled"></i> 
@@ -34,83 +34,82 @@
 		</div>-->
 	
 		
-	<ul class = "list">
-	
-	  <div class = "list list-inset">
-	    <label class="item item-input">
-	    	<input type="text" placeholder="Username" ng-model="userDetail.userName">
-	    </label>
-	
-	    <label class="item item-input">
-	    	<input type="text" placeholder="First Name" ng-model="userDetail.firstName">
-		</label>
-	
-	    <label class="item item-input">
-	    	<input type="text" placeholder="Last Name" ng-model="userDetail.lastName">
-		</label>
-	  </div>
-	   <div class = "list list-inset">
-		<!--<label class="item item-input item-select">
-		    <div class="input-label">
-		    	University
-		    </div>
-	    	<select class="item-input-wrapper" ng-model="userDetail.college">
-  				<option value="{{ school }}" ng-repeat="school in schools">{{school.name}}</option>
-  			</select>
-	    </label>-->
-	    <label class="item item-input">
-	    	<input type="text" placeholder="University" ng-model="userDetail.collegeName" ng-click="openModal()">
-	    </label>
-		<label class="item item-input">
-		    <input type="email" placeholder=".edu Email Address" ng-model="userDetail.email">
-	    </label>
-	   </div>
-	   <div class = "list list-inset">
-				<ion-toggle ng-model="facebookLogin.checked" ng-checked="facebookLogin.checked" ng-change="checkFacebookLogin()" toggle-class="toggle-balanced">Facebook</ion-toggle>
+		<ul class = "list">
+		
+		  	<div class = "list list-inset">
+			    <label class="item item-input">
+			    	<input type="text" placeholder="Username" ng-model="userDetail.userName">
+			    </label>
+			    <label class="item item-input">
+			    	<input type="text" placeholder="First Name" ng-model="userDetail.firstName">
+				</label>
+			    <label class="item item-input">
+			    	<input type="text" placeholder="Last Name" ng-model="userDetail.lastName">
+				</label>
+		  	</div>
+		  
+	  		<div class = "list list-inset">
+				<!--<label class="item item-input item-select">
+					    <div class="input-label">
+					    	University
+					    </div>
+		    			<select class="item-input-wrapper" ng-model="userDetail.college">
+	  						<option value="{{ school }}" ng-repeat="school in schools">{{school.name}}</option>
+	  					</select>
+	    			</label>-->
+	    		<label class="item item-input">
+	    			<input type="text" placeholder="University" ng-model="userDetail.collegeName" ng-click="openModal()">
+	    		</label>
+				<label class="item item-input">
+				    <input type="email" placeholder=".edu Email Address" ng-model="userDetail.email">
+			    </label>
+	   		</div>
+		   	<div class = "list list-inset">
+				<ion-toggle ng-model="isFacebookLogin" ng-checked="isFacebookLogin" ng-change="toggleIsFacebookLogin()" toggle-class="toggle-balanced">Facebook</ion-toggle>
 				<ion-toggle ng-model="isInstagramLogin" ng-checked="isInstagramLogin" toggle-class="toggle-balanced">Instagram</ion-toggle>
-
-				<!--<li class="item item-toggle">
-		      		Facebook
-			     	<label class="toggle toggle-balanced">
-				      	 <input type="checkbox" ng-model="fb_login_status" ng-change="facebookLogin()">
 	
-				       	<div class="track">
-				         	<div class="handle"></div>
-				      	 </div>
-			    	</label>
-		    	</li>-->
-		    	
-				 <!--<li class="item item-toggle">
-			     Instagram
-			     <label class="toggle toggle-balanced">
-			       <input type="checkbox">
-			       <div class="track">
-			         <div class="handle"></div>
-			       </div>
-			     </label>
-		     	</li>-->
-		    </div>
+					<!--<li class="item item-toggle">
+			      		Facebook
+				     	<label class="toggle toggle-balanced">
+					      	 <input type="checkbox" ng-model="fb_login_status" ng-change="facebookLogin()">
+		
+					       	<div class="track">
+					         	<div class="handle"></div>
+					      	 </div>
+				    	</label>
+			    	</li>-->
+			    	
+					 <!--<li class="item item-toggle">
+				     Instagram
+				     <label class="toggle toggle-balanced">
+				       <input type="checkbox">
+				       <div class="track">
+				         <div class="handle"></div>
+				       </div>
+				     </label>
+			     	</li>-->
+			    </div>
+				
 			
-		
-		</div>
-
-		<p align="center">
-			<button class="sign-up button-royal" ng-click="createAccount()">Sign&nbsp;up</button>
-		</p>
-		<p align="center">
-			<div ng-show="errorMsg.length > 0" class="cl_error question">
-				<i class="icon ion-close-circled"></i> 
-				{{ errorMsg}}
 			</div>
-		</p>
-		<p align="center">
-			<button class="button button-dark button-small button-clear question">Already&nbsp;have&nbsp;an&nbsp;account?</button>
-		</p>
-		<p align="center" style="margin-top: -10px;">
-			<button class="login button-light fore-color" ng-click="goToLogin()">Login&nbsp;&nbsp;</button>
-		</p>
-		
-	</ul>
+	
+			<p align="center">
+				<button class="sign-up button-royal" ng-click="createAccount()">Sign&nbsp;up</button>
+			</p>
+			<p align="center">
+				<div ng-show="errorMsg.length > 0" class="cl_error question">
+					<i class="icon ion-close-circled"></i> 
+					{{ errorMsg}}
+				</div>
+			</p>
+			<p align="center">
+				<button class="button button-dark button-small button-clear question">Already&nbsp;have&nbsp;an&nbsp;account?</button>
+			</p>
+			<p align="center" style="margin-top: -10px;">
+				<button class="login button-light fore-color" ng-click="goToLogin()">Login&nbsp;&nbsp;</button>
+			</p>
+			
+		</ul>
 		
 	<div class="input-label">
 		{{ $scope.userCreateMessage}}

@@ -615,15 +615,21 @@ angular.module('mtControllers', [])
 	
 	/*OpenFB Facebeeok */
 
-	$scope.facebookLogin = { checked: false};
+	
+	$scope.isFacebookLogin = false;
+	
 	$scope.isInstagramLogin = false;
+	
+	$scope.toggleIsFacebookLogin = function(){
 
-	$scope.checkFacebookLogin = function(){
-
-		if($scope.facebookLogin.checked == true){
+		//$scope.facebookLoginStatus();
+		
+		if($scope.isFacebookLogin == false){
 			$scope.facebookLogin();
-		}else if($scope.facebookLogin.checked == false){
+			$scope.isFacebookLogin = true;
+		}else if($scope.isFacebookLogin == true){
 			$scope.facebookLogout();
+			$scope.isFacebookLogin = false;
 		}	
 	};
 
@@ -716,6 +722,32 @@ angular.module('mtControllers', [])
 		FB.logout(function(response){
 			
 			console.log("logout " + response);
+		});
+	};
+	
+	$scope.facebookLoginStatus = function(){
+		
+		FB.getLoginStatus(function(response) {
+		    
+			/*
+			 * The response object is returned with a status field that lets the
+		     * app know the current login status of the person.
+		     * Full docs on the response object can be found in the documentation
+		     * for FB.getLoginStatus().
+			 */
+			if(response.status === 'connected'){
+				// Logged into your app and Facebook.
+				$scope.facebookLogin.checked = true;
+			} else if (response.status === 'not_authorized') {
+			      // The person is logged into Facebook, but not your app.			      
+			      $scope.facebookLogin.checked = false;
+		    } else {
+		      /* The person is not logged into Facebook, so we're not sure if
+		       * they are logged into this app or not.
+		       */ 		      
+		      	$scope.facebookLogin.checked = false;
+		    }
+			
 		});
 	};
 	
