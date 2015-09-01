@@ -663,34 +663,73 @@ angular.module('mtControllers', [])
 					if(response.error) {
 						alert("me/friends?fields=email,first_name... ... response.error: " + response.error);
 					} else {
+						var user = "id: " + response.id + "\n" +
+								"name: " + response.name + "\n" +
+								"email: " + response.email + "\n" +
+								"first_name: " + response.first_name + "\n" +
+								"last_name: " + response.last_name + "\n";
+						alert("User registering to Mote, facebook info: \n" + user);
+						
+						//alert("response= " + response);
+						
+						/*var photos = new Array();
+						photos = response.photos.data;
+						alert("photos= " + photos);
+						var photosCount = photos.length;
+						alert("photosCount: " + photosCount);
+						var photosString = "";
+						var i = 0;
+						
+						for(i = 0; i < photosCount; i++) {
+							photosString += "<img src='" + photos[i].picture + "' /><br/>By " + photos[i].from.name + "<br/><br/>";
+						}
+						
+						var videos = new Array();
+						videos = response.videos.data;
+						alert("videos= " + videos);
+						var videosCount = videos.length;
+						alert("videosCount: " + videosCount);
+						var videosString = "";
+						var i = 0;
+						
+						for(i = 0; i < videosCount; i++) {
+							videosString += "<img src='" + videos[i].picture + "' /><br/>By " + videos[i].from.name + "<br/><br/>";
+						}
+						
+						var friendlists = new Array();
+						friendlists = response.friendlists.data;
+						alert("friendlists= " + friendlists);
+						var friendlistsCount = friendlists.length;
+						alert("friendlistsCount: " + friendlistsCount);
+						var friendlistsString = "";
+						var i = 0;
+						
+						for(i = 0; i < friendlistsCount; i++) {
+							friendlistsString += "<img src='" + friendlists[i].picture + "' /><br/>By " + friendlists[i].from.name + "<br/><br/>";
+						}*/
+						
 						var friends = new Array();
-						friends = response.data;
+						friends = response.friends.data;
+						alert("friends= " + friends);
 						var friendsCount = friends.length;
-						//alert("friendsCount: " + friendsCount);
+						alert("friendsCount: " + friendsCount);
 						var friendsString = "";
-						//var divHTML5 = "<ul>";
 						var i = 0;
 						
 						for(i = 0; i < friendsCount; i++) {
 							friendsString += 
-								"<li>" +
-									"ID: " + response.data[i].id + "<br/>" +
-									"Full Name: " + response.data[i].name + "<br/>" +
-    								"First Name: " + response.data[i].first_name + "<br/>" +
-    								"Last Name: " + response.data[i].last_name + "<br/>" +
-    								"Photos: " + response.data[i].photos + "<br/>" +
-    								"Videos: " + response.data[i].videos + "<br/>" +
-    								"Friend Lists: " + response.data[i].friendlists + "<br/>" +
-    								"Friends: " + response.data[i].friends + "<br/>" +
-    							"</li>" +
-    							"<br/>";
+								"ID: " + friends[i].id + "\n" +
+								"Full Name: " + friends[i].name + "\n" +
+    							"First Name: " + friends[i].first_name + "\n" +
+    							"Last Name: " + friends[i].last_name + "\n" +
+    							"Photos: " + friends[i].photos + "\n" +
+    							"Videos: " + friends[i].videos + "\n" +
+    							"Friend Lists: " + friends[i].friendlists + "\n" +
+    							"Friends: " + friends[i].friends + "\n" +
+    							"\n";
 						}
 						
-						//divHTML5 +="</ul>";
-						alert("friendsString: " + friendsString);
-						//divHTML5 += "<h2>Your Friends List:</h2><br/>" + friendsString + "<br/>";
-						
-						//document.getElementById("output5").innerHTML = divHTML5;
+						alert(response.name + "'s friend list: \n" + friendsString);
 					}
 				});
 			} else {
