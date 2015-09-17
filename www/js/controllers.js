@@ -523,7 +523,8 @@ angular.module('mtControllers', [])
 									Tags, 
 									loginService, 
 									createAccountService,
-									OpenFB) {
+									OpenFB,
+									addFriend) {
   
 	
 	
@@ -595,8 +596,6 @@ angular.module('mtControllers', [])
 		/*Prepare for db update*/
 		
 		$scope.userDetail.college = angular.fromJson($scope.userDetail.college);
-		//$scope.userDetail.isAlumni = $scope.userDetail.isAlumni == true ? "Y" : "N";
-		
 		$scope.userDetail.profilePictureUrl = "img/profiles/blank_person.jpg";
 		
 		createAccountService.create($scope.userDetail).$promise.then(
@@ -605,7 +604,7 @@ angular.module('mtControllers', [])
 				
 				$rootScope.newUserId = response.id;
 				
-				$state.go('app.update_profile_img');
+				//$state.go('app.update_profile_img');
 			},
 			function(error){
 				$scope.errorMsg = error.data.message;
@@ -636,126 +635,104 @@ angular.module('mtControllers', [])
 	
     $scope.facebookLogin = function () {
 
-    	/*FB.login(function(response){
+    	FB.login(function(response){
     		
     		//login successful
     		if ( response.authResponse){
     			
-    			FB.api('/me/feed', function(response) {
+    			console.log("Login response: ") 
+    			console.log(response.authResponse);
+    			
+    			FB.api('/me?fields=first_name,id,last_name,name,email,feed{comments,picture},photos{picture,comments},friends{first_name,last_name,id,posts{comments_mirroring_domain,comments{message},description,from}}&limit=10', function(graphResponse) {
     			     console.log('Good to see you: ');
-    			     console.log(response);
+    			     console.log(graphResponse);
+    			     
+    			     /*
+    			      * Get logged user profile and save it on server,
+    			      * this user will not have username, dummy college with name Facebook to satisfy NOT NULL constraint for college.
+    			      * 
+    			      * TODO: Provide logic to re-check registered user's Facebook login to get into the app on his mobile device. 
+    			      * 
+    			      */
+    			    $scope.userDetail.email		= graphResponse.email;
+    			    $scope.userDetail.firstName = graphResponse.first_name;
+    			    $scope.userDetail.lastName 	= graphResponse.last_name;
+
+    			    //store the profile table field username with facebookId because username is not null field 
+    			    $scope.userDetail.username	= graphResponse.id; 	
+    			    $scope.userDetail.college = {"collegeId": 132, "collegeImgPath": "", "collegeName": "Facebook"};
+    			    $scope.userDetail.college = angular.fromJson($scope.userDetail.college);
+
+    			    $scope.userDetail.profilePictureUrl = "img/profiles/blank_person.jpg";
+    					
+					createAccountService.create($scope.userDetail).$promise.then(
+						function(response){
+							//$scope.userCreateMessage = response;
+							
+							//$rootScope.newUserId = response.id;
+							
+							$scope.updateFacebookFriends(response.id);
+							
+							//$state.go('app.update_profile_img');
+						},
+						function(error){
+							$scope.errorMsg = error.data.message;
+						}
+					);
+    			     
     			});
     		}
-    		
-    		console.log("Login : ");
-    		console.log(response);
     				
-    	},{scope: 'public_profile,email', return_scopes: true});*/
+    	},{scope: 'public_profile,email,user_photos, user_videos, user_friends, publish_actions', return_scopes: true});
     	
-    	FB.login(function(response) {
-			if(response.authResponse) {
-				var accessToken = response.authResponse.accessToken
-				
-				//For POC:  Get friends list
-				FB.api('/me?fields=id,name,email,first_name,last_name,photos{link,id,name},videos{permalink_url,id,is_instagram_eligible},friendlists{id,name},friends{first_name,last_name,id,posts{comments_mirroring_domain,comments{message},description,from}}&limit=10&format=json&access_token=' + accessToken, function(response) {
-				//FB.api('/me/friends?fields=email,first_name,id,last_name,name,albums{id,name,comments,likes,photos,picture},feed{caption,comments,likes,picture},photos{picture,comments,likes},videos{captions,comments,likes}&limit=10&format=json&access_token=' + accessToken, function(response) {
-					// api call worked so show something!
-					if(response.error) {
-						alert("me/friends?fields=email,first_name... ... response.error: " + response.error);
-					} else {
-						var user = "id: " + response.id + "\n" +
-								"name: " + response.name + "\n" +
-								"email: " + response.email + "\n" +
-								"first_name: " + response.first_name + "\n" +
-								"last_name: " + response.last_name + "\n";
-						alert("User registering to Mote, facebook info: \n" + user);
-						
-						//alert("response= " + response);
-						
-						/*var photos = new Array();
-						photos = response.photos.data;
-						alert("photos= " + photos);
-						var photosCount = photos.length;
-						alert("photosCount: " + photosCount);
-						var photosString = "";
-						var i = 0;
-						
-						for(i = 0; i < photosCount; i++) {
-							photosString += "<img src='" + photos[i].picture + "' /><br/>By " + photos[i].from.name + "<br/><br/>";
-						}
-						
-						var videos = new Array();
-						videos = response.videos.data;
-						alert("videos= " + videos);
-						var videosCount = videos.length;
-						alert("videosCount: " + videosCount);
-						var videosString = "";
-						var i = 0;
-						
-						for(i = 0; i < videosCount; i++) {
-							videosString += "<img src='" + videos[i].picture + "' /><br/>By " + videos[i].from.name + "<br/><br/>";
-						}
-						
-						var friendlists = new Array();
-						friendlists = response.friendlists.data;
-						alert("friendlists= " + friendlists);
-						var friendlistsCount = friendlists.length;
-						alert("friendlistsCount: " + friendlistsCount);
-						var friendlistsString = "";
-						var i = 0;
-						
-						for(i = 0; i < friendlistsCount; i++) {
-							friendlistsString += "<img src='" + friendlists[i].picture + "' /><br/>By " + friendlists[i].from.name + "<br/><br/>";
-						}*/
-						
-						var friends = new Array();
-						friends = response.friends.data;
-						alert("friends= " + friends);
-						var friendsCount = friends.length;
-						alert("friendsCount: " + friendsCount);
-						var friendsString = "";
-						var i = 0;
-						
-						for(i = 0; i < friendsCount; i++) {
-							friendsString += 
-								"ID: " + friends[i].id + "\n" +
-								"Full Name: " + friends[i].name + "\n" +
-    							"First Name: " + friends[i].first_name + "\n" +
-    							"Last Name: " + friends[i].last_name + "\n" +
-    							"Photos: " + friends[i].photos + "\n" +
-    							"Videos: " + friends[i].videos + "\n" +
-    							"Friend Lists: " + friends[i].friendlists + "\n" +
-    							"Friends: " + friends[i].friends + "\n" +
-    							"\n";
-						}
-						
-						alert(response.name + "'s friend list: \n" + friendsString);
-					}
-				});
-			} else {
-				// user is not logged in or cancelled login
-				alert("You are not logged in to Facebook or have not granted the required permissions.  Please log in and grant basic permissions to use this Mote App FB aggregation");
-			}
-		}, {scope:'public_profile, email, user_photos, user_videos, user_friends, read_friendlists, publish_actions'});
-
-    	function Ajax(fname, lname) {
-    		//using jQuery to make the call very simple and async [fire/forget or non-blocking]
-    		//set a "sending..." message...
-    		$("#output").html("Sending your data to MySQL...");
-    		$("#addbutton").html("");
-    		
-    		//send the data to the mt.jar RESTful service to get to the MySQL motedb.profile database
-    		$.ajax({
-    			url: "mt.jar RESTful service",
-    			data: { action:"add", fname: fname, lname: lname },
-    			dataType: "html",
-    			sucess: function(data) {
-    				$("#output").html(data);
-    			}
-    		});
-    	}
 	};
 
+	$scope.updateFacebookFriends = function(profileId, graphResponse){
+		
+		 /*
+	      * Persisting info from friend's list of logged in user in a table facebook_friends.  
+	      *  
+	      */
+		
+		$scope.graphResponse = graphResponse;
+
+		do{
+	    	
+    		/*
+    		 * Fetch the friends data for each pagination iteration
+    		 */
+    	 	for(i = 0; i < $scope.graphResponse.friends.data; i++){
+    	 		
+    	 		var friend = $scope.graphResponse.friends.data[i];
+    	 		
+    	 		console.log(" facebook id : " + friend.id);
+    	 		
+    	 		//addFriend.save({userId: profileId, friendId: friend.id });
+    	 		
+    	 	}
+
+   	     /*
+   	      * Logic to traverse graph pagination response 
+   	      * 
+   	      */
+    	 if( $scope.graphResponse.friends.paging.next != undefined || $scope.graphResponse.friends.paging.next != null ){
+    	 		
+    	 		FB.api($scope.graphResponse.friends.paging.next, function(response){
+    	 			
+    	 			$scope.graphResponse = response;
+    	 			
+    	 		});
+    	 		
+    	 	}
+    	 	else{
+    	 		
+    	 		break;
+    	 	}
+    	 	
+	     }while(1);
+		
+	};
+	
 	$scope.facebookLogout = function(){
 		
 		FB.logout(function(response){
