@@ -524,10 +524,9 @@ angular.module('mtControllers', [])
 									loginService, 
 									createAccountService,
 									OpenFB,
-									addFriend) {
+									addFriend,
+									igLogin) {
   
-	
-	
 	$scope.rememberMe = false;
 	$scope.errorMsg = "";
 	
@@ -612,12 +611,29 @@ angular.module('mtControllers', [])
 		);
 	}
 	
-	/*OpenFB Facebeeok */
-
-	
-	$scope.isFacebookLogin = false;
+	/* Instagram */
 	
 	$scope.isInstagramLogin = false;
+	
+	$scope.toggleIsInstagramLogin = function(){
+		if($scope.isInstagramLogin == false) {
+			
+			igLogin.login();
+
+			$scope.isInstagramLogin = true;
+			
+		} else if($scope.isInstagramLogin == true) {
+			
+			$scope.isInstagramLogin = false;
+		}	
+	};
+
+	/* End Instagram */
+
+	
+	/*OpenFB Facebeeok */
+	
+	$scope.isFacebookLogin = false;
 	
 	$scope.toggleIsFacebookLogin = function(){
 
@@ -887,6 +903,25 @@ angular.module('mtControllers', [])
     });
   };*/
 })
+
+/* Instagram
+ * 
+ */
+.controller('IGLoginCtrl', function ($stateParams, $window, $state, $localstorage) {
+	
+	if (angular.isDefined(window.opener) && window.opener != null) {
+	    
+	    if (angular.isDefined($stateParams.access_token)) {
+	    	$localstorage.set("ig_token", $stateParams.access_token);
+	    }
+	}
+	
+    $window.close();
+})
+/* End Instagram
+ * 
+ */
+
 
 .controller('SignupCtrl', function($scope) {
 })

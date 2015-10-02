@@ -392,6 +392,15 @@ angular.module('Mote', ['ionic',
       }
      }
     })
+        
+    /* Instagram Authorization
+     * 
+     */
+    .state('access_token', {
+            url: "/access_token={access_token}",
+            templateUrl: '',
+            controller: 'IGLoginCtrl'
+     })
 
     .state('app.create_account', {
       url: "/create_account",

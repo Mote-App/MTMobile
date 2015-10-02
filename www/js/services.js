@@ -172,6 +172,42 @@ angular.module('mtServices', ['ngResource'])
     },
     getObject: function(key) {
       return JSON.parse($window.localStorage[key] || '{}');
+    },
+    getValue: function(key, defaultValue) {
+      return $window.localStorage[key] || defaultValue;
     }
   }
 }])
+
+
+/* Instagram Authorization
+ * 
+ */
+.factory("igLogin", function ($rootScope, $location, $http, $window) {
+	
+    var client_id = "a04a1e1b1110404896e9256a310d40c8";
+    var redirect_uri = "http://localhost:8100/"
+    	
+    var service = { 
+	    _access_token: null,
+        access_token: function(newToken) {
+            if(angular.isDefined(newToken)) {
+                this._access_token = newToken;
+            }
+            return this._access_token;
+        },
+
+        login: function () {
+            var igPopup = $window.open("https://instagram.com/oauth/authorize/?client_id=" + client_id +
+                "&redirect_uri=" + redirect_uri +
+                "&response_type=token", "igPopup", "height=380,width=420");
+        }
+        
+    };
+    
+    $rootScope.$on("igAccessTokenObtained", function (evt, args) {
+        service.access_token(args.access_token);
+    });
+
+    return service;
+});
