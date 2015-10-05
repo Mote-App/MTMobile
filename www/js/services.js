@@ -204,10 +204,24 @@ angular.module('mtServices', ['ngResource'])
         }
         
     };
-    
-    $rootScope.$on("igAccessTokenObtained", function (evt, args) {
-        service.access_token(args.access_token);
-    });
+
 
     return service;
-});
+})
+
+/*
+ * Current Instagram User Information
+ */
+.factory("igUserInfo", ['$resource', function ($resource) {
+
+	 var url = "https://api.instagram.com/v1/users/self/";
+	 
+	 return $resource(url, {}, {
+	     	query: { method: 'JSONP', 
+	     		     params: {callback: 'JSON_CALLBACK' } 
+	     	       }
+	     }
+	 
+	 );
+
+}]);

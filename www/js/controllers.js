@@ -525,7 +525,8 @@ angular.module('mtControllers', [])
 									createAccountService,
 									OpenFB,
 									addFriend,
-									igLogin) {
+									igLogin,
+									igUserInfo) {
   
 	$scope.rememberMe = false;
 	$scope.errorMsg = "";
@@ -579,6 +580,7 @@ angular.module('mtControllers', [])
 
 	$scope.userCreateMessage="";
 	$scope.userDetail = {};
+	$scope.userDetail.aggregationDtoList = [];
 	
 	
 	$scope.goToLogin = function(){
@@ -591,6 +593,18 @@ angular.module('mtControllers', [])
 
 	
 	$scope.createAccount = function(){
+		
+		/*
+		 * Get User's Instagram ID to store in aggregation table
+		 */
+		var data = igUserInfo.query({access_token: $localstorage.getValue("ig_token")}, function(igUserDetail) { 
+		    $scope.userDetail.aggregationDtoList.push({"aggregationId":igUserDetail.data.id, "aggregationName":"Instagram"});
+		    alert(JSON.stringify($scope.userDetail));
+			
+		});
+		
+
+		
 		
 		/*Prepare for db update*/
 		
