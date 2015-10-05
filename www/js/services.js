@@ -209,6 +209,7 @@ angular.module('mtServices', ['ngResource'])
     return service;
 })
 
+
 /*
  * Current Instagram User Information
  */

@@ -605,7 +605,6 @@ angular.module('mtControllers', [])
 		
 
 		
-		
 		/*Prepare for db update*/
 		
 		$scope.userDetail.college = angular.fromJson($scope.userDetail.college);
