@@ -610,6 +610,8 @@ angular.module('mtControllers', [])
 		$scope.userDetail.college = angular.fromJson($scope.userDetail.college);
 		$scope.userDetail.profilePictureUrl = "img/profiles/blank_person.jpg";
 		
+		//Add to userDetail a list of aggregation platforms [aggregation id, aggregation name] to map to the List<AggregationDto> in UserDto
+		
 		createAccountService.create($scope.userDetail).$promise.then(
 			function(response){
 				//$scope.userCreateMessage = response;
