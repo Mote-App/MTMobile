@@ -9,14 +9,6 @@
                 "parents": {
                     "/*": [
                         {
-                            "xml": "<feature name=\"Keyboard\"><param name=\"android-package\" value=\"com.ionic.keyboard.IonicKeyboard\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Camera\"><param name=\"android-package\" value=\"org.apache.cordova.camera.CameraLauncher\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
                             "count": 1
                         },
@@ -29,11 +21,11 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"StatusBar\"><param name=\"android-package\" value=\"org.apache.cordova.statusbar.StatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "xml": "<feature name=\"Camera\"><param name=\"android-package\" value=\"org.apache.cordova.camera.CameraLauncher\" /></feature>",
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"InAppBrowser\"><param name=\"android-package\" value=\"org.apache.cordova.inappbrowser.InAppBrowser\" /></feature>",
+                            "xml": "<feature name=\"StatusBar\"><param name=\"android-package\" value=\"org.apache.cordova.statusbar.StatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -52,30 +44,25 @@
         }
     },
     "installed_plugins": {
-        "com.ionic.keyboard": {
-            "PACKAGE_NAME": "co.motelife"
-        },
-        "org.apache.cordova.camera": {
-            "PACKAGE_NAME": "co.motelife"
-        },
         "org.apache.cordova.console": {
-            "PACKAGE_NAME": "co.motelife"
+            "PACKAGE_NAME": "com.ionicframework.starter"
         },
         "org.apache.cordova.device": {
-            "PACKAGE_NAME": "co.motelife"
-        },
-        "org.apache.cordova.file": {
-            "PACKAGE_NAME": "co.motelife"
+            "PACKAGE_NAME": "com.ionicframework.starter"
         },
         "org.apache.cordova.file-transfer": {
-            "PACKAGE_NAME": "co.motelife"
+            "PACKAGE_NAME": "com.collegelifeapp.mobile"
+        },
+        "org.apache.cordova.camera": {
+            "PACKAGE_NAME": "com.collegelifeapp.mobile"
         },
         "org.apache.cordova.statusbar": {
-            "PACKAGE_NAME": "co.motelife"
-        },
-        "cordova-plugin-inappbrowser": {
-            "PACKAGE_NAME": "co.motelife"
+            "PACKAGE_NAME": "com.mote.mobile"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "org.apache.cordova.file": {
+            "PACKAGE_NAME": "com.collegelifeapp.mobile"
+        }
+    }
 }
