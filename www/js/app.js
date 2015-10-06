@@ -33,7 +33,8 @@ angular.module('Mote', ['ionic',
 
 	//AWS http://54.149.27.205
 	
-	$rootScope.clhost = "http://54.149.27.205";
+	//$rootScope.clhost = "http://54.149.27.205";
+	$rootScope.clhost = "http://localhost";
 	$rootScope.clport = ":8080";
 	$rootScope.lstTag = null;
 	$rootScope.colleges = null;
