@@ -201,6 +201,7 @@ angular.module('mtServices', ['ngResource'])
             var igPopup = $window.open("https://instagram.com/oauth/authorize/?client_id=" + client_id +
                 "&redirect_uri=" + redirect_uri +
                 "&response_type=token", "igPopup", "height=380,width=420");
+            return this;
         }
         
     };

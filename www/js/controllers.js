@@ -525,8 +525,7 @@ angular.module('mtControllers', [])
 									createAccountService,
 									OpenFB,
 									addFriend,
-									igLogin,
-									igUserInfo) {
+									igLogin) {
   
 	$scope.rememberMe = false;
 	$scope.errorMsg = "";
@@ -590,20 +589,19 @@ angular.module('mtControllers', [])
 	$scope.goToCreateAccount = function(){
 		$state.go('app.create_account');
 	}
+	
 
+	function isAdded(array, name) {
+		for (var i = 0; i < array.length; i++ ) {
+			if (array[i].aggregationName == name) {
+				return true;
+			}
+		}
+		return false;
+	}
 	
 	$scope.createAccount = function(){
-		
-		/*
-		 * Get User's Instagram ID to store in aggregation table
-		 */
-		var data = igUserInfo.query({access_token: $localstorage.getValue("ig_token")}, function(igUserDetail) { 
-		    $scope.userDetail.aggregationDtoList.push({"aggregationId":igUserDetail.data.id, "aggregationName":"Instagram"});
-		    alert(JSON.stringify($scope.userDetail));
-			
-		});
-		
-
+		alert(JSON.stringify($localstorage.getObject("ig_user")));	
 		
 		/*Prepare for db update*/
 		
@@ -919,19 +917,27 @@ angular.module('mtControllers', [])
   };*/
 })
 
-/* Instagram
- * 
+/* Instagram integration - Pop-up window redirects to Instagram login where the Oauth token is obtained.
+ * Then it redirects to Mote app where this controller is executed.  The Instagram token is stored in 
+ * localstorage, and the User Detail object is then retrieved from Instagram API and also stored in localstorage.
  */
-.controller('IGLoginCtrl', function ($stateParams, $window, $state, $localstorage) {
+.controller('IGLoginCtrl', function ($stateParams, $window, $state, $localstorage, igUserInfo) {
 	
 	if (angular.isDefined(window.opener) && window.opener != null) {
 	    
 	    if (angular.isDefined($stateParams.access_token)) {
+	    	
 	    	$localstorage.set("ig_token", $stateParams.access_token);
+	    	
+		    igUserInfo.query({access_token: $stateParams.access_token}).$promise.then(function(igUserDetail) { 
+		    	$localstorage.setObject("ig_user", igUserDetail);
+		        $window.close();
+		    });
+		    
 	    }
+	    
 	}
-	
-    $window.close();
+
 })
 /* End Instagram
  * 
