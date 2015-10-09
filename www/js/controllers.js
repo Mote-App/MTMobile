@@ -601,7 +601,6 @@ angular.module('mtControllers', [])
 	}
 	
 	$scope.createAccount = function(){
-		alert(JSON.stringify($localstorage.getObject("ig_user")));	
 		
 		/*Prepare for db update*/
 		
