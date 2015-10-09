@@ -711,7 +711,7 @@ angular.module('mtControllers', [])
     			});
     		}
     				
-    	},{scope: 'public_profile,email,user_photos, user_videos, user_friends, publish_actions', return_scopes: true});
+    	},{scope: 'public_profile,email,user_photos, user_videos, user_friends', return_scopes: true});
     	
 	};
 
