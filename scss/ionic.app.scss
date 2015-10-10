@@ -90,6 +90,18 @@ body {
 	padding: 0 38px;
 }
 
+/*
+   Get Connected button style
+*/
+.get-connected {
+	@extend .button;
+	
+	border-radius: 6px;
+	font-size: 14px;
+	padding: 0 38px;
+}
+
+
 .login {
 	@extend .button;
 		

@@ -324,7 +324,7 @@ angular.module('Mote', ['ionic',
 	  
 	  //Are you familiar to IIFE ( http://bit.ly/iifewdb ) ?
 
-	  (function(d){
+	  (function(d, s, id){
 	    // load the Facebook javascript SDK
 
 	    var js, 
@@ -342,7 +342,7 @@ angular.module('Mote', ['ionic',
 
 	    ref.parentNode.insertBefore(js, ref);
 
-	  }(document));
+	  }(document,'script','facebook-jssdk'));
   
 })
 
@@ -431,6 +431,17 @@ angular.module('Mote', ['ionic',
       }
      }
     })
+    
+    .state('app.content_aggregation', {
+      url: "/aggregation",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/login_to_aggregate.html",
+          controller: 'LoginCtrl'
+        }
+      }
+    })
+    
     // ***************** Use for the login page :: Start *****************
     .state('app.splash', {
       url: "/",
@@ -461,6 +472,7 @@ angular.module('Mote', ['ionic',
       }
     })
     // ***************** Use for the login page :: End *****************
+    
     
     .state('app.profile', {
       url: "/profile",

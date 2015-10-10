@@ -527,6 +527,10 @@ angular.module('mtControllers', [])
 									addFriend,
 									igLogin) {
   
+	$scope.$on('$viewContentLoaded', function(){
+		FB.XFBML.parse();
+	});
+	
 	$scope.rememberMe = false;
 	$scope.errorMsg = "";
 	
@@ -590,6 +594,9 @@ angular.module('mtControllers', [])
 		$state.go('app.create_account');
 	}
 	
+	$scope.goToGetConnected = function(){
+		$state.go('app.content_aggregation');
+	}
 
 	function isAdded(array, name) {
 		for (var i = 0; i < array.length; i++ ) {
@@ -615,7 +622,7 @@ angular.module('mtControllers', [])
 				
 				$rootScope.newUserId = response.id;
 				
-				//$state.go('app.update_profile_img');
+				$state.go('app.content_aggregation');
 			},
 			function(error){
 				$scope.errorMsg = error.data.message;

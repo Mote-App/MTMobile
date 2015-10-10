@@ -1,0 +1,29 @@
+
+<script type="text/javascript">
+	FB.XFBML.parse();
+</script>
+<ion-view>
+
+	<ion-content class="has-subheader padding-top" >
+		
+		<!-- <fb:login-button scope="public_profile,email,user_photos,user_videos,user_friends" onlogin="checkLoginState();">
+		</fb:login-button> -->
+		
+		<div align="center">
+			<div>
+				<img src="img/Instagram_Icon_Large.png" width="120px">
+			</div>
+			</br>
+			<div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="true" ng-click="facebookLogin()">
+			</div>
+			
+		</div>
+	</ion-content>
+	
+	<div class="bar bar-footer bar-royal">
+  		<button class="button button-clear" ng-click="goToLogin()">SKIP</button>
+  		<div class="title">Get Connected !!!</div>
+  		<button class="button button-clear" ng-click="goToLogin()">DONE</button>
+	</div>
+	
+</ion-view>
