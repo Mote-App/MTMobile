@@ -1,7 +1,7 @@
 {
-  "name": "CLMobile",
+  "name": "MTMobile",
   "email": "",
-  "app_id": "2be7daa5",
+  "app_id": "d44df1b8",
   "package_name": "",
   "gulpStartupTasks": [
     "sass",
