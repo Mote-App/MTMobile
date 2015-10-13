@@ -630,26 +630,6 @@ angular.module('mtControllers', [])
 		);
 	}
 	
-	/* Instagram */
-	
-	$scope.isInstagramLogin = false;
-	
-	$scope.toggleIsInstagramLogin = function(){
-		if($scope.isInstagramLogin == false) {
-			
-			igLogin.login();
-
-			$scope.isInstagramLogin = true;
-			
-		} else if($scope.isInstagramLogin == true) {
-			
-			$scope.isInstagramLogin = false;
-		}	
-	};
-
-	/* End Instagram */
-
-	
 	/*OpenFB Facebeeok */
 	
 	$scope.isFacebookLogin = false;
@@ -667,6 +647,15 @@ angular.module('mtControllers', [])
 		}	
 	};
 
+	
+	/* Instagram */
+    $scope.instagramLogin = function () {
+			
+		igLogin.login();
+
+	};
+
+	/* End Instagram */
 	
     $scope.facebookLogin = function () {
 
