@@ -6,6 +6,7 @@
   
   <content src="index.html"/>
   <access origin="*"/>
+  <allow-navigation href="http://*/*" />
   
   <preference name="Fullscreen" value="false"/>
   <preference name="webviewbounce" value="false"/>
@@ -34,6 +35,10 @@
   </feature>
   <feature name="Device">
     <param name="android-package" value="org.apache.cordova.device.Device"/>
+  </feature>
+  <feature name="InAppBrowser">
+	  <param name="ios-package" value="CDVInAppBrowser" />
+	  <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
   </feature>
   
   <platform name="android">
