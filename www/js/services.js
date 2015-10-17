@@ -194,22 +194,23 @@ angular.module('mtServices', ['ngResource'])
             var igPopup = $window.open("https://instagram.com/oauth/authorize/?client_id=" + client_id +
                     "&redirect_uri=" + redirect_uri +
                     "&response_type=token", "_blank", "location=no");
+            
+            var accessToken = "";
         	
             igPopup.addEventListener('loadstart', function(event) { 
                 if((event.url).startsWith("http://localhost/callback")) {
                 	
                     accessToken = (event.url).split("access_token=")[1];
-                    alert(accessToken);
+        	    	$localstorage.set("ig_token", accessToken);
 
                     igUserInfo.query({access_token: accessToken}).$promise.then(function(igUserDetail) { 
-                    	alert(igUserDetail);
         		    	$localstorage.setObject("ig_user", igUserDetail);
         		    });
                     
                     igPopup.close();
-
                 }
             });
+
 
             return this;
         }
