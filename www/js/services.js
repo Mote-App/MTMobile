@@ -179,6 +179,54 @@ angular.module('mtServices', ['ngResource'])
   }
 }])
 
+/* Instagram Authorization
+ * 
+ */
+.factory("instagramLogin", function ($localstorage, $window, igUserInfo) {
+	
+    var client_id = "a04a1e1b1110404896e9256a310d40c8";
+    var redirect_uri = "http://localhost/callback";
+    	
+    var service = {
+
+        login: function () {
+            	
+            var igPopup = $window.open("https://instagram.com/oauth/authorize/?client_id=" + client_id +
+                    "&redirect_uri=" + redirect_uri +
+                    "&response_type=token", "_blank", "location=no");
+        	
+            igPopup.addEventListener('loadstart', function(event) { 
+                if((event.url).startsWith("http://localhost/callback")) {
+                	
+                    accessToken = (event.url).split("access_token=")[1];
+                    alert(accessToken);
+
+                    igUserInfo.query({access_token: accessToken}).$promise.then(function(igUserDetail) { 
+                    	alert(igUserDetail);
+        		    	$localstorage.setObject("ig_user", igUserDetail);
+        		    });
+                    
+                    igPopup.close();
+
+                }
+            });
+
+            return this;
+        }
+        
+    };
+    
+    if (typeof String.prototype.startsWith != 'function') {
+        String.prototype.startsWith = function (str){
+            return this.indexOf(str) == 0;
+        };
+    }
+
+
+    return service;
+})
+
+
 
 /* Instagram Authorization
  * 
@@ -189,13 +237,6 @@ angular.module('mtServices', ['ngResource'])
     var redirect_uri = "http://localhost:8100/"
     	
     var service = { 
-	    _access_token: null,
-        access_token: function(newToken) {
-            if(angular.isDefined(newToken)) {
-                this._access_token = newToken;
-            }
-            return this._access_token;
-        },
 
         login: function () {
             var igPopup = $window.open("https://instagram.com/oauth/authorize/?client_id=" + client_id +
@@ -205,7 +246,6 @@ angular.module('mtServices', ['ngResource'])
         }
         
     };
-
 
     return service;
 })

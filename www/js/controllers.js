@@ -525,7 +525,8 @@ angular.module('mtControllers', [])
 									createAccountService,
 									OpenFB,
 									addFriend,
-									igLogin) {
+									igLogin,
+									instagramLogin) {
   
 	$scope.$on('$viewContentLoaded', function(){
 		FB.XFBML.parse();
@@ -650,8 +651,14 @@ angular.module('mtControllers', [])
 	
 	/* Instagram */
     $scope.instagramLogin = function () {
-			
-		igLogin.login();
+
+        var platform = ionic.Platform.platform();
+
+        if (platform == 'android') {
+        	instagramLogin.login();
+        } else {
+        	igLogin.login();
+        }
 
 	};
 
@@ -923,7 +930,6 @@ angular.module('mtControllers', [])
 	    if (angular.isDefined($stateParams.access_token)) {
 	    	
 	    	$localstorage.set("ig_token", $stateParams.access_token);
-	    	
 		    igUserInfo.query({access_token: $stateParams.access_token}).$promise.then(function(igUserDetail) { 
 		    	$localstorage.setObject("ig_user", igUserDetail);
 		        $window.close();
