@@ -526,7 +526,8 @@ angular.module('mtControllers', [])
 									OpenFB,
 									addFriend,
 									igLogin,
-									instagramLogin) {
+									instagramLogin,
+									springFB) {
   
 	$scope.$on('$viewContentLoaded', function(){
 		FB.XFBML.parse();
@@ -666,55 +667,9 @@ angular.module('mtControllers', [])
 	
     $scope.facebookLogin = function () {
 
-    	FB.login(function(response){
-    		
-    		//login successful
-    		if ( response.authResponse){
-    			
-    			console.log("Login response: ") 
-    			console.log(response.authResponse);
-    			
-    			FB.api('/me?fields=first_name,id,last_name,name,email,feed{comments,picture},photos{picture,comments},friends{first_name,last_name,id,posts{comments_mirroring_domain,comments{message},description,from}}&limit=10', function(graphResponse) {
-    			     console.log('Good to see you: ');
-    			     console.log(graphResponse);
-    			     
-    			     /*
-    			      * Get logged user profile and save it on server,
-    			      * this user will not have username, dummy college with name Facebook to satisfy NOT NULL constraint for college.
-    			      * 
-    			      * TODO: Provide logic to re-check registered user's Facebook login to get into the app on his mobile device. 
-    			      * 
-    			      */
-    			    $scope.userDetail.email		= graphResponse.email;
-    			    $scope.userDetail.firstName = graphResponse.first_name;
-    			    $scope.userDetail.lastName 	= graphResponse.last_name;
-
-    			    //store the profile table field username with facebookId because username is not null field 
-    			    $scope.userDetail.username	= graphResponse.id; 	
-    			    $scope.userDetail.college = {"collegeId": 132, "collegeImgPath": "", "collegeName": "Facebook"};
-    			    $scope.userDetail.college = angular.fromJson($scope.userDetail.college);
-
-    			    $scope.userDetail.profilePictureUrl = "img/profiles/blank_person.jpg";
-    					
-					createAccountService.create($scope.userDetail).$promise.then(
-						function(response){
-							//$scope.userCreateMessage = response;
-							
-							//$rootScope.newUserId = response.id;
-							
-							$scope.updateFacebookFriends(response.id);
-							
-							//$state.go('app.update_profile_img');
-						},
-						function(error){
-							$scope.errorMsg = error.data.message;
-						}
-					);
-    			     
-    			});
-    		}
-    				
-    	},{scope: 'public_profile, email, user_friends, user_posts, user_photos, user_videos', return_scopes: true});
+    	springFB.query(function(response){
+    		console.log(response);
+    	});
     	
 	};
 
