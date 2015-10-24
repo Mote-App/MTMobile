@@ -276,6 +276,7 @@ angular.module('mtServices', ['ngResource'])
 
 }])
 
+
 /*
  * Current Instagram User Friends List
  */

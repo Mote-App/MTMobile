@@ -512,7 +512,6 @@ angular.module('mtControllers', [])
 })
 
 
-
 // ***************** Use for the login page :: Start *****************
 .controller('LoginCtrl', function($scope, 
 									$rootScope, 
