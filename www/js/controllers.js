@@ -526,7 +526,8 @@ angular.module('mtControllers', [])
 									OpenFB,
 									addFriend,
 									igLogin,
-									instagramLogin) {
+									instagramLogin,
+									igFriends) {
   
 	$scope.$on('$viewContentLoaded', function(){
 		FB.XFBML.parse();
@@ -659,6 +660,20 @@ angular.module('mtControllers', [])
         } else {
         	igLogin.login();
         }
+        
+        var userId = $localstorage.get("token");
+        var igId = $localstorage.getObject("ig_user").data.id;
+        var igToken =  $localstorage.getValue('ig_token');
+        
+    	igFriends.query({userId: userId, igId: igId, igToken: igToken}).$promise.then(
+    			
+    			function(success){
+    				$scope.igFriends = success;
+    			},
+    			function(error){
+    				console.log(error);
+    			}
+    	);
 
 	};
 

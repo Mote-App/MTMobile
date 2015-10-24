@@ -267,4 +267,17 @@ angular.module('mtServices', ['ngResource'])
 	 
 	 );
 
+}])
+
+/*
+ * Current Instagram User Friends List
+ */
+.factory('igFriends', ['$resource', '$rootScope', function($resource, $rootScope) {
+	
+		return $resource($rootScope.clhost + $rootScope.clport + '/instagram_friends', {}, {
+			query: { method:'GET',
+				     params: {userId: '@userId', igId: '@igId', igToken: '@igToken'}
+					}
+	});
+		
 }]);
