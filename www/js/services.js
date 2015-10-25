@@ -280,10 +280,10 @@ angular.module('mtServices', ['ngResource'])
 /*
  * Current Instagram User Friends List
  */
-.factory('igFriends', ['$resource', '$rootScope', function($resource, $rootScope) {
+.factory('igAdd', ['$resource', '$rootScope', function($resource, $rootScope) {
 	
-		return $resource($rootScope.clhost + $rootScope.clport + '/instagram_friends', {}, {
-			query: { method:'GET',
+		return $resource($rootScope.clhost + $rootScope.clport + '/instagram_add', {}, {
+			create: { method:'POST',
 				     params: {userId: '@userId', igId: '@igId', igToken: '@igToken'}
 					}
 	});

@@ -526,7 +526,7 @@ angular.module('mtControllers', [])
 									addFriend,
 									igLogin,
 									instagramLogin,
-									igFriends,
+									igAdd,
 									springFB) {
   
 	$scope.$on('$viewContentLoaded', function(){
@@ -665,7 +665,7 @@ angular.module('mtControllers', [])
         var igId = $localstorage.getObject("ig_user").data.id;
         var igToken =  $localstorage.getValue('ig_token');
         
-    	igFriends.query({userId: userId, igId: igId, igToken: igToken}).$promise.then(
+    	igAdd.create({userId: userId, igId: igId, igToken: igToken}).$promise.then(
     			
     			function(success){
     				$scope.igFriends = success;
