@@ -529,9 +529,6 @@ angular.module('mtControllers', [])
 									igAdd,
 									springFB) {
   
-	$scope.$on('$viewContentLoaded', function(){
-		FB.XFBML.parse();
-	});
 	
 	$scope.rememberMe = false;
 	$scope.errorMsg = "";

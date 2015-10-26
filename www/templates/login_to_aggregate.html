@@ -18,16 +18,12 @@
 			</br>
 			<!-- <div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="true" ng-click="facebookLogin()">
 			</div> -->
-			<div>
+			<!-- <div>
 				<img src="img/fb_login_button.png" width="250px" ng-click="facebookLogin()">
-			</div>
+			</div> -->
 			
-			<form action="/connect/facebook" method="POST">
-			    <input type="hidden" name="scope" value=" public_profile, email, user_friends, user_posts, user_photos, user_videos" />
-			    <div class="formInfo">
-			        <p>You aren't connected to Facebook yet. Click the button to connect Mote with your Facebook account.</p>
-			    </div>
-			    <p><button type="submit"><img src="/resources/social/facebook/connect_light_medium_short.png"/></button>      </p>
+			<form action="http://54.149.27.205:8080/fb" method="POST">
+			    <p align="center"><button type="submit" style="padding:0px;height:62px;"><img  src="img/fb_login_button.png" style="padding:0px;"/></button></p>
 			</form>
 		
 		</div>
