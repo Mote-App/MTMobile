@@ -558,9 +558,9 @@ angular.module('mtControllers', [])
 				$localstorage.set("token",success.userId);
 				$localstorage.set("collegeId",success.collegeId);
 				//$rootScope.userId = success.userId;
-				
+
 				$rootScope.collegeId = success.collegeId;
-		        $state.go('app.friends_feeds');
+				$state.go('app.content_aggregation');
 			},
 			function(error){
 				$scope.errorMsg = error.data.message;
@@ -595,6 +595,10 @@ angular.module('mtControllers', [])
 	
 	$scope.goToGetConnected = function(){
 		$state.go('app.content_aggregation');
+	}
+	
+	$scope.goToFriendsFeed = function(){
+		$state.go('app.friends_feeds');
 	}
 
 	function isAdded(array, name) {
