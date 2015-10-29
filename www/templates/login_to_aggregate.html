@@ -1,7 +1,4 @@
 
-<script type="text/javascript">
-	FB.XFBML.parse();
-</script>
 <ion-view>
 
 	<ion-content class="has-subheader padding-top" >
@@ -23,6 +20,7 @@
 			</div> -->
 			
 			<form action="http://54.149.27.205:8080/fb" method="POST">
+				<input type="hidden" name="userId" ng-value="getUserId()" />
 			    <p align="center"><button type="submit" style="padding:0px;height:62px;"><img  src="img/fb_login_button.png" style="padding:0px;"/></button></p>
 			</form>
 		

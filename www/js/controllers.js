@@ -546,6 +546,11 @@ angular.module('mtControllers', [])
     	
     });
 	
+	$scope.getUserId=function(){
+		
+		return $localstorage.get("token");
+	};
+	
 	$scope.login = function() {
 		
 		loginService.authenticate($scope.loginDetail).$promise.then(
