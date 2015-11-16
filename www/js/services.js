@@ -125,7 +125,7 @@ angular.module('mtServices', ['ngResource'])
  .factory('springFB', ['$resource', '$rootScope',
   function($resource, $rootScope){
     return $resource($rootScope.clhost + $rootScope.clport + '/fb', {}, {
-      query: {method:'POST', params:{}, isArray:false}
+      query: {method:'POST', params:{userId: '@userId'}}
     });
   }])
   

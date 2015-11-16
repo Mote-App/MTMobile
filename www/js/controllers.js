@@ -511,6 +511,10 @@ angular.module('mtControllers', [])
 	
 })
 
+.controller('fbCtrl', function($scope, moteUserId){ 
+
+	$scope.moteUserId = moteUserId;
+})		
 
 // ***************** Use for the login page :: Start *****************
 .controller('LoginCtrl', function($scope, 
@@ -518,6 +522,7 @@ angular.module('mtControllers', [])
 									$state, 
 									$ionicModal,
 									$localstorage,
+									$http,
 									Schools, 
 									Tags, 
 									loginService, 
@@ -532,9 +537,8 @@ angular.module('mtControllers', [])
 	
 	$scope.rememberMe = false;
 	$scope.errorMsg = "";
-	
 	$scope.loginDetail={};
-	
+	$scope.moteUserId = moteUserId;
 	$rootScope.appHeader = "Mote";
 
 	Schools.query(function(response) { 
@@ -546,7 +550,7 @@ angular.module('mtControllers', [])
     	
     });
 	
-	$scope.getUserId=function(){
+	$scope.getUserId = function(){
 		
 		return $localstorage.get("token");
 	};
@@ -562,7 +566,7 @@ angular.module('mtControllers', [])
 				 */
 				$localstorage.set("token",success.userId);
 				$localstorage.set("collegeId",success.collegeId);
-				//$rootScope.userId = success.userId;
+				$rootScope.userId = success.userId;
 
 				$rootScope.collegeId = success.collegeId;
 				$state.go('app.content_aggregation');
@@ -685,11 +689,32 @@ angular.module('mtControllers', [])
 
 	/* End Instagram */
 	
-    $scope.facebookLogin = function () {
+    $scope.facebookLogin = function() {
 
-    	springFB.query(function(response){
-    		console.log(response);
-    	});
+    	$scope.moteUserId = {"userId": $localstorage.get("token")};
+    	
+    	$http({
+
+            url: "http://localhost:8080/fb/login",
+            data: $scope.moteUserId,
+            method: 'POST',
+            headers : {'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'}
+
+        }).success(function(data){
+
+            console.log("OK", data)
+
+        }).error(function(err){"ERR", console.log(err)});
+    	
+    	/*springFB.query({userId: userId}).$promise.then(
+    			
+    			function(success){
+    				console.log("FB success");
+    			},
+    			function(error){
+    				console.log(error);
+    			}
+		);*/
     	
 	};
 

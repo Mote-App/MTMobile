@@ -37,6 +37,7 @@ angular.module('Mote', ['ionic',
 	$rootScope.clport = ":8080";
 	$rootScope.lstTag = null;
 	$rootScope.colleges = null;
+	$rootScope.userId;
 	
 	$rootScope.showSettingMenu = false;
 	
@@ -83,15 +84,14 @@ angular.module('Mote', ['ionic',
 			if( token == undefined || isNaN(token) || token == 0){
 				$state.go('app.login',toParams, {notify: true});
 			}else if( token > 0){
+				$rootScope.userId = token;
 				$state.go('app.friends_feeds',toParams, {notify: true});
 			}	
 		}
 	});
 			
 	
-  //OpenFB.init('956170854392949');
-
-  $ionicPlatform.ready(function () {
+   $ionicPlatform.ready(function () {
       if (window.StatusBar) {
           StatusBar.styleDefault();
       }
@@ -108,31 +108,6 @@ angular.module('Mote', ['ionic',
       $state.go('app.login');
   });
 
-	/*(function(d){
-	    // load the Facebook javascript SDK
-
-	    var js, 
-	    id = 'facebook-jssdk', 
-	    ref = d.getElementsByTagName('script')[0];
-
-	    if (d.getElementById(id)) {
-	      return;
-	    }
-
-	    js = d.createElement('script'); 
-	    js.id = id; 
-	    js.async = true;
-	    js.src = "//connect.facebook.net/en_US/all.js";
-
-	    ref.parentNode.insertBefore(js, ref);
-
-	  }(document));
-    
-	$rootScope.$on('fb.load', function() {
-      $window.dispatchEvent(new Event('fb.load'));
-    });
-	  */
-  
   	$rootScope.postType = "anonymous";
   	
 	$rootScope.setContext = function(context, nonav){
@@ -278,71 +253,6 @@ angular.module('Mote', ['ionic',
     
   });
   
-	
-	$window.fbAsyncInit = function() {
-		  
-		  FB.init({ 
-			  /* 
-		       The app id of the web app;
-		       To register a new app visit Facebook App Dashboard
-		       ( https://developers.facebook.com/apps/ ) 
-		      */
-
-		      appId: '956170854392949', 
-
-		      /* 
-		       Adding a Channel File improves the performance 
-		       of the javascript SDK, by addressing issues 
-		       with cross-domain communication in certain browsers. 
-		      */
-
-		      channelUrl: 'app/channel.html', 
-
-		      /* 
-		       Set if you want to check the authentication status
-		       at the start up of the app 
-		      */
-
-		      status: true, 
-
-		      /* 
-		       Enable cookies to allow the server to access 
-		       the session 
-		      */
-
-		      cookie: true, 
-
-		      /* Parse XFBML */
-
-		      xfbml: true,
-		      
-		      version: 'v2.3'
-			  
-		  });
-	};
-	
-	  
-	  //Are you familiar to IIFE ( http://bit.ly/iifewdb ) ?
-
-	  (function(d, s, id){
-	    // load the Facebook javascript SDK
-
-	    var js, 
-	    id = 'facebook-jssdk', 
-	    ref = d.getElementsByTagName('script')[0];
-
-	    if (d.getElementById(id)) {
-	      return;
-	    }
-
-	    js = d.createElement('script'); 
-	    js.id = id; 
-	    js.async = true;
-	    js.src = "//connect.facebook.net/en_US/sdk.js";
-
-	    ref.parentNode.insertBefore(js, ref);
-
-	  }(document,'script','facebook-jssdk'));
   
 })
 
@@ -437,7 +347,12 @@ angular.module('Mote', ['ionic',
       views: {
         'menuContent' :{
           templateUrl: "templates/login_to_aggregate.html",
-          controller: 'LoginCtrl'
+          controller: 'fbCtrl',
+          resolve: {
+        	  moteUserId: function($localstorage, $rootScope){
+        		  return $localstorage.get("token");
+        	  }
+          }
         }
       }
     })
