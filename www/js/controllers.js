@@ -538,9 +538,13 @@ angular.module('mtControllers', [])
 	$scope.rememberMe = false;
 	$scope.errorMsg = "";
 	$scope.loginDetail={};
-	$scope.moteUserId = moteUserId;
+	//$scope.moteUserId = moteUserId;
+	$scope.moteUserId = function($localstorage, $rootScope) {
+		return $localstorage.get("token");
+	}
+	
 	$rootScope.appHeader = "Mote";
-
+	
 	Schools.query(function(response) { 
 		$rootScope.colleges = response;
 	});
