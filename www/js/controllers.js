@@ -511,9 +511,14 @@ angular.module('mtControllers', [])
 	
 })
 
-.controller('fbCtrl', function($scope, moteUserId){ 
+.controller('fbCtrl', function($scope, $state, moteUserId){ 
 
 	$scope.moteUserId = moteUserId;
+	
+	$scope.goToFriendsFeed = function(){
+		$state.go('app.friends_feeds');
+	}
+	
 })		
 
 // ***************** Use for the login page :: Start *****************
@@ -538,7 +543,6 @@ angular.module('mtControllers', [])
 	$scope.rememberMe = false;
 	$scope.errorMsg = "";
 	$scope.loginDetail={};
-	$scope.moteUserId = moteUserId;
 	$rootScope.appHeader = "Mote";
 
 	Schools.query(function(response) { 
@@ -606,9 +610,7 @@ angular.module('mtControllers', [])
 		$state.go('app.content_aggregation');
 	}
 	
-	$scope.goToFriendsFeed = function(){
-		$state.go('app.friends_feeds');
-	}
+	
 
 	function isAdded(array, name) {
 		for (var i = 0; i < array.length; i++ ) {
