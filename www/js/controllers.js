@@ -697,7 +697,7 @@ angular.module('mtControllers', [])
     	
     	$http({
 
-            url: "http://localhost:8080/fb/login",
+            url: "http://localhost:8100/fb/login",
             data: $scope.moteUserId,
             method: 'POST',
             headers : {'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'}

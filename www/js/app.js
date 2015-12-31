@@ -33,8 +33,8 @@ angular.module('Mote', ['ionic',
 
 	// AWS EC2 URL http://54.149.27.205     Account was closed 28th December 2015
 	
-	$rootScope.clhost = "http://127.0.0.1";  // localhost URL
-	$rootScope.clport = ":8080";
+	$rootScope.clhost = "http://localhost";  // 127.0.0.1 URL
+	$rootScope.clport = ":8100";  // use to be 8080
 	$rootScope.lstTag = null;
 	$rootScope.colleges = null;
 	$rootScope.userId;
