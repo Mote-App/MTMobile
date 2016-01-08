@@ -151,7 +151,7 @@ angular.module('mtServices', ['ngResource'])
   
 .factory('UserService', ['$resource', 
    function($resource) {
-	return $resource('http://localhost:8100/:action', {},
+	return $resource('http://localhost:8080/:action', {},
 			{
 				authenticate: {
 					method: 'POST',
@@ -192,7 +192,7 @@ angular.module('mtServices', ['ngResource'])
 .factory("instagramLogin", function ($localstorage, $window, igUserInfo) {
 	
     var client_id = "a04a1e1b1110404896e9256a310d40c8";
-    var redirect_uri = "http://localhost:8100/callback";
+    var redirect_uri = "http://localhost:8080/callback";
     	
     var service = {
 
@@ -205,7 +205,7 @@ angular.module('mtServices', ['ngResource'])
             var accessToken = "";
         	
             igPopup.addEventListener('loadstart', function(event) { 
-                if((event.url).startsWith("http://localhost:8100/callback")) {
+                if((event.url).startsWith("http://localhost:8080/callback")) {
                 	
                     accessToken = (event.url).split("access_token=")[1];
         	    	$localstorage.set("ig_token", accessToken);
@@ -242,7 +242,7 @@ angular.module('mtServices', ['ngResource'])
 .factory("igLogin", function ($rootScope, $location, $http, $window) {
 	
     var client_id = "a04a1e1b1110404896e9256a310d40c8";
-    var redirect_uri = "http://localhost:8100/"
+    var redirect_uri = "http://localhost:8080/"
     	
     var service = { 
 
