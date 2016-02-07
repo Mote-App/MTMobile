@@ -165,6 +165,7 @@ angular.module('Mote', ['ionic',
 
 	}
 	
+
 	$ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -251,8 +252,10 @@ angular.module('Mote', ['ionic',
     	return formattedStr;
     };
     
+	
   });
   
+	
   
 })
 

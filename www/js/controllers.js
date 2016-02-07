@@ -74,9 +74,25 @@ angular.module('mtControllers', [])
 			$scope.findTagByTagId = function(tagId){
 			 return $rootScope.findTagByTagId(tagId); 
 			}
+			
+			$scope.checkMediaType = function(mediaUrl){
+					
+					if (mediaUrl.indexOf(".jpg")){
+						return "image";
+					}
+					if (mediaUrl.indexOf(".mp4")){
+						return "video";
+					}
+					
+			};
 			    
 	    },
 		link: function(scope,element,attrs){
+			var videoIframe = element.find("iframe")
+			if( videoIframe != undefined || videoIframe != null){
+				videoIframe.attr('src',scope.post.postImg);
+			}
+			
 		},
 		templateUrl: 'templates/post_content.html' 
 	}
@@ -1075,6 +1091,10 @@ angular.module('mtControllers', [])
 	var data = FriendFeed.query({profileId: $localstorage.get('token')},function(friendFeedData) { 
 	    $scope.users = friendFeedData;
 	});
+	
+	$scope.getPostImage = function(currentPost){
+		return currentPost.postImg;
+	};
 	
 	$scope.schoolFeed = function(schoolId){
 	   
