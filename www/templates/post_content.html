@@ -18,10 +18,10 @@
       
       </br>
 	  	<!-- <img ng-if="!post.mediaPost" class="post-image" ng-src="{{ clhost + '/' + post.postImg}}" ng-click="updateLike(post)">-->
-		<img ng-if="checkMediaType('{{post.postImg}}') == 'image'" class="post-image" ng-src="{{post.postImg}}" ng-click="updateLike(post)">
+		<img ng-if="checkMediaType(post) == 'image'" class="post-image" ng-src="{{post.postImg}}" ng-click="updateLike(post)">
 		 
-		<div ng-if="checkMediaType('{{post.postImg}}') == 'video'" id="videoWrapper" style="width: 100%; height: 100%; overflow: auto; -webkit-overflow-scrolling: touch;">
-			<iframe seamless="seamless"></iframe>
+		<div ng-if="checkMediaType(post) == 'video'" id="videoWrapper" style="width: 100%; height: 100%; overflow: auto; -webkit-overflow-scrolling: touch;">
+			<iframe ng-src="{{post.postImg}}" width="100%"></iframe>
 		</div>
 
 	  <div>

@@ -261,9 +261,12 @@ angular.module('Mote', ['ionic',
 
 
 
-.config(function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+.config(function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $sceDelegateProvider) {
   
 	//$facebookProvider.setAppId('956170854392949').setPermissions(['email','user_friends']);
+	
+	//Set the whitelist URL 
+	$sceDelegateProvider.resourceUrlWhitelist(['self', new RegExp('^(http[s]?):\/\/video.xx.fbcdn\.net/.+$')]);
 	
 	$stateProvider
     .state('app', {

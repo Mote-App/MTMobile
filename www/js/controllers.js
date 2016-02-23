@@ -75,12 +75,16 @@ angular.module('mtControllers', [])
 			 return $rootScope.findTagByTagId(tagId); 
 			}
 			
-			$scope.checkMediaType = function(mediaUrl){
+			$scope.checkMediaType = function(post){
 					
-					if (mediaUrl.indexOf(".jpg")){
+					var mediaUrl = post.postImg;
+					
+					if (mediaUrl.indexOf(".jpg") != -1){
+						console.log ("image");
 						return "image";
 					}
-					if (mediaUrl.indexOf(".mp4")){
+					if (mediaUrl.indexOf(".mp4") != -1){
+						console.log ("video");
 						return "video";
 					}
 					
