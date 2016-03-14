@@ -1,0 +1,21 @@
+
+<ion-header-bar class="bar-subheader has-header">	
+	<div class="row">
+			<div class="col-10"><img ng-src="img/search_icon_mote.jpg" width="40%" ng-click="toggleCustomMenu()" ></div>
+	      	<div class="col">
+		        <button class="nav-button" ng-class="{'button-royal': !friends, 'button-outline button-royal': friends}" 
+		        	ng-click="setContext('friends')" style="padding:0 12px;">friends</button>
+		    </div>
+		    <div class="col">    
+		        <button class="nav-button" ng-class="{'button-royal': !school, 'button-outline button-royal': school}" 
+		        	ng-click="setContext('school')" style="padding:0 13px;">school</button>
+		    </div>
+		    <div class="col">
+				<button class="nav-button" ng-class="{'button-royal': !nation, 'button-outline button-royal': nation}" 
+				ng-click="setContext('nation')" >national</button>
+		    </div>
+	      	<div class="col-10"></div>
+	</div>
+</ion-header-bar>	
+
+

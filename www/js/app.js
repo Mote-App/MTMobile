@@ -5,7 +5,8 @@ angular.module('Mote', ['ionic',
                             'mtServices',
                             'pageslide-directive',
                             'http-auth-interceptor',
-                            'openfb'])
+                            'header',
+                            'footer'])
 
 /*.run(function($ionicPlatform, $rootScope, $firebaseSimpleLogin, $state, $window) {
   var dataRef = new Firebase("https://ionic-firebase-login.firebaseio.com/");
@@ -29,11 +30,11 @@ angular.module('Mote', ['ionic',
   });
 })*/
 
-.run(function($ionicPlatform, $rootScope, $filter, $window, $state, $localstorage, OpenFB) {
+.run(function($ionicPlatform, $rootScope, $filter, $window, $state, $localstorage) {
 
 	// AWS EC2 URL http://54.149.27.205     Account was closed 28th December 2015
-	
-	$rootScope.clhost = "http://127.0.0.1";  // localhost URL
+	//New AWS IP 54.200.159.155
+	$rootScope.clhost = "http://54.200.159.155";  // localhost URL
 	$rootScope.clport = ":8080";
 	$rootScope.lstTag = null;
 	$rootScope.colleges = null;

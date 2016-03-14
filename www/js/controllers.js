@@ -10,26 +10,7 @@ angular.module('mtControllers', [])
   };
 })
 
-.directive("headerBar", function(){
-	
-	return{
-		restrict: 'E',
-		link: function(scope,element,attrs){
-		},
-		templateUrl:'templates/header_bar.html'
-	};
-})
 
-
-.directive("headerBarFeed", function(){
-	
-	return{
-		restrict: 'E',
-		link: function(scope,element,attrs){
-		},
-		templateUrl:'templates/feed_header_bar.html'
-	};
-})
 
 .directive("postContent", function(){
 	
@@ -102,113 +83,9 @@ angular.module('mtControllers', [])
 	}
 })
 
-.directive("footerBarPost", function(){
-	
-	return{
-		restrict: 'E',
-		link: function(scope,element,attrs){
-		},
-		templateUrl:'templates/footer_bar_post.html'
-	};
-})
 
-.directive("footerBarFeed", function(){
-	
-	return{
-		restrict: 'E',
-		link: function(scope,element,attrs){
-		},
-		templateUrl:'templates/footer_bar.html'
-	};
-})
 
-.directive("waterWheelCarousel", function(){
 
-    return {
-
-      restrict: 'EA', 
-      scope: {
-          clcontext: '='
-      },
-      
-      controller: function($scope, Schools, sliceTagFilter){
-
-        Schools.query(function(schoolData) { 
-          $scope.schools = schoolData.schools;
-          
-          //$scope.schoolsArr = sliceTagFilter($scope.schools, "0,10");         		
-        });
-		
-		/*$scope.startIndex = 0;
-		$scope.endIndex = 10;
-		
-		$scope.adjustMenuIndex = function(){
-                
-	        var offsetStr = $scope.startIndex + "," + $scope.endIndex;      
-	        $scope.schoolsArr =  sliceTagFilter($scope.schools, offsetStr );
-	               
-	        //Increment the menuIndex after processing the offsetStr.
-	        if ( $scope.endIndex >= $scope.schools.length) {
-	          $scope.startIndex = 0;
-	          $scope.endIndex = 10;
-	        }else{
-	          $scope.startIndex++;
-	          $scope.endIndex++;          
-	        }
-	        
-	   };*/
-      
-				
-      },
-      link: function(scope,element,attrs){
-       
-            var contextTag = "#" + attrs.clcontext;
-
-            var carousel = $(contextTag).waterwheelCarousel({
-            flankingItems: 3,
-            forcedImageWidth: 80,
-            forcedImageHeight: 80,
-            separation: 80,
-                  movingToCenter: function ($item) {
-                    $('#callback-output').prepend('movingToCenter: ' + $item.attr('id') + '<br/>');
-                  },
-                  movedToCenter: function ($item) {
-                    $('#callback-output').prepend('movedToCenter: ' + $item.attr('id') + '<br/>');
-                  },
-                  movingFromCenter: function ($item) {
-                    $('#callback-output').prepend('movingFromCenter: ' + $item.attr('id') + '<br/>');
-                  },
-                  movedFromCenter: function ($item) {
-                    $('#callback-output').prepend('movedFromCenter: ' + $item.attr('id') + '<br/>');
-                  },
-                  clickedCenter: function ($item) {
-                    $('#callback-output').prepend('clickedCenter: ' + $item.attr('id') + '<br/>');
-                  }
-                });
-
-                $('#prev').bind('click', function () {
-                  carousel.prev();
-                  return false;
-                });
-
-                $('#next').bind('click', function () {
-                  carousel.next();
-                  return false;
-                });
-
-                $('#reload').bind('click', function () {
-                  newOptions = eval("(" + $('#newoptions').val() + ")");
-                  carousel.reload(newOptions);
-                  return false;
-                });
-
-          
-      },
-      templateUrl: 'templates/water_wheel_carousel.html'
-
-    }
-
-})
 
 .directive('repeatComplete', function(){ 
 	function link (scope, element, attrs) {
