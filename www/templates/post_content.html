@@ -25,8 +25,8 @@
 		</div>  -->
 		
 		<video ng-if="checkMediaType(post) == 'video'" width="100%" autoplay>
-		  <source ng-src="{{post.postImg}}" type="video/mp4">
-		  Your browser doesn't support HTML5 video tag.
+			<source ng-src="{{post.postImg}}" type="video/mp4">
+			Your device doesn't support HTML5 video tag.
 		</video>
 		
 		<div ng-if="checkMediaType(post) == null || checkMediaType(post) == undefined">Error processing media content</div>
