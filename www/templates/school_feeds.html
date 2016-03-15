@@ -4,18 +4,18 @@
 	<header-bar-feed></header-bar-feed>
 
   	<ion-content>
-  	<!--<div water-wheel-carousel clcontext="carousel"></div>-->
   	 	<ul class="list">
 		  	<li class="item" style="padding:0px; border:none;" ng-repeat="user in schoolUsers" >
 	      
-		  		<slide-page></slide-page>
-		  		
 		  		<post-content post="user.post" user="user" clhost="{{clhost}}" level="S"></post-content>
 			</li>
 
 		</ul>
 
+		<slide-page></slide-page>
 	</ion-content>
+	
+	
 	
 	<footer-bar-feed></footer-bar-feed>
 
