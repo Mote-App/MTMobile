@@ -25,6 +25,7 @@
 			<iframe ng-src="{{post.postImg}}" width="100%"></iframe>
 		</div>  -->
 		
+
 		<video ng-if="post.mediaPost == true && checkMediaType(post) == 'video'" width="100%" autoplay controls>
 		  <source ng-src="{{post.postImg}}" type="video/mp4">
 		  Your browser doesn't support HTML5 video tag.
