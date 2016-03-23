@@ -17,19 +17,18 @@
       </div>
       
       </br>
-	  	<!-- <img ng-if="!post.mediaPost" class="post-image" ng-src="{{ clhost + '/' + post.postImg}}" ng-click="updateLike(post)">-->
-		<img ng-if="checkMediaType(post) == 'image'" class="post-image" ng-src="{{post.postImg}}" ng-click="updateLike(post)">
+	  	<img ng-if="!post.mediaPost" class="post-image" ng-src="{{ clhost + '/' + post.postImg}}" ng-click="updateLike(post)">
+	  	
+		<img ng-if="post.mediaPost == true && checkMediaType(post) == 'image'" class="post-image" ng-src="{{post.postImg}}" ng-click="updateLike(post)">
 		 
 		<!-- <div ng-if="checkMediaType(post) == 'video'" id="videoWrapper" style="width: 100%; height: 100%;">
 			<iframe ng-src="{{post.postImg}}" width="100%"></iframe>
 		</div>  -->
 		
-		<video ng-if="checkMediaType(post) == 'video'" width="100%" autoplay>
+		<video ng-if="post.mediaPost == true && checkMediaType(post) == 'video'" width="100%" autoplay controls>
 		  <source ng-src="{{post.postImg}}" type="video/mp4">
 		  Your browser doesn't support HTML5 video tag.
 		</video>
-		
-		<div ng-if="checkMediaType(post) == null || checkMediaType(post) == undefined">Error processing media content</div>
 
 	  <div>
         <div class="likes" style="float:left;">
