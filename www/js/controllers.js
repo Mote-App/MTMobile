@@ -415,7 +415,6 @@ angular.module('mtControllers', [])
 	$scope.goToFriendsFeed = function(){
 		$state.go('app.friends_feeds');
 	}
-	
 })		
 
 // ***************** Use for the login page :: Start *****************
