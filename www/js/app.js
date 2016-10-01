@@ -270,7 +270,7 @@ angular.module('Mote', ['ionic', 'ionic.cloud',
 	
 	$ionicCloudProvider.init({
 		core: {
-			app_id: 'a0eab925'
+			app_id: '730ecd86'
 		}
 	});
 	

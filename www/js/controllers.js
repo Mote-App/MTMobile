@@ -417,8 +417,8 @@ angular.module('mtControllers', ['ionic.cloud'])
 	$scope.fbtoken = "";
 	
 	$scope.checkFBLoggedIn = function(){
-		
-		$ionicAuth.login('facebook',['public_profile','email,user_friends','user_posts','user_photos','user_videos']).then(function(response){
+		//,['public_profile','email,user_friends','user_posts','user_photos','user_videos']
+		$ionicAuth.login('facebook').then(function(response){
 			$scope.fbtoken = 'Access Token' + $ionicAuth.getToken();
 		}, function(error){
 			$scope.fbtoken = "error " + angular.toJson(error, true);
