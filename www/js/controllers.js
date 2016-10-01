@@ -452,7 +452,6 @@ angular.module('mtControllers', ['ionic.cloud'])
 	$scope.goToFriendsFeed = function(){
 		$state.go('app.friends_feeds');
 	}
-	
 })		
 
 // ***************** Use for the login page :: Start *****************
