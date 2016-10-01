@@ -110,6 +110,9 @@
         },
         "org.apache.cordova.device": {
             "PACKAGE_NAME": "co.motelife"
+        },
+        "cordova-plugin-device-rotation-vector": {
+            "PACKAGE_NAME": "co.motelife"
         }
     },
     "dependent_plugins": {}

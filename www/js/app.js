@@ -1,5 +1,5 @@
 'use strict';
-angular.module('Mote', ['ionic', 
+angular.module('Mote', ['ionic', 'ionic.cloud',
                             'ngCordova', 
                             'mtControllers',
                             'mtServices',
@@ -264,12 +264,18 @@ angular.module('Mote', ['ionic',
 
 
 
-.config(function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $sceDelegateProvider) {
+.config(function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $sceDelegateProvider, $ionicCloudProvider) {
   
 	//$facebookProvider.setAppId('956170854392949').setPermissions(['email','user_friends']);
 	
+	$ionicCloudProvider.init({
+		core: {
+			app_id: 'a0eab925'
+		}
+	});
+	
 	//Set the whitelist URL 
-	$sceDelegateProvider.resourceUrlWhitelist(['self', new RegExp('^(http[s]?):\/\/video.xx.fbcdn\.net/.+$')]);
+	$sceDelegateProvider.resourceUrlWhitelist(['self', new RegExp('^(http[s]?):\/\/video.xx.fbcdn.net/.+$'), new RegExp('^(http[s]?):\/\/scontent.xx.fbcdn.net/.+$')]);
 	
 	$stateProvider
     .state('app', {
@@ -278,7 +284,6 @@ angular.module('Mote', ['ionic',
       templateUrl: "templates/menu.html",
       controller: 'AppCtrl'
     })
-
     .state('app.initialize', {
       url: "/initialize",
       data: {
@@ -300,6 +305,15 @@ angular.module('Mote', ['ionic',
     		  return true;
     	  }
       }
+    })
+    .state('error',{
+    	url: "/error",
+    	views: {
+            	'menuContent' :{
+            	templateUrl: "templates/error.html"
+            	
+          }
+         }
     })
     
     .state('app.login', {

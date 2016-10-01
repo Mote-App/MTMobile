@@ -20,13 +20,15 @@
 			</div> -->
 			<!-- AWS EC2 URL http://54.149.27.205     Account was closed 28th December 2015 -->
 
-			<form action="http://54.200.159.155:8080/fb/login" method="POST">
+			<button class="button button-clear" ng-click="checkFBLoggedIn()"><img  src="img/fb_login_button.png"/></button>
+			
+			<!-- <form action="http://54.200.159.155:8080/fb/login" method="POST">
 				<input type="hidden" name="userId" value="{{moteUserId}}">
-				<!-- <p align="center"><button type=submit" style="padding:0px;height:62px;"><img  src="img/fb_login_button.png" style="padding:0px;"/></button></p> -->
 				<button class="button button-clear" type="submit"><img  src="img/fb_login_button.png"/></button>
-			</form>
+			</form> -->
 		
 		</div>
+		<div>{{fbtoken}}</div>
 	</ion-content>
 	
 	<div class="bar bar-footer bar-royal">
