@@ -16,6 +16,7 @@
 	</style>
 </head>
 <body>
+	<p>Facebook Login for the Web with the JavaScript SDK</p>
 	<div id="fb-root"></div>
 	
 	<!-- To learn/review jQuery API go to http://api.jquery.com/category/ajax -->
@@ -26,7 +27,8 @@
 			//alert("get the latest facebook javascript sdk dynamically");
 			var e = document.createElement('script');
 			e.async = true;
-			e.src = 'http://connect.facebook.net/en_US/all.js';
+			e.src = 'http://connect.facebook.net/en_US/skd.js';
+			//e.src = 'http://connect.facebook.net/en_US/all.js';
 			//e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
 			document.getElementById('fb-root').appendChild(e);
 		}());
@@ -35,7 +37,8 @@
 		window.fbAsyncInit = function() {
 			//alert("initialize the application");
 			//initialize the application
-			FB.init({appId: '956170854392949', status: true, cookie: true, xfbml: true, version: 'v2.2', authResponse: true, oauth: true});
+			FB.init({appId: '1105685566108143', status: true, cookie: true, xfbml: true, version: 'v2.2', authResponse: true, oauth: true});
+			//FB.init({appId: '956170854392949', status: true, cookie: true, xfbml: true, version: 'v2.2', authResponse: true, oauth: true});
 			//FB.Canvas.setAutoResize();
 		};
 		
@@ -312,14 +315,34 @@
 			});
 		}
 		
-		  // This function is called when someone finishes with the Login
-		  // Button.  See the onlogin handler attached to it in the sample
-		  // code below.
-		  function checkLoginState() {
+		// This is called with the results from from FB.getLoginStatus().
+		function statusChangeCallback(response) {
+		    console.log('statusChangeCallback');
+		    console.log(response);
+		    // The response object is returned with a status field that lets the
+		    // app know the current login status of the person.
+		    // Full docs on the response object can be found in the documentation
+		    // for FB.getLoginStatus().
+		    if (response.status === 'connected') {
+		        // Logged into your app and Facebook.
+		        testAPI();
+		    } else if (response.status === 'not_authorized') {
+		        // The person is logged into Facebook, but not your app.
+		        document.getElementById('status').innerHTML = 'Please log into this app.';
+		    } else {
+		        // The person is not logged into Facebook, so we're not sure if
+		        // they are logged into this app or not.
+		        document.getElementById('status').innerHTML = 'Please log into Facebook.';
+		    }
+		}
+		
+		// This function is called when someone finishes with the Login Button.
+		//See the onlogin handler attached to it in the sample code below.
+		function checkLoginState() {
 		    FB.getLoginStatus(function(response) {
-		      statusChangeCallback(response);
+		       statusChangeCallback(response);
 		    });
-		  }
+		}
 	</script>
 	<input type="button" onClick="PromptFacebookLogin();" value="Login" />
 	<input type="button" onClick="getAuthResponse();" value="Get Session" />
