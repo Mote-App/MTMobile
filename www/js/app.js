@@ -254,12 +254,9 @@ angular.module('Mote', ['ionic', 'ionic.cloud',
     	
     	return formattedStr;
     };
-    
-	
+    	
   });
-  
-	
-  
+
 })
 
 

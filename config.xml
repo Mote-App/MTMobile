@@ -2,24 +2,29 @@
 <widget id="co.motelife" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>Mote</name>
   <description>Mote Hybrid App - An Ionic Framework and Cordova project.</description>
-  <author email="gibran@mote-app.com" href="http://mote-app.com/">Mote, LLC Team</author>
+  <author email="mote@gmail.com" href="http://mote-app.com/">Mote, LLC Team</author>
   <content src="index.html"/>
   <access origin="*"/>
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
-  <preference name="DisallowOverscroll" value="false"/>
+  <preference name="DisallowOverscroll" value="true"/>
   <preference name="SplashScreen" value="screen"/>
   <preference name="LoadingDialog" value="My Title,My Message"/>
-  <preference name="SplashScreenDelay" value="10000"/>
+  <preference name="SplashScreenDelay" value="2000"/>
   <preference name="InAppBrowserStorageEnabled" value="true"/>
+  
+  <preference name="FadeSplashScreenDuration" value="2000" />
+  <preference name="android-minSdkVersion" value="16" />
+  <preference name="BackupWebStorage" value="none" />
+  
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
-    <plugin name="cordova-plugin-device" spec="~1.1.2" />
-    <plugin name="cordova-plugin-console" spec="~1.0.3" />
-    <plugin name="cordova-plugin-whitelist" spec="~1.2.2" />
-    <plugin name="cordova-plugin-splashscreen" spec="~3.2.2" />
-    <plugin name="cordova-plugin-statusbar" spec="~2.1.3" />
+    <plugin name="cordova-plugin-device" spec="~1.1.3" />
+    <plugin name="cordova-plugin-console" spec="~1.0.4" />
+    <plugin name="cordova-plugin-whitelist" spec="~1.3.0" />
+    <plugin name="cordova-plugin-splashscreen" spec="~4.0.0" />
+    <plugin name="cordova-plugin-statusbar" spec="~2.2.0" />
     <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
 
     <platform name="ios">
