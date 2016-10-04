@@ -412,8 +412,6 @@ angular.module('mtControllers', ['ionic.cloud'])
 
 	$scope.moteUserId = moteUserId;
 	
-	params:{userId: '@userId', accessToken: '@accessToken'}
-	
 	$scope.fbtoken = "";
 	
 	$scope.checkFBLoggedIn = function(){
