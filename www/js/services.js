@@ -122,13 +122,13 @@ angular.module('mtServices', ['ngResource'])
     });
   }])
   
- .factory('springFB', ['$resource', '$rootScope',
+ .factory('fbSync', ['$resource', '$rootScope',
   function($resource, $rootScope){
-    return $resource($rootScope.clhost + $rootScope.clport + '/fb', {}, {
-      query: {method:'POST', params:{userId: '@userId'}}
+    return $resource($rootScope.clhost + $rootScope.clport + '/fb/login', {}, {
+                     sync: {method:'POST', params:{userId: '@userId', accessToken: '@accessToken'}}
     });
   }])
-  
+
   
 .factory('Camera', ['$q', function($q) {
  

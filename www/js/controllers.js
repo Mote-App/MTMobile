@@ -408,11 +408,11 @@ angular.module('mtControllers', ['ionic.cloud'])
 	
 })
 
-.controller('fbCtrl', function($scope, $state, $http, $ionicAuth, $ionicUser, $ionicPopup, moteUserId){ 
+.controller('fbCtrl', function($scope, $state, $http, $ionicAuth, $ionicUser, $ionicPopup, fbSync, moteUserId){
 
 	$scope.moteUserId = moteUserId;
 	
-	params = {token: "",userId:1, collegeId:1};
+	params:{userId: '@userId', accessToken: '@accessToken'}
 	
 	$scope.fbtoken = "";
 	
@@ -420,33 +420,20 @@ angular.module('mtControllers', ['ionic.cloud'])
 		//,['public_profile','email,user_friends','user_posts','user_photos','user_videos']
 		$ionicAuth.login('facebook').then(function(response){
 			$scope.fbtoken = 'Access Token' + $ionicAuth.getToken();
+            fbSync.sync({userId: $scope.moteUserId, accessToken: $scope.fbtoken}).$promise.then(
+                function(success){
+                    console.log(error);
+                },
+                function(error){
+                    console.log(error);
+                }
+            );
+                                          
+                                          
 		}, function(error){
 			$scope.fbtoken = "error " + angular.toJson(error, true);
 		});
 		
-		//$http.get('https://www.facebook.com/v2.7/dialog/oauth?client_id=1105685566108143&display=popup&response_type=code%20token&scope=public_profile,email,user_friends,user_posts,user_photos,user_videos&redirect_uri=https://www.facebook.com/connect/login_success.html').then(function(success){
-			//console.log(success);
-			/*if( success.data === "redirect:/connect/facebook"){
-				$http.post('http://54.200.159.155:8080/connect/facebook',{}).then(function(success){
-					console.log("FB Success");
-					console.log(success);
-					$ionicPopup.alert({
-						title: "FB Login Success",
-						template: success.data
-					});
-				}, function(error){
-					console.log("FB Failure");
-					console.log(error);
-					$ionicPopup.alert({
-						title: "FB Login Failed",
-						template: error.data
-					});
-				});
-			}*/
-			//redirect:/connect/facebook
-		//}, function(error){
-			//console.log(error);
-		//});
 	}
 	
 	$scope.goToFriendsFeed = function(){
