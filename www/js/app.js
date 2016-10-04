@@ -1,6 +1,6 @@
 'use strict';
 angular.module('Mote', ['ionic', 'ionic.cloud',
-                            'ngCordova', 
+ 
                             'mtControllers',
                             'mtServices',
                             'pageslide-directive',
