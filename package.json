@@ -29,7 +29,12 @@
     "ionic-plugin-keyboard@~2.2.1",
     "cordova-plugin-console",
     "cordova-plugin-device",
-    "cordova-plugin-inappbrowser"
+    "cordova-plugin-inappbrowser",
+    "cordova-plugin-console@~1.0.4",
+    "cordova-plugin-splashscreen@~4.0.0",
+    "cordova-plugin-statusbar@~2.2.0",
+    "cordova-plugin-statusbar",
+    "cordova-plugin-inappbrowser@~1.5.0"
   ],
   "cordovaPlatforms": [
     "ios",

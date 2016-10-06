@@ -267,7 +267,8 @@ angular.module('Mote', ['ionic', 'ionic.cloud',
 	
 	$ionicCloudProvider.init({
 		core: {
-			app_id: '730ecd86'
+			app_id: '3ebd7d7a'  // Gibran's ionic app id
+			//app_id: '730ecd86'  // Sanjay's ionic app id
 		}
 	});
 	

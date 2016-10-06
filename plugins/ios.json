@@ -7,25 +7,34 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "co.motelife"
-        },
-        "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "co.motelife"
-        },
-        "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "co.motelife"
-        },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "co.motelife"
-        },
         "cordova-plugin-console": {
             "PACKAGE_NAME": "co.motelife"
         },
         "cordova-plugin-device": {
             "PACKAGE_NAME": "co.motelife"
         },
-        "cordova-plugin-inappbrowser": {
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "co.motelife"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "co.motelife"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "co.motelife"
+        },
+        "org.apache.cordova.camera": {
+            "PACKAGE_NAME": "co.motelife"
+        },
+        "org.apache.cordova.file": {
+            "PACKAGE_NAME": "co.motelife"
+        },
+        "org.apache.cordova.file-transfer": {
+            "PACKAGE_NAME": "co.motelife"
+        },
+        "org.apache.cordova.inappbrowser": {
+            "PACKAGE_NAME": "co.motelife"
+        },
+        "org.apache.cordova.statusbar": {
             "PACKAGE_NAME": "co.motelife"
         }
     },

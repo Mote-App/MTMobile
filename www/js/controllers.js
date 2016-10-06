@@ -417,8 +417,8 @@ angular.module('mtControllers', ['ionic.cloud'])
 	$scope.checkFBLoggedIn = function(){
 		//,['public_profile','email,user_friends','user_posts','user_photos','user_videos']
 		$ionicAuth.login('facebook').then(function(response){
-			$scope.fbtoken = 'Access Token' + $ionicAuth.getToken();
-            fbSync.sync({userId: $scope.moteUserId, accessToken: $scope.fbtoken}).$promise.then(
+			$scope.fbtoken = 'Access Token: ' + $ionicAuth.getToken();
+            fbSync.sync({userId: $scope.moteUserId, accessToken: $ionicAuth.getToken()}).$promise.then(
                 function(success){
                     console.log(error);
                 },
